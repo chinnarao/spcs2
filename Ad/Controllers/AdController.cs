@@ -24,23 +24,32 @@ namespace Ad.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostAd([FromBody]PostAdModel data)
+        public IActionResult PostAd([FromBody]PostAdModel model)
         {
-            if (string.IsNullOrWhiteSpace(data.Name)) return BadRequest("Invalid input :" + nameof(data.Name));
-            if (string.IsNullOrWhiteSpace(data.Occupation)) return BadRequest("Invalid input :" + nameof(data.Occupation));
             int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
             if (inMemoryCachyExpireDays <= 0) throw new ArgumentOutOfRangeException(nameof(inMemoryCachyExpireDays));
-            string fileName = _configuration["AdHtmlTemplateFileName"];
-            if (string.IsNullOrWhiteSpace(fileName)) throw new ArgumentOutOfRangeException(nameof(fileName));
-            string bucketName = _configuration["AdBucketNameInGoogleCloudStorage"];
-            if (string.IsNullOrWhiteSpace(bucketName)) throw new ArgumentOutOfRangeException(nameof(bucketName));
-            Guid assetKey = Guid.NewGuid();
-            string objectNameWithExt = string.Format("{0}{1}", assetKey.ToString("N"), Path.GetExtension(fileName));
-            string contentType = Utility.GetMimeTypes()[Path.GetExtension(fileName)];
-            var anonymousDataObject = data.ConvertToAnonymousType(data);
 
-            _adService.UploadObjectInGoogleStorage(fileName, inMemoryCachyExpireDays, objectNameWithExt, bucketName, anonymousDataObject, contentType, Constants.AD_HTML_FILE_TEMPLATE);
-            return Ok(new { Name = "Chinna", Email = "chinnarao@live.com", ObjectName = objectNameWithExt });
+            string fileName = _configuration["AdHtmlTemplateFileName"];
+            if (string.IsNullOrWhiteSpace(fileName)) throw new ArgumentNullException(nameof(fileName));
+
+            string googleStorageBucketName = _configuration["AdBucketNameInGoogleCloudStorage"];
+            if (string.IsNullOrWhiteSpace(googleStorageBucketName)) throw new ArgumentOutOfRangeException(nameof(googleStorageBucketName));
+
+            Guid assetKey = Guid.NewGuid();
+
+            model.InMemoryCachyExpireDays = inMemoryCachyExpireDays;
+            model.FileName = fileName;
+            model.GoogleStorageBucketName = googleStorageBucketName;
+            model.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;
+            model.AnonymousDataObject = model.ConvertToAnonymousType(model);
+            model.ObjectNameWithExt = string.Format("{0}{1}", assetKey.ToString("N"), Path.GetExtension(fileName));
+            model.ContentType = Utility.GetMimeTypes()[Path.GetExtension(fileName)];
+
+            model.AdDto.AttachedAssetsInCloudStorageId = assetKey;
+
+            _adService.StartAdProcess(model);
+
+            return Ok(new { AttachedAssetsInCloudStorageId = assetKey });
         }
 
         [HttpPost]

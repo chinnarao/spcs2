@@ -7,45 +7,59 @@ using AutoMapper;
 using Models.Ad.Dtos;
 using Models.Ad.Entities;
 using Newtonsoft.Json;
+using DbContexts;
+using Repository;
+using Models.Ad.AdController;
+using Microsoft.Extensions.Logging;
 
 namespace Services
 {
     public class AdService : IAdService
     {
-        //private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger _logger;
         private readonly IFileRead _fileReadService;
         private readonly IGoogleStorage _googleStorage;
         private readonly IMapper _mapper;
+        private readonly Repository<Ad, AdDbContext> _context;
 
-        public AdService(IMapper mapper, IFileRead fileReadService, IGoogleStorage googleStorage)
+        public AdService(ILogger<AdService> logger, IMapper mapper, IFileRead fileReadService, IGoogleStorage googleStorage, AdDbContext context)
         {
+            _logger = logger;
             _mapper = mapper;
             _fileReadService = fileReadService;
             _googleStorage = googleStorage;
-
-            //Ad ad = new Ad() { AdId = 1, ActiveDays = 1, AdAssetId = Guid.Empty, CreatedDateTime = DateTime.Now, Email = "chinna.tatikella@khs-net.com", PhoneNumber = "515-707-7725" };
-            //Advm advm = _mapper.Map<Advm>(ad);
-            //advm.AdAssetId = Guid.NewGuid(); advm.PhoneNumber = "444444";
-            //Ad dd = _mapper.Map<Ad>(advm);
+            _context = new Repository<Ad, AdDbContext>(context);
         }
 
-        public async Task UploadObjectInGoogleStorageAsync(string bucketName, Stream stream, string objectName, string contentType)
+        public void StartAdProcess(PostAdModel postAdModel)
         {
-            await _googleStorage.UploadObjectAsync(bucketName, stream, objectName, contentType);
+            // transaction has to implement or not , has to think more required.
+            Ad ad = this.InsertAd(postAdModel.AdDto);
+            this.UploadObjectInGoogleStorage(postAdModel);
         }
 
-        public void UploadObjectInGoogleStorage(string fileName, int inMemoryCachyExpireDays, string objectName, string bucketName, object anonymousDataObject, string contentType, string CACHE_KEY)
+        private Ad InsertAd(AdDto dto)
         {
-            string content = _fileReadService.FileAsString(fileName, inMemoryCachyExpireDays, CACHE_KEY);
-            content = _fileReadService.FillContent(content, anonymousDataObject);
+            Ad ad = _mapper.Map<Ad>(dto);
+            RepositoryResult result = _context.Create(ad);
+            if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
+            return ad;
+        }
+
+        private void UploadObjectInGoogleStorage(PostAdModel model)
+        {
+            string content = _fileReadService.FileAsString(model.FileName, model.InMemoryCachyExpireDays, model.CACHE_KEY);
+            if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
+            content = _fileReadService.FillContent(content, model.AnonymousDataObject);
+            if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
             Stream stream = _fileReadService.FileAsStream(content);
-            _googleStorage.UploadObject(bucketName, stream, objectName, contentType);
+            if (stream == null || stream.Length <= 0) throw new Exception(nameof(stream));
+            _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.ObjectNameWithExt, model.ContentType);
         }
     }
 
     public interface IAdService
     {
-        void UploadObjectInGoogleStorage(string fileName, int inMemoryCachyExpireDays, string objectName, string bucketName, object anonymousDataObject, string contentType, string CACHE_KEY);
-        Task UploadObjectInGoogleStorageAsync(string bucketName, Stream stream, string objectName, string contentType);
+        void StartAdProcess(PostAdModel postAdModel);
     }
 }
