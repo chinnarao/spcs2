@@ -1,0 +1,12 @@
+2018-06-30 23:07:29.454 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-06-30 23:07:30.174 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:65446/  0
+2018-06-30 23:07:30.176 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44394/api/values  
+2018-06-30 23:07:30.234 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 55.0123ms 200 
+2018-06-30 23:07:30.444 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action ad.Controllers.ValuesController.Get (Ad)
+2018-06-30 23:07:30.454 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method ad.Controllers.ValuesController.Get (Ad) - Validation state: Valid
+2018-06-30 23:07:30.460 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method ad.Controllers.ValuesController.Get (Ad), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.4459ms.
+2018-06-30 23:07:30.472 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-06-30 23:07:30.483 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action ad.Controllers.ValuesController.Get (Ad) in 34.1898ms
+2018-06-30 23:07:30.489 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 314.9002ms 200 application/json; charset=utf-8
+2018-06-30 23:07:30.675 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44394/favicon.ico  
+2018-06-30 23:07:30.678 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 3.8695ms 404 

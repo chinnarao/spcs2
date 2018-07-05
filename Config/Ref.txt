@@ -1,0 +1,10 @@
+﻿DbContexts References:
+===========================================
+Nuget:
+Microsoft.EntityFrameworkCore 2.1.0
+
+sdk:
+Microsoft.NETCore.App 2.10
+
+Projects:
+Models

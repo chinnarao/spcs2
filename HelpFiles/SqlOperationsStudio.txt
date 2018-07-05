@@ -1,0 +1,21 @@
+step 1: sql operations studio downloaded successfully
+step 2: double click on .exe file
+step 3: realized that , i have to install sql server 2017 has to install before run the operations studio
+step 4: sql server 2017 developer edition is installed , ofcourse failed
+reason: Unable to install sql server (setup.exe)
+Exit code (Decimal):- 2068052378 Error Description: VS Shell installation has failed with exit code 1638.
+step 5: add or remove programs : uninstalled (x86 and x64) visual c++ 2017 redistributable succesfully
+step 6: tried to install again sql server management studio 2017 .
+step 7: in the middle of install : 
+connection string :Server=localhost;Database=master;Trusted_Connection=True;
+sql server install log folder : 
+C:\Program Files\Microsoft SQL Server\140\Setup Bootstrap\Log\20180701_130850
+install media folder:
+C:\SQLServer2017Media\Developer_ENU
+install resource folder:
+C:\Program Files\Microsoft SQL Server\140\SSEI\Resources
+step 8: installed successfully sql server 2017 ssms , loggin using windows login, get the server name
+step8: now i am able to connect to sql operations studio with windows login.
+===================================================================================
+article: https://docs.microsoft.com/en-us/sql/sql-operations-studio/quickstart-sql-server?view=sql-server-2017
+ 

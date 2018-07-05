@@ -1,0 +1,30 @@
+https://github.com/npgsql/Npgsql.EntityFrameworkCore.PostgreSQL/issues/165
+===========================================================================
+tip : IsUnicode(false) == .HasColumnType("varchar"), but preferred is unicode, as it is database agnostic.
+tip : auto identity increas option off   ==> .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+tip: 
+using System.Data.Entity.ModelConfiguration.Conventions;
+protected override void OnModelCreating(DbModelBuilder modelBuilder) 
+    { 
+        // Configure Code First to ignore PluralizingTableName convention 
+        // If you keep this convention then the generated tables will have pluralized names. 
+        modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); 
+    }
+tip:
+	// When the Entity Framework sees Timestamp attribute 
+    // it configures ConcurrencyCheck and DatabaseGeneratedPattern=Computed. 
+    [Timestamp] 
+    public Byte[] Timestamp { get; set; } 
+
+tip:
+Include for derived types: It will be now possible to specify navigation properties only defined in derived types when writing expressions for the Include() methods. The syntax looks like this:
+var query = context.People.Include(p => ((Student)p).School);
+
+tip: 
+	// every property of type decimal should have a precision of 19 and a scale of 8:
+    modelBuilder.Properties<decimal>().Configure(property => property.HasPrecision(19, 8));
+============================================================================
+https://github.com/aspnet/EntityFrameworkCore/issues/10108
+===============================================================================================
+sql server types: https://essenceofcode.com/2018/05/17/sql-server-spatial-types-and-nunit/
+================================================================================================

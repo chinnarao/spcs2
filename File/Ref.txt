@@ -1,0 +1,8 @@
+﻿file:
+===============================================
+Nuget:
+scriban 1.2.1
+Microsoft.Extensions.Caching.Memory 2.1.0
+
+sdk:
+Microsoft.NETCore.App 2.10

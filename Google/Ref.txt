@@ -1,0 +1,7 @@
+﻿Google Cloud Storage References:
+===========================================
+Nuget:
+Google.Cloud.Storage.V1  2.2.0-beta01
+
+sdk:
+Microsoft.NETCore.App 2.10

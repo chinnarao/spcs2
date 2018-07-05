@@ -1,0 +1,12 @@
+2018-06-30 23:17:05.491 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-06-30 23:17:06.264 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-06-30 23:17:06.266 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-06-30 23:17:06.299 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 33.4313ms 200 
+2018-06-30 23:17:06.481 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-06-30 23:17:06.491 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-06-30 23:17:06.495 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.47ms.
+2018-06-30 23:17:06.506 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-06-30 23:17:06.516 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 31.4223ms
+2018-06-30 23:17:06.523 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 260.0804ms 200 application/json; charset=utf-8
+2018-06-30 23:17:06.689 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/favicon.ico  
+2018-06-30 23:17:06.692 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 2.7168ms 404 

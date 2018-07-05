@@ -1,0 +1,16 @@
+﻿Dependency Injection:
+Transient
+Transient lifetime services are created each time they're requested. This lifetime works best for lightweight, stateless services.
+Scoped
+Scoped lifetime services are created once per request.
+Singleton
+Singleton lifetime services are created the first time they're requested (or when ConfigureServices is run if you specify an instance there) 
+and then every subsequent request will use the same instance.
+==================================================================================================================================
+https://scottsauber.com/2017/04/03/adding-global-error-handling-and-logging-in-asp-net-core/
+
+==========================Azure App Service Editor ===================================================================
+https://social.technet.microsoft.com/wiki/contents/articles/36467.understanding-the-azure-app-service-editor.aspx
+https://www.youtube.com/watch?v=vYCHpo1wf1E
+git deploy to azure : https://www.youtube.com/watch?v=3WDe3l1M-3U
+======================================================================================================================

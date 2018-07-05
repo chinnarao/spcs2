@@ -1,0 +1,17 @@
+﻿https://docs.microsoft.com/en-us/ef/core/extensions/
+
+https://www.codemag.com/Article/1807071/Entity-Framework-Core-2.1-Heck-Yes-It%E2%80%99s-Production-Ready!
+
+http://www.samulihaverinen.com/web-development/dotnet/2018/06/04/EF-core-2-1-best-practices/
+
+https://github.com/JonPSmith/EfCoreInAction   [[http://efcoreinaction.com/]]
+
+
+Ef core in Action book Author GitHub: https://github.com/JonPSmith
+
+
+https://github.com/PacktPublishing/CSharp-7.1-and-.NET-Core-2.0-Modern-Cross-Platform-Development-Third-Edition
+
+https://github.com/jamiewest   forbest for me   https://jwest.net/?p=73#more-73   https://docs.microsoft.com/en-us/ef/core/modeling/shadow-properties
+
+
