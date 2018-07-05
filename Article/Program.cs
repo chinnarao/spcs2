@@ -19,6 +19,10 @@ namespace Article
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .ConfigureLogging((hostingContext, builder) =>
+            {
+                builder.AddFile("Logs/myapp-{Date}.txt");
+            })
+            .UseStartup<Startup>();
     }
 }
