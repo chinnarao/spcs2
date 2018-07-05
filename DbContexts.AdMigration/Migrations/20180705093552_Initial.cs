@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DbContexts.AdMigration.Migrations
@@ -12,30 +11,28 @@ namespace DbContexts.AdMigration.Migrations
                 name: "Ad",
                 columns: table => new
                 {
-                    AdId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AdId = table.Column<long>(nullable: false),
                     ActiveDays = table.Column<int>(nullable: false, defaultValue: 7),
                     AdAddressAtPublicSecurityNearLandmarkName = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     AdAddressCity = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     AdAddressDistrictOrCounty = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     AdAddressState = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     AdAddressStreet = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
-                    AdBody = table.Column<string>(unicode: false, maxLength: 1000, nullable: true),
+                    AdBody = table.Column<string>(nullable: true),
                     AdCountryCode = table.Column<string>(unicode: false, maxLength: 2, nullable: true),
-                    AdCountryCurrency = table.Column<string>(unicode: false, maxLength: 2, nullable: true),
                     AdCountryCurrencyISO_4217 = table.Column<string>(unicode: false, maxLength: 3, nullable: true),
-                    AdCountryName = table.Column<string>(unicode: false, maxLength: 2, nullable: true),
+                    AdCountryName = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     AdDescription = table.Column<string>(unicode: false, maxLength: 500, nullable: true),
-                    AdItemsCost = table.Column<double>(nullable: false),
-                    AdItemsCostInCurrencyName = table.Column<string>(unicode: false, maxLength: 500, nullable: true),
+                    AdItemsCost = table.Column<double>(nullable: true),
+                    AdItemsCostInCurrencyName = table.Column<string>(unicode: false, maxLength: 50, nullable: true),
                     AdLatitude = table.Column<double>(nullable: false),
                     AdLongitude = table.Column<double>(nullable: false),
                     AdTitle = table.Column<string>(unicode: false, maxLength: 500, nullable: false),
                     AdZipCode = table.Column<string>(unicode: false, maxLength: 16, nullable: false),
                     ArchivedDateTime = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
-                    AttachedAssetsInCloudCount = table.Column<int>(nullable: false),
+                    AttachedAssetsInCloudCount = table.Column<int>(nullable: true),
                     AttachedAssetsInCloudStorageId = table.Column<Guid>(nullable: true),
-                    AttachedAssetsStoredInCloudBaseFolderPath = table.Column<string>(unicode: false, maxLength: 1000, nullable: false),
+                    AttachedAssetsStoredInCloudBaseFolderPath = table.Column<string>(unicode: false, nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
                     DeletedDateTime = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false, defaultValue: false),
@@ -57,10 +54,10 @@ namespace DbContexts.AdMigration.Migrations
                     UpdatedDateTime = table.Column<DateTime>(nullable: false),
                     UserEmail = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     UserId = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
-                    UserLoggedInSocialProviderName = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
+                    UserLoggedInSocialProviderName = table.Column<string>(unicode: false, maxLength: 32, nullable: false),
                     UserName = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     UserPhoneNumber = table.Column<string>(unicode: false, maxLength: 15, nullable: true),
-                    UserSocialAvatarUrl = table.Column<string>(unicode: false, maxLength: 2000, nullable: true)
+                    UserSocialAvatarUrl = table.Column<string>(unicode: false, nullable: true)
                 },
                 constraints: table =>
                 {

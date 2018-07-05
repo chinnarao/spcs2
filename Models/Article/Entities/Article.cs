@@ -5,7 +5,6 @@ namespace Models.Article.Entities
     public class Article
     {
         public long ArticleId { get; set; }
-        public int ActiveDays { get; set; } //Max 30 days  // readonly // ? help
         public string Title { get; set; }
         public string Description { get; set; }
         public string Body { get; set; }     // navachar, article content , which is a big information
@@ -28,16 +27,15 @@ namespace Models.Article.Entities
         public bool IsArchived { get; set; }
         public bool IsDeleted { get; set; }
 
-        public int AttachedAssetsInCloudCount { get; set; }
+        public int? AttachedAssetsInCloudCount { get; set; }
         public Guid? AttachedAssetsInCloudStorageId { get; set; }
         public string AttachedAssetsStoredInCloudBaseFolderPath { get; set; }
 
-        // RelatedTo1 to RelatedTo5 :  ex: chapter,section,subsection in codeproject
-        public string AllRelatedSubjectsIncludesVersionsWithComma { get; set; }
+        public string AllRelatedSubjectsIncludesVersionsWithComma { get; set; }   // ex: chapter,section,subsection in codeproject
         public string AttachmentURLsComma { get; set; }     // source code , git hub urls can provide 
         public string SocialURLsWithComma { get; set; }     // user facebook or twitter url can provide
-        public int TotalVotes { get; set; }                   // article how many votes got from readers
-        public int TotalVotedPersonsCount { get; set; }
+        public int? TotalVotes { get; set; }                   // article how many votes got from readers
+        public int? TotalVotedPersonsCount { get; set; }
         
         public string Tag1 { get; set; }
         public string Tag2 { get; set; }

@@ -43,6 +43,12 @@ namespace Ad.Controllers
             return Ok(new { Name = "Chinna", Email = "chinnarao@live.com", ObjectName = objectNameWithExt });
         }
 
+        [HttpPost]
+        public IActionResult PostAd1([FromBody]PostAdModel data)
+        {
+            return Ok();
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {

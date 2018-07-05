@@ -4,7 +4,7 @@ namespace Models.Ad.Entities
 {
     public class Ad
     {
-        public Int64 AdId { get; set; }
+        public Int64 AdId { get; set; }  //http://www.talkingdotnet.com/use-hilo-to-generate-keys-with-entity-framework-core/
 
         public int ActiveDays { get; set; } //Max 30 days  // readonly // ? help
         public string AdAddressAtPublicSecurityNearLandmarkName { get; set; }
@@ -14,18 +14,17 @@ namespace Models.Ad.Entities
         public string AdAddressStreet { get; set; }
         public string AdBody { get; set; }   // product details , including category
         public string AdCountryCode { get; set; }
-        public string AdCountryCurrency { get; set; }
         public string AdCountryCurrencyISO_4217 { get; set; }
         public string AdCountryName { get; set; }
         public string AdDescription { get; set; }
-        public double AdItemsCost { get; set; }   //enter with currency code ex: dollar or rupees
-        public string AdItemsCostInCurrencyName { get; set; }   // enter with currency code ex: dollar or rupees
+        public double? AdItemsCost { get; set; }   //enter with currency code ex: dollar or rupees
+        public string AdItemsCostInCurrencyName { get; set; }   // enter with currency code ex: dollar or rupees  //https://www.countries-ofthe-world.com/world-currencies.html
         public double AdLatitude { get; set; }
         public double AdLongitude { get; set; }
         public string AdTitle { get; set; }
         public string AdZipCode { get; set; }   //http://www.zipinfo.com/products/zcug/zcug.htm
         public DateTime ArchivedDateTime { get; set; }
-        public int AttachedAssetsInCloudCount { get; set; }
+        public int? AttachedAssetsInCloudCount { get; set; }
         public Guid? AttachedAssetsInCloudStorageId { get; set; }
         public string AttachedAssetsStoredInCloudBaseFolderPath { get; set; }
         public DateTime CreatedDateTime { get; set; }

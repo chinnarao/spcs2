@@ -3,6 +3,8 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Config.Services
@@ -26,6 +28,8 @@ namespace Config.Services
 
         public string GetJsonDataFromFile(string path)
         {
+            //IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            //var ss = JsonConvert.DeserializeObject<Dictionary<string,string>>(File.ReadAllText(path));
             IFileInfo file = this._fileProvider.GetFileInfo(path);
             if (file.Exists)
             {

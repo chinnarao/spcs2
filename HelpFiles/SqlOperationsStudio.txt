@@ -18,4 +18,24 @@ step 8: installed successfully sql server 2017 ssms , loggin using windows login
 step8: now i am able to connect to sql operations studio with windows login.
 ===================================================================================
 article: https://docs.microsoft.com/en-us/sql/sql-operations-studio/quickstart-sql-server?view=sql-server-2017
+==================================================================================================================
+tip: sql server for json :   https://db-devs.com/blog/archive/sql-server-2017-json/
+SELECT * FROM #Users FOR JSON AUTO
+SELECT UserID, RegDate FROM #Users FOR JSON AUTO, INCLUDE_NULL_VALUES
+SELECT TOP(1) UserID, UserName FROM #Users FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
+SELECT UserID, UserName FROM #Users FOR JSON AUTO, ROOT('Users')
+SELECT TOP(1) UserID, UserName AS [Detail.FullName], RegDate AS [Detail.RegDate] FROM #Users FOR JSON PATH
+To check the validity of the JSON format, there is an ISJSON function that returns 1 if it’s JSON, 0 if it’s not and returns NULL if NULL was passed ==>
+DECLARE @json1 NVARCHAR(MAX) = N'{"id": 1}'
+      , @json2 NVARCHAR(MAX) = N'[1,2,3]'
+      , @json3 NVARCHAR(MAX) = N'1'
+      , @json4 NVARCHAR(MAX) = N''
+      , @json5 NVARCHAR(MAX) = NULL
+
+SELECT ISJSON(@json1) -- 1
+     , ISJSON(@json2) -- 1
+     , ISJSON(@json3) -- 0
+     , ISJSON(@json4) -- 0
+     , ISJSON(@json5) – NULL
+==================================================================================================================
  

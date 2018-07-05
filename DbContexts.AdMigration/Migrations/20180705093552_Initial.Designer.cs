@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.AdMigration.Migrations
 {
     [DbContext(typeof(AdDbContext))]
-    [Migration("20180704083558_Initial")]
+    [Migration("20180705093552_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,9 +23,7 @@ namespace DbContexts.AdMigration.Migrations
 
             modelBuilder.Entity("Models.Ad.Entities.Ad", b =>
                 {
-                    b.Property<long>("AdId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<long>("AdId");
 
                     b.Property<int>("ActiveDays")
                         .ValueGeneratedOnAdd()
@@ -51,15 +49,9 @@ namespace DbContexts.AdMigration.Migrations
                         .HasMaxLength(100)
                         .IsUnicode(false);
 
-                    b.Property<string>("AdBody")
-                        .HasMaxLength(1000)
-                        .IsUnicode(false);
+                    b.Property<string>("AdBody");
 
                     b.Property<string>("AdCountryCode")
-                        .HasMaxLength(2)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdCountryCurrency")
                         .HasMaxLength(2)
                         .IsUnicode(false);
 
@@ -68,17 +60,17 @@ namespace DbContexts.AdMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("AdCountryName")
-                        .HasMaxLength(2)
+                        .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("AdDescription")
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
-                    b.Property<double>("AdItemsCost");
+                    b.Property<double?>("AdItemsCost");
 
                     b.Property<string>("AdItemsCostInCurrencyName")
-                        .HasMaxLength(500)
+                        .HasMaxLength(50)
                         .IsUnicode(false);
 
                     b.Property<double>("AdLatitude");
@@ -98,13 +90,12 @@ namespace DbContexts.AdMigration.Migrations
                     b.Property<DateTime>("ArchivedDateTime")
                         .HasColumnType("datetime2(7)");
 
-                    b.Property<int>("AttachedAssetsInCloudCount");
+                    b.Property<int?>("AttachedAssetsInCloudCount");
 
                     b.Property<Guid?>("AttachedAssetsInCloudStorageId");
 
                     b.Property<string>("AttachedAssetsStoredInCloudBaseFolderPath")
                         .IsRequired()
-                        .HasMaxLength(1000)
                         .IsUnicode(false);
 
                     b.Property<DateTime>("CreatedDateTime")
@@ -189,7 +180,7 @@ namespace DbContexts.AdMigration.Migrations
 
                     b.Property<string>("UserLoggedInSocialProviderName")
                         .IsRequired()
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("UserName")
@@ -201,7 +192,6 @@ namespace DbContexts.AdMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("UserSocialAvatarUrl")
-                        .HasMaxLength(2000)
                         .IsUnicode(false);
 
                     b.HasKey("AdId");

@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Config.Models;
 using System;
-using Microsoft.Extensions.Caching.Memory;
 using Config.Services;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -34,22 +33,15 @@ namespace Config.Controllers
         private readonly IConfiguration _config;
         private readonly ILogger<InitValuesController> _logger;
         private readonly IFileProvider _fileProvider;
-        private readonly IHostingEnvironment _hostingEnvironment;
-        private readonly IMemoryCache _memoryCache;
-        private readonly IReadService _readService;
-        private const string _countriesFileName = "countries.json";
-        private string _countriesJsonFilePath = string.Empty;
+        private readonly ICacheService _cacheService;
         #endregion
 
-        public InitValuesController(IConfiguration configuration, ILogger<InitValuesController> logger, IHostingEnvironment hostingEnvironment, IMemoryCache memoryCache, IFileProvider fileProvider, IReadService readService)
+        public InitValuesController(IConfiguration configuration, ILogger<InitValuesController> logger, IFileProvider fileProvider, ICacheService cacheService)
         {
             _config = configuration;
-            _hostingEnvironment = hostingEnvironment;
             _logger = logger;
-            _memoryCache = memoryCache;
             _fileProvider = fileProvider;
-            _readService = readService;
-            _countriesJsonFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, "Files", "countries.json");
+            _cacheService = cacheService;
         }
 
         [Route("initvalues")]
@@ -84,34 +76,30 @@ namespace Config.Controllers
             string result;
             if (CountryNamesDictionary.TryGetValue(TerritoryCode, out result))
                 return Ok(result);
-            return NotFound();
+            return NotFound(nameof(TerritoryCode));
         }
 
-        [Route("countries")]
+        [Route("countriesfile")]
         [HttpGet]
         public IActionResult DownloadPhysicalCountriesJsonFile()
         {
-            return PhysicalFile(_countriesJsonFilePath, "application/json", "countries.json");
+            string path = Path.Combine(Directory.GetCurrentDirectory(), _config["ConfigFilesFolderName"], _config["CountriesJsonFileName"]);
+            return PhysicalFile(path, "application/json", _config["CountriesJsonFileName"]);
         }
 
         [Route("countriesdata")]
         [HttpGet]
         public IActionResult GetCountriesJsonDataString()
         {
-            string CountryCodesAndNames = string.Empty;
-            if (!_memoryCache.TryGetValue(Constants.COUNTRIES, out CountryCodesAndNames))
-            {
-                CountryCodesAndNames = _readService.GetJsonDataFromFile(_countriesFileName);
-                var opts = new MemoryCacheEntryOptions
-                {
-                    SlidingExpiration = TimeSpan.FromDays(Convert.ToInt32(_config["InMemoryCacheDays"]))
-                };
-                _memoryCache.Set(Constants.COUNTRIES, CountryCodesAndNames, opts);
-            }
-
-            if (string.IsNullOrEmpty(CountryCodesAndNames))
-                return NotFound();
-            return Ok(CountryCodesAndNames);
+            string countryCodesAndNames = _cacheService.Get<string>(Constants.COUNTRIES);
+            if (!string.IsNullOrEmpty(countryCodesAndNames))    return Ok(countryCodesAndNames);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), _config["ConfigFilesFolderName"], _config["CountriesJsonFileName"]);
+            if (!System.IO.File.Exists(path))   return NotFound("Countries File not exists.");
+            DateTime cacheExpiryDateTime = DateTime.Now.AddDays(Convert.ToDouble(_config["InMemoryCacheDays"]));
+            countryCodesAndNames = System.IO.File.ReadAllText(path);
+            if (string.IsNullOrEmpty(countryCodesAndNames)) return NotFound("Countries File exists, but failed in reading, unexpected.");
+            countryCodesAndNames = _cacheService.GetOrAdd<string>(Constants.COUNTRIES, () => countryCodesAndNames, cacheExpiryDateTime);
+            return Ok(countryCodesAndNames);
         }
 
         #region Not tested methods

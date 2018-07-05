@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.ArticleMigration.Migrations
 {
     [DbContext(typeof(ArticleDbContext))]
-    [Migration("20180704083732_Initial")]
+    [Migration("20180705093631_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,123 +23,119 @@ namespace DbContexts.ArticleMigration.Migrations
 
             modelBuilder.Entity("Models.Article.Entities.Article", b =>
                 {
-                    b.Property<long>("ArticleId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ActiveDays")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(7);
+                    b.Property<long>("ArticleId");
 
                     b.Property<string>("AllRelatedSubjectsIncludesVersionsWithComma")
-                        .HasMaxLength(100)
+                        .HasMaxLength(1000)
                         .IsUnicode(false);
 
-                    b.Property<int>("AttachedAssetsInCloudCount");
+                    b.Property<int?>("AttachedAssetsInCloudCount");
 
                     b.Property<Guid?>("AttachedAssetsInCloudStorageId");
 
                     b.Property<string>("AttachedAssetsStoredInCloudBaseFolderPath")
-                        .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("AttachmentURLsComma")
-                        .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("BiodataUrl")
-                        .HasMaxLength(100)
                         .IsUnicode(false);
 
-                    b.Property<string>("Body")
-                        .HasMaxLength(100);
+                    b.Property<string>("Body");
 
-                    b.Property<string>("Commits")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
+                    b.Property<string>("Commits");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2(7)");
 
                     b.Property<string>("Description")
-                        .HasMaxLength(100)
+                        .HasMaxLength(500)
                         .IsUnicode(false);
 
-                    b.Property<bool>("HireMe");
+                    b.Property<bool>("HireMe")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
-                    b.Property<bool>("IsActive");
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
-                    b.Property<bool>("IsArchived");
+                    b.Property<bool>("IsArchived")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
-                    b.Property<bool>("IsArticleInDraftMode");
+                    b.Property<bool>("IsArticleInDraftMode")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
                     b.Property<string>("License");
 
                     b.Property<string>("OpenSourceUrls")
-                        .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("SocialURLsWithComma")
-                        .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag1")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag10")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag11")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag12")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag2")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag3")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag4")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag5")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag6")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag7")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag8")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Tag9")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("Title")
-                        .HasMaxLength(100)
+                        .HasMaxLength(500)
                         .IsUnicode(false);
 
-                    b.Property<int>("TotalVotedPersonsCount");
+                    b.Property<int?>("TotalVotedPersonsCount");
 
-                    b.Property<int>("TotalVotes");
+                    b.Property<int?>("TotalVotes");
 
                     b.Property<DateTime>("UpdatedDateTime")
                         .HasColumnType("datetime2(7)");
@@ -153,7 +149,7 @@ namespace DbContexts.ArticleMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("UserLoggedInSocialProviderName")
-                        .HasMaxLength(100)
+                        .HasMaxLength(32)
                         .IsUnicode(false);
 
                     b.Property<string>("UserName")
@@ -165,7 +161,6 @@ namespace DbContexts.ArticleMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("UserSocialAvatarUrl")
-                        .HasMaxLength(2000)
                         .IsUnicode(false);
 
                     b.HasKey("ArticleId");

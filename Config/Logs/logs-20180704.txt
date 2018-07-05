@@ -10,3 +10,180 @@
 2018-07-04 18:15:18.323 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 296.3132ms 200 application/json; charset=utf-8
 2018-07-04 18:15:18.815 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/favicon.ico  
 2018-07-04 18:15:18.818 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 3.1566ms 404 
+2018-07-04 18:36:02.643 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 18:36:03.273 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 18:36:03.275 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 18:36:03.302 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 28.4736ms 200 
+2018-07-04 18:36:03.458 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 18:36:03.468 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 18:36:03.472 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.4536ms.
+2018-07-04 18:36:03.480 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 18:36:03.489 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 27.0897ms
+2018-07-04 18:36:03.494 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 222.4495ms 200 application/json; charset=utf-8
+2018-07-04 18:36:03.657 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/favicon.ico  
+2018-07-04 18:36:03.661 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 5.1976ms 404 
+2018-07-04 18:36:24.455 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/  
+2018-07-04 18:36:24.458 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 2.9122ms 301 
+2018-07-04 18:36:24.472 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 18:36:24.487 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 15.434ms 200 text/html
+2018-07-04 18:36:24.524 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger-ui.css  
+2018-07-04 18:36:24.531 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger-ui-bundle.js  
+2018-07-04 18:36:24.537 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger-ui-standalone-preset.js  
+2018-07-04 18:36:24.584 -07:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2018-07-04 18:36:24.600 -07:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2018-07-04 18:36:24.606 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 86.4897ms 200 text/css
+2018-07-04 18:36:24.608 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 71.4134ms 200 application/javascript
+2018-07-04 18:36:24.618 -07:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2018-07-04 18:36:24.620 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 89.3954ms 200 application/javascript
+2018-07-04 18:36:25.062 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 18:36:25.089 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/favicon-32x32.png  
+2018-07-04 18:36:25.100 -07:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2018-07-04 18:36:25.102 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 12.9553ms 200 image/png
+2018-07-04 18:36:25.105 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/favicon-16x16.png  
+2018-07-04 18:36:25.115 -07:00 [Information] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2018-07-04 18:36:25.117 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 12.2963ms 200 image/png
+2018-07-04 18:36:25.204 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 142.5125ms 200 application/json;charset=utf-8
+2018-07-04 18:36:51.024 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 18:36:51.028 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 18:36:51.032 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 18:46:50.313 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 18:46:51.064 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 18:46:51.066 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 18:46:51.093 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 27.9401ms 200 
+2018-07-04 18:46:51.262 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 18:46:51.276 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 18:46:51.282 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.6414ms.
+2018-07-04 18:46:51.291 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 18:46:51.303 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 36.5051ms
+2018-07-04 18:46:51.309 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 245.8549ms 200 application/json; charset=utf-8
+2018-07-04 18:46:54.795 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 18:46:54.812 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 16.2045ms 200 text/html
+2018-07-04 18:46:55.234 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 18:46:55.399 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 165.8275ms 200 application/json;charset=utf-8
+2018-07-04 18:46:59.338 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 18:46:59.343 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 18:46:59.348 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 18:52:24.185 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 18:52:24.862 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 18:52:24.864 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 18:52:24.890 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 27.4467ms 200 
+2018-07-04 18:52:25.063 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 18:52:25.077 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 18:52:25.082 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.5174ms.
+2018-07-04 18:52:25.094 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 18:52:25.104 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 36.8198ms
+2018-07-04 18:52:25.110 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 248.4138ms 200 application/json; charset=utf-8
+2018-07-04 18:52:28.088 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 18:52:28.106 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 17.7887ms 200 text/html
+2018-07-04 18:52:28.547 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 18:52:28.704 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 150.2184ms 200 application/json;charset=utf-8
+2018-07-04 18:52:32.996 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 18:52:33.001 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 18:52:33.005 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 18:52:55.159 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 22152.7431ms.
+2018-07-04 18:52:55.168 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 18:52:55.170 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 22167.5032ms
+2018-07-04 18:52:55.172 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 22176.0008ms 200 application/json; charset=utf-8
+2018-07-04 18:58:13.858 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 18:58:14.660 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 18:58:14.662 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 18:58:14.689 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 28.1304ms 200 
+2018-07-04 18:58:14.863 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 18:58:14.874 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 18:58:14.879 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.5688ms.
+2018-07-04 18:58:14.889 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 18:58:14.898 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 31.6462ms
+2018-07-04 18:58:14.904 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 244.6471ms 200 application/json; charset=utf-8
+2018-07-04 18:58:34.216 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 18:58:34.232 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 15.8683ms 200 text/html
+2018-07-04 18:58:36.060 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 18:58:36.178 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 118.3023ms 200 application/json;charset=utf-8
+2018-07-04 18:58:40.576 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 18:58:40.581 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 18:58:40.585 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 19:01:25.236 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 19:01:25.995 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 19:01:25.997 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 19:01:26.025 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 28.8488ms 200 
+2018-07-04 19:01:26.212 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 19:01:26.225 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 19:01:26.230 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.4525ms.
+2018-07-04 19:01:26.240 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 19:01:26.250 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 33.7573ms
+2018-07-04 19:01:26.259 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 262.8001ms 200 application/json; charset=utf-8
+2018-07-04 19:01:30.130 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 19:01:30.148 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 20.4701ms 200 text/html
+2018-07-04 19:01:30.601 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 19:01:30.739 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 137.7576ms 200 application/json;charset=utf-8
+2018-07-04 19:01:34.838 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 19:01:34.843 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 19:01:34.846 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 19:02:23.767 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 48918.7662ms.
+2018-07-04 19:02:23.770 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 19:02:23.772 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 48927.5975ms
+2018-07-04 19:02:23.774 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 48935.3504ms 200 application/json; charset=utf-8
+2018-07-04 19:02:45.518 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 19:02:45.520 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 2.4885ms 200 text/html
+2018-07-04 19:02:54.391 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 19:02:54.394 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 19:02:54.396 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 19:02:56.819 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2421.4498ms.
+2018-07-04 19:02:56.824 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 19:02:56.826 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 2430.9875ms
+2018-07-04 19:02:56.828 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 2437.4666ms 200 text/plain; charset=utf-8
+2018-07-04 19:56:18.237 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 19:56:18.984 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 19:56:18.986 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 19:56:19.014 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 29.5895ms 200 
+2018-07-04 19:56:19.185 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 19:56:19.196 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 19:56:19.202 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.5284ms.
+2018-07-04 19:56:19.212 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 19:56:19.224 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 32.7326ms
+2018-07-04 19:56:19.231 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 246.892ms 200 application/json; charset=utf-8
+2018-07-04 19:57:12.025 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 19:57:12.046 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 18.7514ms 200 text/html
+2018-07-04 19:57:12.500 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 19:57:12.627 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 126.0056ms 200 application/json;charset=utf-8
+2018-07-04 19:57:17.684 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 19:57:17.689 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 19:57:17.693 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 19:57:49.593 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 31897.7527ms.
+2018-07-04 19:57:49.596 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 19:57:49.598 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 31907.5824ms
+2018-07-04 19:57:49.600 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 31915.8853ms 200 application/json; charset=utf-8
+2018-07-04 19:58:01.907 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 19:58:01.910 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 19:58:01.912 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 19:59:08.546 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 66631.4797ms.
+2018-07-04 19:59:08.548 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 19:59:08.550 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 66638.1496ms
+2018-07-04 19:59:08.552 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 66645.0729ms 200 application/json; charset=utf-8
+2018-07-04 20:01:11.604 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-04 20:01:12.378 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-04 20:01:12.380 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-04 20:01:12.411 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 31.8227ms 200 
+2018-07-04 20:01:12.596 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-04 20:01:12.610 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-04 20:01:12.615 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.4084ms.
+2018-07-04 20:01:12.624 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-04 20:01:12.635 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 35.503ms
+2018-07-04 20:01:12.642 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 265.2558ms 200 application/json; charset=utf-8
+2018-07-04 20:01:17.115 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/index.html  
+2018-07-04 20:01:17.131 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 15.8665ms 200 text/html
+2018-07-04 20:01:17.561 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/swagger/v1/swagger.json  
+2018-07-04 20:01:17.706 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 145.6144ms 200 application/json;charset=utf-8
+2018-07-04 20:01:23.361 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 20:01:23.366 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 20:01:23.371 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 20:01:38.153 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14780.0754ms.
+2018-07-04 20:01:38.156 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 20:01:38.158 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 14790.0769ms
+2018-07-04 20:01:38.160 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 14798.9221ms 200 application/json; charset=utf-8
+2018-07-04 20:01:40.897 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/countriesdata  
+2018-07-04 20:01:40.899 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "GetCountriesJsonDataString", controller = "InitValues"}. Executing action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config)
+2018-07-04 20:01:40.906 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) - Validation state: Valid
+2018-07-04 20:01:51.937 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 11028.4028ms.
+2018-07-04 20:01:51.939 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String'.
+2018-07-04 20:01:51.941 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.InitValuesController.GetCountriesJsonDataString (Config) in 11040.1227ms
+2018-07-04 20:01:51.943 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 11045.9064ms 200 application/json; charset=utf-8

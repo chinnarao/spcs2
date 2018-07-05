@@ -29,7 +29,7 @@ namespace Config
 
             services.AddMemoryCache();
             services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Files")));
-            services.AddSingleton<IReadService, ReadService>();
+            services.AddScoped<ICacheService, LockedFactoryCacheService>();
 
             #region Swagger
             services.AddSwaggerGen(c =>

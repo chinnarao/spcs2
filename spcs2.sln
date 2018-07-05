@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelpFiles", "HelpFiles", "{
 		HelpFiles\Ad.sql = HelpFiles\Ad.sql
 		HelpFiles\Article.sql = HelpFiles\Article.sql
 		HelpFiles\AsyncCodes.txt = HelpFiles\AsyncCodes.txt
+		HelpFiles\C#Tips.txt = HelpFiles\C#Tips.txt
 		HelpFiles\FluentApi.txt = HelpFiles\FluentApi.txt
 		HelpFiles\FutureImplementations.txt = HelpFiles\FutureImplementations.txt
 		HelpFiles\SqlOperationsStudio.txt = HelpFiles\SqlOperationsStudio.txt
@@ -26,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{190C1B7C-C8B
 		HelpFiles\Img\1.jpg = HelpFiles\Img\1.jpg
 		HelpFiles\Img\clrSql.gif = HelpFiles\Img\clrSql.gif
 		HelpFiles\Img\logo.png = HelpFiles\Img\logo.png
-		HelpFiles\Img\nodebalancer_icon.png = HelpFiles\Img\nodebalancer_icon.png
+		HelpFiles\Img\logo1.png = HelpFiles\Img\logo1.png
 		HelpFiles\Img\sqlserver.png = HelpFiles\Img\sqlserver.png
 	EndProjectSection
 EndProject
