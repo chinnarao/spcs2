@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Ad\AdController\" />
+    <Folder Include="Article\ArticleController\" />
+    <Folder Include="Article\Pocos\" />
+  </ItemGroup>
+
 </Project>

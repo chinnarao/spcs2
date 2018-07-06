@@ -7,6 +7,6 @@
 7. Microsoft.Extensions.Configuration.Json
 8. Microsoft.Extensions.DependencyInjection.Abstractions
 
-1. Add-Migration -Name "Initial" -Context "ArticleDbContext" -Project "DbContexts.ArticleMigration" -StartupProject "DbContexts.ArticleMigration"
-2. Update-Database -Context "ArticleDbContext" -Project "DbContexts.ArticleMigration" -StartupProject "DbContexts.ArticleMigration"
-3. Remove-Migration -Force -Context "ArticleDbContext" -Project "DbContexts.ArticleMigration" -StartupProject "DbContexts.ArticleMigration"
+Add-Migration -Name "Initial" -Context "ArticleDbContext" -Project "DbContexts.ArticleMigration" -StartupProject "DbContexts.ArticleMigration"
+Update-Database -Context "ArticleDbContext" -Project "DbContexts.ArticleMigration" -StartupProject "DbContexts.ArticleMigration"
+Remove-Migration -Force -Context "ArticleDbContext" -Project "DbContexts.ArticleMigration" -StartupProject "DbContexts.ArticleMigration"

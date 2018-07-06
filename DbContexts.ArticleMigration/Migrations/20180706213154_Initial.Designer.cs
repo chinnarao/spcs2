@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.ArticleMigration.Migrations
 {
     [DbContext(typeof(ArticleDbContext))]
-    [Migration("20180705093631_Initial")]
+    [Migration("20180706213154_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,9 +29,9 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasMaxLength(1000)
                         .IsUnicode(false);
 
-                    b.Property<int?>("AttachedAssetsInCloudCount");
+                    b.Property<int>("AttachedAssetsInCloudCount");
 
-                    b.Property<Guid?>("AttachedAssetsInCloudStorageId");
+                    b.Property<Guid>("AttachedAssetsInCloudStorageId");
 
                     b.Property<string>("AttachedAssetsStoredInCloudBaseFolderPath")
                         .IsUnicode(false);
@@ -66,10 +66,6 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<bool>("IsArticleInDraftMode")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 

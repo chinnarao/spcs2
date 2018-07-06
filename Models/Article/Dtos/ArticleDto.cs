@@ -1,18 +1,19 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models.Article.Dtos
 {
     public class ArticleDto
     {
         public long ArticleId { get; set; }
-        public int ActiveDays { get; set; } //Max 30 days  // readonly // ? help
         public string Title { get; set; }
         public string Description { get; set; }
         public string Body { get; set; }     // navachar, article content , which is a big information
         public string License { get; set; }     // every article owner may have special license, which should be big text
         public string Commits { get; set; }     // json format : [{ "comment": "this is comment","date": "just date part"},{"comment": "this is comment","date": "just date part"}]
-
+        [Required]
         public DateTime CreatedDateTime { get; set; }
+        [Required]
         public DateTime UpdatedDateTime { get; set; }
         public string UserEmail { get; set; }
         public string UserId { get; set; }
@@ -26,18 +27,16 @@ namespace Models.Article.Dtos
         public bool IsActive { get; set; }
         public bool IsArticleInDraftMode { get; set; }
         public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
 
         public int AttachedAssetsInCloudCount { get; set; }
-        public Guid? AttachedAssetsInCloudStorageId { get; set; }
+        public Guid AttachedAssetsInCloudStorageId { get; set; }
         public string AttachedAssetsStoredInCloudBaseFolderPath { get; set; }
 
-        // RelatedTo1 to RelatedTo5 :  ex: chapter,section,subsection in codeproject
-        public string AllRelatedSubjectsIncludesVersionsWithComma { get; set; }
+        public string AllRelatedSubjectsIncludesVersionsWithComma { get; set; }   // ex: chapter,section,subsection in codeproject
         public string AttachmentURLsComma { get; set; }     // source code , git hub urls can provide 
         public string SocialURLsWithComma { get; set; }     // user facebook or twitter url can provide
-        public int TotalVotes { get; set; }                   // article how many votes got from readers
-        public int TotalVotedPersonsCount { get; set; }
+        public int? TotalVotes { get; set; }                   // article how many votes got from readers
+        public int? TotalVotedPersonsCount { get; set; }
 
         public string Tag1 { get; set; }
         public string Tag2 { get; set; }
@@ -51,5 +50,21 @@ namespace Models.Article.Dtos
         public string Tag10 { get; set; }
         public string Tag11 { get; set; }
         public string Tag12 { get; set; }
+
+        public GoogleStorageArticleFileDto GoogleStorageArticleFileDto { get; set; }
+        public dynamic ArticleDtoAsAnonymous
+        {
+            get
+            {
+                return new
+                {
+                    tag1 = this.Tag1,
+                    tag2 = this.Tag2,
+                    tag3 = this.Tag3,
+                    tag4 = this.Tag4,
+                    tag5 = this.Tag5,
+                };
+            }
+        }
     }
 }

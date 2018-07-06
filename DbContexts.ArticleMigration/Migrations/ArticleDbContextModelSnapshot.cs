@@ -27,9 +27,9 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasMaxLength(1000)
                         .IsUnicode(false);
 
-                    b.Property<int?>("AttachedAssetsInCloudCount");
+                    b.Property<int>("AttachedAssetsInCloudCount");
 
-                    b.Property<Guid?>("AttachedAssetsInCloudStorageId");
+                    b.Property<Guid>("AttachedAssetsInCloudStorageId");
 
                     b.Property<string>("AttachedAssetsStoredInCloudBaseFolderPath")
                         .IsUnicode(false);
@@ -64,10 +64,6 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<bool>("IsArticleInDraftMode")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 

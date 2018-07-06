@@ -60,10 +60,9 @@ namespace Models.Ad.Dtos
         public string UserLoggedInSocialProviderName { get; set; }
         public string UserName { get; set; }
         public string UserPhoneNumber { get; set; }
-        [Url]
         public string UserSocialAvatarUrl { get; set; }
 
-        public GoogleStorageFileDto GoogleStorageFileDto { get; set; }
+        public GoogleStorageAdFileDto GoogleStorageAdFileDto { get; set; }
         public dynamic AdDtoAsAnonymous
         {
             get

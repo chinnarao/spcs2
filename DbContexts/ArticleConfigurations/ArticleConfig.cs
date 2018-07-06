@@ -12,7 +12,7 @@ namespace DbContexts.ArticleConfigurations
             e.Property(p => p.ArticleId).ValueGeneratedNever();
             e.Property(p => p.AllRelatedSubjectsIncludesVersionsWithComma).IsUnicode(false).HasMaxLength(1000);
             e.Property(p => p.AttachedAssetsInCloudCount);
-            e.Property(p => p.AttachedAssetsInCloudStorageId);
+            e.Property(p => p.AttachedAssetsInCloudStorageId).IsRequired();
             e.Property(p => p.AttachedAssetsStoredInCloudBaseFolderPath).IsUnicode(false);
             e.Property(p => p.AttachmentURLsComma).IsUnicode(false);
             e.Property(x => x.BiodataUrl).IsUnicode(false);
@@ -24,7 +24,6 @@ namespace DbContexts.ArticleConfigurations
             e.Property(x => x.IsActive).HasDefaultValue<bool>(false);
             e.Property(x => x.IsArchived).HasDefaultValue<bool>(false);
             e.Property(x => x.IsArticleInDraftMode).HasDefaultValue<bool>(false);
-            e.Property(x => x.IsDeleted).HasDefaultValue<bool>(false);
             e.Property(x => x.License);
             e.Property(x => x.OpenSourceUrls).IsUnicode(false);
             e.Property(x => x.SocialURLsWithComma).IsUnicode(false);
@@ -50,7 +49,6 @@ namespace DbContexts.ArticleConfigurations
             e.Property(x => x.UserName).IsUnicode(false).HasMaxLength(100);
             e.Property(x => x.UserPhoneNumber).IsUnicode(false).HasMaxLength(15);
             e.Property(x => x.UserSocialAvatarUrl).IsUnicode(false);
-            //relationships
         }
     }
 }

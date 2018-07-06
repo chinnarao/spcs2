@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Models.Ad.AdController;
 using Models.Ad.Dtos;
 using Services;
 using System;
@@ -48,7 +47,7 @@ namespace Ad.Controllers
             if (string.IsNullOrWhiteSpace(htmlFileName)) throw new ArgumentNullException(nameof(htmlFileName));
             string googleStorageBucketName = _configuration["AdBucketNameInGoogleCloudStorage"];
             if (string.IsNullOrWhiteSpace(googleStorageBucketName)) throw new ArgumentOutOfRangeException(nameof(googleStorageBucketName));
-            GoogleStorageFileDto fileModel = model.GoogleStorageFileDto;
+            GoogleStorageAdFileDto fileModel = model.GoogleStorageAdFileDto;
             fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.Now.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
             fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
             fileModel.GoogleStorageBucketName = googleStorageBucketName;
@@ -61,12 +60,6 @@ namespace Ad.Controllers
 
             var returnAnonymousObject = new { Id = model.AdId, AttachedAssetsInCloudStorageId = model.AttachedAssetsInCloudStorageId.ToString("N") };
             return Ok(returnAnonymousObject);
-        }
-
-        [HttpPost]
-        public IActionResult PostAd1([FromBody]PostAdModel data)
-        {
-            return Ok();
         }
 
         [HttpGet]

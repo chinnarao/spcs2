@@ -25,10 +25,9 @@ namespace Models.Article.Entities
         public bool IsActive { get; set; }
         public bool IsArticleInDraftMode { get; set; }
         public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
 
-        public int? AttachedAssetsInCloudCount { get; set; }
-        public Guid? AttachedAssetsInCloudStorageId { get; set; }
+        public int AttachedAssetsInCloudCount { get; set; }
+        public Guid AttachedAssetsInCloudStorageId { get; set; }
         public string AttachedAssetsStoredInCloudBaseFolderPath { get; set; }
 
         public string AllRelatedSubjectsIncludesVersionsWithComma { get; set; }   // ex: chapter,section,subsection in codeproject

@@ -7,7 +7,6 @@ using Models.Ad.Dtos;
 using Models.Ad.Entities;
 using DbContexts;
 using Repository;
-using Models.Ad.AdController;
 using Microsoft.Extensions.Logging;
 using System.Text;
 
@@ -36,7 +35,7 @@ namespace Services
         {
             // transaction has to implement or not , has to think more required.
             Ad ad = this.InsertAd(dto);
-            this.UploadObjectInGoogleStorage(dto.GoogleStorageFileDto);
+            this.UploadObjectInGoogleStorage(dto.GoogleStorageAdFileDto);
         }
 
         private Ad InsertAd(AdDto dto)
@@ -47,7 +46,7 @@ namespace Services
             return ad;
         }
 
-        private void UploadObjectInGoogleStorage(GoogleStorageFileDto model)
+        private void UploadObjectInGoogleStorage(GoogleStorageAdFileDto model)
         {
             string content = _cacheService.Get<string>(model.CACHE_KEY);
             if (string.IsNullOrWhiteSpace(content))

@@ -18,9 +18,6 @@ namespace File.Test
             Action act = () => firstTimeContent.Should().NotBeEmpty();
             act.Should().NotThrow();
             string secondTimeContent = Helper.GetAdTemplateFileContent();
-            if (firstTimeContent == secondTimeContent)
-            {
-            }
             Action act1 = () => secondTimeContent.Should().BeSameAs(firstTimeContent);
             //act1.Should().NotThrow();
         }
