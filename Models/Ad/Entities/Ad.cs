@@ -23,12 +23,12 @@ namespace Models.Ad.Entities
         public double AdLongitude { get; set; }
         public string AdTitle { get; set; }
         public string AdZipCode { get; set; }   //http://www.zipinfo.com/products/zcug/zcug.htm
-        public DateTime ArchivedDateTime { get; set; }
+        public DateTime? ArchivedDateTime { get; set; }
         public int? AttachedAssetsInCloudCount { get; set; }
-        public Guid? AttachedAssetsInCloudStorageId { get; set; }
+        public Guid AttachedAssetsInCloudStorageId { get; set; }
         public string AttachedAssetsStoredInCloudBaseFolderPath { get; set; }
         public DateTime CreatedDateTime { get; set; }
-        public DateTime DeletedDateTime { get; set; }
+        public DateTime? DeletedDateTime { get; set; }
         public bool IsActive { get; set; }
         public bool IsAdInDraftMode { get; set; }
         public bool IsArchived { get; set; }

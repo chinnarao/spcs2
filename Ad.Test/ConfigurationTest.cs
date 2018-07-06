@@ -14,7 +14,7 @@ namespace Ad.Test
         {
             IConfiguration _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             int days = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
-            string fileName = _configuration["AdHtmlTemplateFileName"];
+            string fileName = _configuration["AdHtmlTemplateFileNameWithExt"];
             Action act1 = () => days.Should().BePositive();
             act1.Should().NotThrow();
             Action act2 = () => fileName.Should().EndWith(".html");

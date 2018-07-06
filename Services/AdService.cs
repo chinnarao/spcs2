@@ -1,16 +1,15 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using Google;
 using File;
 using AutoMapper;
 using Models.Ad.Dtos;
 using Models.Ad.Entities;
-using Newtonsoft.Json;
 using DbContexts;
 using Repository;
 using Models.Ad.AdController;
 using Microsoft.Extensions.Logging;
+using System.Text;
 
 namespace Services
 {
@@ -18,24 +17,26 @@ namespace Services
     {
         private readonly ILogger _logger;
         private readonly IFileRead _fileReadService;
-        private readonly IGoogleStorage _googleStorage;
         private readonly IMapper _mapper;
+        private readonly ICacheService _cacheService;
+        private readonly IGoogleStorage _googleStorage;
         private readonly Repository<Ad, AdDbContext> _context;
 
-        public AdService(ILogger<AdService> logger, IMapper mapper, IFileRead fileReadService, IGoogleStorage googleStorage, AdDbContext context)
+        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, AdDbContext context)
         {
             _logger = logger;
             _mapper = mapper;
             _fileReadService = fileReadService;
+            _cacheService = cacheService;
             _googleStorage = googleStorage;
             _context = new Repository<Ad, AdDbContext>(context);
         }
 
-        public void StartAdProcess(PostAdModel postAdModel)
+        public void StartAdProcess(AdDto dto)
         {
             // transaction has to implement or not , has to think more required.
-            Ad ad = this.InsertAd(postAdModel.AdDto);
-            this.UploadObjectInGoogleStorage(postAdModel);
+            Ad ad = this.InsertAd(dto);
+            this.UploadObjectInGoogleStorage(dto.GoogleStorageFileDto);
         }
 
         private Ad InsertAd(AdDto dto)
@@ -46,20 +47,26 @@ namespace Services
             return ad;
         }
 
-        private void UploadObjectInGoogleStorage(PostAdModel model)
+        private void UploadObjectInGoogleStorage(GoogleStorageFileDto model)
         {
-            string content = _fileReadService.FileAsString(model.FileName, model.InMemoryCachyExpireDays, model.CACHE_KEY);
+            string content = _cacheService.Get<string>(model.CACHE_KEY);
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                content = System.IO.File.ReadAllText(model.HtmlFileTemplateFullPathWithExt);
+                if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
+                content = _cacheService.GetOrAdd<string>(model.CACHE_KEY, () => content, model.CacheExpiryDateTimeForHtmlTemplate);
+                if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
+            }
+            content = _fileReadService.FillContent(content, model.AnonymousDataObjectForHtmlTemplate);
             if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
-            content = _fileReadService.FillContent(content, model.AnonymousDataObject);
-            if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
-            Stream stream = _fileReadService.FileAsStream(content);
+            Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
             if (stream == null || stream.Length <= 0) throw new Exception(nameof(stream));
-            _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.ObjectNameWithExt, model.ContentType);
+            _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.GoogleStorageObjectNameWithExt, model.ContentType);
         }
     }
 
     public interface IAdService
     {
-        void StartAdProcess(PostAdModel postAdModel);
+        void StartAdProcess(AdDto dto);
     }
 }

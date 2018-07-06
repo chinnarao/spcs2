@@ -1,34 +1,38 @@
 ﻿using Models.Ad.Dtos;
+using System;
 
 namespace Models.Ad.AdController
 {
     public class PostAdModel
     {
         public string FileName { get; set; }
-        public int InMemoryCachyExpireDays { get; set; }
+        public DateTime CacheExpiryDateTime { get; set; }
         public string ObjectNameWithExt { get; set; }
         public string GoogleStorageBucketName { get; set; }
         public object AnonymousDataObject { get; set; }
         public string ContentType { get; set; }
         public string CACHE_KEY { get; set; }
+        public string HtmlFileTemplateFullPathWithExt { get; set; }
 
         public AdDto AdDto { get; set; }
-        public object ConvertToAnonymousType(PostAdModel input)
+        public object AdDtoAsAnonymous
         {
-            AdDto dto = input.AdDto;
-            return new {
-                ActiveDays = dto.ActiveDays,
-                AdAddressAtPublicSecurityNearLandmarkName = dto.AdAddressAtPublicSecurityNearLandmarkName,
-                AdAddressCity = dto.AdAddressCity,
-                AdAddressDistrictOrCounty = dto.AdAddressDistrictOrCounty,
-                AdAddressState = dto.AdAddressState,
-                AdAddressStreet = dto.AdAddressStreet,
-                AdBody = dto.AdBody,
-                AdCountryCode = dto.AdCountryCode,
-                AdCountryCurrency = dto.AdCountryCurrency,
-                AdCountryCurrencyISO_4217 = dto.AdCountryCurrencyISO_4217,
-                AdCountryName = dto.AdCountryName,
-            };
+            get
+            {
+                return new
+                {
+                    ActiveDays = AdDto.ActiveDays,
+                    AdAddressAtPublicSecurityNearLandmarkName = AdDto.AdAddressAtPublicSecurityNearLandmarkName,
+                    AdAddressCity = AdDto.AdAddressCity,
+                    AdAddressDistrictOrCounty = AdDto.AdAddressDistrictOrCounty,
+                    AdAddressState = AdDto.AdAddressState,
+                    AdAddressStreet = AdDto.AdAddressStreet,
+                    AdBody = AdDto.AdBody,
+                    AdCountryCode = AdDto.AdCountryCode,
+                    AdCountryCurrencyISO_4217 = AdDto.AdCountryCurrencyISO_4217,
+                    AdCountryName = AdDto.AdCountryName,
+                };
+            }
         }
     }
 }

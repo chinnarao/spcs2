@@ -8,6 +8,6 @@
 8. Microsoft.Extensions.DependencyInjection.Abstractions
 
 
-1. Add-Migration -Name "Initial" -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
-2. Update-Database -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
-3. Remove-Migration -Force -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+Add-Migration -Name "Initial" -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+Update-Database -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+Remove-Migration -Force -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"

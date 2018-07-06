@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.AdMigration.Migrations
 {
     [DbContext(typeof(AdDbContext))]
-    [Migration("20180705093552_Initial")]
+    [Migration("20180706054652_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,21 +87,20 @@ namespace DbContexts.AdMigration.Migrations
                         .HasMaxLength(16)
                         .IsUnicode(false);
 
-                    b.Property<DateTime>("ArchivedDateTime")
+                    b.Property<DateTime?>("ArchivedDateTime")
                         .HasColumnType("datetime2(7)");
 
                     b.Property<int?>("AttachedAssetsInCloudCount");
 
-                    b.Property<Guid?>("AttachedAssetsInCloudStorageId");
+                    b.Property<Guid>("AttachedAssetsInCloudStorageId");
 
                     b.Property<string>("AttachedAssetsStoredInCloudBaseFolderPath")
-                        .IsRequired()
                         .IsUnicode(false);
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2(7)");
 
-                    b.Property<DateTime>("DeletedDateTime");
+                    b.Property<DateTime?>("DeletedDateTime");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -179,7 +178,6 @@ namespace DbContexts.AdMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("UserLoggedInSocialProviderName")
-                        .IsRequired()
                         .HasMaxLength(32)
                         .IsUnicode(false);
 

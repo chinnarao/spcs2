@@ -15,10 +15,10 @@ namespace File.Test
             int days = Helper.GetCacheExpireDays();
             string fileName = Helper.GetAdFileName();
             IMemoryCache _memoryCache = Helper.GetDefaultMemoryCacheObject();
-            string firstTimeContent = new FileRead(_memoryCache).FileAsString(fileName, days, "_AdHtmlFileTemplate");
+            string firstTimeContent = Helper.GetAdTemplateFileContent();
             Action act = () => firstTimeContent.Should().NotBeEmpty();
             act.Should().NotThrow();
-            string secondTimeContent = new FileRead(_memoryCache).FileAsString(fileName, days, "_AdHtmlFileTemplate");
+            string secondTimeContent = Helper.GetAdTemplateFileContent();
             act = () => secondTimeContent.Should().BeSameAs(firstTimeContent);
             act.Should().NotThrow();
         }
@@ -32,25 +32,11 @@ namespace File.Test
                 Occupation = "Kavin Brother."
             };
 
-            string content = new FileRead(Helper.GetDefaultMemoryCacheObject()).FillContent(Helper.GetAdTemplateFileContent(), anonymousData);
+            string content = Helper.GetAdTemplateFileContent();
             Action act = () => content.Should().Contain(anonymousData.Name);
             act.Should().NotThrow();
             Action act1 = () => content.Should().Contain(anonymousData.Occupation);
             act1.Should().NotThrow();
-        }
-
-        [Fact]
-        public void Test_FileAsStream()
-        {
-            var anonymousData = new
-            {
-                Name = "Riya",
-                Occupation = "Kavin Brother."
-            };
-            string content = new FileRead(Helper.GetDefaultMemoryCacheObject()).FillContent(Helper.GetAdTemplateFileContent(), anonymousData);
-            Stream stream = new FileRead(Helper.GetDefaultMemoryCacheObject()).FileAsStream(content);
-            Action act = () => stream.Should().NotBeNull();
-            act.Should().NotThrow();
         }
     }
 }

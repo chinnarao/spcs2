@@ -14,7 +14,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelpFiles", "HelpFiles", "{7D90C247-6DCE-409B-A706-CF5FC3AF3F9E}"
 	ProjectSection(SolutionItems) = preProject
 		HelpFiles\Ad.sql = HelpFiles\Ad.sql
+		HelpFiles\AdJsonInput.json = HelpFiles\AdJsonInput.json
 		HelpFiles\Article.sql = HelpFiles\Article.sql
+		HelpFiles\ArticleJsonInput.json = HelpFiles\ArticleJsonInput.json
 		HelpFiles\AsyncCodes.txt = HelpFiles\AsyncCodes.txt
 		HelpFiles\C#Tips.txt = HelpFiles\C#Tips.txt
 		HelpFiles\FluentApi.txt = HelpFiles\FluentApi.txt

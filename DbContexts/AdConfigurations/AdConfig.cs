@@ -30,8 +30,8 @@ namespace DbContexts.AdConfigurations
             e.Property(p => p.AdZipCode).IsRequired().IsUnicode(false).HasMaxLength(16);
             e.Property(p => p.ArchivedDateTime).HasColumnType("datetime2(7)");
             e.Property(p => p.AttachedAssetsInCloudCount);
-            e.Property(p => p.AttachedAssetsInCloudStorageId);
-            e.Property(p => p.AttachedAssetsStoredInCloudBaseFolderPath).IsRequired().IsUnicode(false);
+            e.Property(p => p.AttachedAssetsInCloudStorageId).IsRequired();
+            e.Property(p => p.AttachedAssetsStoredInCloudBaseFolderPath).IsUnicode(false);
             e.Property(p => p.CreatedDateTime).IsRequired().HasColumnType("datetime2(7)"); // conflict : sqlite and sql server.HasDefaultValueSql("date('now')"); //"getdate()"  or "(SYSDATETIME())"  or GetUtcDate(), [[ worked succes with this date('now'), the reason, this sql lite fn, testinf purpose]]
             e.Property(p => p.DeletedDateTime);
             e.Property(p => p.IsActive).IsRequired().HasDefaultValue<bool>(false);
@@ -55,7 +55,7 @@ namespace DbContexts.AdConfigurations
             e.Property(p => p.UpdatedDateTime).IsRequired(); //.HasDefaultValueSql("date('now')");
             e.Property(p => p.UserEmail).IsUnicode(false).HasMaxLength(100);
             e.Property(p => p.UserId).IsRequired().IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.UserLoggedInSocialProviderName).IsRequired().IsUnicode(false).HasMaxLength(32);   //facebook or local
+            e.Property(p => p.UserLoggedInSocialProviderName).IsUnicode(false).HasMaxLength(32);   //facebook or local
             e.Property(p => p.UserName).IsUnicode(false).HasMaxLength(100);
             e.Property(p => p.UserPhoneNumber).IsUnicode(false).HasMaxLength(15); 
             e.Property(p => p.UserSocialAvatarUrl).IsUnicode(false);

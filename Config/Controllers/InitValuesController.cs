@@ -92,7 +92,9 @@ namespace Config.Controllers
         public IActionResult GetCountriesJsonDataString()
         {
             string countryCodesAndNames = _cacheService.Get<string>(Constants.COUNTRIES);
-            if (!string.IsNullOrEmpty(countryCodesAndNames))    return Ok(countryCodesAndNames);
+            if (!string.IsNullOrEmpty(countryCodesAndNames))
+                return Ok(countryCodesAndNames);
+
             string path = Path.Combine(Directory.GetCurrentDirectory(), _config["ConfigFilesFolderName"], _config["CountriesJsonFileName"]);
             if (!System.IO.File.Exists(path))   return NotFound("Countries File not exists.");
             DateTime cacheExpiryDateTime = DateTime.Now.AddDays(Convert.ToDouble(_config["InMemoryCacheDays"]));

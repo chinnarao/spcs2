@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Models.Ad.AdController;
+using Models.Ad.Dtos;
 using Services;
 using System;
 using System.IO;
@@ -24,32 +25,42 @@ namespace Ad.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostAd([FromBody]PostAdModel model)
+        public IActionResult PostAd([FromBody]AdDto model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            int adDefaultDisplayActiveDays = Convert.ToInt32(_configuration["AdDefaultDisplayActiveDays"]);
+            if (adDefaultDisplayActiveDays <= 0) throw new ArgumentOutOfRangeException(nameof(adDefaultDisplayActiveDays));
+            model.AdId = DateTime.Now.Ticks;
+            model.AttachedAssetsInCloudStorageId = Guid.NewGuid();
+            //model.ActiveDays = adDefaultDisplayActiveDays;
+            //model.CreatedDateTime = model.UpdatedDateTime = DateTime.UtcNow;
+            //model.DeletedDateTime = null;
+            //model.AdCountryCode = "IN".ToUpper();
+            //model.AdCountryCurrencyISO_4217 = "INR".ToUpper();
+            //model.ArchivedDateTime = null;
+            //model.AdBody = "<h1>chinna rao tatikell </br> Riya Tatikella</h1>";
+
             int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
             if (inMemoryCachyExpireDays <= 0) throw new ArgumentOutOfRangeException(nameof(inMemoryCachyExpireDays));
-
-            string fileName = _configuration["AdHtmlTemplateFileName"];
-            if (string.IsNullOrWhiteSpace(fileName)) throw new ArgumentNullException(nameof(fileName));
-
+            string htmlFileName = _configuration["AdHtmlTemplateFileNameWithExt"];
+            if (string.IsNullOrWhiteSpace(htmlFileName)) throw new ArgumentNullException(nameof(htmlFileName));
             string googleStorageBucketName = _configuration["AdBucketNameInGoogleCloudStorage"];
             if (string.IsNullOrWhiteSpace(googleStorageBucketName)) throw new ArgumentOutOfRangeException(nameof(googleStorageBucketName));
-
-            Guid assetKey = Guid.NewGuid();
-
-            model.InMemoryCachyExpireDays = inMemoryCachyExpireDays;
-            model.FileName = fileName;
-            model.GoogleStorageBucketName = googleStorageBucketName;
-            model.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;
-            model.AnonymousDataObject = model.ConvertToAnonymousType(model);
-            model.ObjectNameWithExt = string.Format("{0}{1}", assetKey.ToString("N"), Path.GetExtension(fileName));
-            model.ContentType = Utility.GetMimeTypes()[Path.GetExtension(fileName)];
-
-            model.AdDto.AttachedAssetsInCloudStorageId = assetKey;
+            GoogleStorageFileDto fileModel = model.GoogleStorageFileDto;
+            fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.Now.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
+            fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
+            fileModel.GoogleStorageBucketName = googleStorageBucketName;
+            fileModel.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;
+            fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", model.AttachedAssetsInCloudStorageId.ToString("N"), Path.GetExtension(htmlFileName));
+            fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
+            fileModel.AnonymousDataObjectForHtmlTemplate = model.AdDtoAsAnonymous;
 
             _adService.StartAdProcess(model);
 
-            return Ok(new { AttachedAssetsInCloudStorageId = assetKey });
+            var returnAnonymousObject = new { Id = model.AdId, AttachedAssetsInCloudStorageId = model.AttachedAssetsInCloudStorageId.ToString("N") };
+            return Ok(returnAnonymousObject);
         }
 
         [HttpPost]

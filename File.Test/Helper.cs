@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 
 namespace File.Test
 {
@@ -30,7 +31,7 @@ namespace File.Test
         public static string GetAdFileName()
         {
             IConfiguration _config = Helper.InitConfiguration();
-            string fileName = _config["AdHtmlTemplateFileName"];
+            string fileName = _config["AdHtmlTemplateFileNameWithExt"];
             return fileName;
         }
 
@@ -44,9 +45,8 @@ namespace File.Test
         public static string GetAdTemplateFileContent()
         {
             int days = Helper.GetCacheExpireDays();
-            string fileName = Helper.GetAdFileName();
-            IMemoryCache _memoryCache = Helper.GetDefaultMemoryCacheObject();
-            string content = new FileRead(_memoryCache).FileAsString(fileName, days, "_AdHtmlFileTemplate");
+            string path = Path.Combine(Directory.GetCurrentDirectory(), Helper.GetAdFileName());
+            string content = System.IO.File.ReadAllText(path);
             return content;
         }
     }

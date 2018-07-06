@@ -36,6 +36,8 @@ namespace Ad
             services.AddScoped<IAdService, AdService>();
             services.AddScoped<IFileRead, FileRead>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
+            services.AddScoped<ICacheService, LockedFactoryCacheService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             #region Swagger
             // Register the Swagger generator, defining 1 or more Swagger documents
