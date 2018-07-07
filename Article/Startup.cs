@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Repository;
 using Services;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -32,6 +33,7 @@ namespace Article
             services.AddScoped<IFileRead, FileRead>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
+            services.AddScoped<IRepository<Models.Article.Entities.Article, ArticleDbContext>, Repository<Models.Article.Entities.Article, ArticleDbContext>>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             #region Swagger

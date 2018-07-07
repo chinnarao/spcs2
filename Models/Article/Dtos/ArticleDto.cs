@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models.Article.Dtos
@@ -50,6 +51,8 @@ namespace Models.Article.Dtos
         public string Tag10 { get; set; }
         public string Tag11 { get; set; }
         public string Tag12 { get; set; }
+
+        public List<ArticleCommitDto> ArticleCommitDtos { get; set; }
 
         public GoogleStorageArticleFileDto GoogleStorageArticleFileDto { get; set; }
         public dynamic ArticleDtoAsAnonymous

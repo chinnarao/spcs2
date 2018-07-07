@@ -1,4 +1,9 @@
 Path.Combine(Directory.GetCurrentDirectory(), "Files")
 --------------------------------------------------------------
 Guid.NewGuid().ToString("N");     //00000000-0000-0000-0000-000000000000
---------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------
+Tip: Entity Framework also validates the value of a property for the MaxLength attribute if you set a value higher than the specified size. 
+For example, if you set more than 50 characters long string value, 
+then EF 6 will throw System.Data.Entity.Validation.DbEntityValidationException and 
+EF Core will throw Microsoft.EntityFrameworkCore.DbUpdateException.
+------------------------------------------------------------------------------------------------------------------------------------------------

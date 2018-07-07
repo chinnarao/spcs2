@@ -6,7 +6,7 @@ namespace Models.Article.Dtos
 {
     public class ArticleCommitDto
     {
-        public string Comment { get; set; }
-        public DateTime CommentedDateTime { get; set; }
+        public string C { get; set; }
+        public DateTime DT { get; set; }
     }
 }

@@ -29,9 +29,13 @@ namespace Article.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get(long articleId)
+        public IActionResult GetAll()
         {
-            return Ok(new { Name = "Chinna", Email = "chinnarao@live.com" });
+            int defaultArticlesHomeDisplay = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
+            if (defaultArticlesHomeDisplay <= 0) throw new ArgumentOutOfRangeException(nameof(defaultArticlesHomeDisplay));
+
+            var articles = _articleService.GetAll(defaultArticlesHomeDisplay);
+            return Ok(articles);
         }
 
         [HttpPost]
@@ -59,10 +63,7 @@ namespace Article.Controllers
             fileModel.AnonymousDataObjectForHtmlTemplate = model.ArticleDtoAsAnonymous;
 
             _articleService.StartArticleProcess(model);
-
-            var returnAnonymousObject = new { Id = model.ArticleId, AttachedAssetsInCloudStorageId = model.AttachedAssetsInCloudStorageId.ToString("N") };
-            return Ok(returnAnonymousObject);
-            //return Ok(new { Name = "Chinna", Email = "chinnarao@live.com" });
+            return Ok(model);
         }
     }
 }

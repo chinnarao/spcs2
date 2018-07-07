@@ -1,0 +1,144 @@
+2018-07-07 00:00:58.904 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-07 00:00:59.571 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44394/api/values  
+2018-07-07 00:00:59.573 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:65446/  0
+2018-07-07 00:00:59.601 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 28.7949ms 200 
+2018-07-07 00:00:59.746 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action ad.Controllers.ValuesController.Get (Ad)
+2018-07-07 00:00:59.755 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method ad.Controllers.ValuesController.Get (Ad) - Validation state: Valid
+2018-07-07 00:00:59.760 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method ad.Controllers.ValuesController.Get (Ad), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 0.4456ms.
+2018-07-07 00:00:59.768 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-07 00:00:59.779 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action ad.Controllers.ValuesController.Get (Ad) in 28.091ms
+2018-07-07 00:00:59.785 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 213.8261ms 200 application/json; charset=utf-8
+2018-07-07 00:01:27.175 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44394/index.html  
+2018-07-07 00:01:27.197 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 21.7997ms 200 text/html
+2018-07-07 00:01:27.706 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44394/swagger/v1/swagger.json  
+2018-07-07 00:01:27.853 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 146.2949ms 200 application/json;charset=utf-8
+2018-07-07 00:01:52.111 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 POST http://localhost:44394/Ad/PostAd application/json-patch+json 1906
+2018-07-07 00:01:52.114 -07:00 [Information] Microsoft.AspNetCore.Cors.Infrastructure.CorsService: Policy execution successful.
+2018-07-07 00:01:52.130 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "PostAd", controller = "Ad"}. Executing action Ad.Controllers.AdController.PostAd (Ad)
+2018-07-07 00:01:52.355 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Ad.Controllers.AdController.PostAd (Ad) with arguments (Models.Ad.Dtos.AdDto) - Validation state: Valid
+2018-07-07 00:01:52.529 -07:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data, this mode should only be enabled during development.
+2018-07-07 00:01:52.538 -07:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: The 'bool' property 'IsActive' on entity type 'Ad' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'.
+2018-07-07 00:01:52.540 -07:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: The 'bool' property 'IsAdInDraftMode' on entity type 'Ad' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'.
+2018-07-07 00:01:52.542 -07:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: The 'bool' property 'IsArchived' on entity type 'Ad' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'.
+2018-07-07 00:01:52.543 -07:00 [Warning] Microsoft.EntityFrameworkCore.Model.Validation: The 'bool' property 'IsDeleted' on entity type 'Ad' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'.
+2018-07-07 00:01:52.587 -07:00 [Information] Microsoft.EntityFrameworkCore.Infrastructure: Entity Framework Core 2.1.0-rtm-30799 initialized 'AdDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: SensitiveDataLoggingEnabled 
+2018-07-07 00:02:00.474 -07:00 [Error] Microsoft.EntityFrameworkCore.Database.Command: Failed executing DbCommand (7ms) [Parameters=[@p0='636665185123673357', @p1='30', @p2='' (Size = 100) (DbType = AnsiString), @p3='' (Size = 100) (DbType = AnsiString), @p4='' (Size = 100) (DbType = AnsiString), @p5='' (Size = 100) (DbType = AnsiString), @p6='' (Size = 100) (DbType = AnsiString), @p7='<h1>revati</br>kavin tatikella</h1>' (Size = 4000), @p8='INdtdtedtdete' (Size = -1) (DbType = AnsiString), @p9='INRsfsfsfsfs' (Size = -1) (DbType = AnsiString), @p10='India' (Size = 100) (DbType = AnsiString), @p11='this is car sale advertisement' (Size = 500) (DbType = AnsiString), @p12='1000.01' (Nullable = true), @p13='Indian Rupees' (Size = 50) (DbType = AnsiString), @p14='1.3456', @p15='-33.567', @p16='sale by owner for ford car' (Nullable = false) (Size = 500) (DbType = AnsiString), @p17='91203' (Nullable = false) (Size = 16) (DbType = AnsiString), @p18='' (Size = 7) (DbType = DateTime2), @p19='0' (Nullable = true), @p20='bc048208-584b-4c3b-a6e3-76ed10701c67', @p21='' (Size = 8000) (DbType = AnsiString), @p22='2018-07-06T08:39:07' (Size = 7), @p23='' (DbType = DateTime2), @p24='True', @p25='' (Size = 32) (DbType = AnsiString), @p26='' (Size = 32) (DbType = AnsiString), @p27='' (Size = 32) (DbType = AnsiString), @p28='' (Size = 32) (DbType = AnsiString), @p29='' (Size = 32) (DbType = AnsiString), @p30='' (Size = 32) (DbType = AnsiString), @p31='' (Size = 32) (DbType = AnsiString), @p32='' (Size = 32) (DbType = AnsiString), @p33='' (Size = 32) (DbType = AnsiString), @p34='' (Size = 32) (DbType = AnsiString), @p35='' (Size = 32) (DbType = AnsiString), @p36='' (Size = 32) (DbType = AnsiString), @p37='2018-07-06T08:39:07', @p38='chinnarao@live.com' (Size = 100) (DbType = AnsiString), @p39='chinnarao@live.com' (Nullable = false) (Size = 100) (DbType = AnsiString), @p40='' (Size = 32) (DbType = AnsiString), @p41='chinnarao' (Size = 100) (DbType = AnsiString), @p42='+15157077725' (Size = 15) (DbType = AnsiString), @p43='https://console.cloud.google.com/storage/browser/spcsad_first?project=oceanic-cacao-203021&folder&organizationId' (Size = 8000) (DbType = AnsiString)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Ad] ([AdId], [ActiveDays], [AdAddressAtPublicSecurityNearLandmarkName], [AdAddressCity], [AdAddressDistrictOrCounty], [AdAddressState], [AdAddressStreet], [AdBody], [AdCountryCode], [AdCountryCurrencyISO_4217], [AdCountryName], [AdDescription], [AdItemsCost], [AdItemsCostInCurrencyName], [AdLatitude], [AdLongitude], [AdTitle], [AdZipCode], [ArchivedDateTime], [AttachedAssetsInCloudCount], [AttachedAssetsInCloudStorageId], [AttachedAssetsStoredInCloudBaseFolderPath], [CreatedDateTime], [DeletedDateTime], [IsAdInDraftMode], [Tag1], [Tag10], [Tag11], [Tag12], [Tag2], [Tag3], [Tag4], [Tag5], [Tag6], [Tag7], [Tag8], [Tag9], [UpdatedDateTime], [UserEmail], [UserId], [UserLoggedInSocialProviderName], [UserName], [UserPhoneNumber], [UserSocialAvatarUrl])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43);
+SELECT [IsActive], [IsArchived], [IsDeleted]
+FROM [Ad]
+WHERE @@ROWCOUNT = 1 AND [AdId] = @p0;
+System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:ffc0b8fb-03ac-4234-a416-33d3791bd73a
+Error Number:8152,State:10,Class:16
+2018-07-07 00:02:00.486 -07:00 [Error] Microsoft.EntityFrameworkCore.Update: An exception occurred in the database while saving changes for context type 'DbContexts.AdDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2018-07-07 00:02:50.959 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Ad.Controllers.AdController.PostAd (Ad) in 58827.0401ms
+2018-07-07 00:02:50.972 -07:00 [Error] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Repository.Repository`2.Create(TEntity entity) in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Repository\Repository.cs:line 99
+   at Services.AdService.InsertAd(AdDto dto) in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Services\AdService.cs:line 44
+   at Services.AdService.StartAdProcess(AdDto dto) in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Services\AdService.cs:line 37
+   at Ad.Controllers.AdController.PostAd(AdDto model) in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Ad\Controllers\AdController.cs:line 53
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIIndexMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-07-07 00:02:51.014 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 58902.4489ms 500 text/html; charset=utf-8

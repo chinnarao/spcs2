@@ -4,7 +4,7 @@
   "description": "this is description",
   "body": "this is body",
   "license": "Please enter some license information",
-  "commits": "[{ 'comment': 'this is comment','date': 'just date part'},{'comment': 'this is comment','date': 'just date part'}]",
+  "commits": null,
   "createdDateTime": "2018-07-06T20:57:55.497Z",
   "updatedDateTime": "2018-07-06T20:57:55.497Z",
   "userEmail": "chinnarao@live.com",
@@ -39,6 +39,20 @@
   "tag10": "tag10",
   "tag11": "tag11",
   "tag12": "tag12",
+  "articleCommitDtos": [
+    {
+      "c": "this is a comment",
+      "dt": "2018-07-01T23:24:35.583Z"
+    },
+    {
+      "c": "this is a comment",
+      "dt": "2018-07-02T23:24:35.583Z"
+    },
+    {
+      "c": "this is a comment",
+      "dt": "2018-07-03T23:24:35.583Z"
+    }
+  ],
   "googleStorageArticleFileDto": {
     "cacheExpiryDateTimeForHtmlTemplate": "2018-07-06T20:57:55.497Z",
     "googleStorageObjectNameWithExt": "00000000000000000000000000000000.html",

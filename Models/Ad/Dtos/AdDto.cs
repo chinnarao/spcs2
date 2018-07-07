@@ -13,9 +13,9 @@ namespace Models.Ad.Dtos
         public string AdAddressState { get; set; }
         public string AdAddressStreet { get; set; }
         public string AdBody { get; set; }
-        [MaxLength(2)]
+        //[MaxLength(2)]
         public string AdCountryCode { get; set; }
-        [MaxLength(3)]
+        //[MaxLength(3)]
         public string AdCountryCurrencyISO_4217 { get; set; }
         public string AdCountryName { get; set; }
         public string AdDescription { get; set; }
