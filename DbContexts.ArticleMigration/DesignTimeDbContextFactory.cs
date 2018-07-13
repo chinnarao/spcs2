@@ -1,4 +1,4 @@
-﻿using DbContexts;
+﻿using DbContexts.Article;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;

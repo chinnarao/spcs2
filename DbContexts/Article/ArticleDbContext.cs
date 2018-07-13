@@ -1,9 +1,7 @@
-﻿using DbContexts.ArticleConfigurations;
-using Microsoft.EntityFrameworkCore;
-using Models.Article.Entities;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace DbContexts
+namespace DbContexts.Article
 {
     //https://github.com/damienbod/AspNetCoreMultipleProject/blob/master/src/DataAccessMsSqlServerProvider/DomainModelMsSqlServerContext.cs
     public class ArticleDbContext : DbContext
@@ -21,7 +19,7 @@ namespace DbContexts
             return new ArticleDbContext(new DbContextOptionsBuilder<ArticleDbContext>().UseSqlServer(connection).Options);
         }
 
-        public DbSet<Article> Articles { get; set; }
+        public DbSet<Models.Article.Entities.Article> Articles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

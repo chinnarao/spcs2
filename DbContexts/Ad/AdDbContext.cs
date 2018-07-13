@@ -1,9 +1,7 @@
-﻿using DbContexts.AdConfigurations;
-using Microsoft.EntityFrameworkCore;
-using Models.Ad.Entities;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace DbContexts
+namespace DbContexts.Ad
 {
     //https://github.com/damienbod/AspNetCoreMultipleProject/blob/master/src/DataAccessMsSqlServerProvider/DomainModelMsSqlServerContext.cs
     //http://www.entityframeworktutorial.net/code-first/configure-one-to-one-relationship-in-code-first.aspx
@@ -24,7 +22,7 @@ namespace DbContexts
             return new AdDbContext(new DbContextOptionsBuilder<AdDbContext>().UseSqlServer(connection).Options);
         }
 
-        public DbSet<Ad> Ads { get; set; }
+        public DbSet<Models.Ad.Entities.Ad> Ads { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

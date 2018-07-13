@@ -7,9 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Google;
 using File;
-using DbContexts;
+using DbContexts.Ad;
 using Services.Ad;
 using Services;
+using Repository;
+using Models.Ad.Entities;
 //https://github.com/dotnet-architecture/eShopOnWeb
 //https://github.com/aspnet/Docs/blob/master/aspnetcore/test/integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs
 //https://github.com/dotnet-presentations/home/tree/master/ASP.NET%20Core/ASP.NET%20Core%20-%20What-s%20New
@@ -29,9 +31,8 @@ namespace Ad
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            //services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
-            //services.AddUnitOfWork<AdDbContext>();
 
             services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AdAutoMapperProfile()); }).CreateMapper());
 
@@ -39,6 +40,7 @@ namespace Ad
             services.AddScoped<IFileRead, FileRead>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
+            services.AddScoped<IRepository<Models.Ad.Entities.Ad, AdDbContext>, Repository<Models.Ad.Entities.Ad, AdDbContext>>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             #region Swagger

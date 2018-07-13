@@ -1,6 +1,6 @@
 ﻿using Google;
 using File;
-using DbContexts;
+using DbContexts.Article;
 using Repository;
 using Models.Article.Entities;
 using Models.Article.Dtos;

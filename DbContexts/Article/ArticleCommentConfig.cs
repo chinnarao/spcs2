@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Models.Article.Entities;
 
-namespace DbContexts.ArticleConfigurations
+namespace DbContexts.Article
 {
     public class ArticleCommentConfig : IEntityTypeConfiguration<ArticleComment>
     {

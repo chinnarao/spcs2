@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
-using DbContexts;
+using DbContexts.Article;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

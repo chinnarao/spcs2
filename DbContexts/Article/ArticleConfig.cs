@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Models.Article.Entities;
 
-namespace DbContexts.ArticleConfigurations
+namespace DbContexts.Article
 {
-    public class ArticleConfig : IEntityTypeConfiguration<Article>
+    public class ArticleConfig : IEntityTypeConfiguration<Models.Article.Entities.Article>
     {
-        public void Configure(EntityTypeBuilder<Article> e)
+        public void Configure(EntityTypeBuilder<Models.Article.Entities.Article> e)
         {
             e.ToTable("Article");
             e.Property(p => p.ArticleId).ValueGeneratedNever();

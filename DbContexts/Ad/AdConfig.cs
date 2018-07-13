@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Models.Ad.Entities;
 
-namespace DbContexts.AdConfigurations
+namespace DbContexts.Ad
 {
     //https://www.learnentityframeworkcore.com/configuration/fluent-api
-    public class AdConfig : IEntityTypeConfiguration<Ad>
+    public class AdConfig : IEntityTypeConfiguration<Models.Ad.Entities.Ad>
     {
-        public void Configure(EntityTypeBuilder<Ad> e)
+        public void Configure(EntityTypeBuilder<Models.Ad.Entities.Ad> e)
         {
             e.ToTable("Ad");
             e.Property(p => p.AdId).ValueGeneratedNever();  //ForSqlServerUseSequenceHiLo    //UseSqlServerIdentityColumn()
