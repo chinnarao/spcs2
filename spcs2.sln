@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelpFiles", "HelpFiles", "{
 		HelpFiles\FluentApi.txt = HelpFiles\FluentApi.txt
 		HelpFiles\FutureImplementations.txt = HelpFiles\FutureImplementations.txt
 		HelpFiles\HostGitAzure.txt = HelpFiles\HostGitAzure.txt
+		HelpFiles\Interview.txt = HelpFiles\Interview.txt
 		HelpFiles\SqlOperationsStudio.txt = HelpFiles\SqlOperationsStudio.txt
 	EndProjectSection
 EndProject
