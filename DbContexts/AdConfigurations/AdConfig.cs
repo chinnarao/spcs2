@@ -11,38 +11,46 @@ namespace DbContexts.AdConfigurations
         {
             e.ToTable("Ad");
             e.Property(p => p.AdId).ValueGeneratedNever();  //ForSqlServerUseSequenceHiLo    //UseSqlServerIdentityColumn()
-            e.Property(p => p.ActiveDays).IsRequired().HasDefaultValue(7);
-            e.Property(p => p.AdAddressAtPublicSecurityNearLandmarkName).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.AdAddressCity).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.AdAddressDistrictOrCounty).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.AdAddressState).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.AdAddressStreet).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.AdBody);
-            e.Property(p => p.AdCountryCode).IsUnicode(false).HasMaxLength(2);
-            e.Property(p => p.AdCountryCurrencyISO_4217).IsUnicode(false).HasMaxLength(3);
-            e.Property(p => p.AdCountryName).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.AdDescription).IsUnicode(false).HasMaxLength(500);
-            e.Property(p => p.AdItemsCost);
-            e.Property(p => p.AdItemsCostInCurrencyName).IsUnicode(false).HasMaxLength(50);
-            e.Property(p => p.AdLatitude).IsRequired();
-            e.Property(p => p.AdLongitude).IsRequired();
             e.Property(p => p.AdTitle).IsRequired().IsUnicode(false).HasMaxLength(500);
-            e.Property(p => p.AdZipCode).IsRequired().IsUnicode(false).HasMaxLength(16);
-            e.Property(p => p.ArchivedDateTime).HasColumnType("datetime2(7)");
+            e.Property(p => p.AdContent).IsRequired().IsUnicode(false);
+            e.Property(p => p.AdDisplayDays).IsRequired().HasDefaultValue(7);
+
+            e.Property(p => p.UserIdOrEmail).IsRequired().IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.UserPhoneNumber).IsUnicode(false).HasMaxLength(15);
+            e.Property(p => p.UserSocialAvatarUrl).IsUnicode(false);
+            e.Property(p => p.UserLoggedInSocialProviderName).IsUnicode(false).HasMaxLength(32);   //facebook or local
+
+            e.Property(p => p.AddressStreet).IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.AddressCity).IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.AddressDistrictOrCounty).IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.AddressState).IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.AddressPartiesMeetingLandmarkName).IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.AddressZipCode).IsUnicode(false).HasMaxLength(16);
+            e.Property(p => p.AdressCountryCode).IsUnicode(false).HasMaxLength(2);
+            e.Property(p => p.AddressCountryName).IsUnicode(false).HasMaxLength(100);
+            e.Property(p => p.AddressLatitude);
+            e.Property(p => p.AddressLongitude);
+
+            e.Property(p => p.ItemCost);
+            e.Property(p => p.ItemCostCurrencyName).IsUnicode(false).HasMaxLength(50);
+            e.Property(p => p.ItmeCurrencyISO_4217).IsUnicode(false).HasMaxLength(3);
+
             e.Property(p => p.AttachedAssetsInCloudCount);
-            e.Property(p => p.AttachedAssetsInCloudStorageId).IsRequired();
+            e.Property(p => p.AttachedAssetsInCloudStorageId);
             e.Property(p => p.AttachedAssetsStoredInCloudBaseFolderPath).IsUnicode(false);
+            
             e.Property(p => p.CreatedDateTime).IsRequired().HasColumnType("datetime2(7)"); // conflict : sqlite and sql server.HasDefaultValueSql("date('now')"); //"getdate()"  or "(SYSDATETIME())"  or GetUtcDate(), [[ worked succes with this date('now'), the reason, this sql lite fn, testinf purpose]]
-            e.Property(p => p.DeletedDateTime);
+            e.Property(p => p.UpdatedDateTime).IsRequired(); //.HasDefaultValueSql("date('now')");
+            e.Property(p => p.IsDeleted);
+            e.Property(p => p.DeletedDateTime).HasColumnType("datetime2(7)");
+            e.Property(p => p.IsPublished).IsRequired().HasDefaultValue<bool>(false);
+            e.Property(p => p.LastDraftOrBeforePublishedDateTime).HasColumnType("datetime2(7)");
+            e.Property(p => p.LastPublishedDateTime).HasColumnType("datetime2(7)");
             e.Property(p => p.IsActive).IsRequired().HasDefaultValue<bool>(false);
-            e.Property(p => p.IsAdInDraftMode).IsRequired().HasDefaultValue<bool>(false);
-            e.Property(p => p.IsArchived).IsRequired().HasDefaultValue<bool>(false);
-            e.Property(p => p.IsDeleted).IsRequired().HasDefaultValue<bool>(false);
+            e.Property(p => p.LastActiveDateTime).HasColumnType("datetime2(7)");
+            e.Property(p => p.LastInActiveDateTime).HasColumnType("datetime2(7)");
 
             e.Property(p => p.Tag1).IsUnicode(false).HasMaxLength(32);
-            e.Property(p => p.Tag10).IsUnicode(false).HasMaxLength(32);
-            e.Property(p => p.Tag11).IsUnicode(false).HasMaxLength(32);
-            e.Property(p => p.Tag12).IsUnicode(false).HasMaxLength(32);
             e.Property(p => p.Tag2).IsUnicode(false).HasMaxLength(32);
             e.Property(p => p.Tag3).IsUnicode(false).HasMaxLength(32);
             e.Property(p => p.Tag4).IsUnicode(false).HasMaxLength(32);
@@ -51,14 +59,6 @@ namespace DbContexts.AdConfigurations
             e.Property(p => p.Tag7).IsUnicode(false).HasMaxLength(32);
             e.Property(p => p.Tag8).IsUnicode(false).HasMaxLength(32);
             e.Property(p => p.Tag9).IsUnicode(false).HasMaxLength(32);
-
-            e.Property(p => p.UpdatedDateTime).IsRequired(); //.HasDefaultValueSql("date('now')");
-            e.Property(p => p.UserEmail).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.UserId).IsRequired().IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.UserLoggedInSocialProviderName).IsUnicode(false).HasMaxLength(32);   //facebook or local
-            e.Property(p => p.UserName).IsUnicode(false).HasMaxLength(100);
-            e.Property(p => p.UserPhoneNumber).IsUnicode(false).HasMaxLength(15); 
-            e.Property(p => p.UserSocialAvatarUrl).IsUnicode(false);
         }
     }
 }

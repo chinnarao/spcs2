@@ -23,74 +23,58 @@ namespace DbContexts.AdMigration.Migrations
                 {
                     b.Property<long>("AdId");
 
-                    b.Property<int>("ActiveDays")
+                    b.Property<string>("AdContent")
+                        .IsRequired()
+                        .IsUnicode(false);
+
+                    b.Property<int>("AdDisplayDays")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(7);
-
-                    b.Property<string>("AdAddressAtPublicSecurityNearLandmarkName")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdAddressCity")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdAddressDistrictOrCounty")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdAddressState")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdAddressStreet")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdBody");
-
-                    b.Property<string>("AdCountryCode")
-                        .HasMaxLength(2)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdCountryCurrencyISO_4217")
-                        .HasMaxLength(3)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdCountryName")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdDescription")
-                        .HasMaxLength(500)
-                        .IsUnicode(false);
-
-                    b.Property<double?>("AdItemsCost");
-
-                    b.Property<string>("AdItemsCostInCurrencyName")
-                        .HasMaxLength(50)
-                        .IsUnicode(false);
-
-                    b.Property<double>("AdLatitude");
-
-                    b.Property<double>("AdLongitude");
 
                     b.Property<string>("AdTitle")
                         .IsRequired()
                         .HasMaxLength(500)
                         .IsUnicode(false);
 
-                    b.Property<string>("AdZipCode")
-                        .IsRequired()
+                    b.Property<string>("AddressCity")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("AddressCountryName")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("AddressDistrictOrCounty")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<double>("AddressLatitude");
+
+                    b.Property<double>("AddressLongitude");
+
+                    b.Property<string>("AddressPartiesMeetingLandmarkName")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("AddressState")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("AddressStreet")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("AddressZipCode")
                         .HasMaxLength(16)
                         .IsUnicode(false);
 
-                    b.Property<DateTime?>("ArchivedDateTime")
-                        .HasColumnType("datetime2(7)");
+                    b.Property<string>("AdressCountryCode")
+                        .HasMaxLength(2)
+                        .IsUnicode(false);
 
                     b.Property<int?>("AttachedAssetsInCloudCount");
 
-                    b.Property<Guid>("AttachedAssetsInCloudStorageId");
+                    b.Property<Guid?>("AttachedAssetsInCloudStorageId");
 
                     b.Property<string>("AttachedAssetsStoredInCloudBaseFolderPath")
                         .IsUnicode(false);
@@ -98,37 +82,42 @@ namespace DbContexts.AdMigration.Migrations
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2(7)");
 
-                    b.Property<DateTime?>("DeletedDateTime");
+                    b.Property<DateTime?>("DeletedDateTime")
+                        .HasColumnType("datetime2(7)");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
-                    b.Property<bool>("IsAdInDraftMode")
+                    b.Property<bool?>("IsDeleted");
+
+                    b.Property<bool>("IsPublished")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
-                    b.Property<bool>("IsArchived")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
+                    b.Property<double?>("ItemCost");
 
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
+                    b.Property<string>("ItemCostCurrencyName")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.Property<string>("ItmeCurrencyISO_4217")
+                        .HasMaxLength(3)
+                        .IsUnicode(false);
+
+                    b.Property<DateTime?>("LastActiveDateTime")
+                        .HasColumnType("datetime2(7)");
+
+                    b.Property<DateTime?>("LastDraftOrBeforePublishedDateTime")
+                        .HasColumnType("datetime2(7)");
+
+                    b.Property<DateTime?>("LastInActiveDateTime")
+                        .HasColumnType("datetime2(7)");
+
+                    b.Property<DateTime?>("LastPublishedDateTime")
+                        .HasColumnType("datetime2(7)");
 
                     b.Property<string>("Tag1")
-                        .HasMaxLength(32)
-                        .IsUnicode(false);
-
-                    b.Property<string>("Tag10")
-                        .HasMaxLength(32)
-                        .IsUnicode(false);
-
-                    b.Property<string>("Tag11")
-                        .HasMaxLength(32)
-                        .IsUnicode(false);
-
-                    b.Property<string>("Tag12")
                         .HasMaxLength(32)
                         .IsUnicode(false);
 
@@ -166,21 +155,13 @@ namespace DbContexts.AdMigration.Migrations
 
                     b.Property<DateTime>("UpdatedDateTime");
 
-                    b.Property<string>("UserEmail")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("UserId")
+                    b.Property<string>("UserIdOrEmail")
                         .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("UserLoggedInSocialProviderName")
                         .HasMaxLength(32)
-                        .IsUnicode(false);
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(100)
                         .IsUnicode(false);
 
                     b.Property<string>("UserPhoneNumber")

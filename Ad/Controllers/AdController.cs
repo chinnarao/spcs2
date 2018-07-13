@@ -24,7 +24,7 @@ namespace Ad.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostAd([FromBody]AdDto model)
+        public IActionResult CreateAd([FromBody]AdDto model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -46,16 +46,16 @@ namespace Ad.Controllers
             fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
             fileModel.GoogleStorageBucketName = googleStorageBucketName;
             fileModel.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;
-            fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", model.AttachedAssetsInCloudStorageId.ToString("N"), Path.GetExtension(htmlFileName));
+            fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", model.AttachedAssetsInCloudStorageId?.ToString("N"), Path.GetExtension(htmlFileName));
             fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
             fileModel.AnonymousDataObjectForHtmlTemplate = model.AdDtoAsAnonymous;
 
-            _adService.StartAdProcess(model);
-            return Ok(model);
+            AdDto dto = _adService.CreateAd(model);
+            return Ok(dto);
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult SearchAds()
         {
             return Ok( new { Name = "Chinna", Email = "chinnarao@live.com" });
         }

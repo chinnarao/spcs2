@@ -81,7 +81,7 @@ namespace Services.Article
 
         public dynamic SearchArticles(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options)
         {
-            var articleDtos = _articleRepository.Entities.AsNoTracking()
+            var articleDtos = _articleRepository.Entities.Where( w => w.IsPublished && w.IsActive).AsNoTracking()
                             .Select(s => new ArticleDto() { ArticleId = s.ArticleId,
                                 Title = s.Title,
                                 UpdatedDateTimeString = s.UpdatedDateTime.TimeAgo(),

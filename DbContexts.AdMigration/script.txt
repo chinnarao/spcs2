@@ -1,0 +1,63 @@
+﻿USE [Ad]
+GO
+/****** Object:  Table [dbo].[Ad]    Script Date: 7/13/2018 2:17:14 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ad](
+	[AdId] [bigint] NOT NULL,
+	[AdTitle] [varchar](500) NOT NULL,
+	[AdContent] [varchar](max) NOT NULL,
+	[AdDisplayDays] [int] NOT NULL,
+	[UserIdOrEmail] [varchar](100) NOT NULL,
+	[UserPhoneNumber] [varchar](15) NULL,
+	[UserSocialAvatarUrl] [varchar](max) NULL,
+	[UserLoggedInSocialProviderName] [varchar](32) NULL,
+	[AddressStreet] [varchar](100) NULL,
+	[AddressCity] [varchar](100) NULL,
+	[AddressDistrictOrCounty] [varchar](100) NULL,
+	[AddressState] [varchar](100) NULL,
+	[AddressPartiesMeetingLandmarkName] [varchar](100) NULL,
+	[AddressZipCode] [varchar](16) NULL,
+	[AdressCountryCode] [varchar](2) NULL,
+	[AddressCountryName] [varchar](100) NULL,
+	[AddressLatitude] [float] NOT NULL,
+	[AddressLongitude] [float] NOT NULL,
+	[ItemCost] [float] NULL,
+	[ItemCostCurrencyName] [varchar](50) NULL,
+	[ItmeCurrencyISO_4217] [varchar](3) NULL,
+	[AttachedAssetsInCloudCount] [int] NULL,
+	[AttachedAssetsInCloudStorageId] [uniqueidentifier] NULL,
+	[AttachedAssetsStoredInCloudBaseFolderPath] [varchar](max) NULL,
+	[CreatedDateTime] [datetime2](7) NOT NULL,
+	[UpdatedDateTime] [datetime2](7) NOT NULL,
+	[IsDeleted] [bit] NULL,
+	[DeletedDateTime] [datetime2](7) NULL,
+	[IsPublished] [bit] NOT NULL,
+	[LastDraftOrBeforePublishedDateTime] [datetime2](7) NULL,
+	[LastPublishedDateTime] [datetime2](7) NULL,
+	[IsActive] [bit] NOT NULL,
+	[LastActiveDateTime] [datetime2](7) NULL,
+	[LastInActiveDateTime] [datetime2](7) NULL,
+	[Tag1] [varchar](32) NULL,
+	[Tag2] [varchar](32) NULL,
+	[Tag3] [varchar](32) NULL,
+	[Tag4] [varchar](32) NULL,
+	[Tag5] [varchar](32) NULL,
+	[Tag6] [varchar](32) NULL,
+	[Tag7] [varchar](32) NULL,
+	[Tag8] [varchar](32) NULL,
+	[Tag9] [varchar](32) NULL,
+ CONSTRAINT [PK_Ad] PRIMARY KEY CLUSTERED 
+(
+	[AdId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Ad] ADD  DEFAULT ((7)) FOR [AdDisplayDays]
+GO
+ALTER TABLE [dbo].[Ad] ADD  DEFAULT ((0)) FOR [IsPublished]
+GO
+ALTER TABLE [dbo].[Ad] ADD  DEFAULT ((0)) FOR [IsActive]
+GO

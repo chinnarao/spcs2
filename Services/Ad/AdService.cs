@@ -30,14 +30,15 @@ namespace Services.Ad
             _googleStorage = googleStorage;
             _context = new Repository<Models.Ad.Entities.Ad, AdDbContext>(context);
         }
-
-        public void StartAdProcess(AdDto dto)
+        
+        #region CreateAd
+        public AdDto CreateAd(AdDto dto)
         {
             // transaction has to implement or not , has to think more required.
             Models.Ad.Entities.Ad ad = this.InsertAd(dto);
             this.UploadObjectInGoogleStorage(dto.GoogleStorageAdFileDto);
+            return dto;
         }
-
         private Models.Ad.Entities.Ad InsertAd(AdDto dto)
         {
             Models.Ad.Entities.Ad ad = _mapper.Map<Models.Ad.Entities.Ad>(dto);
@@ -45,7 +46,6 @@ namespace Services.Ad
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
             return ad;
         }
-
         private void UploadObjectInGoogleStorage(GoogleStorageAdFileDto model)
         {
             string content = _cacheService.Get<string>(model.CACHE_KEY);
@@ -62,10 +62,11 @@ namespace Services.Ad
             if (stream == null || stream.Length <= 0) throw new Exception(nameof(stream));
             _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.GoogleStorageObjectNameWithExt, model.ContentType);
         }
+        #endregion
     }
 
     public interface IAdService
     {
-        void StartAdProcess(AdDto dto);
+        AdDto CreateAd(AdDto dto);
     }
 }
