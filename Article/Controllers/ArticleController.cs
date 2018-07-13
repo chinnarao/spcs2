@@ -34,13 +34,13 @@ namespace Article.Controllers
         [HttpPost]
         public IActionResult SearchArticles([FromBody] ArticleSortFilterPageOptions options)
         {
-            int defaultArticlesHomeDisplay = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
-            if (defaultArticlesHomeDisplay <= 0) throw new ArgumentOutOfRangeException(nameof(defaultArticlesHomeDisplay));
+            int defaultPageSize = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
+            if (defaultPageSize <= 0) throw new ArgumentOutOfRangeException(nameof(defaultPageSize));
 
-            options.DefaultPageSize = defaultArticlesHomeDisplay;
+            options.DefaultPageSize = defaultPageSize;
             options.PageNumber = 1;
 
-            var anonymous = _articleService.SearchArticles(defaultArticlesHomeDisplay, options);
+            var anonymous = _articleService.SearchArticles(options);
             return Ok(anonymous);
         }
 

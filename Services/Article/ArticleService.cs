@@ -79,7 +79,7 @@ namespace Services.Article
         }
         #endregion
 
-        public dynamic SearchArticles(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options)
+        public dynamic SearchArticles(ArticleSortFilterPageOptions options)
         {
             var articleDtos = _articleRepository.Entities.Where( w => w.IsPublished && w.IsActive).AsNoTracking()
                             .Select(s => new ArticleDto() { ArticleId = s.ArticleId,
@@ -89,7 +89,7 @@ namespace Services.Article
                                 AllRelatedSubjectsIncludesVersionsWithComma = s.AllRelatedSubjectsIncludesVersionsWithComma })
                             .OrderByDescending(a => a.CreatedDateTime)
                             .OrderByDescending(a => a.UpdatedDateTime)
-                            .Take(defaultArticlesHomeDisplay).ToList();
+                            .Take(options.DefaultPageSize).ToList();
             options.SetupRestOfDto(articleDtos.Count);
             return new { articles = articleDtos, option = options };
         }
@@ -145,7 +145,7 @@ namespace Services.Article
     public interface IArticleService
     {
         ArticleDto CreateArticle(ArticleDto dto);
-        dynamic SearchArticles(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options);
+        dynamic SearchArticles(ArticleSortFilterPageOptions options);
         dynamic GetArticleLicenseCommentsCommits(long articleId);
         ArticleDto GetArticleDetail(long articleId);
         ArticleCommentDto CreateComment(ArticleCommentDto articleCommentDto);

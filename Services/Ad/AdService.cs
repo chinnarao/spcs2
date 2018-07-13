@@ -67,7 +67,7 @@ namespace Services.Ad
         }
         #endregion
 
-        public dynamic SearchAds(int defaultAdsHomeDisplay, AdSortFilterPageOptions options)
+        public dynamic SearchAds(AdSortFilterPageOptions options)
         {
             var adDtos = _adRepository.Entities.Where(w => w.IsPublished && w.IsActive).AsNoTracking()
                             .Select(s => new AdDto()
@@ -79,14 +79,14 @@ namespace Services.Ad
                             })
                             .OrderByDescending(a => a.CreatedDateTime)
                             .OrderByDescending(a => a.UpdatedDateTime)
-                            .Take(defaultAdsHomeDisplay).ToList();
+                            .Take(options.DefaultPageSize).ToList();
             options.SetupRestOfDto(adDtos.Count);
             return new { articles = adDtos, option = options };
         }
 
         public AdDto GetAdDetail(long adId)
         {
-            var ad = _adRepository.Entities.AsNoTracking().First(i => i.AdId == adId);
+            var ad = _adRepository.Entities.AsNoTracking().Single(i => i.AdId == adId);
             AdDto articleDto = _mapper.Map<AdDto>(ad);
             return articleDto;
         }
@@ -115,7 +115,7 @@ namespace Services.Ad
     public interface IAdService
     {
         AdDto CreateAd(AdDto adDto);
-        dynamic SearchAds(int defaultAdsHomeDisplay, AdSortFilterPageOptions options);
+        dynamic SearchAds(AdSortFilterPageOptions options);
         AdDto GetAdDetail(long adId);
         AdDto UpdateAd(AdDto adDto);
         HashSet<string> GetAllUniqueTags();

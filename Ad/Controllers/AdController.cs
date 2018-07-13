@@ -58,13 +58,13 @@ namespace Ad.Controllers
         [HttpPost]
         public IActionResult SearchAds([FromBody] AdSortFilterPageOptions options)
         {
-            int defaultArticlesHomeDisplay = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
-            if (defaultArticlesHomeDisplay <= 0) throw new ArgumentOutOfRangeException(nameof(defaultArticlesHomeDisplay));
+            int defaultPageSize = Convert.ToInt32(_configuration["DefaultAdsHomeDisplay"]);
+            if (defaultPageSize <= 0) throw new ArgumentOutOfRangeException(nameof(defaultPageSize));
 
-            options.DefaultPageSize = defaultArticlesHomeDisplay;
+            options.DefaultPageSize = defaultPageSize;
             options.PageNumber = 1;
 
-            var anonymous = _adService.SearchAds(defaultArticlesHomeDisplay, options);
+            var anonymous = _adService.SearchAds(options);
             return Ok(anonymous);
         }
 
