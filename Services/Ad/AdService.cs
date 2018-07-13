@@ -94,7 +94,7 @@ namespace Services.Ad
                             .OrderByDescending(a => a.UpdatedDateTime)
                             .Take(options.DefaultPageSize).ToList();
             options.SetupRestOfDto(adDtos.Count);
-            return new { articles = adDtos, option = options };
+            return new { ads = adDtos, option = options };
         }
 
         public AdDto GetAdDetail(long adId)
