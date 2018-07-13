@@ -55,5 +55,23 @@ public class Utility
     {
         return (T)from;
     }
+
+    //10 million didn’t create a duplicate
+    public static string GenerateStringId()
+    {
+        long i = 1;
+        foreach (byte b in Guid.NewGuid().ToByteArray())
+        {
+            i *= ((int)b + 1);
+        }
+        return string.Format("{0:x}", i - DateTime.Now.Ticks);
+    }
+
+    //https://madskristensen.net/blog/generate-unique-strings-and-numbers-in-c/
+    public static long GenerateLongId()
+    {
+        byte[] buffer = Guid.NewGuid().ToByteArray();
+        return BitConverter.ToInt64(buffer, 0);
+    }
 }
 

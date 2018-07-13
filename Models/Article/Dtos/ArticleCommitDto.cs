@@ -9,8 +9,7 @@ namespace Models.Article.Dtos
     {
         public long ArticleCommitId { get; set; }
         public string Commit { get; set; }
-        [Required]
-        public DateTime CommittedDate { get; set; }
+        public DateTime? CommittedDate { get; set; }
         [Required]
         public string UserIdOrEmail { get; set; }
         public string UserSocialAvatarUrl { get; set; }

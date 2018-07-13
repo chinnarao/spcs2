@@ -45,7 +45,6 @@ namespace DbContexts.ArticleConfigurations
             e.Property(x => x.UpdatedDateTime).IsRequired().HasColumnType("datetime2(7)");
             e.Property(x => x.UserIdOrEmail).IsRequired().IsUnicode(false).HasMaxLength(100);
             e.Property(x => x.UserLoggedInSocialProviderName).IsUnicode(false).HasMaxLength(32);
-            e.Property(x => x.UserName).IsUnicode(false).HasMaxLength(100);
             e.Property(x => x.UserPhoneNumber).IsUnicode(false).HasMaxLength(15);
             e.Property(x => x.UserSocialAvatarUrl).IsUnicode(false);
         }

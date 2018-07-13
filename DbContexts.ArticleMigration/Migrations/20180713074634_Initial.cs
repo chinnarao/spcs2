@@ -14,11 +14,8 @@ namespace DbContexts.ArticleMigration.Migrations
                     ArticleId = table.Column<long>(nullable: false),
                     Title = table.Column<string>(unicode: false, nullable: false),
                     Content = table.Column<string>(nullable: false),
-                    CreatedDateTime = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
-                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
                     UserIdOrEmail = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
                     UserLoggedInSocialProviderName = table.Column<string>(unicode: false, maxLength: 32, nullable: true),
-                    UserName = table.Column<string>(unicode: false, maxLength: 100, nullable: true),
                     UserPhoneNumber = table.Column<string>(unicode: false, maxLength: 15, nullable: true),
                     UserSocialAvatarUrl = table.Column<string>(unicode: false, nullable: true),
                     BiodataUrl = table.Column<string>(unicode: false, nullable: true),
@@ -37,6 +34,8 @@ namespace DbContexts.ArticleMigration.Migrations
                     TotalVotes = table.Column<int>(nullable: true),
                     TotalVotedPersonsCount = table.Column<int>(nullable: true),
                     ArticleAverageVotes = table.Column<double>(nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
                     Tag1 = table.Column<string>(unicode: false, maxLength: 32, nullable: true),
                     Tag2 = table.Column<string>(unicode: false, maxLength: 32, nullable: true),
                     Tag3 = table.Column<string>(unicode: false, maxLength: 32, nullable: true),
@@ -84,7 +83,7 @@ namespace DbContexts.ArticleMigration.Migrations
                 {
                     ArticleCommitId = table.Column<long>(nullable: false),
                     ArticleId = table.Column<long>(nullable: false),
-                    CommittedDate = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
+                    CommittedDate = table.Column<DateTime>(type: "datetime2(7)", nullable: true),
                     UserIdOrEmail = table.Column<string>(unicode: false, maxLength: 100, nullable: false),
                     UserSocialAvatarUrl = table.Column<string>(unicode: false, nullable: true),
                     IsAdminCommited = table.Column<bool>(nullable: true),
@@ -108,7 +107,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     ArticleLicenseId = table.Column<long>(nullable: false),
                     ArticleId = table.Column<long>(nullable: false),
                     License = table.Column<string>(unicode: false, nullable: true),
-                    LicensedDate = table.Column<DateTime>(type: "datetime2(7)", nullable: false)
+                    LicensedDate = table.Column<DateTime>(type: "datetime2(7)", nullable: true)
                 },
                 constraints: table =>
                 {

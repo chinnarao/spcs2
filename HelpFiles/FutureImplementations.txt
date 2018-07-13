@@ -23,7 +23,7 @@ client browser time zone:
 https://weblog.west-wind.com/posts/2015/Feb/10/Back-to-Basics-UTC-and-TimeZones-in-NET-Web-Apps#Thinking-about-Time-in-.NET-Web-Apps
 https://everytimezone.com/
 ==========================================================================================
-
+unique ness : https://madskristensen.net/blog/generate-unique-strings-and-numbers-in-c/
 ==========================================================================================
 
 ==========================================================================================

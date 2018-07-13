@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.ArticleMigration.Migrations
 {
     [DbContext(typeof(ArticleDbContext))]
-    [Migration("20180713025155_Initial")]
+    [Migration("20180713074634_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -143,10 +143,6 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasMaxLength(32)
                         .IsUnicode(false);
 
-                    b.Property<string>("UserName")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
                     b.Property<string>("UserPhoneNumber")
                         .HasMaxLength(15)
                         .IsUnicode(false);
@@ -198,7 +194,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<string>("Commit")
                         .IsUnicode(false);
 
-                    b.Property<DateTime>("CommittedDate")
+                    b.Property<DateTime?>("CommittedDate")
                         .HasColumnType("datetime2(7)");
 
                     b.Property<bool?>("IsAdminCommited");
@@ -227,7 +223,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<string>("License")
                         .IsUnicode(false);
 
-                    b.Property<DateTime>("LicensedDate")
+                    b.Property<DateTime?>("LicensedDate")
                         .HasColumnType("datetime2(7)");
 
                     b.HasKey("ArticleLicenseId");

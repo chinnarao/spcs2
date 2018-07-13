@@ -12,13 +12,8 @@ namespace Models.Article.Dtos
         [Required]
         public string Content { get; set; }     // navachar, article content , which is a big information
         [Required]
-        public DateTime CreatedDateTime { get; set; }
-        [Required]
-        public DateTime UpdatedDateTime { get; set; }
-        [Required]
         public string UserIdOrEmail { get; set; }
         public string UserLoggedInSocialProviderName { get; set; }
-        public string UserName { get; set; }
         public string UserPhoneNumber { get; set; }
         public string UserSocialAvatarUrl { get; set; }
         public string BiodataUrl { get; set; } // user can provide his resume or profile url
@@ -38,6 +33,11 @@ namespace Models.Article.Dtos
         public int? TotalVotes { get; set; }                   // article how many votes got from readers
         public int? TotalVotedPersonsCount { get; set; }
         public double? ArticleAverageVotes { get; set; }
+
+        [Required]
+        public DateTime CreatedDateTime { get; set; }
+        [Required]
+        public DateTime UpdatedDateTime { get; set; }
 
         public string Tag1 { get; set; }
         public string Tag2 { get; set; }

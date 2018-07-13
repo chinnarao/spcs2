@@ -8,9 +8,7 @@ namespace DbContexts
     //https://github.com/damienbod/AspNetCoreMultipleProject/blob/master/src/DataAccessMsSqlServerProvider/DomainModelMsSqlServerContext.cs
     public class ArticleDbContext : DbContext
     {
-        public ArticleDbContext(DbContextOptions<ArticleDbContext> options) : base(options)
-        {
-        }
+        public ArticleDbContext(DbContextOptions<ArticleDbContext> options) : base(options){}
 
         /// <summary>
         /// this method will be called by DbContexts.ArticleMigration Project, for first time db creation purpose
@@ -24,16 +22,10 @@ namespace DbContexts
         }
 
         public DbSet<Article> Articles { get; set; }
-        //public DbSet<ArticleJson> ArticleJsons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Article>()
-            //.HasOne(p => p.ArticleJson)
-            //.WithOne(b => b.Article);
-
             modelBuilder.ApplyConfiguration(new ArticleConfig());
-            //modelBuilder.ApplyConfiguration(new ArticleJsonConfig());
             modelBuilder.ApplyConfiguration(new ArticleLicenseConfig());
             modelBuilder.ApplyConfiguration(new ArticleCommentConfig());
             modelBuilder.ApplyConfiguration(new ArticleCommitConfig());

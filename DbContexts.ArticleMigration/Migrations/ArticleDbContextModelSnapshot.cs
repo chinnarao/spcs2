@@ -141,10 +141,6 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasMaxLength(32)
                         .IsUnicode(false);
 
-                    b.Property<string>("UserName")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
                     b.Property<string>("UserPhoneNumber")
                         .HasMaxLength(15)
                         .IsUnicode(false);
@@ -196,7 +192,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<string>("Commit")
                         .IsUnicode(false);
 
-                    b.Property<DateTime>("CommittedDate")
+                    b.Property<DateTime?>("CommittedDate")
                         .HasColumnType("datetime2(7)");
 
                     b.Property<bool?>("IsAdminCommited");
@@ -225,7 +221,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<string>("License")
                         .IsUnicode(false);
 
-                    b.Property<DateTime>("LicensedDate")
+                    b.Property<DateTime?>("LicensedDate")
                         .HasColumnType("datetime2(7)");
 
                     b.HasKey("ArticleLicenseId");

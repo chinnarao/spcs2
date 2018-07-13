@@ -12,7 +12,7 @@ namespace DbContexts.ArticleConfigurations
             e.Property(p => p.ArticleLicenseId).ValueGeneratedNever();
             e.Property(p => p.ArticleId).IsRequired();
             e.Property(p => p.License).IsUnicode(false);
-            e.Property(p => p.LicensedDate).IsRequired().HasColumnType("datetime2(7)");
+            e.Property(p => p.LicensedDate).HasColumnType("datetime2(7)");
         }
     }
 }

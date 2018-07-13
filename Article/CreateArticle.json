@@ -48,10 +48,8 @@
   },
   "articleLicenseDto": {
     "articleLicenseId": 0,
-    "license": "this is license info, like MIT",
+    "license": "string",
     "licensedDate": "2018-07-12T05:18:53.512Z",
     "articleId": 0
-  },
-  "articleCommitDtos": null,
-  "articleCommentDtos": null
+  }
 }

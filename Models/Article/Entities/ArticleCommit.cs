@@ -10,8 +10,7 @@ namespace Models.Article.Entities
         public long ArticleCommitId { get; set; }
         [Required]
         public long ArticleId { get; set; }
-        [Required]
-        public DateTime CommittedDate { get; set; }
+        public DateTime? CommittedDate { get; set; }
         [Required]
         public string UserIdOrEmail { get; set; }
         public string UserSocialAvatarUrl { get; set; }

@@ -1,19 +1,19 @@
-﻿using System;
-using System.IO;
-using Google;
+﻿using Google;
 using File;
-using AutoMapper;
-using Models.Article.Entities;
-using Repository;
 using DbContexts;
-using Microsoft.Extensions.Logging;
+using Repository;
+using Models.Article.Entities;
 using Models.Article.Dtos;
+using Share.Extensions;
+
+using System;
+using System.IO;
+using AutoMapper;
+using Microsoft.Extensions.Logging;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
-using Share.Extensions;
 
 namespace Services.Article
 {
@@ -29,7 +29,7 @@ namespace Services.Article
         private readonly IRepository<ArticleComment, ArticleDbContext> _articleCommentRepository;
         private readonly IRepository<ArticleLicense, ArticleDbContext> _articleLicenseRepository;
 
-        public ArticleService(ILogger<ArticleService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, 
+        public ArticleService(ILogger<ArticleService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage,
                                 IRepository<Models.Article.Entities.Article, ArticleDbContext> articleRepository,
                                 IRepository<ArticleCommit, ArticleDbContext> articleCommitRepository,
                                 IRepository<ArticleComment, ArticleDbContext> articleCommentRepository,
@@ -45,34 +45,6 @@ namespace Services.Article
             _articleCommentRepository = articleCommentRepository;
             _articleLicenseRepository = articleLicenseRepository;
         }
-        
-        #region GetAll Method
-        public dynamic GetAll(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options)
-        {
-            var articleDtos = _articleRepository.Entities.AsNoTracking()
-                            .Select( s => new ArticleDto() { ArticleId = s.ArticleId,
-                                Title = s.Title,
-                                UpdatedDateTimeString = s.UpdatedDateTime.TimeAgo(),
-                                UserIdOrEmail = s.UserIdOrEmail,
-                                AllRelatedSubjectsIncludesVersionsWithComma = s.AllRelatedSubjectsIncludesVersionsWithComma })
-                            .OrderByDescending( a => a.CreatedDateTime)
-                            .OrderByDescending(a => a.UpdatedDateTime)
-                            .Take(defaultArticlesHomeDisplay).ToList();
-            options.SetupRestOfDto(articleDtos.Count);
-            return new { articles = articleDtos, option = options };
-        }
-        private void ConvertToArticleCommitDtos(HashSet<ArticleDto> articleDtos)
-        {
-            if (articleDtos == null)    return;
-            foreach (var articleDto in articleDtos)
-            {
-                //if (string.IsNullOrWhiteSpace(articleDto.Commits)) continue;
-                //IEnumerable<ArticleCommitDto> commits = JsonConvert.DeserializeObject<IEnumerable<ArticleCommitDto>>(articleDto.Commits);
-                //if (commits != null)
-                //    articleDto.ArticleCommitDtos = commits.OrderByDescending(c => c.Date).ToList();
-            }
-        }
-        #endregion
 
         #region CreateArticle
         public ArticleDto CreateArticle(ArticleDto dto)
@@ -84,19 +56,10 @@ namespace Services.Article
         }
         private ArticleDto InsertArticle(ArticleDto dto)
         {
-            InitArticleLicense(dto);
-            
             Models.Article.Entities.Article article = _mapper.Map<Models.Article.Entities.Article>(dto);
             RepositoryResult result = _articleRepository.Create(article);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
             return dto;
-        }
-        private void InitArticleLicense(ArticleDto dto)
-        {
-            ArticleLicenseDto articleLicenseDto = new ArticleLicenseDto() { ArticleId = dto.ArticleId, ArticleLicenseId = DateTime.UtcNow.Ticks, LicensedDate = DateTime.UtcNow };
-            if (dto.ArticleLicenseDto != null && !string.IsNullOrWhiteSpace(dto.ArticleLicenseDto.License))
-                articleLicenseDto.License = dto.ArticleLicenseDto.License;
-            dto.ArticleLicenseDto = articleLicenseDto;
         }
         private void UploadObjectInGoogleStorage(GoogleStorageArticleFileDto model)
         {
@@ -116,20 +79,35 @@ namespace Services.Article
         }
         #endregion
 
+        public dynamic SearchArticles(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options)
+        {
+            var articleDtos = _articleRepository.Entities.AsNoTracking()
+                            .Select(s => new ArticleDto() { ArticleId = s.ArticleId,
+                                Title = s.Title,
+                                UpdatedDateTimeString = s.UpdatedDateTime.TimeAgo(),
+                                UserIdOrEmail = s.UserIdOrEmail,
+                                AllRelatedSubjectsIncludesVersionsWithComma = s.AllRelatedSubjectsIncludesVersionsWithComma })
+                            .OrderByDescending(a => a.CreatedDateTime)
+                            .OrderByDescending(a => a.UpdatedDateTime)
+                            .Take(defaultArticlesHomeDisplay).ToList();
+            options.SetupRestOfDto(articleDtos.Count);
+            return new { articles = articleDtos, option = options };
+        }
+
         public dynamic GetArticleLicenseCommentsCommits(long articleId)
         {
 
-            var anonymous = _articleRepository.Entities.Where( a => a.ArticleId == articleId)
-                            .Select( s => new { License = s.ArticleLicense.License,
-                                    ArticleCommits = s.ArticleCommits.OrderByDescending(x => x.CommittedDate).ToList(),
-                                    ArticleComments = s.ArticleComments.OrderByDescending(x => x.CommentedDate)
-                                  });
+            var anonymous = _articleRepository.Entities.Where(a => a.ArticleId == articleId)
+                            .Select(s => new { License = s.ArticleLicense.License,
+                                ArticleCommits = s.ArticleCommits.OrderByDescending(x => x.CommittedDate).ToList(),
+                                ArticleComments = s.ArticleComments.OrderByDescending(x => x.CommentedDate)
+                            });
             return anonymous;
         }
 
-        public ArticleDto Detail(long articleId)
+        public ArticleDto GetArticleDetail(long articleId)
         {
-            var article = _articleRepository.Entities.Include(i => i.ArticleLicense).Include(i =>i.ArticleCommits).Include(i => i.ArticleComments).AsNoTracking().First(i => i.ArticleId == articleId);
+            var article = _articleRepository.Entities.Include(i => i.ArticleLicense).Include(i => i.ArticleCommits).Include(i => i.ArticleComments).AsNoTracking().First(i => i.ArticleId == articleId);
             ArticleDto articleDto = _mapper.Map<ArticleDto>(article);
             return articleDto;
         }
@@ -151,15 +129,27 @@ namespace Services.Article
             ArticleDto articleDtoNew = _mapper.Map<ArticleDto>(articleExisting);
             return articleDtoNew;
         }
+
+        public HashSet<string> GetAllUniqueTags()
+        {
+            List<dynamic> list = _articleRepository.Entities.Select(a => new { a.Tag1, a.Tag2, a.Tag3, a.Tag4, a.Tag5, a.Tag6, a.Tag7, a.Tag8, a.Tag9, a.Tag10, a.Tag11, a.Tag12 }).ToList<dynamic>();
+            HashSet<string> t = new HashSet<string>();
+            foreach (var i in list)
+            {
+                t.Add(i.Tag1); t.Add(i.Tag2); t.Add(i.Tag3); t.Add(i.Tag4); t.Add(i.Tag5); t.Add(i.Tag6); t.Add(i.Tag7); t.Add(i.Tag8); t.Add(i.Tag9); t.Add(i.Tag10); t.Add(i.Tag11); t.Add(i.Tag12);
+            }
+            return t;
+        }
     }
 
     public interface IArticleService
     {
         ArticleDto CreateArticle(ArticleDto dto);
-        dynamic GetAll(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options);
+        dynamic SearchArticles(int defaultArticlesHomeDisplay, ArticleSortFilterPageOptions options);
         dynamic GetArticleLicenseCommentsCommits(long articleId);
-        ArticleDto Detail(long articleId);
+        ArticleDto GetArticleDetail(long articleId);
         ArticleCommentDto CreateComment(ArticleCommentDto articleCommentDto);
         ArticleDto UpdateArticleWithCommitHistory(ArticleDto articleDto);
+        HashSet<string> GetAllUniqueTags();
     }
 }

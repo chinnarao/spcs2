@@ -9,6 +9,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Collections.Generic;
 
 //https://webapphuddle.com/design-tags-feature-in-web-apps/
 //https://www.maketecheasier.com/5-online-tools-to-create-tag-clouds/
@@ -31,7 +32,7 @@ namespace Article.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetAll([FromBody] ArticleSortFilterPageOptions options)
+        public IActionResult SearchArticles([FromBody] ArticleSortFilterPageOptions options)
         {
             int defaultArticlesHomeDisplay = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
             if (defaultArticlesHomeDisplay <= 0) throw new ArgumentOutOfRangeException(nameof(defaultArticlesHomeDisplay));
@@ -39,7 +40,7 @@ namespace Article.Controllers
             options.DefaultPageSize = defaultArticlesHomeDisplay;
             options.PageNumber = 1;
 
-            var anonymous = _articleService.GetAll(defaultArticlesHomeDisplay, options);
+            var anonymous = _articleService.SearchArticles(defaultArticlesHomeDisplay, options);
             return Ok(anonymous);
         }
 
@@ -49,10 +50,7 @@ namespace Article.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            model.ArticleCommentDtos = null;
-            model.ArticleCommitDtos = null;
-
-            model.ArticleId = DateTime.UtcNow.Ticks;
+            model.ArticleId = model.ArticleLicenseDto.ArticleId = DateTime.UtcNow.Ticks;
             model.AttachedAssetsInCloudStorageId = Guid.NewGuid();
 
             int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
@@ -70,15 +68,18 @@ namespace Article.Controllers
             fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
             fileModel.AnonymousDataObjectForHtmlTemplate = model.ArticleDtoAsAnonymous;
 
+            model.ArticleLicenseDto.ArticleLicenseId = DateTime.UtcNow.Ticks;
+            if (!string.IsNullOrWhiteSpace(model.ArticleLicenseDto.License)) model.ArticleLicenseDto.LicensedDate = DateTime.UtcNow;
+
             ArticleDto articleDto = _articleService.CreateArticle(model);
             return Ok(articleDto);
         }
 
         [HttpGet("{articleId}")]
-        public IActionResult Detail(long articleId)
+        public IActionResult GetArticleDetail(long articleId)
         {
             if (articleId <= 0) throw new ArgumentOutOfRangeException(nameof(articleId));
-            ArticleDto dto = _articleService.Detail(articleId);
+            ArticleDto dto = _articleService.GetArticleDetail(articleId);
             return Ok(dto);
         }
 
@@ -91,7 +92,7 @@ namespace Article.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostArticleComment([FromBody] ArticleCommentDto model)
+        public IActionResult CreateComment([FromBody] ArticleCommentDto model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -123,6 +124,13 @@ namespace Article.Controllers
 
             ArticleDto articleDto = _articleService.UpdateArticleWithCommitHistory(model);
             return Ok(articleDto);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllUniqueTags()
+        {
+            HashSet<string> set = _articleService.GetAllUniqueTags();
+            return Ok(set);
         }
     }
 }
