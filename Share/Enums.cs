@@ -24,3 +24,10 @@ public enum ArticlesFilterBy
     ByVotes = 1,
     ByPublicationYear = 2,
 }
+
+public enum AdsFilterBy
+{
+    NoFilter = 0,
+    ByVotes = 1,
+    ByPublicationYear = 2,
+}

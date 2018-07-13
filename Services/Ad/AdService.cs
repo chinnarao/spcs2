@@ -9,6 +9,10 @@ using DbContexts;
 using Repository;
 using Microsoft.Extensions.Logging;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Share.Extensions;
 
 namespace Services.Ad
 {
@@ -19,18 +23,18 @@ namespace Services.Ad
         private readonly IMapper _mapper;
         private readonly ICacheService _cacheService;
         private readonly IGoogleStorage _googleStorage;
-        private readonly Repository<Models.Ad.Entities.Ad, AdDbContext> _context;
+        private readonly IRepository<Models.Ad.Entities.Ad, AdDbContext> _adRepository;
 
-        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, AdDbContext context)
+        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, IRepository<Models.Ad.Entities.Ad, AdDbContext> adRepository)
         {
             _logger = logger;
             _mapper = mapper;
             _fileReadService = fileReadService;
             _cacheService = cacheService;
             _googleStorage = googleStorage;
-            _context = new Repository<Models.Ad.Entities.Ad, AdDbContext>(context);
+            _adRepository = adRepository;
         }
-        
+
         #region CreateAd
         public AdDto CreateAd(AdDto dto)
         {
@@ -42,7 +46,7 @@ namespace Services.Ad
         private Models.Ad.Entities.Ad InsertAd(AdDto dto)
         {
             Models.Ad.Entities.Ad ad = _mapper.Map<Models.Ad.Entities.Ad>(dto);
-            RepositoryResult result = _context.Create(ad);
+            RepositoryResult result = _adRepository.Create(ad);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
             return ad;
         }
@@ -63,10 +67,58 @@ namespace Services.Ad
             _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.GoogleStorageObjectNameWithExt, model.ContentType);
         }
         #endregion
+
+        public dynamic SearchAds(int defaultAdsHomeDisplay, AdSortFilterPageOptions options)
+        {
+            var adDtos = _adRepository.Entities.Where(w => w.IsPublished && w.IsActive).AsNoTracking()
+                            .Select(s => new AdDto()
+                            {
+                                AdId = s.AdId,
+                                AdTitle = s.AdTitle,
+                                UpdatedDateTimeString = s.UpdatedDateTime.TimeAgo(),
+                                UserIdOrEmail = s.UserIdOrEmail,
+                            })
+                            .OrderByDescending(a => a.CreatedDateTime)
+                            .OrderByDescending(a => a.UpdatedDateTime)
+                            .Take(defaultAdsHomeDisplay).ToList();
+            options.SetupRestOfDto(adDtos.Count);
+            return new { articles = adDtos, option = options };
+        }
+
+        public AdDto GetAdDetail(long adId)
+        {
+            var ad = _adRepository.Entities.AsNoTracking().First(i => i.AdId == adId);
+            AdDto articleDto = _mapper.Map<AdDto>(ad);
+            return articleDto;
+        }
+
+        public AdDto UpdateAd(AdDto adDto)
+        {
+            Models.Ad.Entities.Ad adExisting = _adRepository.Entities.Single(a => a.AdId == adDto.AdId);
+            adExisting = _mapper.Map<AdDto, Models.Ad.Entities.Ad>(adDto, adExisting);
+            int i = _adRepository.SaveChanges();
+            AdDto adDtoNew = _mapper.Map<AdDto>(adExisting);
+            return adDtoNew;
+        }
+
+        public HashSet<string> GetAllUniqueTags()
+        {
+            List<dynamic> list = _adRepository.Entities.Select(a => new { a.Tag1, a.Tag2, a.Tag3, a.Tag4, a.Tag5, a.Tag6, a.Tag7, a.Tag8, a.Tag9 }).ToList<dynamic>();
+            HashSet<string> t = new HashSet<string>();
+            foreach (var i in list)
+            {
+                t.Add(i.Tag1); t.Add(i.Tag2); t.Add(i.Tag3); t.Add(i.Tag4); t.Add(i.Tag5); t.Add(i.Tag6); t.Add(i.Tag7); t.Add(i.Tag8); t.Add(i.Tag9);
+            }
+            return t;
+        }
     }
 
     public interface IAdService
     {
-        AdDto CreateAd(AdDto dto);
+        AdDto CreateAd(AdDto adDto);
+        dynamic SearchAds(int defaultAdsHomeDisplay, AdSortFilterPageOptions options);
+        AdDto GetAdDetail(long adId);
+        AdDto UpdateAd(AdDto adDto);
+        HashSet<string> GetAllUniqueTags();
     }
 }

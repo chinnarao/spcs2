@@ -55,6 +55,7 @@ namespace Models.Ad.Dtos
         public string Tag8 { get; set; }
         public string Tag9 { get; set; }
 
+        public string UpdatedDateTimeString { get; set; }
         public GoogleStorageAdFileDto GoogleStorageAdFileDto { get; set; }
         public dynamic AdDtoAsAnonymous
         {

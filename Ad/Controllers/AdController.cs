@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Models.Ad.Dtos;
 using Services.Ad;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Ad.Controllers
@@ -54,10 +55,42 @@ namespace Ad.Controllers
             return Ok(dto);
         }
 
-        [HttpGet]
-        public IActionResult SearchAds()
+        [HttpPost]
+        public IActionResult SearchAds([FromBody] AdSortFilterPageOptions options)
         {
-            return Ok( new { Name = "Chinna", Email = "chinnarao@live.com" });
+            int defaultArticlesHomeDisplay = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
+            if (defaultArticlesHomeDisplay <= 0) throw new ArgumentOutOfRangeException(nameof(defaultArticlesHomeDisplay));
+
+            options.DefaultPageSize = defaultArticlesHomeDisplay;
+            options.PageNumber = 1;
+
+            var anonymous = _adService.SearchAds(defaultArticlesHomeDisplay, options);
+            return Ok(anonymous);
+        }
+
+        [HttpGet("{adId}")]
+        public IActionResult GetAdDetail(long adId)
+        {
+            if (adId <= 0) throw new ArgumentOutOfRangeException(nameof(adId));
+            AdDto dto = _adService.GetAdDetail(adId);
+            return Ok(dto);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateAd([FromBody] AdDto model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            AdDto adDto = _adService.UpdateAd(model);
+            return Ok(adDto);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllUniqueTags()
+        {
+            HashSet<string> set = _adService.GetAllUniqueTags();
+            return Ok(set);
         }
     }
 }
