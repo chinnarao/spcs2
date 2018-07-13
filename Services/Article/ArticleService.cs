@@ -51,6 +51,7 @@ namespace Services.Article
         {
             // transaction has to implement or not , has to think more required.
             ArticleDto articleDto = this.InsertArticle(dto);
+            dto.GoogleStorageArticleFileDto.ArticleAnonymousDataObjectForHtmlTemplate = GetArticleAsAnonymousObjectForHtmlTemplate(dto);
             this.UploadObjectInGoogleStorage(dto.GoogleStorageArticleFileDto);
             return articleDto;
         }
@@ -63,6 +64,8 @@ namespace Services.Article
         }
         private void UploadObjectInGoogleStorage(GoogleStorageArticleFileDto model)
         {
+            if (model == null) throw new ArgumentNullException(nameof(GoogleStorageArticleFileDto));
+            if (model.ArticleAnonymousDataObjectForHtmlTemplate == null) throw new ArgumentNullException(nameof(model.ArticleAnonymousDataObjectForHtmlTemplate));
             string content = _cacheService.Get<string>(model.CACHE_KEY);
             if (string.IsNullOrWhiteSpace(content))
             {
@@ -71,11 +74,22 @@ namespace Services.Article
                 content = _cacheService.GetOrAdd<string>(model.CACHE_KEY, () => content, model.CacheExpiryDateTimeForHtmlTemplate);
                 if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
             }
-            content = _fileReadService.FillContent(content, model.AnonymousDataObjectForHtmlTemplate);
+            content = _fileReadService.FillContent(content, model.ArticleAnonymousDataObjectForHtmlTemplate);
             if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
             Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
             if (stream == null || stream.Length <= 0) throw new Exception(nameof(stream));
             _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.GoogleStorageObjectNameWithExt, model.ContentType);
+        }
+        private dynamic GetArticleAsAnonymousObjectForHtmlTemplate(ArticleDto dto)
+        {
+            return new
+            {
+                tag1 = dto.Tag1,
+                tag2 = dto.Tag2,
+                tag3 = dto.Tag3,
+                tag4 = dto.Tag4,
+                tag5 = dto.Tag5,
+            };
         }
         #endregion
 

@@ -39,6 +39,7 @@ namespace Services.Ad
         {
             // transaction has to implement or not , has to think more required.
             Models.Ad.Entities.Ad ad = this.InsertAd(dto);
+            dto.GoogleStorageAdFileDto.AdAnonymousDataObjectForHtmlTemplate = GetAdAsAnonymousObjectForHtmlTemplate(dto);
             this.UploadObjectInGoogleStorage(dto.GoogleStorageAdFileDto);
             return dto;
         }
@@ -51,6 +52,8 @@ namespace Services.Ad
         }
         private void UploadObjectInGoogleStorage(GoogleStorageAdFileDto model)
         {
+            if (model == null) throw new ArgumentNullException(nameof(GoogleStorageAdFileDto));
+            if (model.AdAnonymousDataObjectForHtmlTemplate == null) throw new ArgumentNullException(nameof(model.AdAnonymousDataObjectForHtmlTemplate));
             string content = _cacheService.Get<string>(model.CACHE_KEY);
             if (string.IsNullOrWhiteSpace(content))
             {
@@ -59,12 +62,22 @@ namespace Services.Ad
                 content = _cacheService.GetOrAdd<string>(model.CACHE_KEY, () => content, model.CacheExpiryDateTimeForHtmlTemplate);
                 if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
             }
-            content = _fileReadService.FillContent(content, model.AnonymousDataObjectForHtmlTemplate);
+            content = _fileReadService.FillContent(content, model.AdAnonymousDataObjectForHtmlTemplate);
             if (string.IsNullOrEmpty(content)) throw new Exception(nameof(content));
             Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
             if (stream == null || stream.Length <= 0) throw new Exception(nameof(stream));
             _googleStorage.UploadObject(model.GoogleStorageBucketName, stream, model.GoogleStorageObjectNameWithExt, model.ContentType);
         }
+
+        private dynamic GetAdAsAnonymousObjectForHtmlTemplate(AdDto dto)
+        {
+            return new
+            {
+                activedays = dto.AdDisplayDays,
+                adaddressatpublicsecuritynearlandmarkname = dto.AddressPartiesMeetingLandmarkName,
+            };
+        }
+
         #endregion
 
         public dynamic SearchAds(AdSortFilterPageOptions options)

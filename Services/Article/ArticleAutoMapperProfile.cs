@@ -24,8 +24,7 @@ namespace Services.Article
                 .ForMember(dest => dest.ArticleCommitDtos, opt => opt.MapFrom(src => src.ArticleCommits))
                 .ForMember(dest => dest.ArticleCommentDtos, opt => opt.MapFrom(src => src.ArticleComments))
                 .ForMember(dest => dest.GoogleStorageArticleFileDto, opt => opt.Ignore())
-                .ForMember(dest => dest.UpdatedDateTimeString, opt => opt.Ignore())
-                .ForMember(dest => dest.ArticleDtoAsAnonymous, opt => opt.Ignore());
+                .ForMember(dest => dest.UpdatedDateTimeString, opt => opt.Ignore());
         }
     }
 }

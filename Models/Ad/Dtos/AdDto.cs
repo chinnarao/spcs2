@@ -57,16 +57,5 @@ namespace Models.Ad.Dtos
 
         public string UpdatedDateTimeString { get; set; }
         public GoogleStorageAdFileDto GoogleStorageAdFileDto { get; set; }
-        public dynamic AdDtoAsAnonymous
-        {
-            get
-            {
-                return new
-                {
-                    activedays = this.AdDisplayDays,
-                    adaddressatpublicsecuritynearlandmarkname = this.AddressPartiesMeetingLandmarkName,
-                };
-            }
-        }
     }
 }

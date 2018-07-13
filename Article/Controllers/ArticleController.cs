@@ -66,7 +66,6 @@ namespace Article.Controllers
             fileModel.CACHE_KEY = Constants.Article_HTML_FILE_TEMPLATE;
             fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", model.AttachedAssetsInCloudStorageId.ToString("N"), Path.GetExtension(htmlFileName));
             fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
-            fileModel.AnonymousDataObjectForHtmlTemplate = model.ArticleDtoAsAnonymous;
 
             model.ArticleLicenseDto.ArticleLicenseId = DateTime.UtcNow.Ticks;
             if (!string.IsNullOrWhiteSpace(model.ArticleLicenseDto.License)) model.ArticleLicenseDto.LicensedDate = DateTime.UtcNow;

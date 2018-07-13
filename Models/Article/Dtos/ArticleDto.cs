@@ -56,20 +56,6 @@ namespace Models.Article.Dtos
         public ArticleLicenseDto ArticleLicenseDto { get; set; }
         public List<ArticleCommitDto> ArticleCommitDtos { get; set; }
         public List<ArticleCommentDto> ArticleCommentDtos { get; set; }
-        public dynamic ArticleDtoAsAnonymous
-        {
-            get
-            {
-                return new
-                {
-                    tag1 = this.Tag1,
-                    tag2 = this.Tag2,
-                    tag3 = this.Tag3,
-                    tag4 = this.Tag4,
-                    tag5 = this.Tag5,
-                };
-            }
-        }
         public string UpdatedDateTimeString { get; set; } // display purpose and time ago conversion
     }
 }
