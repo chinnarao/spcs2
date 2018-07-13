@@ -10,7 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
 using Services;
+using Services.Article;
 using Swashbuckle.AspNetCore.Swagger;
+using Models.Article.Entities;
 
 namespace Article
 {
@@ -27,13 +29,16 @@ namespace Article
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ArticleDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AutoMapperProfile()); }).CreateMapper());
+            services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new ArticleAutoMapperProfile()); }).CreateMapper());
 
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IFileRead, FileRead>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
             services.AddScoped<IRepository<Models.Article.Entities.Article, ArticleDbContext>, Repository<Models.Article.Entities.Article, ArticleDbContext>>();
+            services.AddScoped<IRepository<ArticleLicense, ArticleDbContext>, Repository<ArticleLicense, ArticleDbContext>>();
+            services.AddScoped<IRepository<ArticleCommit, ArticleDbContext>, Repository<ArticleCommit, ArticleDbContext>>();
+            services.AddScoped<IRepository<ArticleComment, ArticleDbContext>, Repository<ArticleComment, ArticleDbContext>>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             #region Swagger

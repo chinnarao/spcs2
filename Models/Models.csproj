@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Ad\AdController\" />
-    <Folder Include="Article\ArticleController\" />
-    <Folder Include="Article\Pocos\" />
+    <Compile Remove="Article\Entities\ArticleJson.cs" />
   </ItemGroup>
 
 </Project>

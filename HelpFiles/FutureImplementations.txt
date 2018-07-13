@@ -10,12 +10,18 @@ angular fire : https://github.com/cknitin/angular-firebase-database-demo
 ==========================================================================================
 https://codedocu.com/Net-Framework/ASP_dot_Net-Core
 ==========================================================================================
-
+paging:  https://tech.io/playgrounds/5363/paging-with-entity-framework-core
+https://gunnarpeipman.com/net/ef-core-paging/
+https://gunnarpeipman.com/architecture-design-patterns/returning-paged-results-from-repositories-using-pagedresult/
+https://www.carlrippon.com/scalable-and-performant-asp-net-core-web-apis-filtering-and-searching/
+https://www.codeproject.com/Articles/1204024/Filtering-in-ASP-NET-Core-Web-API
+https://github.com/Biarity/Sieve
 ==========================================================================================
-
+client browser culture: https://www.davideguida.com/how-to-detect-current-culture-in-javascript/
 ==========================================================================================
-
-
+client browser time zone: 
+https://weblog.west-wind.com/posts/2015/Feb/10/Back-to-Basics-UTC-and-TimeZones-in-NET-Web-Apps#Thinking-about-Time-in-.NET-Web-Apps
+https://everytimezone.com/
 ==========================================================================================
 
 ==========================================================================================

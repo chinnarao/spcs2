@@ -1,0 +1,89 @@
+{
+  "articleId": 636669713754758809,
+  "title": "string eight",
+  "content": "string eight",
+  "createdDateTime": "2018-07-12T05:18:53.512Z",
+  "updatedDateTime": "2018-07-12T05:18:53.512Z",
+  "userIdOrEmail": "string eight",
+  "userLoggedInSocialProviderName": "string eight",
+  "userName": "string eight",
+  "userPhoneNumber": "string eight",
+  "userSocialAvatarUrl": "string eight",
+  "biodataUrl": "string eight",
+  "hireMe": true,
+  "openSourceUrls": "string eight",
+  "isActive": true,
+  "isArticleInDraftMode": true,
+  "isPublished": true,
+  "attachedAssetsInCloudCount": 0,
+  "attachedAssetsInCloudStorageId": "d385dd89-c6fd-423f-88e9-98a68fc099b9",
+  "attachedAssetsStoredInCloudBaseFolderPath": "string eight",
+  "allRelatedSubjectsIncludesVersionsWithComma": "string eight",
+  "attachmentURLsComma": "string eight",
+  "publishedDate": "2018-07-12T05:18:53.512Z",
+  "socialURLsWithComma": "string eight",
+  "totalVotes": 0,
+  "totalVotedPersonsCount": 0,
+  "articleAverageVotes": 0,
+  "tag1": "string eight",
+  "tag2": "string eight",
+  "tag3": "string eight",
+  "tag4": "string eight",
+  "tag5": "string eight",
+  "tag6": "string eight",
+  "tag7": "string eight",
+  "tag8": "string eight",
+  "tag9": "string eight",
+  "tag10": "string eight",
+  "tag11": "string eight",
+  "tag12": "string eight",
+  "googleStorageArticleFileDto": {
+    "cacheExpiryDateTimeForHtmlTemplate": "2018-08-11T05:49:37.0450135Z",
+    "googleStorageObjectNameWithExt": "d385dd89c6fd423f88e998a68fc099b9.html",
+    "googleStorageBucketName": "spcsad_first",
+    "anonymousDataObjectForHtmlTemplate": {
+      "tag1": "string eight",
+      "tag2": "string eight",
+      "tag3": "string eight",
+      "tag4": "string eight",
+      "tag5": "string eight"
+    },
+    "contentType": "text/html",
+    "cachE_KEY": "_ArticleHtmlFileTemplate",
+    "htmlFileTemplateFullPathWithExt": "C:\\Users\\chinn\\OneDrive\\Documents\\GitHub\\spcs2\\Article\\ad.template.html"
+  },
+  "articleLicenseDto": {
+    "articleLicenseId": 636669713785228360,
+    "license": "string eight",
+    "licensedDate": "2018-07-21T05:49:38.522836Z",
+    "articleId": 636669713754758809
+  },
+  "articleCommitDtos": [
+    {
+      "articleCommitId": 0,
+      "commit": "string eight",
+      "committedDate": "2018-07-12T05:18:53.512Z",
+      "userIdOrEmail": "string eight",
+      "userSocialAvatarUrl": "string eight",
+      "articleId": 636669713754758809
+    },
+    {
+      "articleCommitId": 0,
+      "commit": "string eight",
+      "committedDate": "2018-07-12T05:18:53.512Z",
+      "userIdOrEmail": "string eight",
+      "userSocialAvatarUrl": "string eight",
+      "articleId": 636669713754758809
+    },
+    {
+      "articleCommitId": 0,
+      "commit": "string eight",
+      "committedDate": "2018-07-12T05:18:53.512Z",
+      "userIdOrEmail": "string eight",
+      "userSocialAvatarUrl": "string eight",
+      "articleId": 636669713754758809
+    }
+  ]
+}
+
+

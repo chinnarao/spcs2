@@ -5,10 +5,7 @@ namespace Repository.Extensions
 {
     public static class EnumerableExtensions
     {
-        public static PaginatedList<T> ToPaginatedList<T>(
-            this IEnumerable<T> source,
-            int pageIndex,
-            int pageSize) where T : class
+        public static PaginatedList<T> ToPaginatedList<T>(this IEnumerable<T> source, int pageIndex, int pageSize) where T : class
         {
             var enumerable = source as T[] ?? source.ToArray();
             var count = enumerable.Length;

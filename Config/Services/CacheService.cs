@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Caching.Memory;
 
+//https://gunnarpeipman.com/net/ef-core-paging/
 namespace Config.Services
 {
     public class CacheService : ICacheService

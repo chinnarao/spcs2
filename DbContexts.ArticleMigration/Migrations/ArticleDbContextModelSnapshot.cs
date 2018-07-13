@@ -27,6 +27,8 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasMaxLength(1000)
                         .IsUnicode(false);
 
+                    b.Property<double?>("ArticleAverageVotes");
+
                     b.Property<int>("AttachedAssetsInCloudCount");
 
                     b.Property<Guid>("AttachedAssetsInCloudStorageId");
@@ -40,16 +42,10 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<string>("BiodataUrl")
                         .IsUnicode(false);
 
-                    b.Property<string>("Body");
-
-                    b.Property<string>("Commits");
+                    b.Property<string>("Content");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2(7)");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .IsUnicode(false);
 
                     b.Property<bool>("HireMe")
                         .ValueGeneratedOnAdd()
@@ -59,18 +55,19 @@ namespace DbContexts.ArticleMigration.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
-                    b.Property<bool>("IsArchived")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
                     b.Property<bool>("IsArticleInDraftMode")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
-                    b.Property<string>("License");
+                    b.Property<bool>("IsPublished")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
                     b.Property<string>("OpenSourceUrls")
                         .IsUnicode(false);
+
+                    b.Property<DateTime?>("PublishedDate")
+                        .HasColumnType("datetime2(7)");
 
                     b.Property<string>("SocialURLsWithComma")
                         .IsUnicode(false);
@@ -124,7 +121,6 @@ namespace DbContexts.ArticleMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("Title")
-                        .HasMaxLength(500)
                         .IsUnicode(false);
 
                     b.Property<int?>("TotalVotedPersonsCount");
@@ -134,11 +130,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<DateTime>("UpdatedDateTime")
                         .HasColumnType("datetime2(7)");
 
-                    b.Property<string>("UserEmail")
-                        .HasMaxLength(100)
-                        .IsUnicode(false);
-
-                    b.Property<string>("UserId")
+                    b.Property<string>("UserIdOrEmail")
                         .HasMaxLength(100)
                         .IsUnicode(false);
 
@@ -160,6 +152,107 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.HasKey("ArticleId");
 
                     b.ToTable("Article");
+                });
+
+            modelBuilder.Entity("Models.Article.Entities.ArticleComment", b =>
+                {
+                    b.Property<long>("ArticleCommentId");
+
+                    b.Property<long>("ArticleId");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .IsUnicode(false);
+
+                    b.Property<DateTime>("CommentedDate")
+                        .HasColumnType("datetime2(7)");
+
+                    b.Property<bool?>("IsAdminCommented");
+
+                    b.Property<string>("UserIdOrEmail")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("UserSocialAvatarUrl")
+                        .IsUnicode(false);
+
+                    b.HasKey("ArticleCommentId");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("ArticleComment");
+                });
+
+            modelBuilder.Entity("Models.Article.Entities.ArticleCommit", b =>
+                {
+                    b.Property<long>("ArticleCommitId");
+
+                    b.Property<long>("ArticleId");
+
+                    b.Property<string>("Commit")
+                        .IsUnicode(false);
+
+                    b.Property<DateTime>("CommittedDate")
+                        .HasColumnType("datetime2(7)");
+
+                    b.Property<bool?>("IsAdminCommited");
+
+                    b.Property<string>("UserIdOrEmail")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<string>("UserSocialAvatarUrl")
+                        .IsUnicode(false);
+
+                    b.HasKey("ArticleCommitId");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("ArticleCommit");
+                });
+
+            modelBuilder.Entity("Models.Article.Entities.ArticleLicense", b =>
+                {
+                    b.Property<long>("ArticleLicenseId");
+
+                    b.Property<long>("ArticleId");
+
+                    b.Property<string>("License")
+                        .IsUnicode(false);
+
+                    b.Property<DateTime>("LicensedDate")
+                        .HasColumnType("datetime2(7)");
+
+                    b.HasKey("ArticleLicenseId");
+
+                    b.HasIndex("ArticleId")
+                        .IsUnique();
+
+                    b.ToTable("ArticleLicense");
+                });
+
+            modelBuilder.Entity("Models.Article.Entities.ArticleComment", b =>
+                {
+                    b.HasOne("Models.Article.Entities.Article", "Article")
+                        .WithMany("ArticleComments")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Article.Entities.ArticleCommit", b =>
+                {
+                    b.HasOne("Models.Article.Entities.Article", "Article")
+                        .WithMany("ArticleCommits")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Article.Entities.ArticleLicense", b =>
+                {
+                    b.HasOne("Models.Article.Entities.Article", "Article")
+                        .WithOne("ArticleLicense")
+                        .HasForeignKey("Models.Article.Entities.ArticleLicense", "ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

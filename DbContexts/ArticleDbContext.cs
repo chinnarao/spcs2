@@ -24,10 +24,19 @@ namespace DbContexts
         }
 
         public DbSet<Article> Articles { get; set; }
+        //public DbSet<ArticleJson> ArticleJsons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Article>()
+            //.HasOne(p => p.ArticleJson)
+            //.WithOne(b => b.Article);
+
             modelBuilder.ApplyConfiguration(new ArticleConfig());
+            //modelBuilder.ApplyConfiguration(new ArticleJsonConfig());
+            modelBuilder.ApplyConfiguration(new ArticleLicenseConfig());
+            modelBuilder.ApplyConfiguration(new ArticleCommentConfig());
+            modelBuilder.ApplyConfiguration(new ArticleCommitConfig());
         }
     }
 }

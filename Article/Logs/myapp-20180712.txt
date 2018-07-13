@@ -1,0 +1,806 @@
+2018-07-12T01:11:18.4657681-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T01:11:19.1469689-07:00 0HLF7PS61NOII:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T01:11:19.1469689-07:00 0HLF7PS61NOIJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T01:11:19.1809268-07:00 0HLF7PS61NOII:00000001 [INF] Request finished in 36.3672ms 200  (791a596a)
+2018-07-12T01:11:19.4011026-07:00 0HLF7PS61NOIJ:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T01:11:19.4179957-07:00 0HLF7PS61NOIJ:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T01:11:19.4261422-07:00 0HLF7PS61NOIJ:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.4438ms. (50a9e262)
+2018-07-12T01:11:19.4440027-07:00 0HLF7PS61NOIJ:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T01:11:19.4588568-07:00 0HLF7PS61NOIJ:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 50.9027ms (afa2e885)
+2018-07-12T01:11:19.4647671-07:00 0HLF7PS61NOIJ:00000001 [INF] Request finished in 322.1308ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:11:22.3253938-07:00 0HLF7PS61NOII:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T01:11:22.3379856-07:00 0HLF7PS61NOII:00000002 [INF] Request finished in 12.8729ms 200 text/html (791a596a)
+2018-07-12T01:11:24.6005283-07:00 0HLF7PS61NOIJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T01:11:24.7828052-07:00 0HLF7PS61NOIJ:00000002 [INF] Request finished in 182.3108ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T01:15:21.0206177-07:00 0HLF7PS61NOIK:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2251 (ca22a1cb)
+2018-07-12T01:15:21.0353782-07:00 0HLF7PS61NOIK:00000001 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T01:15:21.2126682-07:00 0HLF7PS61NOIK:00000001 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T01:15:28.1413089-07:00 0HLF7PS61NOIK:00000001 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:15:28.1431708-07:00 0HLF7PS61NOIK:00000001 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:15:28.1449527-07:00 0HLF7PS61NOIK:00000001 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:15:28.1465389-07:00 0HLF7PS61NOIK:00000001 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:15:28.1806475-07:00 0HLF7PS61NOIK:00000001 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T01:15:28.7451835-07:00 0HLF7PS61NOIK:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T01:15:28.8428642-07:00 0HLF7PS61NOIK:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T01:16:47.9025040-07:00 0HLF7PS61NOIK:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl]
+FROM [Article] AS [a]" (0723d8ff)
+2018-07-12T01:16:47.9434357-07:00 0HLF7PS61NOIK:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl]
+FROM [Article] AS [a]" (0723d8ff)
+2018-07-12T01:17:14.3250051-07:00 0HLF7PS61NOIK:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 7) (DbType = DateTime2), @p4='?', @p5='?' (Size = 100) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);" (0723d8ff)
+2018-07-12T01:17:14.3313668-07:00 0HLF7PS61NOIK:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@p2='?' (DbType = Int64), @p0='?' (Size = 8000) (DbType = AnsiString), @p1='?' (Size = 7) (DbType = DateTime2)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [ArticleLicense] SET [License] = @p0, [LicensedDate] = @p1
+WHERE [ArticleLicenseId] = @p2;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-07-12T01:28:38.7424006-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T01:28:39.4110334-07:00 0HLF7Q5S2O64T:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T01:28:39.4110334-07:00 0HLF7Q5S2O64S:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T01:28:39.4563687-07:00 0HLF7Q5S2O64T:00000001 [INF] Request finished in 47.6753ms 200  (791a596a)
+2018-07-12T01:28:39.6357010-07:00 0HLF7Q5S2O64S:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T01:28:39.6494199-07:00 0HLF7Q5S2O64S:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T01:28:39.6559518-07:00 0HLF7Q5S2O64S:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.326ms. (50a9e262)
+2018-07-12T01:28:39.6660868-07:00 0HLF7Q5S2O64S:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T01:28:39.6803827-07:00 0HLF7Q5S2O64S:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 37.0295ms (afa2e885)
+2018-07-12T01:28:39.6891673-07:00 0HLF7Q5S2O64S:00000001 [INF] Request finished in 282.1675ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:28:43.3668826-07:00 0HLF7Q5S2O64T:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T01:28:43.3750399-07:00 0HLF7Q5S2O64T:00000002 [INF] Request finished in 8.7007ms 200 text/html (791a596a)
+2018-07-12T01:28:43.8785787-07:00 0HLF7Q5S2O64S:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T01:28:44.0352454-07:00 0HLF7Q5S2O64S:00000002 [INF] Request finished in 157.1484ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T01:28:53.1622060-07:00 0HLF7Q5S2O64T:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2254 (ca22a1cb)
+2018-07-12T01:28:53.1758848-07:00 0HLF7Q5S2O64T:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T01:28:53.3650410-07:00 0HLF7Q5S2O64T:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T01:28:57.8915865-07:00 0HLF7Q5S2O64T:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:28:57.8934241-07:00 0HLF7Q5S2O64T:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:28:57.8955210-07:00 0HLF7Q5S2O64T:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:28:57.8973148-07:00 0HLF7Q5S2O64T:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:28:57.9342244-07:00 0HLF7Q5S2O64T:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T01:28:58.4860712-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T01:28:58.5852999-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T01:29:00.8852741-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@p1='?' (DbType = Int64), @p0='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Article] SET [Title] = @p0
+WHERE [ArticleId] = @p1;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-07-12T01:29:00.8902489-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 7) (DbType = DateTime2), @p4='?', @p5='?' (Size = 100) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);" (0723d8ff)
+2018-07-12T01:29:00.8941375-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@p2='?' (DbType = Int64), @p0='?' (Size = 8000) (DbType = AnsiString), @p1='?' (Size = 7) (DbType = DateTime2)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [ArticleLicense] SET [License] = @p0, [LicensedDate] = @p1
+WHERE [ArticleLicenseId] = @p2;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-07-12T01:29:06.4822466-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 13115.3785ms. (50a9e262)
+2018-07-12T01:29:06.4853492-07:00 0HLF7Q5S2O64T:00000003 [INF] Executing ObjectResult, writing value of type '"Models.Article.Dtos.ArticleDto"'. (8a1b66c8)
+2018-07-12T01:29:06.4982353-07:00 0HLF7Q5S2O64T:00000003 [INF] Executed action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" in 13320.3771ms (afa2e885)
+2018-07-12T01:29:06.5008153-07:00 0HLF7Q5S2O64T:00000003 [INF] Request finished in 13338.6399ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:40:58.3944634-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T01:40:59.0453216-07:00 0HLF7QCOGDDJH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T01:40:59.0453216-07:00 0HLF7QCOGDDJG:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T01:40:59.0785630-07:00 0HLF7QCOGDDJG:00000001 [INF] Request finished in 36.5776ms 200  (791a596a)
+2018-07-12T01:40:59.2556270-07:00 0HLF7QCOGDDJH:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T01:40:59.2679164-07:00 0HLF7QCOGDDJH:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T01:40:59.2743784-07:00 0HLF7QCOGDDJH:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2921ms. (50a9e262)
+2018-07-12T01:40:59.2849152-07:00 0HLF7QCOGDDJH:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T01:40:59.2980470-07:00 0HLF7QCOGDDJH:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 35.4479ms (afa2e885)
+2018-07-12T01:40:59.3044179-07:00 0HLF7QCOGDDJH:00000001 [INF] Request finished in 264.2366ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:41:03.6911453-07:00 0HLF7QCOGDDJG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T01:41:03.7008937-07:00 0HLF7QCOGDDJG:00000002 [INF] Request finished in 10.2505ms 200 text/html (791a596a)
+2018-07-12T01:41:04.1741461-07:00 0HLF7QCOGDDJH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T01:41:04.3339592-07:00 0HLF7QCOGDDJH:00000002 [INF] Request finished in 159.7445ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T01:41:14.1585046-07:00 0HLF7QCOGDDJG:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2438 (ca22a1cb)
+2018-07-12T01:41:14.1741588-07:00 0HLF7QCOGDDJG:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T01:41:14.3466517-07:00 0HLF7QCOGDDJG:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T01:41:21.9994952-07:00 0HLF7QCOGDDJG:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:41:22.0014692-07:00 0HLF7QCOGDDJG:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:41:22.0034329-07:00 0HLF7QCOGDDJG:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:41:22.0057741-07:00 0HLF7QCOGDDJG:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:41:22.0407086-07:00 0HLF7QCOGDDJG:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T01:41:22.6286785-07:00 0HLF7QCOGDDJG:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T01:41:22.7282346-07:00 0HLF7QCOGDDJG:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T01:41:48.4572818-07:00 0HLF7QCOGDDJG:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@p25='?' (DbType = Int64), @p0='?' (Size = 1000) (DbType = AnsiString), @p1='?' (Size = 8000) (DbType = AnsiString), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 8000) (DbType = AnsiString), @p4='?' (Size = 4000), @p5='?' (Size = 8000) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString), @p7='?' (Size = 32) (DbType = AnsiString), @p8='?' (Size = 32) (DbType = AnsiString), @p9='?' (Size = 32) (DbType = AnsiString), @p10='?' (Size = 32) (DbType = AnsiString), @p11='?' (Size = 32) (DbType = AnsiString), @p12='?' (Size = 32) (DbType = AnsiString), @p13='?' (Size = 32) (DbType = AnsiString), @p14='?' (Size = 32) (DbType = AnsiString), @p15='?' (Size = 32) (DbType = AnsiString), @p16='?' (Size = 32) (DbType = AnsiString), @p17='?' (Size = 32) (DbType = AnsiString), @p18='?' (Size = 32) (DbType = AnsiString), @p19='?' (Size = 8000) (DbType = AnsiString), @p20='?' (Size = 100) (DbType = AnsiString), @p21='?' (Size = 32) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 15) (DbType = AnsiString), @p24='?' (Size = 8000) (DbType = AnsiString), @p26='?' (DbType = Int64), @p27='?' (DbType = Int64), @p28='?' (DbType = Int64), @p29='?' (DbType = Int64), @p30='?' (Size = 8000) (DbType = AnsiString), @p31='?' (Size = 7) (DbType = DateTime2), @p32='?', @p33='?' (Size = 100) (DbType = AnsiString), @p34='?' (Size = 8000) (DbType = AnsiString), @p37='?' (DbType = Int64), @p35='?' (Size = 8000) (DbType = AnsiString), @p36='?' (Size = 7) (DbType = DateTime2)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Article] SET [AllRelatedSubjectsIncludesVersionsWithComma] = @p0, [AttachedAssetsStoredInCloudBaseFolderPath] = @p1, [AttachmentURLsComma] = @p2, [BiodataUrl] = @p3, [Content] = @p4, [OpenSourceUrls] = @p5, [SocialURLsWithComma] = @p6, [Tag1] = @p7, [Tag10] = @p8, [Tag11] = @p9, [Tag12] = @p10, [Tag2] = @p11, [Tag3] = @p12, [Tag4] = @p13, [Tag5] = @p14, [Tag6] = @p15, [Tag7] = @p16, [Tag8] = @p17, [Tag9] = @p18, [Title] = @p19, [UserIdOrEmail] = @p20, [UserLoggedInSocialProviderName] = @p21, [UserName] = @p22, [UserPhoneNumber] = @p23, [UserSocialAvatarUrl] = @p24
+WHERE [ArticleId] = @p25;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [ArticleCommit]
+WHERE [ArticleCommitId] = @p26;
+SELECT @@ROWCOUNT;
+
+DELETE FROM [ArticleCommit]
+WHERE [ArticleCommitId] = @p27;
+SELECT @@ROWCOUNT;
+
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p28, @p29, @p30, @p31, @p32, @p33, @p34);
+UPDATE [ArticleLicense] SET [License] = @p35, [LicensedDate] = @p36
+WHERE [ArticleLicenseId] = @p37;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-07-12T01:42:00.0036189-07:00 0HLF7QCOGDDJG:00000003 [INF] Executed action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 45652.9204ms. (50a9e262)
+2018-07-12T01:42:00.0065731-07:00 0HLF7QCOGDDJG:00000003 [INF] Executing ObjectResult, writing value of type '"Models.Article.Dtos.ArticleDto"'. (8a1b66c8)
+2018-07-12T01:42:00.0235789-07:00 0HLF7QCOGDDJG:00000003 [INF] Executed action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" in 45846.9825ms (afa2e885)
+2018-07-12T01:42:00.0265363-07:00 0HLF7QCOGDDJG:00000003 [INF] Request finished in 45867.7112ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:49:04.8594403-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T01:49:05.5409030-07:00 0HLF7QH9FUQC4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T01:49:05.5409030-07:00 0HLF7QH9FUQC5:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T01:49:05.5905421-07:00 0HLF7QH9FUQC5:00000001 [INF] Request finished in 50.6974ms 200  (791a596a)
+2018-07-12T01:49:05.7757704-07:00 0HLF7QH9FUQC4:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T01:49:05.7918724-07:00 0HLF7QH9FUQC4:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T01:49:05.7989379-07:00 0HLF7QH9FUQC4:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3263ms. (50a9e262)
+2018-07-12T01:49:05.8097012-07:00 0HLF7QH9FUQC4:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T01:49:05.8268598-07:00 0HLF7QH9FUQC4:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 41.3869ms (afa2e885)
+2018-07-12T01:49:05.8334283-07:00 0HLF7QH9FUQC4:00000001 [INF] Request finished in 297.1956ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:49:17.8119823-07:00 0HLF7QH9FUQC5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T01:49:17.8224484-07:00 0HLF7QH9FUQC5:00000002 [INF] Request finished in 10.9481ms 200 text/html (791a596a)
+2018-07-12T01:49:18.3405131-07:00 0HLF7QH9FUQC4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T01:49:18.5087855-07:00 0HLF7QH9FUQC4:00000002 [INF] Request finished in 168.5601ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T01:49:28.7126653-07:00 0HLF7QH9FUQC5:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T01:49:28.7271158-07:00 0HLF7QH9FUQC5:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T01:49:28.9074027-07:00 0HLF7QH9FUQC5:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T01:49:49.0550154-07:00 0HLF7QH9FUQC5:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:49:49.0568946-07:00 0HLF7QH9FUQC5:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:49:49.0595370-07:00 0HLF7QH9FUQC5:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:49:49.0617337-07:00 0HLF7QH9FUQC5:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:49:49.0971653-07:00 0HLF7QH9FUQC5:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T01:49:49.7008842-07:00 0HLF7QH9FUQC5:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T01:49:49.8054911-07:00 0HLF7QH9FUQC5:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T01:51:26.9844269-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T01:51:27.6309963-07:00 0HLF7QIJR37Q9:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T01:51:27.6309959-07:00 0HLF7QIJR37Q8:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T01:51:27.6697175-07:00 0HLF7QIJR37Q9:00000001 [INF] Request finished in 40.3214ms 200  (791a596a)
+2018-07-12T01:51:27.8570583-07:00 0HLF7QIJR37Q8:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T01:51:27.8711579-07:00 0HLF7QIJR37Q8:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T01:51:27.8782483-07:00 0HLF7QIJR37Q8:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.4321ms. (50a9e262)
+2018-07-12T01:51:27.8883234-07:00 0HLF7QIJR37Q8:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T01:51:27.9028597-07:00 0HLF7QIJR37Q8:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 38.5961ms (afa2e885)
+2018-07-12T01:51:27.9122981-07:00 0HLF7QIJR37Q8:00000001 [INF] Request finished in 284.5823ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T01:51:36.8257005-07:00 0HLF7QIJR37Q9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T01:51:36.8359084-07:00 0HLF7QIJR37Q9:00000002 [INF] Request finished in 10.245ms 200 text/html (791a596a)
+2018-07-12T01:51:37.5860866-07:00 0HLF7QIJR37Q8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T01:51:37.7508074-07:00 0HLF7QIJR37Q8:00000002 [INF] Request finished in 164.2938ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T01:52:23.1924012-07:00 0HLF7QIJR37Q9:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T01:52:23.2075468-07:00 0HLF7QIJR37Q9:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T01:52:23.4172824-07:00 0HLF7QIJR37Q9:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T01:52:29.1660829-07:00 0HLF7QIJR37Q9:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:52:29.1688795-07:00 0HLF7QIJR37Q9:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:52:29.1712732-07:00 0HLF7QIJR37Q9:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:52:29.1734127-07:00 0HLF7QIJR37Q9:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T01:52:29.2082695-07:00 0HLF7QIJR37Q9:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T01:52:29.8223215-07:00 0HLF7QIJR37Q9:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T01:52:29.9342032-07:00 0HLF7QIJR37Q9:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T12:57:38.1787170-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T12:57:39.0635400-07:00 0HLF866S894I5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T12:57:39.0635400-07:00 0HLF866S894I6:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T12:57:39.1011118-07:00 0HLF866S894I6:00000001 [INF] Request finished in 40.3097ms 200  (791a596a)
+2018-07-12T12:57:39.2903515-07:00 0HLF866S894I5:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T12:57:39.3002712-07:00 0HLF866S894I5:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T12:57:39.3055786-07:00 0HLF866S894I5:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2476ms. (50a9e262)
+2018-07-12T12:57:39.3132857-07:00 0HLF866S894I5:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T12:57:39.3236678-07:00 0HLF866S894I5:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 28.428ms (afa2e885)
+2018-07-12T12:57:39.3287127-07:00 0HLF866S894I5:00000001 [INF] Request finished in 269.5105ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T12:57:39.6125439-07:00 0HLF866S894I6:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T12:57:39.6154234-07:00 0HLF866S894I6:00000002 [INF] Request finished in 2.9374ms 404  (791a596a)
+2018-07-12T12:57:42.7430403-07:00 0HLF866S894I5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T12:57:42.7517768-07:00 0HLF866S894I5:00000002 [INF] Request finished in 9.2214ms 200 text/html (791a596a)
+2018-07-12T12:57:43.2058526-07:00 0HLF866S894I6:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T12:57:43.3598806-07:00 0HLF866S894I6:00000003 [INF] Request finished in 153.2494ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T12:57:56.9909094-07:00 0HLF866S894I5:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T12:57:57.0056378-07:00 0HLF866S894I5:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T12:57:57.2203023-07:00 0HLF866S894I5:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T12:58:11.2924133-07:00 0HLF866S894I5:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T12:58:11.2945648-07:00 0HLF866S894I5:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T12:58:11.2965068-07:00 0HLF866S894I5:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T12:58:11.2985565-07:00 0HLF866S894I5:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T12:58:11.3348134-07:00 0HLF866S894I5:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T12:58:11.8522042-07:00 0HLF866S894I5:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T12:59:26.8989501-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T12:59:27.5144763-07:00 0HLF867SIO9JE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T12:59:27.5144766-07:00 0HLF867SIO9JD:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T12:59:27.5560015-07:00 0HLF867SIO9JD:00000001 [INF] Request finished in 44.351ms 200  (791a596a)
+2018-07-12T12:59:27.7248155-07:00 0HLF867SIO9JE:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T12:59:27.7355988-07:00 0HLF867SIO9JE:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T12:59:27.7416633-07:00 0HLF867SIO9JE:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3307ms. (50a9e262)
+2018-07-12T12:59:27.7507331-07:00 0HLF867SIO9JE:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T12:59:27.7628818-07:00 0HLF867SIO9JE:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 33.1308ms (afa2e885)
+2018-07-12T12:59:27.7688606-07:00 0HLF867SIO9JE:00000001 [INF] Request finished in 259.1702ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T12:59:28.0005787-07:00 0HLF867SIO9JD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T12:59:28.0032434-07:00 0HLF867SIO9JD:00000002 [INF] Request finished in 2.6785ms 404  (791a596a)
+2018-07-12T13:00:01.0162187-07:00 0HLF867SIO9JE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T13:00:01.0265933-07:00 0HLF867SIO9JE:00000002 [INF] Request finished in 10.1386ms 200 text/html (791a596a)
+2018-07-12T13:00:01.4663035-07:00 0HLF867SIO9JD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T13:00:01.6063865-07:00 0HLF867SIO9JD:00000003 [INF] Request finished in 139.9232ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T13:00:12.1630513-07:00 0HLF867SIO9JE:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T13:00:12.1779931-07:00 0HLF867SIO9JE:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T13:00:12.3334042-07:00 0HLF867SIO9JE:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T13:00:27.3982305-07:00 0HLF867SIO9JE:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T13:00:27.4001494-07:00 0HLF867SIO9JE:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T13:00:27.4022361-07:00 0HLF867SIO9JE:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T13:00:27.4042396-07:00 0HLF867SIO9JE:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T13:00:27.4352885-07:00 0HLF867SIO9JE:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T13:00:27.9629879-07:00 0HLF867SIO9JE:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T13:00:28.0480421-07:00 0HLF867SIO9JE:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T17:26:42.8324014-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:26:43.5493871-07:00 0HLF8AT7M6STF:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:26:43.5493867-07:00 0HLF8AT7M6STG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:26:43.5847559-07:00 0HLF8AT7M6STF:00000001 [INF] Request finished in 37.132ms 200  (791a596a)
+2018-07-12T17:26:43.7676696-07:00 0HLF8AT7M6STG:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:26:43.7785783-07:00 0HLF8AT7M6STG:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:26:43.7837724-07:00 0HLF8AT7M6STG:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3227ms. (50a9e262)
+2018-07-12T17:26:43.7920191-07:00 0HLF8AT7M6STG:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:26:43.8045460-07:00 0HLF8AT7M6STG:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 30.6419ms (afa2e885)
+2018-07-12T17:26:43.8117810-07:00 0HLF8AT7M6STG:00000001 [INF] Request finished in 265.615ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:26:44.0301022-07:00 0HLF8AT7M6STF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T17:26:44.0327235-07:00 0HLF8AT7M6STF:00000002 [INF] Request finished in 2.9388ms 404  (791a596a)
+2018-07-12T17:26:49.2508294-07:00 0HLF8AT7M6STG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:26:49.2590808-07:00 0HLF8AT7M6STG:00000002 [INF] Request finished in 9.3768ms 200 text/html (791a596a)
+2018-07-12T17:26:49.6907529-07:00 0HLF8AT7M6STF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:26:49.8345151-07:00 0HLF8AT7M6STF:00000003 [INF] Request finished in 142.7938ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:26:57.7857985-07:00 0HLF8AT7M6STG:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:26:57.7975322-07:00 0HLF8AT7M6STG:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:26:57.9658600-07:00 0HLF8AT7M6STG:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:27:03.2090894-07:00 0HLF8AT7M6STG:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:27:03.2108923-07:00 0HLF8AT7M6STG:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:27:03.2125526-07:00 0HLF8AT7M6STG:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:27:03.2144238-07:00 0HLF8AT7M6STG:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:27:03.2455562-07:00 0HLF8AT7M6STG:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T17:27:03.7106454-07:00 0HLF8AT7M6STG:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T17:28:27.3534521-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:28:28.0251084-07:00 0HLF8AU6QIN03:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:28:28.0251084-07:00 0HLF8AU6QIN04:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:28:28.0568140-07:00 0HLF8AU6QIN04:00000001 [INF] Request finished in 34.092ms 200  (791a596a)
+2018-07-12T17:28:28.2358764-07:00 0HLF8AU6QIN03:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:28:28.2480995-07:00 0HLF8AU6QIN03:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:28:28.2539313-07:00 0HLF8AU6QIN03:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.4029ms. (50a9e262)
+2018-07-12T17:28:28.2617101-07:00 0HLF8AU6QIN03:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:28:28.2720788-07:00 0HLF8AU6QIN03:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 31.3669ms (afa2e885)
+2018-07-12T17:28:28.2769712-07:00 0HLF8AU6QIN03:00000001 [INF] Request finished in 255.8476ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:28:28.4595338-07:00 0HLF8AU6QIN04:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T17:28:28.4624501-07:00 0HLF8AU6QIN04:00000002 [INF] Request finished in 2.8477ms 404  (791a596a)
+2018-07-12T17:28:32.7605899-07:00 0HLF8AU6QIN03:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:28:32.7683304-07:00 0HLF8AU6QIN03:00000002 [INF] Request finished in 7.9308ms 200 text/html (791a596a)
+2018-07-12T17:28:33.2346452-07:00 0HLF8AU6QIN04:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:28:33.3881203-07:00 0HLF8AU6QIN04:00000003 [INF] Request finished in 153.4014ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:28:45.6023911-07:00 0HLF8AU6QIN03:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:28:45.6176278-07:00 0HLF8AU6QIN03:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:28:45.7673596-07:00 0HLF8AU6QIN03:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:28:51.8518515-07:00 0HLF8AU6QIN03:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:28:51.8537559-07:00 0HLF8AU6QIN03:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:28:51.8562670-07:00 0HLF8AU6QIN03:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:28:51.8581301-07:00 0HLF8AU6QIN03:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:28:51.8922157-07:00 0HLF8AU6QIN03:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T17:28:52.3426082-07:00 0HLF8AU6QIN03:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T17:31:26.6805086-07:00 0HLF8AU6QIN03:00000003 [INF] Executed action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" in 161060.1847ms (afa2e885)
+2018-07-12T17:31:26.7547715-07:00 0HLF8AU6QIN03:00000003 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: The instance of entity type 'ArticleCommit' cannot be tracked because another instance with the same key value for {'ArticleCommitId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode node, Boolean force)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode node, TState state, Func`3 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState entityState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.NavigationCollectionChanged(InternalEntityEntry entry, INavigation navigation, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.NavigationCollectionChanged(InternalEntityEntry entry, INavigation navigation, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectNavigationChange(InternalEntityEntry entry, INavigation navigation)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at Repository.Repository`2.SaveChanges() in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Repository\Repository.cs:line 65
+   at Services.Article.ArticleService.UpdateArticleWithCommitHistory(ArticleDto articleDto) in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Services\Article\ArticleService.cs:line 164
+   at Article.Controllers.ArticleController.UpdateArticleWithCommitHistory(ArticleDto model) in C:\Users\chinn\OneDrive\Documents\GitHub\spcs2\Article\Controllers\ArticleController.cs:line 124
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIIndexMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2018-07-12T17:31:26.7848988-07:00 0HLF8AU6QIN03:00000003 [INF] Request finished in 161182.6492ms 500 text/html; charset=utf-8 (791a596a)
+2018-07-12T17:32:06.7334221-07:00 0HLF8AU6QIN03:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:32:06.7353549-07:00 0HLF8AU6QIN03:00000004 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:32:06.7389841-07:00 0HLF8AU6QIN03:00000004 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:32:57.7097848-07:00 0HLF8AU6QIN03:00000004 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T17:32:57.9706836-07:00 0HLF8AU6QIN03:00000004 [INF] Executed DbCommand ("4"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T17:38:35.5909225-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:38:36.1369084-07:00 0HLF8B3S22532:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:38:36.1369077-07:00 0HLF8B3S22531:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:38:36.1723545-07:00 0HLF8B3S22531:00000001 [INF] Request finished in 37.6881ms 200  (791a596a)
+2018-07-12T17:38:36.3465062-07:00 0HLF8B3S22532:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:38:36.3569873-07:00 0HLF8B3S22532:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:38:36.3627260-07:00 0HLF8B3S22532:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2476ms. (50a9e262)
+2018-07-12T17:38:36.3715176-07:00 0HLF8B3S22532:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:38:36.3837246-07:00 0HLF8B3S22532:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 31.869ms (afa2e885)
+2018-07-12T17:38:36.3890171-07:00 0HLF8B3S22532:00000001 [INF] Request finished in 257.1561ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:38:36.5719515-07:00 0HLF8B3S22531:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T17:38:36.5763980-07:00 0HLF8B3S22531:00000002 [INF] Request finished in 3.4698ms 404  (791a596a)
+2018-07-12T17:38:56.1616087-07:00 0HLF8B3S22532:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:38:56.1696971-07:00 0HLF8B3S22532:00000002 [INF] Request finished in 8.1493ms 200 text/html (791a596a)
+2018-07-12T17:38:56.6228729-07:00 0HLF8B3S22531:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:38:56.7801531-07:00 0HLF8B3S22531:00000003 [INF] Request finished in 157.3618ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:39:07.3633413-07:00 0HLF8B3S22532:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:39:07.3774213-07:00 0HLF8B3S22532:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:39:07.5277442-07:00 0HLF8B3S22532:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:39:11.7181198-07:00 0HLF8B3S22532:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:39:11.7200335-07:00 0HLF8B3S22532:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:39:11.7217909-07:00 0HLF8B3S22532:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:39:11.7234144-07:00 0HLF8B3S22532:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:39:11.7587285-07:00 0HLF8B3S22532:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T17:39:12.2323467-07:00 0HLF8B3S22532:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T17:50:27.9647176-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:50:28.5356021-07:00 0HLF8BAGBT05I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:50:28.5356025-07:00 0HLF8BAGBT05J:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:50:28.5685502-07:00 0HLF8BAGBT05J:00000001 [INF] Request finished in 35.8611ms 200  (791a596a)
+2018-07-12T17:50:28.7298039-07:00 0HLF8BAGBT05I:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:50:28.7403363-07:00 0HLF8BAGBT05I:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:50:28.7459391-07:00 0HLF8BAGBT05I:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3296ms. (50a9e262)
+2018-07-12T17:50:28.7539959-07:00 0HLF8BAGBT05I:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:50:28.7656814-07:00 0HLF8BAGBT05I:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 30.3443ms (afa2e885)
+2018-07-12T17:50:28.7708531-07:00 0HLF8BAGBT05I:00000001 [INF] Request finished in 240.0398ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:50:48.9768754-07:00 0HLF8BAGBT05J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:50:48.9848584-07:00 0HLF8BAGBT05J:00000002 [INF] Request finished in 7.9596ms 200 text/html (791a596a)
+2018-07-12T17:50:49.5658707-07:00 0HLF8BAGBT05I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:50:49.7017489-07:00 0HLF8BAGBT05I:00000002 [INF] Request finished in 135.4607ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:50:59.1589852-07:00 0HLF8BAGBT05J:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:50:59.1730569-07:00 0HLF8BAGBT05J:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:50:59.3317916-07:00 0HLF8BAGBT05J:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:51:03.8121683-07:00 0HLF8BAGBT05J:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:51:03.8148285-07:00 0HLF8BAGBT05J:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:51:03.8167814-07:00 0HLF8BAGBT05J:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:51:03.8187142-07:00 0HLF8BAGBT05J:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:51:03.8492365-07:00 0HLF8BAGBT05J:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T17:51:04.3764075-07:00 0HLF8BAGBT05J:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T17:51:04.4656227-07:00 0HLF8BAGBT05J:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T17:53:26.8784558-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:53:27.3364704-07:00 0HLF8BC5L965I:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:53:27.3364704-07:00 0HLF8BC5L965J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:53:27.3693088-07:00 0HLF8BC5L965I:00000001 [INF] Request finished in 35.8603ms 200  (791a596a)
+2018-07-12T17:53:27.5170589-07:00 0HLF8BC5L965J:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:53:27.5263011-07:00 0HLF8BC5L965J:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:53:27.5319142-07:00 0HLF8BC5L965J:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.295ms. (50a9e262)
+2018-07-12T17:53:27.5388660-07:00 0HLF8BC5L965J:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:53:27.5487077-07:00 0HLF8BC5L965J:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 27.0947ms (afa2e885)
+2018-07-12T17:53:27.5530983-07:00 0HLF8BC5L965J:00000001 [INF] Request finished in 221.109ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:54:00.7390213-07:00 0HLF8BC5L965I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:54:00.7468673-07:00 0HLF8BC5L965I:00000002 [INF] Request finished in 8.4771ms 200 text/html (791a596a)
+2018-07-12T17:54:01.5773396-07:00 0HLF8BC5L965J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:54:01.7199092-07:00 0HLF8BC5L965J:00000002 [INF] Request finished in 142.5291ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:54:10.3895722-07:00 0HLF8BC5L965I:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:54:10.4009499-07:00 0HLF8BC5L965I:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:54:10.5515011-07:00 0HLF8BC5L965I:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:54:14.4718308-07:00 0HLF8BC5L965I:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:54:14.4735517-07:00 0HLF8BC5L965I:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:54:14.4754888-07:00 0HLF8BC5L965I:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:54:14.4771226-07:00 0HLF8BC5L965I:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T17:54:14.5126427-07:00 0HLF8BC5L965I:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T17:54:14.7322413-07:00 0HLF8BC5L965I:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T17:54:14.8216184-07:00 0HLF8BC5L965I:00000003 [INF] Executed DbCommand ("3"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T17:57:56.1241492-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:57:56.7370225-07:00 0HLF8BELUA8FV:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:57:56.7370229-07:00 0HLF8BELUA8G0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:57:56.7705107-07:00 0HLF8BELUA8FV:00000001 [INF] Request finished in 36.6604ms 200  (791a596a)
+2018-07-12T17:57:56.9494013-07:00 0HLF8BELUA8G0:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:57:56.9614202-07:00 0HLF8BELUA8G0:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:57:56.9673351-07:00 0HLF8BELUA8G0:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3387ms. (50a9e262)
+2018-07-12T17:57:56.9752857-07:00 0HLF8BELUA8G0:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:57:56.9856257-07:00 0HLF8BELUA8G0:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 31.4106ms (afa2e885)
+2018-07-12T17:57:56.9905035-07:00 0HLF8BELUA8G0:00000001 [INF] Request finished in 258.5156ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:58:02.4077930-07:00 0HLF8BELUA8FV:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:58:02.4158941-07:00 0HLF8BELUA8FV:00000002 [INF] Request finished in 8.9446ms 200 text/html (791a596a)
+2018-07-12T17:58:02.8469828-07:00 0HLF8BELUA8G0:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:58:03.0067365-07:00 0HLF8BELUA8G0:00000002 [INF] Request finished in 159.9768ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:58:16.5883034-07:00 0HLF8BELUA8FV:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:58:16.6014791-07:00 0HLF8BELUA8FV:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:58:16.7586735-07:00 0HLF8BELUA8FV:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T17:59:35.1275199-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T17:59:35.8679135-07:00 0HLF8BFJFPES5:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T17:59:35.8679139-07:00 0HLF8BFJFPES4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T17:59:35.9011450-07:00 0HLF8BFJFPES5:00000001 [INF] Request finished in 36.085ms 200  (791a596a)
+2018-07-12T17:59:36.0652937-07:00 0HLF8BFJFPES4:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T17:59:36.0765063-07:00 0HLF8BFJFPES4:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T17:59:36.0825135-07:00 0HLF8BFJFPES4:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2534ms. (50a9e262)
+2018-07-12T17:59:36.0906972-07:00 0HLF8BFJFPES4:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T17:59:36.1011023-07:00 0HLF8BFJFPES4:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 31.0033ms (afa2e885)
+2018-07-12T17:59:36.1060678-07:00 0HLF8BFJFPES4:00000001 [INF] Request finished in 242.7143ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T17:59:39.5884598-07:00 0HLF8BFJFPES5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T17:59:39.5959200-07:00 0HLF8BFJFPES5:00000002 [INF] Request finished in 7.4943ms 200 text/html (791a596a)
+2018-07-12T17:59:40.1406714-07:00 0HLF8BFJFPES4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T17:59:40.3042958-07:00 0HLF8BFJFPES4:00000002 [INF] Request finished in 164.1093ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T17:59:48.4623567-07:00 0HLF8BFJFPES5:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T17:59:48.4776721-07:00 0HLF8BFJFPES5:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T17:59:48.6364234-07:00 0HLF8BFJFPES5:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T18:00:09.7555924-07:00 0HLF8BFJFPES5:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:00:09.7577378-07:00 0HLF8BFJFPES5:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:00:09.7596953-07:00 0HLF8BFJFPES5:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:00:09.7618060-07:00 0HLF8BFJFPES5:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:00:09.7925041-07:00 0HLF8BFJFPES5:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T18:00:10.3551975-07:00 0HLF8BFJFPES5:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0
+ORDER BY [a].[ArticleId]" (0723d8ff)
+2018-07-12T18:00:10.4466251-07:00 0HLF8BFJFPES5:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a.ArticleCommits].[ArticleCommitId], [a.ArticleCommits].[ArticleId], [a.ArticleCommits].[Commit], [a.ArticleCommits].[CommittedDate], [a.ArticleCommits].[IsAdminCommited], [a.ArticleCommits].[UserIdOrEmail], [a.ArticleCommits].[UserSocialAvatarUrl]
+FROM [ArticleCommit] AS [a.ArticleCommits]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT TOP(1) [a0].[ArticleId]
+        FROM [Article] AS [a0]
+        LEFT JOIN [ArticleLicense] AS [a.ArticleLicense0] ON [a0].[ArticleId] = [a.ArticleLicense0].[ArticleId]
+        WHERE [a0].[ArticleId] = @__articleDto_ArticleId_0
+        ORDER BY [a0].[ArticleId]
+    ) AS [t]
+) AS [t0] ON [a.ArticleCommits].[ArticleId] = [t0].[ArticleId]
+ORDER BY [t0].[ArticleId]" (0723d8ff)
+2018-07-12T18:00:23.5816530-07:00 0HLF8BFJFPES5:00000003 [INF] Executed DbCommand ("9"ms) [Parameters=["@p25='?' (DbType = Int64), @p0='?' (Size = 1000) (DbType = AnsiString), @p1='?' (Size = 8000) (DbType = AnsiString), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 8000) (DbType = AnsiString), @p4='?' (Size = 4000), @p5='?' (Size = 8000) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString), @p7='?' (Size = 32) (DbType = AnsiString), @p8='?' (Size = 32) (DbType = AnsiString), @p9='?' (Size = 32) (DbType = AnsiString), @p10='?' (Size = 32) (DbType = AnsiString), @p11='?' (Size = 32) (DbType = AnsiString), @p12='?' (Size = 32) (DbType = AnsiString), @p13='?' (Size = 32) (DbType = AnsiString), @p14='?' (Size = 32) (DbType = AnsiString), @p15='?' (Size = 32) (DbType = AnsiString), @p16='?' (Size = 32) (DbType = AnsiString), @p17='?' (Size = 32) (DbType = AnsiString), @p18='?' (Size = 32) (DbType = AnsiString), @p19='?' (Size = 8000) (DbType = AnsiString), @p20='?' (Size = 100) (DbType = AnsiString), @p21='?' (Size = 32) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 15) (DbType = AnsiString), @p24='?' (Size = 8000) (DbType = AnsiString), @p26='?' (DbType = Int64), @p27='?' (DbType = Int64), @p28='?' (Size = 8000) (DbType = AnsiString), @p29='?' (Size = 7) (DbType = DateTime2), @p30='?', @p31='?' (Size = 100) (DbType = AnsiString), @p32='?' (Size = 8000) (DbType = AnsiString), @p33='?' (DbType = Int64), @p34='?' (DbType = Int64), @p35='?' (Size = 8000) (DbType = AnsiString), @p36='?' (Size = 7) (DbType = DateTime2), @p37='?', @p38='?' (Size = 100) (DbType = AnsiString), @p39='?' (Size = 8000) (DbType = AnsiString), @p40='?' (DbType = Int64), @p41='?' (DbType = Int64), @p42='?' (Size = 8000) (DbType = AnsiString), @p43='?' (Size = 7) (DbType = DateTime2), @p44='?', @p45='?' (Size = 100) (DbType = AnsiString), @p46='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Article] SET [AllRelatedSubjectsIncludesVersionsWithComma] = @p0, [AttachedAssetsStoredInCloudBaseFolderPath] = @p1, [AttachmentURLsComma] = @p2, [BiodataUrl] = @p3, [Content] = @p4, [OpenSourceUrls] = @p5, [SocialURLsWithComma] = @p6, [Tag1] = @p7, [Tag10] = @p8, [Tag11] = @p9, [Tag12] = @p10, [Tag2] = @p11, [Tag3] = @p12, [Tag4] = @p13, [Tag5] = @p14, [Tag6] = @p15, [Tag7] = @p16, [Tag8] = @p17, [Tag9] = @p18, [Title] = @p19, [UserIdOrEmail] = @p20, [UserLoggedInSocialProviderName] = @p21, [UserName] = @p22, [UserPhoneNumber] = @p23, [UserSocialAvatarUrl] = @p24
+WHERE [ArticleId] = @p25;
+SELECT @@ROWCOUNT;
+
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46);" (0723d8ff)
+2018-07-12T18:00:28.4173277-07:00 0HLF8BFJFPES5:00000003 [INF] Executed action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 39779.0218ms. (50a9e262)
+2018-07-12T18:00:28.4207501-07:00 0HLF8BFJFPES5:00000003 [INF] Executing ObjectResult, writing value of type '"Models.Article.Dtos.ArticleDto"'. (8a1b66c8)
+2018-07-12T18:00:28.4353162-07:00 0HLF8BFJFPES5:00000003 [INF] Executed action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" in 39954.7259ms (afa2e885)
+2018-07-12T18:00:28.4388827-07:00 0HLF8BFJFPES5:00000003 [INF] Request finished in 39975.5899ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T18:12:35.0528876-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T18:12:35.7143844-07:00 0HLF8BMRSUVTO:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T18:12:35.7143844-07:00 0HLF8BMRSUVTP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T18:12:35.7469704-07:00 0HLF8BMRSUVTO:00000001 [INF] Request finished in 34.8352ms 200  (791a596a)
+2018-07-12T18:12:35.9297648-07:00 0HLF8BMRSUVTP:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T18:12:35.9406948-07:00 0HLF8BMRSUVTP:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T18:12:35.9459898-07:00 0HLF8BMRSUVTP:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2676ms. (50a9e262)
+2018-07-12T18:12:35.9555865-07:00 0HLF8BMRSUVTP:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T18:12:35.9709811-07:00 0HLF8BMRSUVTP:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 31.2348ms (afa2e885)
+2018-07-12T18:12:35.9758827-07:00 0HLF8BMRSUVTP:00000001 [INF] Request finished in 265.5735ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T18:12:36.1894981-07:00 0HLF8BMRSUVTO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T18:12:36.1929913-07:00 0HLF8BMRSUVTO:00000002 [INF] Request finished in 2.8415ms 404  (791a596a)
+2018-07-12T18:12:54.9616813-07:00 0HLF8BMRSUVTP:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T18:12:54.9691491-07:00 0HLF8BMRSUVTP:00000002 [INF] Request finished in 7.8827ms 200 text/html (791a596a)
+2018-07-12T18:12:55.4529506-07:00 0HLF8BMRSUVTO:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T18:12:55.5892888-07:00 0HLF8BMRSUVTO:00000003 [INF] Request finished in 136.3176ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T18:13:04.5979001-07:00 0HLF8BMRSUVTP:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2968 (ca22a1cb)
+2018-07-12T18:13:04.6138404-07:00 0HLF8BMRSUVTP:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T18:13:04.7679063-07:00 0HLF8BMRSUVTP:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T18:13:28.9728891-07:00 0HLF8BMRSUVTP:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:13:28.9752496-07:00 0HLF8BMRSUVTP:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:13:28.9772663-07:00 0HLF8BMRSUVTP:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:13:28.9795272-07:00 0HLF8BMRSUVTP:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:13:29.0129271-07:00 0HLF8BMRSUVTP:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T18:13:29.1978058-07:00 0HLF8BMRSUVTP:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T18:13:53.0877798-07:00 0HLF8BMRSUVTP:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 7) (DbType = DateTime2), @p4='?', @p5='?' (Size = 100) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);" (0723d8ff)
+2018-07-12T18:13:53.0909707-07:00 0HLF8BMRSUVTP:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 7) (DbType = DateTime2), @p4='?', @p5='?' (Size = 100) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);" (0723d8ff)
+2018-07-12T18:13:53.0936787-07:00 0HLF8BMRSUVTP:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 7) (DbType = DateTime2), @p4='?', @p5='?' (Size = 100) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);" (0723d8ff)
+2018-07-12T18:15:53.6113700-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T18:15:54.1489382-07:00 0HLF8BON1DPR9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T18:15:54.1489382-07:00 0HLF8BON1DPRA:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T18:15:54.1905316-07:00 0HLF8BON1DPRA:00000001 [INF] Request finished in 37.7183ms 200  (791a596a)
+2018-07-12T18:15:54.3430440-07:00 0HLF8BON1DPR9:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T18:15:54.3557583-07:00 0HLF8BON1DPR9:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T18:15:54.3615978-07:00 0HLF8BON1DPR9:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3723ms. (50a9e262)
+2018-07-12T18:15:54.3698164-07:00 0HLF8BON1DPR9:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T18:15:54.3808915-07:00 0HLF8BON1DPR9:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 32.9415ms (afa2e885)
+2018-07-12T18:15:54.3857164-07:00 0HLF8BON1DPR9:00000001 [INF] Request finished in 240.8684ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T18:15:54.6847431-07:00 0HLF8BON1DPRA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T18:15:54.6876040-07:00 0HLF8BON1DPRA:00000002 [INF] Request finished in 2.9615ms 404  (791a596a)
+2018-07-12T18:15:58.9572323-07:00 0HLF8BON1DPR9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T18:15:58.9677210-07:00 0HLF8BON1DPR9:00000002 [INF] Request finished in 10.4653ms 200 text/html (791a596a)
+2018-07-12T18:15:59.4769647-07:00 0HLF8BON1DPRA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T18:15:59.6179775-07:00 0HLF8BON1DPRA:00000003 [INF] Request finished in 141.1441ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T18:16:09.3107924-07:00 0HLF8BON1DPR9:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2929 (ca22a1cb)
+2018-07-12T18:16:09.3261119-07:00 0HLF8BON1DPR9:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T18:16:09.4815071-07:00 0HLF8BON1DPR9:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T18:16:11.7922732-07:00 0HLF8BON1DPR9:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:16:11.7946644-07:00 0HLF8BON1DPR9:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:16:11.7971293-07:00 0HLF8BON1DPR9:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:16:11.7986795-07:00 0HLF8BON1DPR9:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:16:11.8307010-07:00 0HLF8BON1DPR9:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T18:16:12.0317990-07:00 0HLF8BON1DPR9:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T18:16:27.7123620-07:00 0HLF8BON1DPR9:00000003 [INF] Executed DbCommand ("7"ms) [Parameters=["@p25='?' (DbType = Int64), @p0='?' (Size = 1000) (DbType = AnsiString), @p1='?' (Size = 8000) (DbType = AnsiString), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 8000) (DbType = AnsiString), @p4='?' (Size = 4000), @p5='?' (Size = 8000) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString), @p7='?' (Size = 32) (DbType = AnsiString), @p8='?' (Size = 32) (DbType = AnsiString), @p9='?' (Size = 32) (DbType = AnsiString), @p10='?' (Size = 32) (DbType = AnsiString), @p11='?' (Size = 32) (DbType = AnsiString), @p12='?' (Size = 32) (DbType = AnsiString), @p13='?' (Size = 32) (DbType = AnsiString), @p14='?' (Size = 32) (DbType = AnsiString), @p15='?' (Size = 32) (DbType = AnsiString), @p16='?' (Size = 32) (DbType = AnsiString), @p17='?' (Size = 32) (DbType = AnsiString), @p18='?' (Size = 32) (DbType = AnsiString), @p19='?' (Size = 8000) (DbType = AnsiString), @p20='?' (Size = 100) (DbType = AnsiString), @p21='?' (Size = 32) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 15) (DbType = AnsiString), @p24='?' (Size = 8000) (DbType = AnsiString), @p26='?' (DbType = Int64), @p27='?' (DbType = Int64), @p28='?' (Size = 8000) (DbType = AnsiString), @p29='?' (Size = 7) (DbType = DateTime2), @p30='?', @p31='?' (Size = 100) (DbType = AnsiString), @p32='?' (Size = 8000) (DbType = AnsiString), @p33='?' (DbType = Int64), @p34='?' (DbType = Int64), @p35='?' (Size = 8000) (DbType = AnsiString), @p36='?' (Size = 7) (DbType = DateTime2), @p37='?', @p38='?' (Size = 100) (DbType = AnsiString), @p39='?' (Size = 8000) (DbType = AnsiString), @p40='?' (DbType = Int64), @p41='?' (DbType = Int64), @p42='?' (Size = 8000) (DbType = AnsiString), @p43='?' (Size = 7) (DbType = DateTime2), @p44='?', @p45='?' (Size = 100) (DbType = AnsiString), @p46='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Article] SET [AllRelatedSubjectsIncludesVersionsWithComma] = @p0, [AttachedAssetsStoredInCloudBaseFolderPath] = @p1, [AttachmentURLsComma] = @p2, [BiodataUrl] = @p3, [Content] = @p4, [OpenSourceUrls] = @p5, [SocialURLsWithComma] = @p6, [Tag1] = @p7, [Tag10] = @p8, [Tag11] = @p9, [Tag12] = @p10, [Tag2] = @p11, [Tag3] = @p12, [Tag4] = @p13, [Tag5] = @p14, [Tag6] = @p15, [Tag7] = @p16, [Tag8] = @p17, [Tag9] = @p18, [Title] = @p19, [UserIdOrEmail] = @p20, [UserLoggedInSocialProviderName] = @p21, [UserName] = @p22, [UserPhoneNumber] = @p23, [UserSocialAvatarUrl] = @p24
+WHERE [ArticleId] = @p25;
+SELECT @@ROWCOUNT;
+
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46);" (0723d8ff)
+2018-07-12T18:23:31.5603294-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T18:23:32.1900696-07:00 0HLF8BSVHK0SL:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T18:23:32.1900696-07:00 0HLF8BSVHK0SM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T18:23:32.2260441-07:00 0HLF8BSVHK0SL:00000001 [INF] Request finished in 38.1556ms 200  (791a596a)
+2018-07-12T18:23:32.3961807-07:00 0HLF8BSVHK0SM:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T18:23:32.4095182-07:00 0HLF8BSVHK0SM:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T18:23:32.4159977-07:00 0HLF8BSVHK0SM:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.3285ms. (50a9e262)
+2018-07-12T18:23:32.4256112-07:00 0HLF8BSVHK0SM:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T18:23:32.4374058-07:00 0HLF8BSVHK0SM:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 35.0788ms (afa2e885)
+2018-07-12T18:23:32.4450507-07:00 0HLF8BSVHK0SM:00000001 [INF] Request finished in 257.0434ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T18:23:32.6717262-07:00 0HLF8BSVHK0SL:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T18:23:32.6748193-07:00 0HLF8BSVHK0SL:00000002 [INF] Request finished in 2.6405ms 404  (791a596a)
+2018-07-12T18:23:40.3310423-07:00 0HLF8BSVHK0SM:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T18:23:40.3398308-07:00 0HLF8BSVHK0SM:00000002 [INF] Request finished in 8.8797ms 200 text/html (791a596a)
+2018-07-12T18:23:41.5164631-07:00 0HLF8BSVHK0SL:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T18:23:41.6478106-07:00 0HLF8BSVHK0SL:00000003 [INF] Request finished in 131.116ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T18:23:59.3879920-07:00 0HLF8BSVHK0SM:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2905 (ca22a1cb)
+2018-07-12T18:23:59.4029388-07:00 0HLF8BSVHK0SM:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T18:23:59.5535998-07:00 0HLF8BSVHK0SM:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T18:24:24.5451037-07:00 0HLF8BSVHK0SM:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:24:24.5476662-07:00 0HLF8BSVHK0SM:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:24:24.5505726-07:00 0HLF8BSVHK0SM:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:24:24.5524182-07:00 0HLF8BSVHK0SM:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T18:24:24.5883749-07:00 0HLF8BSVHK0SM:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T18:24:25.0228744-07:00 0HLF8BSVHK0SM:00000003 [INF] Executed DbCommand ("6"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T18:29:03.8685149-07:00 0HLF8BSVHK0SM:00000003 [INF] Executed DbCommand ("9"ms) [Parameters=["@p25='?' (DbType = Int64), @p0='?' (Size = 1000) (DbType = AnsiString), @p1='?' (Size = 8000) (DbType = AnsiString), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 8000) (DbType = AnsiString), @p4='?' (Size = 4000), @p5='?' (Size = 8000) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString), @p7='?' (Size = 32) (DbType = AnsiString), @p8='?' (Size = 32) (DbType = AnsiString), @p9='?' (Size = 32) (DbType = AnsiString), @p10='?' (Size = 32) (DbType = AnsiString), @p11='?' (Size = 32) (DbType = AnsiString), @p12='?' (Size = 32) (DbType = AnsiString), @p13='?' (Size = 32) (DbType = AnsiString), @p14='?' (Size = 32) (DbType = AnsiString), @p15='?' (Size = 32) (DbType = AnsiString), @p16='?' (Size = 32) (DbType = AnsiString), @p17='?' (Size = 32) (DbType = AnsiString), @p18='?' (Size = 32) (DbType = AnsiString), @p19='?' (Size = 8000) (DbType = AnsiString), @p20='?' (Size = 100) (DbType = AnsiString), @p21='?' (Size = 32) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 15) (DbType = AnsiString), @p24='?' (Size = 8000) (DbType = AnsiString), @p26='?' (DbType = Int64), @p27='?' (DbType = Int64), @p28='?' (Size = 8000) (DbType = AnsiString), @p29='?' (Size = 7) (DbType = DateTime2), @p30='?', @p31='?' (Size = 100) (DbType = AnsiString), @p32='?' (Size = 8000) (DbType = AnsiString), @p33='?' (DbType = Int64), @p34='?' (DbType = Int64), @p35='?' (Size = 8000) (DbType = AnsiString), @p36='?' (Size = 7) (DbType = DateTime2), @p37='?', @p38='?' (Size = 100) (DbType = AnsiString), @p39='?' (Size = 8000) (DbType = AnsiString), @p40='?' (DbType = Int64), @p41='?' (DbType = Int64), @p42='?' (Size = 8000) (DbType = AnsiString), @p43='?' (Size = 7) (DbType = DateTime2), @p44='?', @p45='?' (Size = 100) (DbType = AnsiString), @p46='?' (Size = 8000) (DbType = AnsiString), @p48='?' (DbType = Int64), @p47='?' (Size = 8000) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Article] SET [AllRelatedSubjectsIncludesVersionsWithComma] = @p0, [AttachedAssetsStoredInCloudBaseFolderPath] = @p1, [AttachmentURLsComma] = @p2, [BiodataUrl] = @p3, [Content] = @p4, [OpenSourceUrls] = @p5, [SocialURLsWithComma] = @p6, [Tag1] = @p7, [Tag10] = @p8, [Tag11] = @p9, [Tag12] = @p10, [Tag2] = @p11, [Tag3] = @p12, [Tag4] = @p13, [Tag5] = @p14, [Tag6] = @p15, [Tag7] = @p16, [Tag8] = @p17, [Tag9] = @p18, [Title] = @p19, [UserIdOrEmail] = @p20, [UserLoggedInSocialProviderName] = @p21, [UserName] = @p22, [UserPhoneNumber] = @p23, [UserSocialAvatarUrl] = @p24
+WHERE [ArticleId] = @p25;
+SELECT @@ROWCOUNT;
+
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46);
+UPDATE [ArticleLicense] SET [License] = @p47
+WHERE [ArticleLicenseId] = @p48;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-07-12T18:29:03.9032390-07:00 0HLF8BSVHK0SM:00000003 [INF] Executed action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 304347.7479ms. (50a9e262)
+2018-07-12T18:29:03.9061698-07:00 0HLF8BSVHK0SM:00000003 [INF] Executing ObjectResult, writing value of type '"Models.Article.Dtos.ArticleDto"'. (8a1b66c8)
+2018-07-12T18:29:03.9172821-07:00 0HLF8BSVHK0SM:00000003 [INF] Executed action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" in 304512.3445ms (afa2e885)
+2018-07-12T18:29:03.9196350-07:00 0HLF8BSVHK0SM:00000003 [INF] Request finished in 304531.8355ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T19:06:23.0955284-07:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-07-12T19:06:23.7355055-07:00 0HLF8CKTTQ8UV:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:65451/  0 (ca22a1cb)
+2018-07-12T19:06:23.7355052-07:00 0HLF8CKTTQ8V0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44376/api/values   (ca22a1cb)
+2018-07-12T19:06:23.7687760-07:00 0HLF8CKTTQ8UV:00000001 [INF] Request finished in 36.1196ms 200  (791a596a)
+2018-07-12T19:06:23.9338328-07:00 0HLF8CKTTQ8V0:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "Article.Controllers.ValuesController.Get (Article)" (a44c0341)
+2018-07-12T19:06:23.9437569-07:00 0HLF8CKTTQ8V0:00000001 [INF] Executing action method "Article.Controllers.ValuesController.Get (Article)" - Validation state: Valid (dad538d7)
+2018-07-12T19:06:23.9490327-07:00 0HLF8CKTTQ8V0:00000001 [INF] Executed action method "Article.Controllers.ValuesController.Get (Article)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2899ms. (50a9e262)
+2018-07-12T19:06:23.9579496-07:00 0HLF8CKTTQ8V0:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-07-12T19:06:23.9682180-07:00 0HLF8CKTTQ8V0:00000001 [INF] Executed action "Article.Controllers.ValuesController.Get (Article)" in 29.8392ms (afa2e885)
+2018-07-12T19:06:23.9729738-07:00 0HLF8CKTTQ8V0:00000001 [INF] Request finished in 242.0076ms 200 application/json; charset=utf-8 (791a596a)
+2018-07-12T19:06:24.1785580-07:00 0HLF8CKTTQ8UV:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/favicon.ico   (ca22a1cb)
+2018-07-12T19:06:24.1814976-07:00 0HLF8CKTTQ8UV:00000002 [INF] Request finished in 2.8714ms 404  (791a596a)
+2018-07-12T19:06:29.2844014-07:00 0HLF8CKTTQ8V0:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44376/index.html   (ca22a1cb)
+2018-07-12T19:06:29.2926660-07:00 0HLF8CKTTQ8V0:00000002 [INF] Request finished in 8.6449ms 200 text/html (791a596a)
+2018-07-12T19:06:29.7937207-07:00 0HLF8CKTTQ8UV:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44376/swagger/v1/swagger.json   (ca22a1cb)
+2018-07-12T19:06:29.9368340-07:00 0HLF8CKTTQ8UV:00000003 [INF] Request finished in 143.156ms 200 application/json;charset=utf-8 (791a596a)
+2018-07-12T19:06:37.4406697-07:00 0HLF8CKTTQ8V0:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44376/Article/UpdateArticleWithCommitHistory application/json-patch+json 2905 (ca22a1cb)
+2018-07-12T19:06:37.4603743-07:00 0HLF8CKTTQ8V0:00000003 [INF] Route matched with "{action = \"UpdateArticleWithCommitHistory\", controller = \"Article\"}". Executing action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" (a44c0341)
+2018-07-12T19:06:37.6129090-07:00 0HLF8CKTTQ8V0:00000003 [INF] Executing action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" with arguments (["Models.Article.Dtos.ArticleDto"]) - Validation state: Valid (4e3479ed)
+2018-07-12T19:06:39.9673796-07:00 0HLF8CKTTQ8V0:00000003 [WRN] The 'bool' property '"HireMe"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T19:06:39.9694491-07:00 0HLF8CKTTQ8V0:00000003 [WRN] The 'bool' property '"IsActive"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T19:06:39.9715898-07:00 0HLF8CKTTQ8V0:00000003 [WRN] The 'bool' property '"IsArticleInDraftMode"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T19:06:39.9734368-07:00 0HLF8CKTTQ8V0:00000003 [WRN] The 'bool' property '"IsPublished"' on entity type '"Article"' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead so that the default will only be used for inserts when the property value is 'null'. (a2a8ca4b)
+2018-07-12T19:06:40.0050809-07:00 0HLF8CKTTQ8V0:00000003 [INF] Entity Framework Core "2.1.0-rtm-30799" initialized '"ArticleDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2018-07-12T19:06:40.1954058-07:00 0HLF8CKTTQ8V0:00000003 [INF] Executed DbCommand ("4"ms) [Parameters=["@__articleDto_ArticleId_0='?' (DbType = Int64)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[ArticleId], [a].[AllRelatedSubjectsIncludesVersionsWithComma], [a].[ArticleAverageVotes], [a].[AttachedAssetsInCloudCount], [a].[AttachedAssetsInCloudStorageId], [a].[AttachedAssetsStoredInCloudBaseFolderPath], [a].[AttachmentURLsComma], [a].[BiodataUrl], [a].[Content], [a].[CreatedDateTime], [a].[HireMe], [a].[IsActive], [a].[IsArticleInDraftMode], [a].[IsPublished], [a].[OpenSourceUrls], [a].[PublishedDate], [a].[SocialURLsWithComma], [a].[Tag1], [a].[Tag10], [a].[Tag11], [a].[Tag12], [a].[Tag2], [a].[Tag3], [a].[Tag4], [a].[Tag5], [a].[Tag6], [a].[Tag7], [a].[Tag8], [a].[Tag9], [a].[Title], [a].[TotalVotedPersonsCount], [a].[TotalVotes], [a].[UpdatedDateTime], [a].[UserIdOrEmail], [a].[UserLoggedInSocialProviderName], [a].[UserName], [a].[UserPhoneNumber], [a].[UserSocialAvatarUrl], [a.ArticleLicense].[ArticleLicenseId], [a.ArticleLicense].[ArticleId], [a.ArticleLicense].[License], [a.ArticleLicense].[LicensedDate]
+FROM [Article] AS [a]
+LEFT JOIN [ArticleLicense] AS [a.ArticleLicense] ON [a].[ArticleId] = [a.ArticleLicense].[ArticleId]
+WHERE [a].[ArticleId] = @__articleDto_ArticleId_0" (0723d8ff)
+2018-07-12T19:06:50.4586413-07:00 0HLF8CKTTQ8V0:00000003 [INF] Executed DbCommand ("8"ms) [Parameters=["@p25='?' (DbType = Int64), @p0='?' (Size = 1000) (DbType = AnsiString), @p1='?' (Size = 8000) (DbType = AnsiString), @p2='?' (Size = 8000) (DbType = AnsiString), @p3='?' (Size = 8000) (DbType = AnsiString), @p4='?' (Size = 4000), @p5='?' (Size = 8000) (DbType = AnsiString), @p6='?' (Size = 8000) (DbType = AnsiString), @p7='?' (Size = 32) (DbType = AnsiString), @p8='?' (Size = 32) (DbType = AnsiString), @p9='?' (Size = 32) (DbType = AnsiString), @p10='?' (Size = 32) (DbType = AnsiString), @p11='?' (Size = 32) (DbType = AnsiString), @p12='?' (Size = 32) (DbType = AnsiString), @p13='?' (Size = 32) (DbType = AnsiString), @p14='?' (Size = 32) (DbType = AnsiString), @p15='?' (Size = 32) (DbType = AnsiString), @p16='?' (Size = 32) (DbType = AnsiString), @p17='?' (Size = 32) (DbType = AnsiString), @p18='?' (Size = 32) (DbType = AnsiString), @p19='?' (Size = 8000) (DbType = AnsiString), @p20='?' (Size = 100) (DbType = AnsiString), @p21='?' (Size = 32) (DbType = AnsiString), @p22='?' (Size = 100) (DbType = AnsiString), @p23='?' (Size = 15) (DbType = AnsiString), @p24='?' (Size = 8000) (DbType = AnsiString), @p26='?' (DbType = Int64), @p27='?' (DbType = Int64), @p28='?' (Size = 8000) (DbType = AnsiString), @p29='?' (Size = 7) (DbType = DateTime2), @p30='?', @p31='?' (Size = 100) (DbType = AnsiString), @p32='?' (Size = 8000) (DbType = AnsiString), @p33='?' (DbType = Int64), @p34='?' (DbType = Int64), @p35='?' (Size = 8000) (DbType = AnsiString), @p36='?' (Size = 7) (DbType = DateTime2), @p37='?', @p38='?' (Size = 100) (DbType = AnsiString), @p39='?' (Size = 8000) (DbType = AnsiString), @p40='?' (DbType = Int64), @p41='?' (DbType = Int64), @p42='?' (Size = 8000) (DbType = AnsiString), @p43='?' (Size = 7) (DbType = DateTime2), @p44='?', @p45='?' (Size = 100) (DbType = AnsiString), @p46='?' (Size = 8000) (DbType = AnsiString), @p49='?' (DbType = Int64), @p47='?' (Size = 8000) (DbType = AnsiString), @p48='?' (Size = 7) (DbType = DateTime2)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Article] SET [AllRelatedSubjectsIncludesVersionsWithComma] = @p0, [AttachedAssetsStoredInCloudBaseFolderPath] = @p1, [AttachmentURLsComma] = @p2, [BiodataUrl] = @p3, [Content] = @p4, [OpenSourceUrls] = @p5, [SocialURLsWithComma] = @p6, [Tag1] = @p7, [Tag10] = @p8, [Tag11] = @p9, [Tag12] = @p10, [Tag2] = @p11, [Tag3] = @p12, [Tag4] = @p13, [Tag5] = @p14, [Tag6] = @p15, [Tag7] = @p16, [Tag8] = @p17, [Tag9] = @p18, [Title] = @p19, [UserIdOrEmail] = @p20, [UserLoggedInSocialProviderName] = @p21, [UserName] = @p22, [UserPhoneNumber] = @p23, [UserSocialAvatarUrl] = @p24
+WHERE [ArticleId] = @p25;
+SELECT @@ROWCOUNT;
+
+INSERT INTO [ArticleCommit] ([ArticleCommitId], [ArticleId], [Commit], [CommittedDate], [IsAdminCommited], [UserIdOrEmail], [UserSocialAvatarUrl])
+VALUES (@p26, @p27, @p28, @p29, @p30, @p31, @p32),
+(@p33, @p34, @p35, @p36, @p37, @p38, @p39),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46);
+UPDATE [ArticleLicense] SET [License] = @p47, [LicensedDate] = @p48
+WHERE [ArticleLicenseId] = @p49;
+SELECT @@ROWCOUNT;" (0723d8ff)
+2018-07-12T19:08:14.6203519-07:00 0HLF8CKTTQ8V0:00000003 [INF] Executed action method "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 97005.1542ms. (50a9e262)
+2018-07-12T19:08:14.6241311-07:00 0HLF8CKTTQ8V0:00000003 [INF] Executing ObjectResult, writing value of type '"Models.Article.Dtos.ArticleDto"'. (8a1b66c8)
+2018-07-12T19:08:14.6356459-07:00 0HLF8CKTTQ8V0:00000003 [INF] Executed action "Article.Controllers.ArticleController.UpdateArticleWithCommitHistory (Article)" in 97173.1561ms (afa2e885)
+2018-07-12T19:08:14.6384371-07:00 0HLF8CKTTQ8V0:00000003 [INF] Request finished in 97197.2368ms 200 application/json; charset=utf-8 (791a596a)

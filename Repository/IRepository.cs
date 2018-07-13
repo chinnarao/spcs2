@@ -17,7 +17,7 @@ namespace Repository
         /// <summary>
         /// Saves the current store.
         /// </summary>
-        void SaveChanges();
+        int SaveChanges();
 
         /// <summary>
         /// Saves the current store as an asynchronous operation.

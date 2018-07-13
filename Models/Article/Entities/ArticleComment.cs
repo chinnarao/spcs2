@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Models.Article.Entities
+{
+    public class ArticleComment
+    {
+        public long ArticleCommentId { get; set; }
+        public long ArticleId { get; set; }
+        public string UserIdOrEmail { get; set; }
+        public string UserSocialAvatarUrl { get; set; }
+        public bool? IsAdminCommented { get; set; }
+        public DateTime CommentedDate { get; set; }
+        public string Comment { get; set; }
+        public Article Article { get; set; }
+    }
+}

@@ -58,12 +58,14 @@ namespace Repository
         public bool AutoSaveChanges { get; set; } = true;
 
         /// <inheritdoc />
-        public void SaveChanges()
+        public int SaveChanges()
         {
             if (AutoSaveChanges)
             {
-                Context.SaveChanges();
+                int i = Context.SaveChanges();
+                return i;
             }
+            return 0;
         }
 
         /// <inheritdoc />

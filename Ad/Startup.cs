@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Google;
 using File;
 using DbContexts;
+using Services.Ad;
 using Services;
 //https://github.com/dotnet-architecture/eShopOnWeb
 //https://github.com/aspnet/Docs/blob/master/aspnetcore/test/integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs
@@ -32,7 +33,7 @@ namespace Ad
             services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
             //services.AddUnitOfWork<AdDbContext>();
 
-            services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AutoMapperProfile()); }).CreateMapper());
+            services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AdAutoMapperProfile()); }).CreateMapper());
 
             services.AddScoped<IAdService, AdService>();
             services.AddScoped<IFileRead, FileRead>();

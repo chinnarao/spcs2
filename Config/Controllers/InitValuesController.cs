@@ -97,7 +97,7 @@ namespace Config.Controllers
 
             string path = Path.Combine(Directory.GetCurrentDirectory(), _config["ConfigFilesFolderName"], _config["CountriesJsonFileName"]);
             if (!System.IO.File.Exists(path))   return NotFound("Countries File not exists.");
-            DateTime cacheExpiryDateTime = DateTime.Now.AddDays(Convert.ToDouble(_config["InMemoryCacheDays"]));
+            DateTime cacheExpiryDateTime = DateTime.UtcNow.AddDays(Convert.ToDouble(_config["InMemoryCacheDays"]));
             countryCodesAndNames = System.IO.File.ReadAllText(path);
             if (string.IsNullOrEmpty(countryCodesAndNames)) return NotFound("Countries File exists, but failed in reading, unexpected.");
             countryCodesAndNames = _cacheService.GetOrAdd<string>(Constants.COUNTRIES, () => countryCodesAndNames, cacheExpiryDateTime);

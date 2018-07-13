@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Models.Ad.Dtos;
-using Services;
+using Services.Ad;
 using System;
 using System.IO;
 
@@ -31,7 +31,7 @@ namespace Ad.Controllers
 
             int adDefaultDisplayActiveDays = Convert.ToInt32(_configuration["AdDefaultDisplayActiveDays"]);
             if (adDefaultDisplayActiveDays <= 0) throw new ArgumentOutOfRangeException(nameof(adDefaultDisplayActiveDays));
-            model.AdId = DateTime.Now.Ticks;
+            model.AdId = DateTime.UtcNow.Ticks;
             model.AttachedAssetsInCloudStorageId = Guid.NewGuid();
 
             int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
@@ -42,7 +42,7 @@ namespace Ad.Controllers
             if (string.IsNullOrWhiteSpace(googleStorageBucketName)) throw new ArgumentOutOfRangeException(nameof(googleStorageBucketName));
 
             GoogleStorageAdFileDto fileModel = model.GoogleStorageAdFileDto;
-            fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.Now.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
+            fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.UtcNow.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
             fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
             fileModel.GoogleStorageBucketName = googleStorageBucketName;
             fileModel.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;

@@ -10,7 +10,7 @@ using Repository;
 using Microsoft.Extensions.Logging;
 using System.Text;
 
-namespace Services
+namespace Services.Ad
 {
     public class AdService : IAdService
     {
@@ -19,7 +19,7 @@ namespace Services
         private readonly IMapper _mapper;
         private readonly ICacheService _cacheService;
         private readonly IGoogleStorage _googleStorage;
-        private readonly Repository<Ad, AdDbContext> _context;
+        private readonly Repository<Models.Ad.Entities.Ad, AdDbContext> _context;
 
         public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, AdDbContext context)
         {
@@ -28,19 +28,19 @@ namespace Services
             _fileReadService = fileReadService;
             _cacheService = cacheService;
             _googleStorage = googleStorage;
-            _context = new Repository<Ad, AdDbContext>(context);
+            _context = new Repository<Models.Ad.Entities.Ad, AdDbContext>(context);
         }
 
         public void StartAdProcess(AdDto dto)
         {
             // transaction has to implement or not , has to think more required.
-            Ad ad = this.InsertAd(dto);
+            Models.Ad.Entities.Ad ad = this.InsertAd(dto);
             this.UploadObjectInGoogleStorage(dto.GoogleStorageAdFileDto);
         }
 
-        private Ad InsertAd(AdDto dto)
+        private Models.Ad.Entities.Ad InsertAd(AdDto dto)
         {
-            Ad ad = _mapper.Map<Ad>(dto);
+            Models.Ad.Entities.Ad ad = _mapper.Map<Models.Ad.Entities.Ad>(dto);
             RepositoryResult result = _context.Create(ad);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
             return ad;

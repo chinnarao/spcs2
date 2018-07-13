@@ -4,9 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Models.Article.Dtos;
 using Newtonsoft.Json;
-using Services;
+using Services.Article;
 using System;
 using System.IO;
+using System.Threading.Tasks;
+using System.Linq;
 
 //https://webapphuddle.com/design-tags-feature-in-web-apps/
 //https://www.maketecheasier.com/5-online-tools-to-create-tag-clouds/
@@ -28,23 +30,29 @@ namespace Article.Controllers
             _articleService = articleService;
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        public IActionResult GetAll([FromBody] ArticleSortFilterPageOptions options)
         {
             int defaultArticlesHomeDisplay = Convert.ToInt32(_configuration["DefaultArticlesHomeDisplay"]);
             if (defaultArticlesHomeDisplay <= 0) throw new ArgumentOutOfRangeException(nameof(defaultArticlesHomeDisplay));
 
-            var articles = _articleService.GetAll(defaultArticlesHomeDisplay);
-            return Ok(articles);
+            options.DefaultPageSize = defaultArticlesHomeDisplay;
+            options.PageNumber = 1;
+
+            var anonymous = _articleService.GetAll(defaultArticlesHomeDisplay, options);
+            return Ok(anonymous);
         }
 
         [HttpPost]
-        public IActionResult PostArticle([FromBody] ArticleDto model)
+        public IActionResult CreateArticle([FromBody] ArticleDto model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            model.ArticleId = DateTime.Now.Ticks;
+            model.ArticleCommentDtos = null;
+            model.ArticleCommitDtos = null;
+
+            model.ArticleId = DateTime.UtcNow.Ticks;
             model.AttachedAssetsInCloudStorageId = Guid.NewGuid();
 
             int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
@@ -54,7 +62,7 @@ namespace Article.Controllers
             string googleStorageBucketName = _configuration["ArticleBucketNameInGoogleCloudStorage"];
             if (string.IsNullOrWhiteSpace(googleStorageBucketName)) throw new ArgumentOutOfRangeException(nameof(googleStorageBucketName));
             GoogleStorageArticleFileDto fileModel = model.GoogleStorageArticleFileDto;
-            fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.Now.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
+            fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.UtcNow.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
             fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
             fileModel.GoogleStorageBucketName = googleStorageBucketName;
             fileModel.CACHE_KEY = Constants.Article_HTML_FILE_TEMPLATE;
@@ -62,8 +70,70 @@ namespace Article.Controllers
             fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
             fileModel.AnonymousDataObjectForHtmlTemplate = model.ArticleDtoAsAnonymous;
 
-            _articleService.StartArticleProcess(model);
+            ArticleDto articleDto = _articleService.CreateArticle(model);
+            return Ok(articleDto);
+        }
+
+        [HttpGet("{articleId}")]
+        public IActionResult Detail(long articleId)
+        {
+            if (articleId <= 0) throw new ArgumentOutOfRangeException(nameof(articleId));
+            ArticleDto dto = _articleService.Detail(articleId);
+            return Ok(dto);
+        }
+
+        [HttpGet("{articleId}")]
+        public IActionResult GetArticleLicenseCommentsCommits(long articleId)
+        {
+            if (articleId <= 0) throw new ArgumentOutOfRangeException(nameof(articleId));
+            dynamic articleJsonAnonymous = _articleService.GetArticleLicenseCommentsCommits(articleId);
+            return Ok(articleJsonAnonymous);
+        }
+
+        [HttpPost]
+        public IActionResult PostArticleComment([FromBody] ArticleCommentDto model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            model.ArticleCommentId = DateTime.UtcNow.Ticks;
+
+            _articleService.CreateComment(model);
             return Ok(model);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateArticleWithCommitHistory([FromBody] ArticleDto model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            if (model.ArticleLicenseDto == null) throw new ArgumentNullException(nameof(model.ArticleLicenseDto));
+            if (model.ArticleId != model.ArticleLicenseDto.ArticleId) throw new InvalidDataException(nameof(model.ArticleCommitDtos));
+            if (model.ArticleId <= 0 || model.ArticleLicenseDto.ArticleId <= 0) throw new InvalidDataException(nameof(model.ArticleId));
+            if (model.ArticleLicenseDto.ArticleLicenseId <= 0) throw new InvalidDataException(nameof(model.ArticleLicenseDto.ArticleLicenseId));
+
+
+            if (model.ArticleCommitDtos == null || model.ArticleCommitDtos.Count == 0) throw new ArgumentNullException(nameof(model.ArticleCommitDtos));
+            //ArticleCommitDto articleCommitDto = model.ArticleCommitDtos.First();
+            //if (model.ArticleId != articleCommitDto.ArticleId) throw new InvalidDataException(nameof(model.ArticleCommitDtos));
+            //if (model.ArticleId <= 0 || articleCommitDto.ArticleId <= 0) throw new InvalidDataException(nameof(model.ArticleId));
+
+            //articleCommitDto.ArticleCommitId = DateTime.UtcNow.Ticks;
+            //articleCommitDto.CommittedDate = DateTime.UtcNow;
+            // re think here : what about template save in storage. what about old template file?
+
+
+            int i = 1;
+            foreach (var articleCommitDto in model.ArticleCommitDtos)
+            {
+                articleCommitDto.ArticleCommitId = DateTime.UtcNow.Ticks + i++;
+                articleCommitDto.CommittedDate = DateTime.UtcNow;
+            }
+
+
+
+            ArticleDto articleDto = _articleService.UpdateArticleWithCommitHistory(model);
+            return Ok(articleDto);
         }
     }
 }
