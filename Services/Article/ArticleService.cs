@@ -129,14 +129,13 @@ namespace Services.Article
 
         public ArticleDto Detail(long articleId)
         {
-            var article = _articleRepository.Entities.Include(i => i.ArticleLicense).Include(i =>i.ArticleCommits).AsNoTracking().First(i => i.ArticleId == articleId);
+            var article = _articleRepository.Entities.Include(i => i.ArticleLicense).Include(i =>i.ArticleCommits).Include(i => i.ArticleComments).AsNoTracking().First(i => i.ArticleId == articleId);
             ArticleDto articleDto = _mapper.Map<ArticleDto>(article);
             return articleDto;
         }
 
         public ArticleCommentDto CreateComment(ArticleCommentDto articleCommentDto)
         {
-            articleCommentDto.ArticleCommentId = DateTime.UtcNow.Ticks;
             ArticleComment articleComment = _mapper.Map<ArticleComment>(articleCommentDto);
             _articleCommentRepository.Create(articleComment);
             return articleCommentDto;

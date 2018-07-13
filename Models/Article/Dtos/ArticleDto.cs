@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 namespace Models.Article.Dtos
 {
     public class ArticleDto
     {
         public long ArticleId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Content { get; set; }     // navachar, article content , which is a big information
         [Required]
         public DateTime CreatedDateTime { get; set; }
         [Required]
         public DateTime UpdatedDateTime { get; set; }
+        [Required]
         public string UserIdOrEmail { get; set; }
         public string UserLoggedInSocialProviderName { get; set; }
         public string UserName { get; set; }
@@ -66,6 +70,6 @@ namespace Models.Article.Dtos
                 };
             }
         }
-        public string UpdatedDateTimeString { get; set; }
+        public string UpdatedDateTimeString { get; set; } // display purpose and time ago conversion
     }
 }

@@ -42,7 +42,8 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<string>("BiodataUrl")
                         .IsUnicode(false);
 
-                    b.Property<string>("Content");
+                    b.Property<string>("Content")
+                        .IsRequired();
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2(7)");
@@ -121,6 +122,7 @@ namespace DbContexts.ArticleMigration.Migrations
                         .IsUnicode(false);
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .IsUnicode(false);
 
                     b.Property<int?>("TotalVotedPersonsCount");
@@ -131,6 +133,7 @@ namespace DbContexts.ArticleMigration.Migrations
                         .HasColumnType("datetime2(7)");
 
                     b.Property<string>("UserIdOrEmail")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false);
 
@@ -170,6 +173,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<bool?>("IsAdminCommented");
 
                     b.Property<string>("UserIdOrEmail")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false);
 
@@ -198,6 +202,7 @@ namespace DbContexts.ArticleMigration.Migrations
                     b.Property<bool?>("IsAdminCommited");
 
                     b.Property<string>("UserIdOrEmail")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false);
 

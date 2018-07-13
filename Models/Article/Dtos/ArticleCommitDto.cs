@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Models.Article.Dtos
@@ -8,11 +9,13 @@ namespace Models.Article.Dtos
     {
         public long ArticleCommitId { get; set; }
         public string Commit { get; set; }
+        [Required]
         public DateTime CommittedDate { get; set; }
+        [Required]
         public string UserIdOrEmail { get; set; }
         public string UserSocialAvatarUrl { get; set; }
         public bool? IsAdminCommited { get; set; }   // typo mistakes can fix by any one, courtesy
-        //Foreign key for Article
+        [Required]
         public long ArticleId { get; set; }
     }
 }

@@ -66,22 +66,6 @@
       "userIdOrEmail": "string eight",
       "userSocialAvatarUrl": "string eight",
       "articleId": 636669713754758809
-    },
-    {
-      "articleCommitId": 0,
-      "commit": "string eight",
-      "committedDate": "2018-07-12T05:18:53.512Z",
-      "userIdOrEmail": "string eight",
-      "userSocialAvatarUrl": "string eight",
-      "articleId": 636669713754758809
-    },
-    {
-      "articleCommitId": 0,
-      "commit": "string eight",
-      "committedDate": "2018-07-12T05:18:53.512Z",
-      "userIdOrEmail": "string eight",
-      "userSocialAvatarUrl": "string eight",
-      "articleId": 636669713754758809
     }
   ]
 }

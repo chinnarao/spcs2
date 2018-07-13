@@ -98,8 +98,8 @@ namespace Article.Controllers
 
             model.ArticleCommentId = DateTime.UtcNow.Ticks;
 
-            _articleService.CreateComment(model);
-            return Ok(model);
+            ArticleCommentDto dto = _articleService.CreateComment(model);
+            return Ok(dto);
         }
 
         [HttpPost]
@@ -112,25 +112,14 @@ namespace Article.Controllers
             if (model.ArticleId <= 0 || model.ArticleLicenseDto.ArticleId <= 0) throw new InvalidDataException(nameof(model.ArticleId));
             if (model.ArticleLicenseDto.ArticleLicenseId <= 0) throw new InvalidDataException(nameof(model.ArticleLicenseDto.ArticleLicenseId));
 
-
             if (model.ArticleCommitDtos == null || model.ArticleCommitDtos.Count == 0) throw new ArgumentNullException(nameof(model.ArticleCommitDtos));
-            //ArticleCommitDto articleCommitDto = model.ArticleCommitDtos.First();
-            //if (model.ArticleId != articleCommitDto.ArticleId) throw new InvalidDataException(nameof(model.ArticleCommitDtos));
-            //if (model.ArticleId <= 0 || articleCommitDto.ArticleId <= 0) throw new InvalidDataException(nameof(model.ArticleId));
+            ArticleCommitDto articleCommitDto = model.ArticleCommitDtos.First();
+            if (model.ArticleId != articleCommitDto.ArticleId) throw new InvalidDataException(nameof(model.ArticleCommitDtos));
+            if (model.ArticleId <= 0 || articleCommitDto.ArticleId <= 0) throw new InvalidDataException(nameof(model.ArticleId));
 
-            //articleCommitDto.ArticleCommitId = DateTime.UtcNow.Ticks;
-            //articleCommitDto.CommittedDate = DateTime.UtcNow;
+            articleCommitDto.ArticleCommitId = DateTime.UtcNow.Ticks;
+            articleCommitDto.CommittedDate = DateTime.UtcNow;
             // re think here : what about template save in storage. what about old template file?
-
-
-            int i = 1;
-            foreach (var articleCommitDto in model.ArticleCommitDtos)
-            {
-                articleCommitDto.ArticleCommitId = DateTime.UtcNow.Ticks + i++;
-                articleCommitDto.CommittedDate = DateTime.UtcNow;
-            }
-
-
 
             ArticleDto articleDto = _articleService.UpdateArticleWithCommitHistory(model);
             return Ok(articleDto);

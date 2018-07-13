@@ -17,7 +17,7 @@ namespace DbContexts.ArticleConfigurations
             e.Property(p => p.AttachedAssetsStoredInCloudBaseFolderPath).IsUnicode(false);
             e.Property(p => p.AttachmentURLsComma).IsUnicode(false);
             e.Property(x => x.BiodataUrl).IsUnicode(false);
-            e.Property(x => x.Content);
+            e.Property(x => x.Content).IsRequired();
             e.Property(x => x.CreatedDateTime).IsRequired().HasColumnType("datetime2(7)");
             e.Property(x => x.HireMe).HasDefaultValue<bool>(false);
             e.Property(x => x.IsActive).HasDefaultValue<bool>(false);
@@ -39,11 +39,11 @@ namespace DbContexts.ArticleConfigurations
             e.Property(x => x.Tag10).IsUnicode(false).HasMaxLength(32);
             e.Property(x => x.Tag11).IsUnicode(false).HasMaxLength(32);
             e.Property(x => x.Tag12).IsUnicode(false).HasMaxLength(32);
-            e.Property(x => x.Title).IsUnicode(false);
+            e.Property(x => x.Title).IsRequired().IsUnicode(false);
             e.Property(x => x.TotalVotedPersonsCount);
             e.Property(x => x.TotalVotes);
             e.Property(x => x.UpdatedDateTime).IsRequired().HasColumnType("datetime2(7)");
-            e.Property(x => x.UserIdOrEmail).IsUnicode(false).HasMaxLength(100);
+            e.Property(x => x.UserIdOrEmail).IsRequired().IsUnicode(false).HasMaxLength(100);
             e.Property(x => x.UserLoggedInSocialProviderName).IsUnicode(false).HasMaxLength(32);
             e.Property(x => x.UserName).IsUnicode(false).HasMaxLength(100);
             e.Property(x => x.UserPhoneNumber).IsUnicode(false).HasMaxLength(15);
