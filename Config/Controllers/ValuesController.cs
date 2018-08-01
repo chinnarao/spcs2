@@ -30,7 +30,7 @@ namespace Config.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "saiBharadwaj", "chinnarao" };
+            return new string[] { "sai", "chinna" };
         }
 
         // GET api/values/5
