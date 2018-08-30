@@ -1,0 +1,14 @@
+2018-07-31 22:15:33.910 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-07-31 22:15:34.551 -07:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: Creating key {8eef7986-62cc-4174-a54c-9bc45b077a6a} with creation date 2018-08-01 05:15:34Z, activation date 2018-08-01 05:15:34Z, and expiration date 2018-10-30 05:15:34Z.
+2018-07-31 22:15:34.928 -07:00 [Information] Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository: Writing data to file 'C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys\key-8eef7986-62cc-4174-a54c-9bc45b077a6a.xml'.
+2018-07-31 22:15:38.345 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:50711/  0
+2018-07-31 22:15:38.356 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/api/values  
+2018-07-31 22:15:38.492 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 156.2236ms 200 
+2018-07-31 22:15:39.384 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "Get", controller = "Values"}. Executing action Config.Controllers.ValuesController.Get (Config)
+2018-07-31 22:15:39.419 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method Config.Controllers.ValuesController.Get (Config) - Validation state: Valid
+2018-07-31 22:15:39.432 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method Config.Controllers.ValuesController.Get (Config), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.0952ms.
+2018-07-31 22:15:39.505 -07:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.String[]'.
+2018-07-31 22:15:39.685 -07:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action Config.Controllers.ValuesController.Get (Config) in 147.1402ms
+2018-07-31 22:15:39.785 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1393.8824ms 200 application/json; charset=utf-8
+2018-07-31 22:15:40.284 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:44308/favicon.ico  
+2018-07-31 22:15:40.298 -07:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 5.4072ms 404 
