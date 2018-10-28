@@ -15,7 +15,7 @@ namespace Ad
             WebHost.CreateDefaultBuilder(args)
             .ConfigureLogging((hostingContext, builder) =>
             {
-                builder.AddFile("Logs/myapp-{Date}.txt");
+                builder.AddFile("Logs/Ad-{Date}.txt");
             })
             .UseStartup<Startup>();
     }

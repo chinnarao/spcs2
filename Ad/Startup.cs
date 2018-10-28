@@ -68,6 +68,7 @@ namespace Ad
             }
 
             #region Swagger
+            //https://localhost:44394/index.html
             //http://localhost:<port>/swagger
             //http://localhost:<port>/swagger/v1/swagger.json
             // Enable middleware to serve generated Swagger as a JSON endpoint.

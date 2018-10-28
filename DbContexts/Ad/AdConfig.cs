@@ -25,14 +25,14 @@ namespace DbContexts.Ad
             e.Property(p => p.AddressState).IsUnicode(false).HasMaxLength(100);
             e.Property(p => p.AddressPartiesMeetingLandmarkName).IsUnicode(false).HasMaxLength(100);
             e.Property(p => p.AddressZipCode).IsUnicode(false).HasMaxLength(16);
-            e.Property(p => p.AdressCountryCode).IsUnicode(false).HasMaxLength(2);
+            e.Property(p => p.AddressCountryCode).IsUnicode(false).HasMaxLength(2);
             e.Property(p => p.AddressCountryName).IsUnicode(false).HasMaxLength(100);
             e.Property(p => p.AddressLatitude);
             e.Property(p => p.AddressLongitude);
 
             e.Property(p => p.ItemCost);
             e.Property(p => p.ItemCostCurrencyName).IsUnicode(false).HasMaxLength(50);
-            e.Property(p => p.ItmeCurrencyISO_4217).IsUnicode(false).HasMaxLength(3);
+            e.Property(p => p.ItemCurrencyISO_4217).IsUnicode(false).HasMaxLength(3);
 
             e.Property(p => p.AttachedAssetsInCloudCount);
             e.Property(p => p.AttachedAssetsInCloudStorageId);
