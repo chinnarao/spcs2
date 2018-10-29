@@ -21,14 +21,14 @@ namespace Models.Ad.Dtos
         public string AddressState { get; set; }
         public string AddressPartiesMeetingLandmarkName { get; set; }
         public string AddressZipCode { get; set; }   //http://www.zipinfo.com/products/zcug/zcug.htm
-        public string AdressCountryCode { get; set; }
+        public string AddressCountryCode { get; set; }
         public string AddressCountryName { get; set; }
         public double AddressLatitude { get; set; }
         public double AddressLongitude { get; set; }
 
         public double? ItemCost { get; set; }   //enter with currency code ex: dollar or rupees
         public string ItemCostCurrencyName { get; set; }   // enter with currency code ex: dollar or rupees  //https://www.countries-ofthe-world.com/world-currencies.html
-        public string ItmeCurrencyISO_4217 { get; set; }
+        public string ItemCurrencyISO_4217 { get; set; }
 
         public int? AttachedAssetsInCloudCount { get; set; }
         public Guid? AttachedAssetsInCloudStorageId { get; set; }

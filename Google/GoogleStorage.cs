@@ -1,4 +1,5 @@
-﻿using Google.Cloud.Storage.V1;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Cloud.Storage.V1;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -16,7 +17,12 @@ namespace Google
             if (string.IsNullOrEmpty(contentType))      throw new ArgumentException(nameof(contentType));
             #endregion
 
-            var storage = StorageClient.Create();
+            // If you don't specify credentials when constructing the client, the
+            // client library will look for credentials in the environment.
+            GoogleCredential googleCredential = GoogleCredential.GetApplicationDefault();
+            if (googleCredential == null) throw new ArgumentNullException(nameof(GoogleCredential));
+
+            var storage = StorageClient.Create(googleCredential);
             storage.UploadObject(bucketName, objectName, contentType, stream);
         }
 

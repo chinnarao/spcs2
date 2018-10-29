@@ -5,3 +5,25 @@ Google.Cloud.Storage.V1  2.2.0-beta01
 
 sdk:
 Microsoft.NETCore.App 2.10
+
+
+Important points:
+Error: 
+------------------------------------------------------
+System.InvalidOperationException
+  HResult=0x80131509
+  Message=Error reading credential file from location \Users\chinn\OneDrive\Documents\GitHub\spcs\ad\spgoogle-fe1635053afe.json: Could not find a part of the path 'C:\Users\chinn\OneDrive\Documents\GitHub\spcs\ad\spgoogle-fe1635053afe.json'.
+Please check the value of the Environment Variable GOOGLE_APPLICATION_CREDENTIALS
+  Source=Google.Apis.Auth
+------------------------------------------------------
+Solution In production : https://cloud.google.com/docs/authentication/production#obtaining_and_providing_service_account_credentials_manually
+-------------------------------------------------------------------------------------------------------------------------------------
+Solution In Dev:
+'help article: https://cloud.google.com/docs/authentication/getting-started
+first option: set the environment variable , see above article.
+second option: make sure the file in this folder : C:\Users\chinn\OneDrive\Documents\GitHub\spcs\ad\spgoogle-fe1635053afe.json
+if you want to change the path , please use command promt and set the environment varialble.
+With PowerShell:  $env:GOOGLE_APPLICATION_CREDENTIALS="[PATH]"
+For example:  $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\username\Downloads\[FILE_NAME].json"
+With command prompt:  set GOOGLE_APPLICATION_CREDENTIALS=[PATH]
+=====================================================================================================================================

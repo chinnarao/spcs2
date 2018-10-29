@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.AdMigration.Migrations
 {
     [DbContext(typeof(AdDbContext))]
-    [Migration("20180713091618_Initial")]
+    [Migration("20181029042056_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,10 @@ namespace DbContexts.AdMigration.Migrations
                         .HasMaxLength(100)
                         .IsUnicode(false);
 
+                    b.Property<string>("AddressCountryCode")
+                        .HasMaxLength(2)
+                        .IsUnicode(false);
+
                     b.Property<string>("AddressCountryName")
                         .HasMaxLength(100)
                         .IsUnicode(false);
@@ -68,10 +72,6 @@ namespace DbContexts.AdMigration.Migrations
 
                     b.Property<string>("AddressZipCode")
                         .HasMaxLength(16)
-                        .IsUnicode(false);
-
-                    b.Property<string>("AdressCountryCode")
-                        .HasMaxLength(2)
                         .IsUnicode(false);
 
                     b.Property<int?>("AttachedAssetsInCloudCount");
@@ -103,7 +103,7 @@ namespace DbContexts.AdMigration.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<string>("ItmeCurrencyISO_4217")
+                    b.Property<string>("ItemCurrencyISO_4217")
                         .HasMaxLength(3)
                         .IsUnicode(false);
 

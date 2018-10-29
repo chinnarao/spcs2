@@ -7,6 +7,15 @@
 7. Microsoft.Extensions.Configuration.Json
 8. Microsoft.Extensions.DependencyInjection.Abstractions
 
+step 1: vs -> tools -> nuget package manager -> package manager console
+step 2: Execute : Remove-Migration -Force -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+step 3: observe , the database will be removed by the above stmt in ssms. and migration folder will be empty in "DbContexts.AdMigration" project
+step 4: Execute : Add-Migration -Name "Initial" -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+step 5: now observe, in migration folder, 3 files will be created , _initial and initial.designer and snapshot files. 
+step 6: observe , no database is created in ssms.
+step 7: Execute : Update-Database -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+step 8: observe ad database is created and available in ssms.
+
 
 Add-Migration -Name "Initial" -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
 Update-Database -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"

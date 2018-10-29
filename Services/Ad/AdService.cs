@@ -100,8 +100,8 @@ namespace Services.Ad
         public AdDto GetAdDetail(long adId)
         {
             var ad = _adRepository.Entities.AsNoTracking().Single(i => i.AdId == adId);
-            AdDto articleDto = _mapper.Map<AdDto>(ad);
-            return articleDto;
+            AdDto adDto = _mapper.Map<AdDto>(ad);
+            return adDto;
         }
 
         public AdDto UpdateAd(AdDto adDto)
@@ -123,6 +123,13 @@ namespace Services.Ad
             }
             return t;
         }
+
+        public List<AdDto> GetAllAds()
+        {
+            var ads = _adRepository.Entities.AsNoTracking();
+            List<AdDto> adDtos = _mapper.Map<List<AdDto>>(ads);
+            return adDtos;
+        }
     }
 
     public interface IAdService
@@ -132,5 +139,6 @@ namespace Services.Ad
         AdDto GetAdDetail(long adId);
         AdDto UpdateAd(AdDto adDto);
         HashSet<string> GetAllUniqueTags();
+        List<AdDto> GetAllAds();
     }
 }

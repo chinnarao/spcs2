@@ -10,7 +10,7 @@ using System.IO;
 namespace Ad.Controllers
 {
     //https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/logging/index/sample2/Controllers/TodoController.cs
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     public class AdController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -30,6 +30,8 @@ namespace Ad.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            Guid _AttachedAssetsInCloudStorageId = Guid.NewGuid();
+
             int adDefaultDisplayActiveDays = Convert.ToInt32(_configuration["AdDefaultDisplayActiveDays"]);
             if (adDefaultDisplayActiveDays <= 0) throw new ArgumentOutOfRangeException(nameof(adDefaultDisplayActiveDays));
             int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
@@ -44,12 +46,12 @@ namespace Ad.Controllers
             fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
             fileModel.GoogleStorageBucketName = googleStorageBucketName;
             fileModel.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;
-            fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", model.AttachedAssetsInCloudStorageId?.ToString("N"), Path.GetExtension(htmlFileName));
+            fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", _AttachedAssetsInCloudStorageId.ToString("N"), Path.GetExtension(htmlFileName));
             fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
 
             model.GoogleStorageAdFileDto = fileModel;
             model.AdId = DateTime.UtcNow.Ticks;
-            model.AttachedAssetsInCloudStorageId = Guid.NewGuid();
+            model.AttachedAssetsInCloudStorageId = _AttachedAssetsInCloudStorageId;
             model.CreatedDateTime = model.UpdatedDateTime = DateTime.UtcNow;
 
             AdDto dto = _adService.CreateAd(model);
@@ -94,6 +96,13 @@ namespace Ad.Controllers
         {
             HashSet<string> set = _adService.GetAllUniqueTags();
             return Ok(set);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllAds()
+        {
+            List<AdDto> dtos = _adService.GetAllAds();
+            return Ok(dtos);
         }
     }
 }
