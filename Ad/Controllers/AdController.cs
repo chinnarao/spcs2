@@ -50,7 +50,7 @@ namespace Ad.Controllers
             fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
 
             model.GoogleStorageAdFileDto = fileModel;
-            model.AdId = DateTime.UtcNow.Ticks;
+            model.AdId = DateTime.UtcNow.Ticks.ToString();
             model.AttachedAssetsInCloudStorageId = _AttachedAssetsInCloudStorageId;
             model.CreatedDateTime = model.UpdatedDateTime = DateTime.UtcNow;
 
@@ -58,6 +58,16 @@ namespace Ad.Controllers
             dto.GoogleStorageAdFileDto = null;
             dto.UpdatedDateTimeString = null;
             return Ok(dto);
+        }
+
+        private void Validate(AdDto model)
+        {
+            
+            if (model.UserPhoneNumber.Length > 15) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
+            if (model.AddressZipCode.Length > 16)  throw new ArgumentOutOfRangeException(nameof(model.AddressZipCode));
+            if (model.AddressCountryCode.Length > 2) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
+            if (model.ItemCurrencyISO_4217.Length > 3) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
+            if (model.Tag1.Length >= 32) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
         }
 
         [HttpPost]

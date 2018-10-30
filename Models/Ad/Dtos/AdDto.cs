@@ -5,7 +5,7 @@ namespace Models.Ad.Dtos
 {
     public class AdDto
     {
-        public Int64 AdId { get; set; }  //http://www.talkingdotnet.com/use-hilo-to-generate-keys-with-entity-framework-core/
+        public string AdId { get; set; }  //http://www.talkingdotnet.com/use-hilo-to-generate-keys-with-entity-framework-core/
         public string AdTitle { get; set; }
         public string AdContent { get; set; }   // product details , including category
         public int AdDisplayDays { get; set; } //Max 30 days  // readonly // ? help

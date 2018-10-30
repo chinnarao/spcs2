@@ -85,7 +85,7 @@ namespace Services.Ad
             var adDtos = _adRepository.Entities.Where(w => w.IsPublished && w.IsActive).AsNoTracking()
                             .Select(s => new AdDto()
                             {
-                                AdId = s.AdId,
+                                AdId = s.AdId.ToString(),
                                 AdTitle = s.AdTitle,
                                 UpdatedDateTimeString = s.UpdatedDateTime.TimeAgo(),
                                 UserIdOrEmail = s.UserIdOrEmail,
@@ -106,7 +106,7 @@ namespace Services.Ad
 
         public AdDto UpdateAd(AdDto adDto)
         {
-            Models.Ad.Entities.Ad adExisting = _adRepository.Entities.Single(a => a.AdId == adDto.AdId);
+            Models.Ad.Entities.Ad adExisting = _adRepository.Entities.Single(a => a.AdId == Convert.ToInt64(adDto.AdId));
             adExisting = _mapper.Map<AdDto, Models.Ad.Entities.Ad>(adDto, adExisting);
             int i = _adRepository.SaveChanges();
             AdDto adDtoNew = _mapper.Map<AdDto>(adExisting);
