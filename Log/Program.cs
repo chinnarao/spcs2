@@ -15,7 +15,7 @@ namespace Log
             WebHost.CreateDefaultBuilder(args)
             .ConfigureLogging((hostingContext, builder) =>
             {
-                builder.AddFile("Logs/{Date}.txt", retainedFileCountLimit: null ); //https://github.com/serilog/serilog-extensions-logging-file
+                builder.AddFile("Logs/{Date}.txt", retainedFileCountLimit: null); //https://github.com/serilog/serilog-extensions-logging-file
             })
             .UseStartup<Startup>();
     }

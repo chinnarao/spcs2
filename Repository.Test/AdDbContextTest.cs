@@ -35,7 +35,7 @@ namespace Repository.Test
                 var repository = services.GetService<Repository<Ad, AdDbContext>>();
                 await services.GetService<AdDbContext>().Database.EnsureCreatedAsync();
 
-                var adObject = new Ad { AdId = 1, UserIdOrEmail = "Test1", AdTitle = "title1", AddressZipCode = "535558",
+                var adObject = new Ad { AdId = 1, UserIdOrEmail = "Test1", AdTitle = "title1", AddressZipCode = "535558", AdContent = "content ... content",
                     AttachedAssetsStoredInCloudBaseFolderPath = "https://console.cloud.google.com/storage/browser/spcsad_first?project=oceanic-cacao-203021&folder&organizationId",
                     UserLoggedInSocialProviderName = "facebook"
                  };

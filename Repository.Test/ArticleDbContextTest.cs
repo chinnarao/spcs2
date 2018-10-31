@@ -36,7 +36,7 @@ namespace Repository.Test
                 var repository = services.GetService<Repository<Article, ArticleDbContext>>();
                 await services.GetService<ArticleDbContext>().Database.EnsureCreatedAsync();
 
-                var articleObject = new Article { ArticleId = 1, UserIdOrEmail = "Test1", Title = "title1",
+                var articleObject = new Article { ArticleId = 1, UserIdOrEmail = "Test1", Title = "title1", Content = "content",
                     AttachedAssetsStoredInCloudBaseFolderPath = "https://console.cloud.google.com/storage/browser/spcsad_first?project=oceanic-cacao-203021&folder&organizationId",
                     UserLoggedInSocialProviderName = "facebook"
                  };
