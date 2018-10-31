@@ -41,6 +41,7 @@ namespace Services.Ad
             Models.Ad.Entities.Ad ad = this.InsertAd(dto);
             dto.GoogleStorageAdFileDto.AdAnonymousDataObjectForHtmlTemplate = GetAdAsAnonymousObjectForHtmlTemplate(dto);
             this.UploadObjectInGoogleStorage(dto.GoogleStorageAdFileDto);
+            dto.GoogleStorageAdFileDto = null;
             return dto;
         }
         private Models.Ad.Entities.Ad InsertAd(AdDto dto)

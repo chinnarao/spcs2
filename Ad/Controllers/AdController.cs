@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Models.Ad.Dtos;
@@ -6,6 +7,8 @@ using Services.Ad;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Ad.Util;
 
 namespace Ad.Controllers
 {
@@ -28,48 +31,14 @@ namespace Ad.Controllers
         public IActionResult CreateAd([FromBody]AdDto model)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            Guid _AttachedAssetsInCloudStorageId = Guid.NewGuid();
-
-            int adDefaultDisplayActiveDays = Convert.ToInt32(_configuration["AdDefaultDisplayActiveDays"]);
-            if (adDefaultDisplayActiveDays <= 0) throw new ArgumentOutOfRangeException(nameof(adDefaultDisplayActiveDays));
-            int inMemoryCachyExpireDays = Convert.ToInt32(_configuration["InMemoryCacheDays"]);
-            if (inMemoryCachyExpireDays <= 0) throw new ArgumentOutOfRangeException(nameof(inMemoryCachyExpireDays));
-            string htmlFileName = _configuration["AdHtmlTemplateFileNameWithExt"];
-            if (string.IsNullOrWhiteSpace(htmlFileName)) throw new ArgumentNullException(nameof(htmlFileName));
-            string googleStorageBucketName = _configuration["AdBucketNameInGoogleCloudStorage"];
-            if (string.IsNullOrWhiteSpace(googleStorageBucketName)) throw new ArgumentOutOfRangeException(nameof(googleStorageBucketName));
-
-            GoogleStorageAdFileDto fileModel = new GoogleStorageAdFileDto();
-            fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.UtcNow.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
-            fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
-            fileModel.GoogleStorageBucketName = googleStorageBucketName;
-            fileModel.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;
-            fileModel.GoogleStorageObjectNameWithExt = string.Format("{0}{1}", _AttachedAssetsInCloudStorageId.ToString("N"), Path.GetExtension(htmlFileName));
-            fileModel.ContentType = Utility.GetMimeTypes()[Path.GetExtension(htmlFileName)];
-
-            model.GoogleStorageAdFileDto = fileModel;
-            model.AdId = DateTime.UtcNow.Ticks.ToString();
-            model.AttachedAssetsInCloudStorageId = _AttachedAssetsInCloudStorageId;
-            model.CreatedDateTime = model.UpdatedDateTime = DateTime.UtcNow;
-
+                return BadRequest(ModelState.Errors());
+            model.Defaults(_configuration);
+            model.GoogleStorageAdFileDto = new GoogleStorageAdFileDto();
+            model.GoogleStorageAdFileDto.Values(_configuration, model.AttachedAssetsInCloudStorageId.Value);
             AdDto dto = _adService.CreateAd(model);
-            dto.GoogleStorageAdFileDto = null;
-            dto.UpdatedDateTimeString = null;
             return Ok(dto);
         }
-
-        private void Validate(AdDto model)
-        {
-            
-            if (model.UserPhoneNumber.Length > 15) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
-            if (model.AddressZipCode.Length > 16)  throw new ArgumentOutOfRangeException(nameof(model.AddressZipCode));
-            if (model.AddressCountryCode.Length > 2) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
-            if (model.ItemCurrencyISO_4217.Length > 3) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
-            if (model.Tag1.Length >= 32) throw new ArgumentOutOfRangeException(nameof(model.UserPhoneNumber));
-        }
-
+        
         [HttpPost]
         public IActionResult SearchAds([FromBody] AdSortFilterPageOptions options)
         {
