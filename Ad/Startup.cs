@@ -16,10 +16,12 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using Models.Ad.Dtos;
 using Ad.Util;
+using AspNetCore.Firebase.Authentication.Extensions;
 //https://github.com/dotnet-architecture/eShopOnWeb
 //https://github.com/aspnet/Docs/blob/master/aspnetcore/test/integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs
 //https://github.com/dotnet-presentations/home/tree/master/ASP.NET%20Core/ASP.NET%20Core%20-%20What-s%20New
 //https://www.linode.com/pricing
+//https://bitbucket.org/RAPHAEL_BICKEL/aspnetcore.firebase.authentication/overview
 namespace Ad
 {
     public class Startup
@@ -55,11 +57,13 @@ namespace Ad
                 c.SwaggerDoc("v1", new Info { Title = "Ad API", Version = "v1" });
             });
             #endregion
+            services.AddFirebaseAuthentication("https://securetoken.google.com/scooppagesdev1", "scooppagesdev1");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
             // global cors policy
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 

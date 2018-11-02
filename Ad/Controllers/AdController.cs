@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Ad.Util;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ad.Controllers
 {
@@ -77,6 +78,7 @@ namespace Ad.Controllers
             return Ok(set);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult GetAllAds()
         {
