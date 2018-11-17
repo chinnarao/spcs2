@@ -11,12 +11,11 @@ using DbContexts.Ad;
 using Services.Ad;
 using Services;
 using Repository;
-using Models.Ad.Entities;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 using Models.Ad.Dtos;
-using Ad.Util;
 using AspNetCore.Firebase.Authentication.Extensions;
+using Validation;
 //https://github.com/dotnet-architecture/eShopOnWeb
 //https://github.com/aspnet/Docs/blob/master/aspnetcore/test/integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs
 //https://github.com/dotnet-presentations/home/tree/master/ASP.NET%20Core/ASP.NET%20Core%20-%20What-s%20New
@@ -50,6 +49,7 @@ namespace Ad
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddFluentValidation();
             services.AddTransient<IValidator<AdDto>, AdDtoValidator>();
+            services.AddTransient<IValidator<AdSearchDto>, AdSearchDtoValidator>();
             #region Swagger
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

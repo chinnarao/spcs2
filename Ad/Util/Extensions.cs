@@ -14,6 +14,7 @@ namespace Ad.Util
         {
             return ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
         }
+
         public static void Defaults(this AdDto model, IConfiguration _configuration)
         {
             int adDefaultDisplayActiveDays;

@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Ad.Controllers
 {
     //https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/logging/index/sample2/Controllers/TodoController.cs
+    [Authorize]
     [Route("api/[controller]/[action]")]
     public class AdController : ControllerBase
     {
@@ -41,14 +42,10 @@ namespace Ad.Controllers
         }
         
         [HttpPost]
-        public IActionResult SearchAds([FromBody] AdSortFilterPageOptions options)
+        public IActionResult SearchAds([FromBody] AdSearchDto options)
         {
-            int defaultPageSize = Convert.ToInt32(_configuration["DefaultAdsHomeDisplay"]);
-            if (defaultPageSize <= 0) throw new ArgumentOutOfRangeException(nameof(defaultPageSize));
-
-            options.DefaultPageSize = defaultPageSize;
-            options.PageNumber = 1;
-
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.Errors());
             var anonymous = _adService.SearchAds(options);
             return Ok(anonymous);
         }
@@ -77,8 +74,7 @@ namespace Ad.Controllers
             HashSet<string> set = _adService.GetAllUniqueTags();
             return Ok(set);
         }
-
-        [Authorize]
+        
         [HttpGet]
         public IActionResult GetAllAds()
         {

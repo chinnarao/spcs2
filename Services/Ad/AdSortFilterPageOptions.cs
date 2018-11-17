@@ -5,19 +5,30 @@ using System.Threading.Tasks;
 
 namespace Services.Ad
 {
-    public class AdSortFilterPageOptions
+    public class AdSortFilterPageOptions_________
     {
-        public OrderByOptions OrderByOptions { get; set; }
-
-        public AdsFilterBy FilterBy { get; set; }
-
-        public string FilterValue { get; set; }
-
+        #region MyRegion
+        public string conditionName { get; set; }  // map to enum "old or new"
+        public string SortOptionsBy { get; set; } // map to enum 
+        public string MileOptionsBy { get; set; } // map to enum 
+        public string CategoryName { get; set; } // map to enum 
+        
         public int PageNumber { get; set; }
+        public int DefaultPageSize { get; set; } = 10;//how many records should display in the screen
+        public int SearchResultCount { get; private set; }
+        #endregion
 
-        public int DefaultPageSize { get; set; } //how many records should display in the screen
+        public string CountryCode { get; set; }  // ex: IN, US
+        public string CityName { get; set; }
+        public string ZipCode { get; set; }
 
-        public int TotalPagesBasedOnAvailableQueryDataRecords { get; private set; }
+        public string MapAddress { get; set; }
+        public string MapLongitude { get; set; }
+        public string MapLattitude { get; set; }
+
+        public int MinPrice { get; set; }
+        public int MaxPrice { get; set; }
+        public string currencyCode { get; set; }  // ex: USD , INR, AUD
 
         /// <summary>
         /// This holds the state of the key parts of the SortFilterPage parts 
@@ -26,8 +37,8 @@ namespace Services.Ad
 
         public void SetupRestOfDto(int count)
         {
-            TotalPagesBasedOnAvailableQueryDataRecords = (int)Math.Ceiling((double)(count) / DefaultPageSize);
-            PageNumber = Math.Min(Math.Max(1, PageNumber), TotalPagesBasedOnAvailableQueryDataRecords);
+            SearchResultCount = (int)Math.Ceiling((double)(count) / DefaultPageSize);
+            PageNumber = Math.Min(Math.Max(1, PageNumber), SearchResultCount);
 
             var newCheckState = GenerateCheckState();
             if (PrevCheckState != newCheckState)
@@ -43,7 +54,8 @@ namespace Services.Ad
         /// <returns></returns>
         private string GenerateCheckState()
         {
-            return $"{(int)FilterBy},{FilterValue},{DefaultPageSize},{TotalPagesBasedOnAvailableQueryDataRecords}";
+            //return $"{(int)FilterBy},{FilterValue},{DefaultPageSize},{TotalPagesBasedOnAvailableQueryDataRecords}";
+            return $"{DefaultPageSize},{SearchResultCount}";
         }
     }
 }

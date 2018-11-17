@@ -12,6 +12,7 @@ namespace DbContexts.Ad
             e.Property(p => p.AdId).ValueGeneratedNever();  //ForSqlServerUseSequenceHiLo    //UseSqlServerIdentityColumn()
             e.Property(p => p.AdTitle).IsRequired().IsUnicode(false).HasMaxLength(500);
             e.Property(p => p.AdContent).IsRequired().IsUnicode(false);
+            e.Property(p => p.AdCategoryName).IsRequired().IsUnicode(false).HasMaxLength(40);
             e.Property(p => p.AdDisplayDays).IsRequired().HasDefaultValue(7);
 
             e.Property(p => p.UserIdOrEmail).IsRequired().IsUnicode(false).HasMaxLength(100);
@@ -31,8 +32,8 @@ namespace DbContexts.Ad
             e.Property(p => p.AddressLongitude);
 
             e.Property(p => p.ItemCost);
-            e.Property(p => p.ItemCostCurrencyName).IsUnicode(false).HasMaxLength(50);
-            e.Property(p => p.ItemCurrencyISO_4217).IsUnicode(false).HasMaxLength(3);
+            e.Property(p => p.ItemCurrencyCode).IsUnicode(false).HasMaxLength(3);
+            e.Property(p => p.ItemCondition).IsRequired().IsUnicode(false).HasMaxLength(10);
 
             e.Property(p => p.AttachedAssetsInCloudCount);
             e.Property(p => p.AttachedAssetsInCloudStorageId);
@@ -40,7 +41,7 @@ namespace DbContexts.Ad
             
             e.Property(p => p.CreatedDateTime).IsRequired().HasColumnType("datetime2(7)"); // conflict : sqlite and sql server.HasDefaultValueSql("date('now')"); //"getdate()"  or "(SYSDATETIME())"  or GetUtcDate(), [[ worked succes with this date('now'), the reason, this sql lite fn, testinf purpose]]
             e.Property(p => p.UpdatedDateTime).IsRequired(); //.HasDefaultValueSql("date('now')");
-            e.Property(p => p.IsDeleted);
+            e.Property(p => p.IsDeleted).IsRequired().HasDefaultValue<bool>(false);
             e.Property(p => p.DeletedDateTime).HasColumnType("datetime2(7)");
             e.Property(p => p.IsPublished).IsRequired().HasDefaultValue<bool>(false);
             e.Property(p => p.LastDraftOrBeforePublishedDateTime).HasColumnType("datetime2(7)");
@@ -61,3 +62,9 @@ namespace DbContexts.Ad
         }
     }
 }
+
+
+/*
+ 1. isDeleted should be NOt null
+ 2.     
+*/

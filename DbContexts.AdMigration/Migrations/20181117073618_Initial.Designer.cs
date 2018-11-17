@@ -10,20 +10,25 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbContexts.AdMigration.Migrations
 {
     [DbContext(typeof(AdDbContext))]
-    [Migration("20181029042056_Initial")]
+    [Migration("20181117073618_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.0-rtm-30799")
+                .HasAnnotation("ProductVersion", "2.2.0-preview3-35497")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Models.Ad.Entities.Ad", b =>
                 {
                     b.Property<long>("AdId");
+
+                    b.Property<string>("AdCategoryName")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .IsUnicode(false);
 
                     b.Property<string>("AdContent")
                         .IsRequired()
@@ -91,19 +96,22 @@ namespace DbContexts.AdMigration.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
-                    b.Property<bool?>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
                     b.Property<bool>("IsPublished")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
-                    b.Property<double?>("ItemCost");
-
-                    b.Property<string>("ItemCostCurrencyName")
-                        .HasMaxLength(50)
+                    b.Property<string>("ItemCondition")
+                        .IsRequired()
+                        .HasMaxLength(10)
                         .IsUnicode(false);
 
-                    b.Property<string>("ItemCurrencyISO_4217")
+                    b.Property<double?>("ItemCost");
+
+                    b.Property<string>("ItemCurrencyCode")
                         .HasMaxLength(3)
                         .IsUnicode(false);
 

@@ -7,7 +7,8 @@ namespace Models.Ad.Dtos
     {
         public string AdId { get; set; }  //http://www.talkingdotnet.com/use-hilo-to-generate-keys-with-entity-framework-core/
         public string AdTitle { get; set; }
-        public string AdContent { get; set; }   // product details , including category
+        public string AdContent { get; set; }   // product details
+        public string AdCategoryName { get; set; }
         public int AdDisplayDays { get; set; } //Max 30 days  // readonly // ? help
 
         public string UserIdOrEmail { get; set; }
@@ -27,8 +28,8 @@ namespace Models.Ad.Dtos
         public double AddressLongitude { get; set; }
 
         public double? ItemCost { get; set; }   //enter with currency code ex: dollar or rupees
-        public string ItemCostCurrencyName { get; set; }   // enter with currency code ex: dollar or rupees  //https://www.countries-ofthe-world.com/world-currencies.html
-        public string ItemCurrencyISO_4217 { get; set; }
+        public string ItemCurrencyCode { get; set; } //https://www.countries-ofthe-world.com/world-currencies.html
+        public string ItemCondition { get; set; }     //old or new
 
         public int? AttachedAssetsInCloudCount { get; set; }
         public Guid? AttachedAssetsInCloudStorageId { get; set; }
@@ -36,7 +37,7 @@ namespace Models.Ad.Dtos
 
         public DateTime CreatedDateTime { get; set; }
         public DateTime UpdatedDateTime { get; set; }
-        public bool? IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }
         public DateTime? DeletedDateTime { get; set; }
         public bool IsPublished { get; set; }
         public DateTime? LastDraftOrBeforePublishedDateTime { get; set; }

@@ -1,11 +1,8 @@
 ﻿using FluentValidation;
 using Models.Ad.Dtos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Ad.Util
+namespace Validation
 {
     public class AdDtoValidator : AbstractValidator<AdDto>
     {
@@ -14,6 +11,7 @@ namespace Ad.Util
             RuleFor(x => x.AdId).MaximumLength(19);
             RuleFor(x => x.AdTitle).NotEmpty().MaximumLength(500);
             RuleFor(x => x.AdContent).NotEmpty();  //db update has to
+            RuleFor(x => x.AdCategoryName).NotEmpty().MaximumLength(40);
             //RuleFor(x => x.AdDisplayDays).NotEmpty().GreaterThanOrEqualTo(7).LessThanOrEqualTo(30); // value shoud come from config
 
             RuleFor(x => x.UserIdOrEmail).NotEmpty().MaximumLength(100);
@@ -32,8 +30,8 @@ namespace Ad.Util
             //RuleFor(x => x.AddressLatitude).NotEmpty();
             //RuleFor(x => x.AddressLongitude).NotEmpty();
             RuleFor(x => x.ItemCost).GreaterThanOrEqualTo(0);
-            RuleFor(x => x.ItemCostCurrencyName).MaximumLength(50);
-            RuleFor(x => x.ItemCurrencyISO_4217).MaximumLength(3);
+            RuleFor(x => x.ItemCurrencyCode).MaximumLength(3);
+            RuleFor(x => x.ItemCondition).MaximumLength(10);
             RuleFor(x => x.AttachedAssetsInCloudCount).LessThanOrEqualTo(20);
             RuleFor(x => x.AttachedAssetsInCloudStorageId).NotEqual(Guid.Empty);
             RuleFor(x => x.AttachedAssetsStoredInCloudBaseFolderPath).MaximumLength(5000);  // db update has to

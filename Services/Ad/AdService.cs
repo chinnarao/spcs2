@@ -81,7 +81,7 @@ namespace Services.Ad
 
         #endregion
 
-        public dynamic SearchAds(AdSortFilterPageOptions options)
+        public dynamic SearchAds(AdSearchDto options)
         {
             var adDtos = _adRepository.Entities.Where(w => w.IsPublished && w.IsActive).AsNoTracking()
                             .Select(s => new AdDto()
@@ -94,8 +94,8 @@ namespace Services.Ad
                             .OrderByDescending(a => a.CreatedDateTime)
                             .OrderByDescending(a => a.UpdatedDateTime)
                             .Take(options.DefaultPageSize).ToList();
-            options.SetupRestOfDto(adDtos.Count);
-            return new { ads = adDtos, option = options };
+            //options.SetupRestOfDto(adDtos.Count);
+            return new { records = adDtos, options = options };
         }
 
         public AdDto GetAdDetail(long adId)
@@ -136,7 +136,7 @@ namespace Services.Ad
     public interface IAdService
     {
         AdDto CreateAd(AdDto adDto);
-        dynamic SearchAds(AdSortFilterPageOptions options);
+        dynamic SearchAds(AdSearchDto options);
         AdDto GetAdDetail(long adId);
         AdDto UpdateAd(AdDto adDto);
         HashSet<string> GetAllUniqueTags();

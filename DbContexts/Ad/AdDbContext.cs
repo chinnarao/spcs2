@@ -26,6 +26,7 @@ namespace DbContexts.Ad
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Models.Ad.Entities.Ad>().HasQueryFilter(a => !a.IsDeleted);  //IgnoreQueryFilters()
             modelBuilder.ApplyConfiguration(new AdConfig());
         }
     }
