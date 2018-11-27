@@ -20,3 +20,7 @@ step 8: observe ad database is created and available in ssms.
 Add-Migration -Name "Initial" -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
 Update-Database -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
 Remove-Migration -Force -Context "AdDbContext" -Project "DbContexts.AdMigration" -StartupProject "DbContexts.AdMigration"
+
+
+please follow this: which is better than above one:
+https://github.com/ry8806/Blog-EFCore-CustomMigration

@@ -25,19 +25,13 @@ public enum ArticlesFilterBy
     ByPublicationYear = 2,
 }
 
-//public enum AdsFilterBy
-//{
-//    NoFilter = 0,
-//    ByVotes = 1,
-//    ByPublicationYear = 2,
-//}
-
-public enum ConditionOptionsBy {
+public enum ConditionOptionsBy : byte
+{
     Old = 1,
     New = 2,
 }
 
-public enum SortOptionsBy
+public enum SortOptionsBy : byte
 {
     NewestFirst = 1,
     Closest = 2,
@@ -45,7 +39,7 @@ public enum SortOptionsBy
     PriceHighToLow = 4
 }
 
-public enum MileOptionsBy
+public enum MileOptionsBy : byte
 {
     Below10Miles = 1,
     Below20Miles = 2,
@@ -53,7 +47,7 @@ public enum MileOptionsBy
     Maximum = 4,
 }
 
-public enum CategoryOptionsBy
+public enum CategoryOptionsBy : byte
 {
     Automobile = 1,
     Electronics = 2,

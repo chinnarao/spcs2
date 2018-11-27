@@ -17,8 +17,8 @@ namespace Ad.Util
 
         public static void Defaults(this AdDto model, IConfiguration _configuration)
         {
-            int adDefaultDisplayActiveDays;
-            if (Int32.TryParse(_configuration["AdDefaultDisplayActiveDays"], out adDefaultDisplayActiveDays))
+            byte adDefaultDisplayActiveDays;
+            if (byte.TryParse(_configuration["AdDefaultDisplayActiveDays"], out adDefaultDisplayActiveDays))
                 model.AdDisplayDays = adDefaultDisplayActiveDays;
 
             double Longitude;
@@ -32,7 +32,7 @@ namespace Ad.Util
             model.AdId = DateTime.UtcNow.Ticks.ToString();
             model.AttachedAssetsInCloudStorageId = Guid.NewGuid();
             model.CreatedDateTime = model.UpdatedDateTime = DateTime.UtcNow;
-            model.IsDeleted = model.IsActive = model.IsPublished = false;
+            model.IsDeleted = model.IsActivated = model.IsPublished = false;
         }
 
         public static void Values(this GoogleStorageAdFileDto fileModel, IConfiguration _configuration, Guid attachedAssetsInCloudStorageGuId)

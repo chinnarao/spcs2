@@ -9,7 +9,7 @@ namespace Validation
         public AdSearchDtoValidator()
         {
             RuleFor(x => x.ConditionName).NotEmpty().MaximumLength(10);
-            RuleFor(x => x.SortOptionsBy).NotEmpty().MaximumLength(15);
+            RuleFor(x => x.sortOptionsBy).NotEmpty().MaximumLength(15);
             RuleFor(x => x.MileOptionsBy).NotEmpty().MaximumLength(11);
             RuleFor(x => x.CategoryName).NotEmpty().MaximumLength(40);
             RuleFor(x => x.CountryCode).MaximumLength(2);

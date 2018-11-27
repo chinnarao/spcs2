@@ -8,4 +8,9 @@
     <Compile Remove="Article\Entities\ArticleJson.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LinqKitt\LinqKitt.csproj" />
+    <ProjectReference Include="..\Share\Share.csproj" />
+  </ItemGroup>
+
 </Project>

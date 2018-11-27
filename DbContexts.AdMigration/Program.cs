@@ -12,10 +12,10 @@ namespace DbContexts.AdMigration
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
             string connection = configuration.GetConnectionString("AdConnection");
 
-            var articleContext = AdDbContext.Create(connection);
-            if (articleContext.AllMigrationsApplied())
+            var adContext = AdDbContext.Create(connection);
+            if (adContext.AllMigrationsApplied())
             {
-                articleContext.Database.Migrate();
+                adContext.Database.Migrate();
             }
         }
     }

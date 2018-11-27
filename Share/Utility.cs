@@ -73,5 +73,10 @@ public class Utility
         byte[] buffer = Guid.NewGuid().ToByteArray();
         return BitConverter.ToInt64(buffer, 0);
     }
+
+    public static T Parse<T>(string input)
+    {
+        return (T)Enum.Parse(typeof(T), input, true);
+    }
 }
 
