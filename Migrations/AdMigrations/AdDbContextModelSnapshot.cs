@@ -4,16 +4,14 @@ using DbContexts.Ad;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DbContexts.AdMigration.Migrations
+namespace Migrations.AdMigrations
 {
     [DbContext(typeof(AdDbContext))]
-    [Migration("20181119045225_Initial")]
-    partial class Initial
+    partial class AdDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

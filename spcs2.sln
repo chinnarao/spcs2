@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContexts", "DbContexts\Db
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{861C4B1B-74D0-49A1-9CD7-A527865E573F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContexts.AdMigration", "DbContexts.AdMigration\DbContexts.AdMigration.csproj", "{44C3BAEB-81F2-430F-A5D1-CA8C1AFB3CF7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContexts.ArticleMigration", "DbContexts.ArticleMigration\DbContexts.ArticleMigration.csproj", "{43D4B0E9-6D93-4D10-8583-72D75FDDFE72}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelpFiles", "HelpFiles", "{7D90C247-6DCE-409B-A706-CF5FC3AF3F9E}"
 	ProjectSection(SolutionItems) = preProject
 		HelpFiles\Ad.sql = HelpFiles\Ad.sql
@@ -85,14 +81,6 @@ Global
 		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44C3BAEB-81F2-430F-A5D1-CA8C1AFB3CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44C3BAEB-81F2-430F-A5D1-CA8C1AFB3CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44C3BAEB-81F2-430F-A5D1-CA8C1AFB3CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44C3BAEB-81F2-430F-A5D1-CA8C1AFB3CF7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43D4B0E9-6D93-4D10-8583-72D75FDDFE72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43D4B0E9-6D93-4D10-8583-72D75FDDFE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43D4B0E9-6D93-4D10-8583-72D75FDDFE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43D4B0E9-6D93-4D10-8583-72D75FDDFE72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF584896-2E2F-41FF-9E31-224C1319A9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF584896-2E2F-41FF-9E31-224C1319A9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF584896-2E2F-41FF-9E31-224C1319A9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
