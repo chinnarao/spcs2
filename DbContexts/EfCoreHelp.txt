@@ -24,4 +24,10 @@ https://github.com/jamiewest   forbest for me   https://jwest.net/?p=73#more-73 
             modelBuilder.ApplyConfiguration(new AdConfig());
         }
 
+		protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.AddDateTimeUtcConversion();
+        }
+
 

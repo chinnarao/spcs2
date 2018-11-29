@@ -11,7 +11,28 @@ http://sqlcontent.com/index.php/2018/04/04/installing-full-text-search-with-sql-
 https://weblog.west-wind.com/posts/2014/Dec/21/Gotcha-Entity-Framework-gets-slow-in-long-Iteration-Loops
 
 
+====
+//https://stackoverflow.com/questions/51028387/full-text-search-in-ef-core-2-1
+            // https://sqlblogcasts.com/blogs/simons/archive/2008/12/18/LINQ-to-SQL---Enabling-Fulltext-searching.aspx
+            //https://thinkrethink.net/2017/06/28/entity-framework-and-full-text-search/
+            //https://www.mikesdotnetting.com/article/298/implementing-sql-server-full-text-search-in-an-asp-net-mvc-web-application-with-entity-framework
+            //https://archive.codeplex.com/?p=effts
+            //https://www.youtube.com/watch?v=0XQT6x0Ge08
+            //https://github.com/fissoft/Fissoft.EntityFramework.Fts
+            //http://jarrettmeyer.com/2017/06/11/sql-server-full-text-search-part-1
+            //https://www.red-gate.com/simple-talk/sql/learn-sql-server/understanding-full-text-indexing-in-sql-server/
+            //https://entityframeworkcore.com/knowledge-base/51047514/how-to-use-freetext-in-ef-core-2-1
+            //https://github.com/ry8806/Blog-EFCore-CustomMigration/blob/master/EFCustomMigrations/Db/CustomMigrations/CustomerLocationMigration.cs
 
+
+			https://github.com/uber-asido/backend/blob/e32bf1ddabe500002d835228993707503449e06c/src/Uber.Module.Search.EFCore/Store/SearchItemStore.cs
+			https://github.com/aspnet/EntityFrameworkCore/blob/0906670e469a0e1054e8b8bc6fddd3c028a5cb5a/test/EFCore.SqlServer.FunctionalTests/Query/DbFunctionsSqlServerTest.cs
+			https://docs.microsoft.com/en-us/sql/t-sql/spatial-geography/ogc-methods-on-geography-instances?view=sql-server-2017
+
+			4326:   http://spatialreference.org/ref/epsg/4326/
+			https://www.todaysoftmag.com/article/1365/spatial-data-in-the-sql-server
+
+databases bak files: https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0
 --------------------------
 SELECT 
 	CASE FULLTEXTSERVICEPROPERTY('IsFullTextInstalled')
@@ -33,6 +54,7 @@ SELECT * FROM sys.fulltext_system_stopwords
 SELECT * FROM sys.fulltext_system_stopwords WHERE language_id=1033 order by stopword
 SELECT * FROM sys.fulltext_system_stopwords WHERE language_id=0 order by stopword
 
+select [GeogCol1].STSrid from [dbo].[CustomerLocation]
 future :
 ====================================================
 1. EXEC sp_fulltext_service 'verify_signature';

@@ -36,7 +36,7 @@ namespace Ad
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
 
             services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AdAutoMapperProfile()); }).CreateMapper());

@@ -35,3 +35,7 @@ public async Task<IActionResult> OnGetAsync(int? id)
 context.Entry(student).Reference(s => s.StudentAddress).Load(); // loads StudentAddress
 context.Entry(student).Collection(s => s.StudentCourses).Load(); // loads Courses collection 
 =======================================================================================================================
+
+https://dotnetfiddle.net/Packages/13470/Microsoft_SqlServer_Types
+https://www.nuget.org/packages/Microsoft.SqlServer.Types
+https://www.andrewcbancroft.com/2017/03/27/solving-spatial-types-and-functions-are-not-available-with-entity-framework/

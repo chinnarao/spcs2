@@ -95,21 +95,12 @@ namespace Services.Ad
                             .OrderByDescending(a => a.UpdatedDateTime)
                             .Take(options.DefaultPageSize).ToList();
             //options.SetupRestOfDto(adDtos.Count);
+            
 
-            //https://stackoverflow.com/questions/51028387/full-text-search-in-ef-core-2-1
-            // https://sqlblogcasts.com/blogs/simons/archive/2008/12/18/LINQ-to-SQL---Enabling-Fulltext-searching.aspx
-            //https://thinkrethink.net/2017/06/28/entity-framework-and-full-text-search/
-            //https://www.mikesdotnetting.com/article/298/implementing-sql-server-full-text-search-in-an-asp-net-mvc-web-application-with-entity-framework
-            //https://archive.codeplex.com/?p=effts
-            //https://www.youtube.com/watch?v=0XQT6x0Ge08
-            //https://github.com/fissoft/Fissoft.EntityFramework.Fts
-            //http://jarrettmeyer.com/2017/06/11/sql-server-full-text-search-part-1
-            //https://www.red-gate.com/simple-talk/sql/learn-sql-server/understanding-full-text-indexing-in-sql-server/
-            //https://entityframeworkcore.com/knowledge-base/51047514/how-to-use-freetext-in-ef-core-2-1
-            //https://github.com/ry8806/Blog-EFCore-CustomMigration/blob/master/EFCustomMigrations/Db/CustomMigrations/CustomerLocationMigration.cs
+
             var aa = _adRepository.Entities.Where(w => EF.Functions.FreeText(w.AdContent, "sffsfs")).ToList();
 
-
+            //var aa1 = _adRepository.Entities.Where(w => SqlServerDbFunctionsExtensions.FreeText(w.AdContent, "sffsfs").ToList();
             return new { records = adDtos, options = options };
         }
 

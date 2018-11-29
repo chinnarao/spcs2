@@ -31,11 +31,16 @@ namespace Migrations.ArticleMigrations
 	                                CREATE FULLTEXT INDEX ON  [dbo].[Article]([Title]  LANGUAGE 0) KEY INDEX PK_Article;
                                 end
                            ";
-            migrationBuilder.Sql(query, true);
+            migrationBuilder.Sql(query, suppressTransaction: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            string query = @"
+	                                DROP FULLTEXT INDEX ON [dbo].[Article]; 
+		                            DROP FULLTEXT CATALOG [FullTextCatalog]; 
+                           ";
+            migrationBuilder.Sql(query, suppressTransaction: true);
         }
     }
 }

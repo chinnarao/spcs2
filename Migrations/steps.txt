@@ -35,6 +35,8 @@ script migration for production: https://wakeupandcode.com/ef-core-migrations-in
 please follow this: which is better than above one:
 https://github.com/ry8806/Blog-EFCore-CustomMigration
 https://github.com/bricelam/Sample-SplitMigrations
+https://github.com/aspnet/EntityFrameworkCore/blob/0906670e469a0e1054e8b8bc6fddd3c028a5cb5a/test/EFCore.SqlServer.FunctionalTests/Query/DbFunctionsSqlServerTest.cs
+https://github.com/iamoldli/AspNetCore/blob/f6db23e1f8f3a68b98743e18ff08886cc6c2d3f2/Modules/EntityFrameworkCore/test/EFCore.SqlServer.FunctionalTests/Query/DbFunctionsSqlServerTest.cs
 Script-Migration -To <starting-migration>
 Script-Migration -From <ending-migration>
 
