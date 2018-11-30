@@ -1,15 +1,14 @@
-﻿using DbContexts;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Share.Models.Article.Dtos;
-using Newtonsoft.Json;
 using Services.Article;
 using System;
 using System.IO;
-using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
+using Share.Constants;
+using Share.Utilities;
 
 //https://webapphuddle.com/design-tags-feature-in-web-apps/
 //https://www.maketecheasier.com/5-online-tools-to-create-tag-clouds/

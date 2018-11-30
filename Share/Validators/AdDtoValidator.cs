@@ -2,6 +2,7 @@
 using Share.Models.Ad.Dtos;
 using System;
 using System.Linq;
+using Share.Enums;
 
 namespace Share.Validators
 {

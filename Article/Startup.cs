@@ -1,7 +1,5 @@
 ﻿using System;
 using DbContexts.Article;
-using File;
-using Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Repository;
-using Services;
 using Services.Article;
 using Swashbuckle.AspNetCore.Swagger;
 using Share.Models.Article.Entities;
+using Services.Commmon;
+using Services.Google;
 
 namespace Article
 {

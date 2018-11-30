@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Share.Constants;
+using Share.Utilities;
 
 namespace Ad.Util
 {

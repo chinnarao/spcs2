@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
-namespace Share
+namespace Share.Enums
 {
     public static class EnumHelper
     {

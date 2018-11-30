@@ -1,6 +1,7 @@
 ﻿using Share.Models.Article.Dtos;
 using System;
 using System.Linq;
+using Share.Enums;
 
 namespace Services.Article
 {
@@ -73,8 +74,5 @@ namespace Services.Article
                     throw new ArgumentOutOfRangeException(nameof(orderByOptions), orderByOptions, null);
             }
         }
-
-        
-
     }
 }

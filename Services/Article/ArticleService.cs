@@ -1,11 +1,8 @@
-﻿using Google;
-using File;
-using DbContexts.Article;
+﻿using DbContexts.Article;
 using Repository;
 using Share.Models.Article.Entities;
 using Share.Models.Article.Dtos;
 using Share.Extensions;
-
 using System;
 using System.IO;
 using AutoMapper;
@@ -14,6 +11,8 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Services.Commmon;
+using Services.Google;
 
 namespace Services.Article
 {

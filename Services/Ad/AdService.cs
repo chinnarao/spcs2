@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using Google;
-using File;
 using AutoMapper;
 using Share.Models.Ad.Dtos;
 using DbContexts.Ad;
@@ -12,6 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Share.Extensions;
+using Services.Commmon;
+using Services.Google;
+using Share.Utilities;
 
 namespace Services.Ad
 {

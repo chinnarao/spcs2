@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="2.3.0-beta04" />
+    <PackageReference Include="Scriban" Version="1.2.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DbContexts\DbContexts.csproj" />
-    <ProjectReference Include="..\File\File.csproj" />
-    <ProjectReference Include="..\Google\Google.csproj" />
     <ProjectReference Include="..\Repository\Repository.csproj" />
     <ProjectReference Include="..\Share\Share.csproj" />
   </ItemGroup>

@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Google;
-using File;
 using DbContexts.Ad;
 using Services.Ad;
 using Services;
@@ -15,6 +13,8 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using Share.Models.Ad.Dtos;
 using AspNetCore.Firebase.Authentication.Extensions;
+using Services.Commmon;
+using Services.Google;
 //using Validation;
 //using Share.Validators;
 //https://github.com/dotnet-architecture/eShopOnWeb
