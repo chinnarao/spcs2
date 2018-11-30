@@ -12,7 +12,7 @@ namespace Share.Models.Ad.Entities
         public byte AdDisplayDays { get; set; }       
 
         public string UserIdOrEmail { get; set; }    
-        public long UserPhoneNumber { get; set; }
+        public long? UserPhoneNumber { get; set; }
         public Int16 UserPhoneCountryCode { get; set; }
         public string UserSocialAvatarUrl { get; set; }
         public string UserSocialProviderName { get; set; } //ex: facebook, twitter

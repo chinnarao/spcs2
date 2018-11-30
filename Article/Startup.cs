@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Share.Models.Article.Entities;
 using Services.Commmon;
 using Services.Google;
+using Services.AutoMapper;
 
 namespace Article
 {

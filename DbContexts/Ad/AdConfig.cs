@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DbContexts.Ad
 {
     //https://www.learnentityframeworkcore.com/configuration/fluent-api
+    //https://github.com/loresoft/InstructorIQ/tree/5497c8324cd256f061981ef4ecbed0fcaca0151d/service/src/InstructorIQ.Core/Data/Mapping
     public class AdConfig : IEntityTypeConfiguration<Share.Models.Ad.Entities.Ad>
     {
         public void Configure(EntityTypeBuilder<Share.Models.Ad.Entities.Ad> e)

@@ -20,7 +20,7 @@ namespace Migrations.AdMigrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Models.Ad.Entities.Ad", b =>
+            modelBuilder.Entity("Share.Models.Ad.Entities.Ad", b =>
                 {
                     b.Property<long>("AdId");
 
@@ -56,15 +56,20 @@ namespace Migrations.AdMigrations
                         .HasMaxLength(30)
                         .IsUnicode(false);
 
-                    b.Property<double>("AddressLatitude")
+                    b.Property<decimal>("AddressLatitude")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0.0);
+                        .HasConversion(new ValueConverter<decimal, decimal>(v => default(decimal), v => default(decimal), new ConverterMappingHints(precision: 38, scale: 17)))
+                        .HasColumnType("decimal(20, 10)")
+                        .HasDefaultValue(1m);
 
-                    b.Property<IPoint>("AddressLocation");
+                    b.Property<IPoint>("AddressLocation")
+                        .IsRequired();
 
-                    b.Property<double>("AddressLongitude")
+                    b.Property<decimal>("AddressLongitude")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(0.0);
+                        .HasConversion(new ValueConverter<decimal, decimal>(v => default(decimal), v => default(decimal), new ConverterMappingHints(precision: 38, scale: 17)))
+                        .HasColumnType("decimal(20, 10)")
+                        .HasDefaultValue(1m);
 
                     b.Property<string>("AddressPartiesMeetingLandmark")
                         .HasMaxLength(500)

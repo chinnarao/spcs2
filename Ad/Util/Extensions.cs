@@ -25,11 +25,11 @@ namespace Ad.Util
 
             double Longitude;
             if (double.TryParse(_configuration["DefaultLongitude"], out Longitude))
-                model.AddressLongitude = Longitude;
+                model.AddressLongitude = "1.0";
 
             double Lattitude;
             if (double.TryParse(_configuration["DefaultLattitude"], out Lattitude))
-                model.AddressLatitude = Lattitude;
+                model.AddressLatitude = "1.0";
 
             model.AdId = DateTime.UtcNow.Ticks.ToString();
             model.AttachedAssetsInCloudStorageId = Guid.NewGuid();

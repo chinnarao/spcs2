@@ -15,6 +15,7 @@ using Share.Models.Ad.Dtos;
 using AspNetCore.Firebase.Authentication.Extensions;
 using Services.Commmon;
 using Services.Google;
+using Services.AutoMapper;
 //using Validation;
 //using Share.Validators;
 //https://github.com/dotnet-architecture/eShopOnWeb

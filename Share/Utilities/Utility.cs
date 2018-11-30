@@ -99,7 +99,18 @@ namespace Share.Utilities
             //if (lattitude == 0)
             //    lattitude = 34.142509;
             // verify later : very imp: https://github.com/Hinaar/KutyApp/blob/4564904bbb4397d66a7375461eb4df337aa8bc58/KutyApp.Services.Environment.Bll/Mapping/KutyAppServiceProfile.cs
-            return NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326).CreatePoint(new Coordinate(longitude, lattitude));
+            return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longitude, lattitude));
+        }
+
+        public static IPoint CreatePoint(string longitude, string latitude)
+        {
+            double longi;
+            if (!double.TryParse(longitude, out longi))
+                longi = 1.0;
+            double lati;
+            if (!double.TryParse(longitude, out lati))
+                lati = 1.0;
+            return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longi, lati));
         }
     }
 }

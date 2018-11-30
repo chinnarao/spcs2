@@ -48,6 +48,8 @@ namespace Services.Ad
         private Share.Models.Ad.Entities.Ad InsertAd(AdDto dto)
         {
             Share.Models.Ad.Entities.Ad ad = _mapper.Map<Share.Models.Ad.Entities.Ad>(dto);
+            if (!string.IsNullOrWhiteSpace(dto.UserPhoneNumber))
+                ad.UserPhoneNumber =  long.Parse(dto.UserPhoneNumber);
             ad.AddressLocation = Utility.CreatePoint(dto.AddressLongitude, dto.AddressLatitude);
             RepositoryResult result = _adRepository.Create(ad);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
