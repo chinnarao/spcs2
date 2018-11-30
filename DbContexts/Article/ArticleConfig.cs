@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DbContexts.Article
 {
-    public class ArticleConfig : IEntityTypeConfiguration<Models.Article.Entities.Article>
+    public class ArticleConfig : IEntityTypeConfiguration<Share.Models.Article.Entities.Article>
     {
-        public void Configure(EntityTypeBuilder<Models.Article.Entities.Article> e)
+        public void Configure(EntityTypeBuilder<Share.Models.Article.Entities.Article> e)
         {
             e.ToTable("Article");
             e.Property(p => p.ArticleId).ValueGeneratedNever();

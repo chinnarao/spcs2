@@ -5,8 +5,8 @@ using DbContexts.Article;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Models.Ad.Entities;
-using Models.Article.Entities;
+using Share.Models.Ad.Entities;
+using Share.Models.Article.Entities;
 using Xunit;
 
 namespace Repository.Test

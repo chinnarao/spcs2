@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DbContexts.Ad
 {
     //https://www.learnentityframeworkcore.com/configuration/fluent-api
-    public class AdConfig : IEntityTypeConfiguration<Models.Ad.Entities.Ad>
+    public class AdConfig : IEntityTypeConfiguration<Share.Models.Ad.Entities.Ad>
     {
-        public void Configure(EntityTypeBuilder<Models.Ad.Entities.Ad> e)
+        public void Configure(EntityTypeBuilder<Share.Models.Ad.Entities.Ad> e)
         {
             e.ToTable("Ad");
             e.Property(p => p.AdId).ValueGeneratedNever();  //ForSqlServerUseSequenceHiLo    //UseSqlServerIdentityColumn()
@@ -29,8 +29,9 @@ namespace DbContexts.Ad
             e.Property(p => p.AddressZipCode).IsUnicode(false).HasMaxLength(16);
             e.Property(p => p.AddressCountryCode).IsUnicode(false).HasMaxLength(2);
             e.Property(p => p.AddressCountryName).IsUnicode(false).HasMaxLength(75);
-            e.Property(p => p.AddressLatitude).HasDefaultValue<double>(0.0);
-            e.Property(p => p.AddressLongitude).HasDefaultValue<double>(0.0);
+            e.Property(p => p.AddressLatitude).HasColumnType("decimal(20, 10)").HasDefaultValue<double>(1.0);
+            e.Property(p => p.AddressLongitude).HasColumnType("decimal(20, 10)").HasDefaultValue<double>(1.0);
+            e.Property(p => p.AddressLocation).IsRequired();
 
             e.Property(p => p.ItemCost).HasDefaultValue<double>(0.0);
             e.Property(p => p.ItemCurrencyCode).IsUnicode(false).HasMaxLength(3);

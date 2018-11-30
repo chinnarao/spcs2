@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Models.Article.Entities;
+using Share.Models.Article.Entities;
 
 namespace DbContexts.Article
 {

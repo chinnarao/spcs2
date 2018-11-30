@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Models.Article.Dtos;
+using Share.Models.Article.Dtos;
 using Newtonsoft.Json;
 using Services.Article;
 using System;

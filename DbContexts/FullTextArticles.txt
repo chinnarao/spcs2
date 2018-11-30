@@ -31,6 +31,7 @@ https://weblog.west-wind.com/posts/2014/Dec/21/Gotcha-Entity-Framework-gets-slow
 
 			4326:   http://spatialreference.org/ref/epsg/4326/
 			https://www.todaysoftmag.com/article/1365/spatial-data-in-the-sql-server
+			https://www.codeproject.com/Articles/1007147/Converting-Latitude-and-Longitude-to-British-Natio
 
 databases bak files: https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0
 --------------------------
@@ -125,3 +126,26 @@ select * FROM sys.fulltext_catalogs
 select * from sys.fulltext_indexes
 DROP FULLTEXT INDEX ON [dbo].[Ad]; 
 DROP FULLTEXT CATALOG [FullTextCatalog]; 
+
+=====
+https://dba.stackexchange.com/questions/187986/sql-geographypoint-null-parameter-error-when-parameter-is-not-null
+https://www.sqlskills.com/blogs/bobb/sql-server-spatial-empty-vs-null/
+https://weblog.west-wind.com/posts/2012/Jun/21/Basic-Spatial-Data-with-SQL-Server-and-Entity-Framework-50
+
+
+
+var query =
+                  from m in context.Messpunkte
+                  where m.Position.Distance(mittelpunkt) < 4
+                  orderby m.Position.Distance(mittelpunkt) descending
+                  select m;
+
+
+				  Messpunkt messpunkt = new Messpunkt()
+                    {
+                        Zeitpunkt = DateTime.Now,
+                        Position = new Point(rnd.Next(1, 10), rnd.Next(1, 10)),
+                        Temperatur = rnd.NextDouble() * 100
+                    };
+
+					https://github.com/CAUCA-9-1-1/survip-webapi/blob/a6b3091d58b25691d2705b12439ad04122d63c23/Survi.Prevention.WebApi/PointCoordinateJsonConverter.cs

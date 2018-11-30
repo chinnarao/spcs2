@@ -13,9 +13,10 @@ using Services;
 using Repository;
 using FluentValidation.AspNetCore;
 using FluentValidation;
-using Models.Ad.Dtos;
+using Share.Models.Ad.Dtos;
 using AspNetCore.Firebase.Authentication.Extensions;
-using Validation;
+//using Validation;
+//using Share.Validators;
 //https://github.com/dotnet-architecture/eShopOnWeb
 //https://github.com/aspnet/Docs/blob/master/aspnetcore/test/integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs
 //https://github.com/dotnet-presentations/home/tree/master/ASP.NET%20Core/ASP.NET%20Core%20-%20What-s%20New
@@ -37,7 +38,7 @@ namespace Ad
         {
             services.AddCors();
             //services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
+            services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), a => a.UseNetTopologySuite()).EnableSensitiveDataLogging());
 
             services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AdAutoMapperProfile()); }).CreateMapper());
 
@@ -45,11 +46,11 @@ namespace Ad
             services.AddScoped<IFileRead, FileRead>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
-            services.AddScoped<IRepository<Models.Ad.Entities.Ad, AdDbContext>, Repository<Models.Ad.Entities.Ad, AdDbContext>>();
+            services.AddScoped<IRepository<Share.Models.Ad.Entities.Ad, AdDbContext>, Repository<Share.Models.Ad.Entities.Ad, AdDbContext>>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddFluentValidation();
-            services.AddTransient<IValidator<AdDto>, AdDtoValidator>();
-            services.AddTransient<IValidator<AdSearchDto>, AdSearchDtoValidator>();
+            services.AddTransient<IValidator<AdDto>, Share.Validators.AdDtoValidator>();
+            services.AddTransient<IValidator<AdSearchDto>, Share.Validators.AdSearchDtoValidator>();
             #region Swagger
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

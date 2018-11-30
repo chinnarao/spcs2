@@ -21,8 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DbContexts\DbContexts.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\Share\Share.csproj" />
   </ItemGroup>
 
 </Project>

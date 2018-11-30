@@ -2,8 +2,8 @@
 using File;
 using DbContexts.Article;
 using Repository;
-using Models.Article.Entities;
-using Models.Article.Dtos;
+using Share.Models.Article.Entities;
+using Share.Models.Article.Dtos;
 using Share.Extensions;
 
 using System;
@@ -24,13 +24,13 @@ namespace Services.Article
         private readonly IMapper _mapper;
         private readonly ICacheService _cacheService;
         private readonly IGoogleStorage _googleStorage;
-        private readonly IRepository<Models.Article.Entities.Article, ArticleDbContext> _articleRepository;
+        private readonly IRepository<Share.Models.Article.Entities.Article, ArticleDbContext> _articleRepository;
         private readonly IRepository<ArticleCommit, ArticleDbContext> _articleCommitRepository;
         private readonly IRepository<ArticleComment, ArticleDbContext> _articleCommentRepository;
         private readonly IRepository<ArticleLicense, ArticleDbContext> _articleLicenseRepository;
 
         public ArticleService(ILogger<ArticleService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage,
-                                IRepository<Models.Article.Entities.Article, ArticleDbContext> articleRepository,
+                                IRepository<Share.Models.Article.Entities.Article, ArticleDbContext> articleRepository,
                                 IRepository<ArticleCommit, ArticleDbContext> articleCommitRepository,
                                 IRepository<ArticleComment, ArticleDbContext> articleCommentRepository,
                                 IRepository<ArticleLicense, ArticleDbContext> articleLicenseRepository)
@@ -57,7 +57,7 @@ namespace Services.Article
         }
         private ArticleDto InsertArticle(ArticleDto dto)
         {
-            Models.Article.Entities.Article article = _mapper.Map<Models.Article.Entities.Article>(dto);
+            Share.Models.Article.Entities.Article article = _mapper.Map<Share.Models.Article.Entities.Article>(dto);
             RepositoryResult result = _articleRepository.Create(article);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
             return dto;
@@ -135,10 +135,10 @@ namespace Services.Article
 
         public ArticleDto UpdateArticleWithCommitHistory(ArticleDto articleDto)
         {
-            Models.Article.Entities.Article articleExisting = _articleRepository.Entities.Include(a => a.ArticleLicense).Single(a => a.ArticleId == articleDto.ArticleId);
+            Share.Models.Article.Entities.Article articleExisting = _articleRepository.Entities.Include(a => a.ArticleLicense).Single(a => a.ArticleId == articleDto.ArticleId);
             if (!string.Equals(articleExisting?.ArticleLicense?.License, articleDto?.ArticleLicenseDto?.License))
                 articleDto.ArticleLicenseDto.LicensedDate = DateTime.UtcNow;
-            articleExisting = _mapper.Map<ArticleDto, Models.Article.Entities.Article>(articleDto, articleExisting);
+            articleExisting = _mapper.Map<ArticleDto, Share.Models.Article.Entities.Article>(articleDto, articleExisting);
             int i = _articleRepository.SaveChanges();
             ArticleDto articleDtoNew = _mapper.Map<ArticleDto>(articleExisting);
             return articleDtoNew;

@@ -6,7 +6,7 @@ namespace DbContexts.Ad
     {
         public AdDbContext(DbContextOptions<AdDbContext> options) : base(options) {}
 
-        public DbSet<Models.Ad.Entities.Ad> Ads { get; set; }
+        public DbSet<Share.Models.Ad.Entities.Ad> Ads { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

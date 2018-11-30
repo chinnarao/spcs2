@@ -12,7 +12,7 @@ using Repository;
 using Services;
 using Services.Article;
 using Swashbuckle.AspNetCore.Swagger;
-using Models.Article.Entities;
+using Share.Models.Article.Entities;
 
 namespace Article
 {
@@ -35,7 +35,7 @@ namespace Article
             services.AddScoped<IFileRead, FileRead>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
-            services.AddScoped<IRepository<Models.Article.Entities.Article, ArticleDbContext>, Repository<Models.Article.Entities.Article, ArticleDbContext>>();
+            services.AddScoped<IRepository<Share.Models.Article.Entities.Article, ArticleDbContext>, Repository<Share.Models.Article.Entities.Article, ArticleDbContext>>();
             services.AddScoped<IRepository<ArticleLicense, ArticleDbContext>, Repository<ArticleLicense, ArticleDbContext>>();
             services.AddScoped<IRepository<ArticleCommit, ArticleDbContext>, Repository<ArticleCommit, ArticleDbContext>>();
             services.AddScoped<IRepository<ArticleComment, ArticleDbContext>, Repository<ArticleComment, ArticleDbContext>>();

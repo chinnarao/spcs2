@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Models.Ad.Entities;
-using Models.Ad.Dtos;
+using Share.Models.Ad.Entities;
+using Share.Models.Ad.Dtos;
 
 namespace Services.Ad
 {
@@ -8,7 +8,9 @@ namespace Services.Ad
     {
         public AdAutoMapperProfile()
         {
-            CreateMap<Models.Ad.Entities.Ad, AdDto>().ReverseMap();
+            CreateMap<Share.Models.Ad.Entities.Ad, AdDto>()
+                .ReverseMap()
+                .ForMember(dest => dest.AddressLocation, opt => opt.Ignore());
         }
     }
 }

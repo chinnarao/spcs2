@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeoAPI.Geometries;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Models.Ad.Dtos
@@ -12,7 +13,7 @@ namespace Models.Ad.Dtos
         public byte AdDisplayDays { get; set; } //Max 30 days  // readonly // ? help
 
         public string UserIdOrEmail { get; set; }
-        public int UserPhoneNumber { get; set; }
+        public long UserPhoneNumber { get; set; }
         public Int16 UserPhoneCountryCode { get; set; }
         public string UserSocialAvatarUrl { get; set; }
         public string UserSocialProviderName { get; set; } //ex: facebook, twitter
@@ -27,6 +28,23 @@ namespace Models.Ad.Dtos
         public string AddressCountryName { get; set; }
         public double AddressLatitude { get; set; }
         public double AddressLongitude { get; set; }
+        //public IPoint AddressLocation {
+        //    get {
+        //        return Utility.CreatePoint(this.AddressLongitude, this.AddressLatitude);
+        //    }
+        //}
+
+
+    //    [Required]
+    //    [Range(-90.0, 90.0,
+    //ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+    //    public double Latitude { get; set; }
+
+    //    [Required]
+    //    [Range(-180, 180,
+    //    ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+    //    public double Longitude { get; set; }
+
 
         public double ItemCost { get; set; }   //enter with currency code ex: dollar or rupees
         public string ItemCurrencyCode { get; set; } //https://www.countries-ofthe-world.com/world-currencies.html

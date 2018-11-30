@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Models.Ad.Dtos;
+using Share.Models.Ad.Dtos;
 using Services.Ad;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Ad.Controllers
 {
     //https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/logging/index/sample2/Controllers/TodoController.cs
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]/[action]")]
     public class AdController : ControllerBase
     {

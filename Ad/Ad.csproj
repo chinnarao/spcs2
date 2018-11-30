@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Services\Services.csproj" />
-    <ProjectReference Include="..\Validation\Validation.csproj" />
   </ItemGroup>
 
   <ItemGroup>

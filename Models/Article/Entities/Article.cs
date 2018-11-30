@@ -7,11 +7,8 @@ namespace Models.Article.Entities
     public class Article
     {
         public long ArticleId { get; set; }
-        [Required]
         public string Title { get; set; }
-        [Required]
         public string Content { get; set; }     // navachar, article content , which is a big information
-        [Required]
         public string UserIdOrEmail { get; set; }
         public string UserLoggedInSocialProviderName { get; set; }
         public string UserPhoneNumber { get; set; }
@@ -34,9 +31,7 @@ namespace Models.Article.Entities
         public int? TotalVotedPersonsCount { get; set; }
         public double? ArticleAverageVotes { get; set; }
 
-        [Required]
         public DateTime CreatedDateTime { get; set; }
-        [Required]
         public DateTime UpdatedDateTime { get; set; }
 
         public string Tag1 { get; set; }

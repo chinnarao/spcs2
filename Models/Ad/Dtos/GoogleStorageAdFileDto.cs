@@ -10,7 +10,5 @@ namespace Models.Ad.Dtos
         public string ContentType { get; set; }
         public string CACHE_KEY { get; set; }
         public string HtmlFileTemplateFullPathWithExt { get; set; }
-
-        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using GeoAPI.Geometries;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Migrations.AdMigrations
@@ -17,7 +18,7 @@ namespace Migrations.AdMigrations
                     AdCategoryId = table.Column<byte>(nullable: false),
                     AdDisplayDays = table.Column<byte>(nullable: false),
                     UserIdOrEmail = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
-                    UserPhoneNumber = table.Column<int>(nullable: false),
+                    UserPhoneNumber = table.Column<long>(nullable: false),
                     UserPhoneCountryCode = table.Column<short>(nullable: false),
                     UserSocialAvatarUrl = table.Column<string>(unicode: false, maxLength: 5000, nullable: true),
                     UserSocialProviderName = table.Column<string>(unicode: false, maxLength: 12, nullable: true),
@@ -31,6 +32,7 @@ namespace Migrations.AdMigrations
                     AddressCountryName = table.Column<string>(unicode: false, maxLength: 75, nullable: true),
                     AddressLatitude = table.Column<double>(nullable: false, defaultValue: 0.0),
                     AddressLongitude = table.Column<double>(nullable: false, defaultValue: 0.0),
+                    AddressLocation = table.Column<IPoint>(nullable: true),
                     ItemCost = table.Column<double>(nullable: false, defaultValue: 0.0),
                     ItemCurrencyCode = table.Column<string>(unicode: false, maxLength: 3, nullable: true),
                     ItemConditionId = table.Column<byte>(nullable: false),

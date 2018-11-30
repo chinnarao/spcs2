@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using LinqKitt;
+//using LinqKitt;
 using Models.Ad.Entities;
 
 namespace Models.Ad.Dtos
@@ -36,57 +36,57 @@ namespace Models.Ad.Dtos
 
         public Expression<Func<Models.Ad.Entities.Ad, bool>> CreatePredicate()
         {
-            int categoryId = (byte)Enum.Parse(typeof(CategoryOptionsBy), CategoryName, true);
-            int conditionId = (byte)Enum.Parse(typeof(ConditionOptionsBy), ConditionName, true);
+            //int categoryId = (byte)Enum.Parse(typeof(CategoryOptionsBy), CategoryName, true);
+            //int conditionId = (byte)Enum.Parse(typeof(ConditionOptionsBy), ConditionName, true);
             // string categoryName = Enum.GetName(typeof(CategoryOptionsBy), categoryId);
 
-            var predicate = PredicateBuilder.True<Models.Ad.Entities.Ad>();
+            //var predicate = PredicateBuilder.True<Models.Ad.Entities.Ad>();
 
-            if (!string.IsNullOrEmpty(CategoryName))
-            {
-                predicate = predicate.And(exp => exp.AdCategoryId == categoryId);
-            }
+            //if (!string.IsNullOrEmpty(CategoryName))
+            //{
+            //    predicate = predicate.And(exp => exp.AdCategoryId == categoryId);
+            //}
 
-            if (!string.IsNullOrEmpty(ConditionName))
-            {
-                predicate = predicate.And(exp => exp.ItemConditionId == conditionId);
-            }
+            //if (!string.IsNullOrEmpty(ConditionName))
+            //{
+            //    predicate = predicate.And(exp => exp.ItemConditionId == conditionId);
+            //}
 
-            if (!string.IsNullOrEmpty(CountryCode))
-            {
-                predicate = predicate.And(exp => exp.AddressCountryCode == CountryCode);
-            }
+            //if (!string.IsNullOrEmpty(CountryCode))
+            //{
+            //    predicate = predicate.And(exp => exp.AddressCountryCode == CountryCode);
+            //}
 
-            if (!string.IsNullOrEmpty(CityName))
-            {
-                predicate = predicate.And(exp => exp.AddressCity.ToLower() == CityName.Trim().ToLower());
-            }
+            //if (!string.IsNullOrEmpty(CityName))
+            //{
+            //    predicate = predicate.And(exp => exp.AddressCity.ToLower() == CityName.Trim().ToLower());
+            //}
 
-            if (!string.IsNullOrEmpty(ZipCode))
-            {
-                predicate = predicate.And(exp => exp.AddressZipCode.ToLower() == ZipCode.Trim().ToLower());
-            }
+            //if (!string.IsNullOrEmpty(ZipCode))
+            //{
+            //    predicate = predicate.And(exp => exp.AddressZipCode.ToLower() == ZipCode.Trim().ToLower());
+            //}
 
-            if (MinPrice > 0.0)
-            {
-                predicate = predicate.And(exp => exp.ItemCost >= MinPrice);
-            }
+            //if (MinPrice > 0.0)
+            //{
+            //    predicate = predicate.And(exp => exp.ItemCost >= MinPrice);
+            //}
 
-            if (MaxPrice > 0.0)
-            {
-                predicate = predicate.And(exp => exp.ItemCost <= MaxPrice);
-            }
+            //if (MaxPrice > 0.0)
+            //{
+            //    predicate = predicate.And(exp => exp.ItemCost <= MaxPrice);
+            //}
 
-            if (!string.IsNullOrEmpty(CurrencyCode) && CurrencyCode.Length == 3)
-            {
-                predicate = predicate.And(exp => exp.ItemCurrencyCode.ToLower() == CurrencyCode.Trim().ToLower());
-            }
+            //if (!string.IsNullOrEmpty(CurrencyCode) && CurrencyCode.Length == 3)
+            //{
+            //    predicate = predicate.And(exp => exp.ItemCurrencyCode.ToLower() == CurrencyCode.Trim().ToLower());
+            //}
 
-            if (!string.IsNullOrEmpty(SearchText))
-            {
+            //if (!string.IsNullOrEmpty(SearchText))
+            //{
 
-                predicate = predicate.And(exp => exp.AdContent.ToLower() == CurrencyCode.Trim().ToLower());
-            }
+            //    predicate = predicate.And(exp => exp.AdContent.ToLower() == CurrencyCode.Trim().ToLower());
+            //}
 
             //SortOptionsBy sort = (SortOptionsBy)Enum.Parse(typeof(SortOptionsBy), sortOptionsBy, true);
             //switch (sort)
@@ -103,7 +103,7 @@ namespace Models.Ad.Dtos
             //        break;
             //}
 
-            return predicate;
+            return null;
         }
     }
 }

@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContexts", "DbContexts\DbContexts.csproj", "{3D68891B-CD22-4E57-9DDD-6AC136448CA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{861C4B1B-74D0-49A1-9CD7-A527865E573F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelpFiles", "HelpFiles", "{7D90C247-6DCE-409B-A706-CF5FC3AF3F9E}"
 	ProjectSection(SolutionItems) = preProject
 		HelpFiles\Ad.sql = HelpFiles\Ad.sql
@@ -61,11 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Article", "Article\Article.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Log", "Log\Log.csproj", "{1C7E3159-A8DD-4C07-80FA-E662D5B13283}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "Validation\Validation.csproj", "{8EDBFEC5-1AD4-4DE6-B9C2-0985A167ADBD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqKitt", "LinqKitt\LinqKitt.csproj", "{EBBB1DBA-38FA-47EB-B428-C42CB76E8D9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations", "Migrations\Migrations.csproj", "{39BF4C2F-B8DF-4AEE-B04F-1A862A9A5CF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Migrations", "Migrations\Migrations.csproj", "{39BF4C2F-B8DF-4AEE-B04F-1A862A9A5CF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,10 +73,6 @@ Global
 		{3D68891B-CD22-4E57-9DDD-6AC136448CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D68891B-CD22-4E57-9DDD-6AC136448CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D68891B-CD22-4E57-9DDD-6AC136448CA0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{861C4B1B-74D0-49A1-9CD7-A527865E573F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF584896-2E2F-41FF-9E31-224C1319A9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF584896-2E2F-41FF-9E31-224C1319A9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF584896-2E2F-41FF-9E31-224C1319A9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -141,10 +133,6 @@ Global
 		{1C7E3159-A8DD-4C07-80FA-E662D5B13283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C7E3159-A8DD-4C07-80FA-E662D5B13283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7E3159-A8DD-4C07-80FA-E662D5B13283}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EDBFEC5-1AD4-4DE6-B9C2-0985A167ADBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EDBFEC5-1AD4-4DE6-B9C2-0985A167ADBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EDBFEC5-1AD4-4DE6-B9C2-0985A167ADBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EDBFEC5-1AD4-4DE6-B9C2-0985A167ADBD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBBB1DBA-38FA-47EB-B428-C42CB76E8D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBBB1DBA-38FA-47EB-B428-C42CB76E8D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBBB1DBA-38FA-47EB-B428-C42CB76E8D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU

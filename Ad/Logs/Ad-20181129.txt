@@ -1,0 +1,8 @@
+2018-11-29T00:53:59.4452228-08:00  [INF] User profile is available. Using '"C:\Users\chinn\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2018-11-29T00:53:59.8886627-08:00 0HLILR0Q4JU7J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44394/api/values   (ca22a1cb)
+2018-11-29T00:54:00.0530314-08:00 0HLILR0Q4JU7J:00000001 [INF] Route matched with "{action = \"Get\", controller = \"Values\"}". Executing action "ad.Controllers.ValuesController.Get (Ad)" (a44c0341)
+2018-11-29T00:54:00.0669768-08:00 0HLILR0Q4JU7J:00000001 [INF] Executing action method "ad.Controllers.ValuesController.Get (Ad)" - Validation state: Valid (dad538d7)
+2018-11-29T00:54:00.0734060-08:00 0HLILR0Q4JU7J:00000001 [INF] Executed action method "ad.Controllers.ValuesController.Get (Ad)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.2859ms. (50a9e262)
+2018-11-29T00:54:00.0818660-08:00 0HLILR0Q4JU7J:00000001 [INF] Executing ObjectResult, writing value of type '"System.String[]"'. (8a1b66c8)
+2018-11-29T00:54:00.0975301-08:00 0HLILR0Q4JU7J:00000001 [INF] Executed action "ad.Controllers.ValuesController.Get (Ad)" in 39.929ms (afa2e885)
+2018-11-29T00:54:00.1044429-08:00 0HLILR0Q4JU7J:00000001 [INF] Request finished in 217.3952ms 200 application/json; charset=utf-8 (791a596a)

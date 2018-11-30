@@ -1,4 +1,4 @@
-﻿using Models.Article.Dtos;
+﻿using Share.Models.Article.Dtos;
 using System;
 using System.Linq;
 

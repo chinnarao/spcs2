@@ -1,6 +1,7 @@
 ﻿using DbContexts.Ad;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+
 namespace Migrations
 {
     public class AdDbContextFactory : IDesignTimeDbContextFactory<AdDbContext>
@@ -9,7 +10,8 @@ namespace Migrations
         {
             string connection = "Server=localhost;Database=Ad;Trusted_Connection=True;";
             var optionBuilder = new DbContextOptionsBuilder<AdDbContext>();
-            var options = optionBuilder.UseSqlServer(connection, a => a.MigrationsAssembly("Migrations"));
+            //var options = optionBuilder.UseSqlServer(connection, a => a.MigrationsAssembly("Migrations").UseNetTopologySuite());
+            var options = optionBuilder.UseSqlServer(connection, a => a.MigrationsAssembly($"{nameof(Migrations)}").UseNetTopologySuite());
             return new AdDbContext(optionBuilder.Options);
         }
     }

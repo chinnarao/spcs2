@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Configuration;
-using Models.Ad.Dtos;
+using Share.Models.Ad.Dtos;
 using System;
 using System.Collections.Generic;
 using System.IO;

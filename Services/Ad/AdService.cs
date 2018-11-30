@@ -3,7 +3,7 @@ using System.IO;
 using Google;
 using File;
 using AutoMapper;
-using Models.Ad.Dtos;
+using Share.Models.Ad.Dtos;
 using DbContexts.Ad;
 using Repository;
 using Microsoft.Extensions.Logging;
@@ -22,9 +22,9 @@ namespace Services.Ad
         private readonly IMapper _mapper;
         private readonly ICacheService _cacheService;
         private readonly IGoogleStorage _googleStorage;
-        private readonly IRepository<Models.Ad.Entities.Ad, AdDbContext> _adRepository;
+        private readonly IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> _adRepository;
 
-        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, IRepository<Models.Ad.Entities.Ad, AdDbContext> adRepository)
+        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> adRepository)
         {
             _logger = logger;
             _mapper = mapper;
@@ -38,15 +38,16 @@ namespace Services.Ad
         public AdDto CreateAd(AdDto dto)
         {
             // transaction has to implement or not , has to think more required.
-            Models.Ad.Entities.Ad ad = this.InsertAd(dto);
+            Share.Models.Ad.Entities.Ad ad = this.InsertAd(dto);
             dto.GoogleStorageAdFileDto.AdAnonymousDataObjectForHtmlTemplate = GetAdAsAnonymousObjectForHtmlTemplate(dto);
             this.UploadObjectInGoogleStorage(dto.GoogleStorageAdFileDto);
             dto.GoogleStorageAdFileDto = null;
             return dto;
         }
-        private Models.Ad.Entities.Ad InsertAd(AdDto dto)
+        private Share.Models.Ad.Entities.Ad InsertAd(AdDto dto)
         {
-            Models.Ad.Entities.Ad ad = _mapper.Map<Models.Ad.Entities.Ad>(dto);
+            Share.Models.Ad.Entities.Ad ad = _mapper.Map<Share.Models.Ad.Entities.Ad>(dto);
+            ad.AddressLocation = Utility.CreatePoint(dto.AddressLongitude, dto.AddressLatitude);
             RepositoryResult result = _adRepository.Create(ad);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
             return ad;
@@ -113,8 +114,8 @@ namespace Services.Ad
 
         public AdDto UpdateAd(AdDto adDto)
         {
-            Models.Ad.Entities.Ad adExisting = _adRepository.Entities.Single(a => a.AdId == Convert.ToInt64(adDto.AdId));
-            adExisting = _mapper.Map<AdDto, Models.Ad.Entities.Ad>(adDto, adExisting);
+            Share.Models.Ad.Entities.Ad adExisting = _adRepository.Entities.Single(a => a.AdId == Convert.ToInt64(adDto.AdId));
+            adExisting = _mapper.Map<AdDto, Share.Models.Ad.Entities.Ad>(adDto, adExisting);
             int i = _adRepository.SaveChanges();
             AdDto adDtoNew = _mapper.Map<AdDto>(adExisting);
             return adDtoNew;

@@ -12,7 +12,6 @@
     <ProjectReference Include="..\DbContexts\DbContexts.csproj" />
     <ProjectReference Include="..\File\File.csproj" />
     <ProjectReference Include="..\Google\Google.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
     <ProjectReference Include="..\Repository\Repository.csproj" />
     <ProjectReference Include="..\Share\Share.csproj" />
   </ItemGroup>

@@ -6,7 +6,7 @@ namespace DbContexts.Article
     {
         public ArticleDbContext(DbContextOptions<ArticleDbContext> options) : base(options){}
 
-        public DbSet<Models.Article.Entities.Article> Articles { get; set; }
+        public DbSet<Share.Models.Article.Entities.Article> Articles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
