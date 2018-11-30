@@ -5,7 +5,6 @@ using DbContexts.Article;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Share.Models.Ad.Entities;
 using Share.Models.Article.Entities;
 using Xunit;
 
