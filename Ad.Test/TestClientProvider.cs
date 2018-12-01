@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Net.Http;
 
@@ -15,7 +16,10 @@ namespace Ad.Test
         public TestServerFixture()
         {
             var builder = new WebHostBuilder()
-            .UseEnvironment("Development")
+                .ConfigureAppConfiguration(
+                        (builderContext, config) => { config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true); }
+                    )
+            //.UseEnvironment("Development")
             .UseStartup<Startup>();
 
             _testServer = new TestServer(builder);

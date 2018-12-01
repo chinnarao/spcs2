@@ -27,13 +27,13 @@ namespace Ad.Test
             using (TestServerFixture fixture = new TestServerFixture())
             {
                 // Act
-                var response = await fixture.Client.GetAsync("/Ad/GetAllAds");
+                var response = await fixture.Client.GetAsync("/Api/Ad/GetAllAds");
 
                 // Assert
                 response
                 .StatusCode
                 .Should()
-                .Be(HttpStatusCode.Unauthorized);
+                .Be(HttpStatusCode.OK);
             }
         }
     }
