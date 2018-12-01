@@ -5,6 +5,9 @@ using FluentAssertions;
 using System.IO;
 using Services.Test;
 using Services.Commmon;
+using NSubstitute;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 
 namespace Services.Test
 {
@@ -23,22 +26,31 @@ namespace Services.Test
             //act1.Should().NotThrow();
         }
 
-        //[Fact]
-        //public void Test_FillContent()
-        //{
-        //    var anonymousData = new
-        //    {
-        //        Name = "Riya",
-        //        Occupation = "Kavin Brother."
-        //    };
+        [Fact]
+        public void Test_FillContent()
+        {
 
-        //    string content = Helper.GetAdTemplateFileContent();
-        //    IFileRead read = new FileRead();
-        //    content = read.FillContent(content, anonymousData);
-        //    Action act = () => content.Should().Contain(anonymousData.Name);
-        //    act.Should().NotThrow();
-        //    Action act1 = () => content.Should().Contain(anonymousData.Occupation);
-        //    act1.Should().NotThrow();
-        //}
+            var factoryMock = Substitute.For<Func<string>>();
+            var optionsMock = Substitute.For<IOptions<MemoryCacheOptions>>();
+            optionsMock.Value.Returns(callInfo => new MemoryCacheOptions());
+            var memoryCache = new MemoryCache(optionsMock);
+            ICacheService cacheService = new CacheService(memoryCache);
+
+            IConfiguration _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+            var anonymousData = new
+            {
+                Name = "Riya",
+                Occupation = "Kavin Brother."
+            };
+
+            string content = Helper.GetAdTemplateFileContent();
+            IFileRead read = new FileRead(_configuration, cacheService);
+            content = read.FillContent(content, anonymousData);
+            Action act = () => content.Should().Contain(anonymousData.Name);
+            act.Should().NotThrow();
+            Action act1 = () => content.Should().Contain(anonymousData.Occupation);
+            act1.Should().NotThrow();
+        }
     }
 }

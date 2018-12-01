@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Services.Commmon;
 using Share.Models.Json;
 using Microsoft.Extensions.Configuration;
 using Share.Utilities;
-using System.IO;
-using System.Reflection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Services.Common
 {
@@ -23,25 +22,8 @@ namespace Services.Common
             _cacheService = cacheService;
         }
 
-        public Dictionary<int, string> GetCategoryOptionsBy()
-        {
-            json_lookup lookUp = GetLookUp();
-            Dictionary<int, string>  dict = lookUp.categoryOptionsBy;
-            return dict;
-        }
-
-        public Dictionary<int, string> GetConditionOptionsBy()
-        {
-            json_lookup lookUp = GetLookUp();
-            Dictionary<int, string> dict = lookUp.conditionOptionsBy;
-            return dict;
-        }
-
         public List<country> GetCountries()
         {
-            string pathss = Utility.GetAssemblyPath();
-            string sfs  = Directory.GetCurrentDirectory() + " [] " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
             List<country> countries = _cacheService.Get<List<country>>(nameof(GetCountries));
             if (countries == null || countries.Count == 0)
             {
@@ -55,52 +37,49 @@ namespace Services.Common
             return countries;
         }
 
-        public Dictionary<int, string> GetMileOptionsBy()
+        public List<KeyValueDescription> GetCategoryOptionsBy()
         {
-            json_lookup lookUp = GetLookUp();
-            Dictionary<int, string> dict = lookUp.mileOptionsBy;
-            return dict;
+            return GetLookUpBy(nameof(GetCategoryOptionsBy), "categoryOptionsBy");
         }
 
-        public Dictionary<int, string> GetSortOptionsBy()
+        public List<KeyValueDescription> GetConditionOptionsBy()
         {
-            json_lookup lookUp = GetLookUp();
-            Dictionary<int, string> dict = lookUp.sortOptionsBy;
-            return dict;
+            return GetLookUpBy(nameof(GetConditionOptionsBy), "conditionOptionsBy");
         }
 
-        private json_lookup GetLookUp()
+        public List<KeyValueDescription> GetMileOptionsBy()
         {
-            json_lookup jsonLookUp = _cacheService.Get<json_lookup>(nameof(GetLookUp));
-            if (jsonLookUp == null || 
-                jsonLookUp.categoryOptionsBy == null || 
-                jsonLookUp.conditionOptionsBy == null || 
-                jsonLookUp.mileOptionsBy == null || 
-                jsonLookUp.sortOptionsBy == null)
+            return GetLookUpBy(nameof(GetMileOptionsBy), "mileOptionsBy");
+        }
+
+        public List<KeyValueDescription> GetSortOptionsBy()
+        {
+            return GetLookUpBy(nameof(GetSortOptionsBy), "sortOptionsBy");
+        }
+
+        private List<KeyValueDescription> GetLookUpBy(string CACHEKEY, string JSON_PROPERTY_NAME)
+        {
+            List<KeyValueDescription> options = _cacheService.Get<List<KeyValueDescription>>(CACHEKEY);
+            if (options == null || options.Count == 0)
             {
                 string json = _fileReadService.ReadJsonFile(_configuration["JsonFileNameWithExtForLookUp"]);
-                jsonLookUp = JsonConvert.DeserializeObject<json_lookup>(json);
-                jsonLookUp = _cacheService.GetOrAdd<json_lookup>(nameof(GetLookUp), () => jsonLookUp, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
-                if (jsonLookUp == null)
-                    throw new Exception(nameof(jsonLookUp));
-                if (jsonLookUp.categoryOptionsBy == null)
-                    throw new Exception(nameof(jsonLookUp.categoryOptionsBy));
-                if (jsonLookUp.conditionOptionsBy == null)
-                    throw new Exception(nameof(jsonLookUp.conditionOptionsBy));
-                if (jsonLookUp.mileOptionsBy == null)
-                    throw new Exception(nameof(jsonLookUp.mileOptionsBy));
-                if (jsonLookUp.sortOptionsBy == null)
-                    throw new Exception(nameof(jsonLookUp.sortOptionsBy));
+                JObject jObject = JObject.Parse(json);
+                options = JsonConvert.DeserializeObject<List<KeyValueDescription>>(jObject.SelectToken(JSON_PROPERTY_NAME).ToString());
+                if (options == null)
+                    throw new Exception(nameof(options));
+                options = _cacheService.GetOrAdd<List<KeyValueDescription>>(CACHEKEY, () => options, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
+                if (options == null || options.Count == 0)
+                    throw new Exception(nameof(options));
             }
-            return jsonLookUp;
+            return options;
         }
     }
     public interface IJsonDataService
     {
         List<country> GetCountries();
-        Dictionary<int, string> GetCategoryOptionsBy();
-        Dictionary<int, string> GetConditionOptionsBy();
-        Dictionary<int, string> GetMileOptionsBy();
-        Dictionary<int, string> GetSortOptionsBy();
+        List<KeyValueDescription> GetCategoryOptionsBy();
+        List<KeyValueDescription> GetConditionOptionsBy();
+        List<KeyValueDescription> GetMileOptionsBy();
+        List<KeyValueDescription> GetSortOptionsBy();
     }
 }

@@ -36,11 +36,8 @@ namespace Services.Commmon
             string json = _cacheService.Get<string>(fileNameWithExtension);
             if (string.IsNullOrWhiteSpace(json))
             {
-                var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                if (string.IsNullOrWhiteSpace(dir))
-                    throw new Exception(nameof(dir));
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Json", "data", fileNameWithExtension);
 
-                var filePath = Path.Combine(dir, fileNameWithExtension);
                 if (!File.Exists(filePath))
                     throw new Exception(nameof(filePath));
 
