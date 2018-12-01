@@ -14,8 +14,8 @@ namespace Share.Test.UtilitiesTests
 
             // assert
             Assert.NotEqual(hash1, hash2);
-            Assert.Equal(hash1.Trim().Length, 64);
-            Assert.Equal(hash2.Trim().Length, 64);
+            Assert.Equal(64, hash1.Trim().Length);
+            Assert.Equal(64, hash2.Trim().Length);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace Share.Test.UtilitiesTests
             var hash = HashUtility.GenerateSha256("test");
 
             // assert
-            Assert.Equal(hash, "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08");
+            Assert.Equal("9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", hash);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace Share.Test.UtilitiesTests
             var hash = HashUtility.GenerateSha256("test","gap");
 
             // assert
-            Assert.Equal(hash, "2b104763f73d857260e81bd2394c89e98cf87df5e8fb99bc82a508b693aadc94");
+            Assert.Equal("2b104763f73d857260e81bd2394c89e98cf87df5e8fb99bc82a508b693aadc94", hash);
         }
     }
 }

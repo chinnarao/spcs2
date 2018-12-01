@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Json\json_lookup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.0.101" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="2.2.0-preview3-35497" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="2.2.0-preview3-35497" />
@@ -12,11 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\LinqKitt\LinqKitt.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinqKitt\LinqKitt.csproj" />
+    <None Update="Json\data\lookup.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Json\data\country.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

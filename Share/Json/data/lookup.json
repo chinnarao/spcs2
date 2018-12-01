@@ -1,0 +1,24 @@
+{ 
+  "conditionOptionsBy": [
+    { "key": 1, "value": "Old" , "description": "Old"},
+    { "key": 2, "value": "New" , "description": "New"}
+  ],
+  "sortOptionsBy": [
+    { "key": 1, "value": "NewestFirst", "description": "Newest First"},
+    { "key": 2, "value": "Closest", "description": "Closest" },
+    { "key": 3, "value": "PriceLowToHigh", "description": "Price: Low to High" },
+    { "key": 4, "value": "PriceHighToLow", "description": "Price: Low to High" }
+  ],
+  "mileOptionsBy": [
+    { "key": 1, "value": "Below10Miles", "description": "0 < 10 Miles"},
+    { "key": 2, "value": "Below20Miles" , "description": "0 < 20 Miles"},
+    { "key": 3, "value": "Below50Miles", "description": "0 < 50 Miles" },
+    { "key": 4, "value": "Maximum", "description": "Maximum" }
+  ],
+  "categoryOptionsBy" : [
+    { "key": 1, "value": "Automobile" , "description": "Automobiles"},
+    { "key": 2, "value": "Electronics" , "description": "Electronics"},
+    { "key": 3, "value": "RealEstate" , "description": "RealEstate"},
+    { "key": 4, "value": "Others" , "description": "Others"}
+  ]
+}

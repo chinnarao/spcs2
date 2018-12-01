@@ -3,6 +3,9 @@ using NetTopologySuite;
 using System;
 using System.Collections.Generic;
 using Share.Enums;
+using System.Linq;
+using System.IO;
+using System.Reflection;
 
 namespace Share.Utilities
 {
@@ -111,6 +114,60 @@ namespace Share.Utilities
             if (!double.TryParse(longitude, out lati))
                 lati = 1.0;
             return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longi, lati));
+        }
+
+        public static bool IsValidCountryCallingCode(int callingCode)
+        {
+            
+            int[] codes = new int[] {   1, 7, 20, 27, 28, 30, 31, 32, 33, 34, 36, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+                                        51, 52, 53, 54, 55, 56, 57, 58, 60, 61, 62, 63, 64, 65, 66, 81, 82, 84, 86, 90, 91, 92, 93, 94, 95, 98,
+                                        210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230,
+                                        231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250,
+                                        251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 290,
+                                        291, 292, 293, 294, 295, 296, 297, 298, 299, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 370,
+                                        371, 373, 374, 375, 377, 380, 381, 385, 387, 389, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 590,
+                                        591, 592, 593, 594, 595, 596, 597, 598, 599, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680,
+                                        681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 808, 809, 850, 852, 853, 855, 856,
+                                        871, 872, 873, 874, 880, 886, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 971, 972, 973, 974, 975, 976, 977, 993, 994, 995 };
+            if (callingCode < codes.Min() || callingCode > codes.Max())
+                return false;
+            return codes.Any(i => i == callingCode);
+        }
+
+        public static long? GetLongNumberFromString(string numberString)
+        {
+            if (!string.IsNullOrWhiteSpace(numberString))
+            {
+                long number;
+                if (long.TryParse(numberString, out number))
+                    return number;
+            }
+            return null;
+        }
+
+        public static short? GetShortNumberFromString(string numberString)
+        {
+            if (!string.IsNullOrWhiteSpace(numberString))
+            {
+                short number;
+                if (short.TryParse(numberString, out number))
+                    return number;
+            }
+            return null;
+        }
+
+        public static DateTime GetCacheExpireDateTime(string CacheExpireDays)
+        {
+            double inMemoryCacheExpireDays;
+            if (double.TryParse(CacheExpireDays, out inMemoryCacheExpireDays))
+                return DateTime.UtcNow.AddDays(inMemoryCacheExpireDays);
+            else
+                throw new Exception(nameof(CacheExpireDays));
+        }
+
+        public static string GetAssemblyPath()
+        {
+            return Directory.GetCurrentDirectory() + " [] " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         }
     }
 }

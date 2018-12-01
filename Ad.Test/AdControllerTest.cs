@@ -20,5 +20,21 @@ namespace Ad.Test
         //        response.StatusCode.Should().Be(HttpStatusCode.OK); // or old school: Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         //    }
         //}
+
+        [Fact]
+        public async Task WhenGetMethodIsInvokedWithoutAValidToken_GetShouldAnswerUnAuthorized()
+        {
+            using (TestServerFixture fixture = new TestServerFixture())
+            {
+                // Act
+                var response = await fixture.Client.GetAsync("/Ad/GetAllAds");
+
+                // Assert
+                response
+                .StatusCode
+                .Should()
+                .Be(HttpStatusCode.Unauthorized);
+            }
+        }
     }
 }

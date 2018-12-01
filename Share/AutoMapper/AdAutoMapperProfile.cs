@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
-using Share.Models.Ad.Entities;
 using Share.Models.Ad.Dtos;
-using System;
-using GeoAPI.Geometries;
-using NetTopologySuite;
 
-namespace Services.AutoMapper
+namespace Share.AutoMapper
 {
     public class AdAutoMapperProfile : Profile
     {
@@ -14,6 +10,7 @@ namespace Services.AutoMapper
             CreateMap<Share.Models.Ad.Entities.Ad, AdDto>()
                 .ReverseMap()
                 .ForMember(dest => dest.AddressLocation, opt => opt.Ignore());
+            //.ForMember(dest => dest.UserPhoneCountryCode, opt => opt.MapFrom(src => short.Parse(strin.isnullorempty(src.UserPhoneCountryCode) ? src.UserPhoneCountryCode : null )))
         }
     }
 }

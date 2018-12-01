@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using Share.Enums;
 using System.Text.RegularExpressions;
+using FluentValidation.Results;
 
 namespace Share.Validators
 {
@@ -18,7 +19,20 @@ namespace Share.Validators
             RuleFor(x => x.AdDisplayDays).NotNull().GreaterThan<AdDto, Byte>(Byte.MinValue).LessThan<AdDto, Byte>(Byte.MaxValue);
 
             RuleFor(x => x.UserIdOrEmail).NotEmpty().MaximumLength(50);
-            RuleFor(x => x.UserPhoneNumber).Must(IsValid10DigitPhoneNumber);
+            //http://marcin-chwedczuk.github.io/fluent-validation-and-complex-dependencies-between-properties
+            RuleFor(x => x).Custom((dto, context) => {
+                if (string.IsNullOrEmpty(dto?.UserPhoneCountryCode))
+                    return;
+                int phoneNumber;
+                bool ret = int.TryParse(dto.UserPhoneCountryCode, out phoneNumber);
+                if (!ret)
+                    return;
+                bool isValid = Utilities.Utility.IsValidCountryCallingCode(phoneNumber);
+                if (isValid)
+                    return;
+                if (!isValid)
+                    context.AddFailure(new ValidationFailure($"UserPhoneCountryCode", $"Phone Country Code is not a valid: ['{dto.UserPhoneCountryCode}']"));
+            });
             RuleFor(x => x.UserSocialAvatarUrl).MaximumLength(5000).Must(IsValidURL);
             RuleFor(x => x.UserSocialProviderName).MaximumLength(12);
 
@@ -32,7 +46,6 @@ namespace Share.Validators
             RuleFor(x => x.AddressCountryName).MaximumLength(75);
             RuleFor(x => x.AddressLatitude).Must(IsValidLatitude);
             RuleFor(x => x.AddressLongitude).Must(IsValidLongitude);
-
 
             RuleFor(x => x.ItemCost).GreaterThanOrEqualTo(0);
             RuleFor(x => x.ItemCurrencyCode).MaximumLength(3);

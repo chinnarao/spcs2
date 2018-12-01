@@ -13,11 +13,13 @@ using Share.Extensions;
 using Services.Commmon;
 using Services.Google;
 using Share.Utilities;
+using Microsoft.Extensions.Configuration;
 
 namespace Services.Ad
 {
     public class AdService : IAdService
     {
+        private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
         private readonly IFileRead _fileReadService;
         private readonly IMapper _mapper;
@@ -25,8 +27,11 @@ namespace Services.Ad
         private readonly IGoogleStorage _googleStorage;
         private readonly IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> _adRepository;
 
-        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> adRepository)
+        public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, 
+            IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> adRepository,
+            IConfiguration configuration)
         {
+            _configuration = configuration;
             _logger = logger;
             _mapper = mapper;
             _fileReadService = fileReadService;
@@ -48,8 +53,8 @@ namespace Services.Ad
         private Share.Models.Ad.Entities.Ad InsertAd(AdDto dto)
         {
             Share.Models.Ad.Entities.Ad ad = _mapper.Map<Share.Models.Ad.Entities.Ad>(dto);
-            if (!string.IsNullOrWhiteSpace(dto.UserPhoneNumber))
-                ad.UserPhoneNumber =  long.Parse(dto.UserPhoneNumber);
+            ad.UserPhoneNumber = Utility.GetLongNumberFromString(dto.UserPhoneNumber);
+            ad.UserPhoneCountryCode = Utility.GetShortNumberFromString(dto.UserPhoneCountryCode);
             ad.AddressLocation = Utility.CreatePoint(dto.AddressLongitude, dto.AddressLatitude);
             RepositoryResult result = _adRepository.Create(ad);
             if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));

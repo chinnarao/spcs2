@@ -174,9 +174,9 @@ namespace Migrations.AdMigrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<short>("UserPhoneCountryCode");
+                    b.Property<short?>("UserPhoneCountryCode");
 
-                    b.Property<long>("UserPhoneNumber");
+                    b.Property<long?>("UserPhoneNumber");
 
                     b.Property<string>("UserSocialAvatarUrl")
                         .HasMaxLength(5000)

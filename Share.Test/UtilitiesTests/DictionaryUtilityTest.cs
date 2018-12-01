@@ -12,7 +12,7 @@ namespace Share.Test.UtilitiesTests
             // arrange / act / assert
             ArgumentNullException ex = Assert.Throws<ArgumentNullException>(() =>
                 DictionaryUtility.ToDictionary(null));
-            Assert.Equal(ex.ParamName, "source");
+            Assert.Equal("source", ex.ParamName);
         }
 
         [Fact]
@@ -30,9 +30,9 @@ namespace Share.Test.UtilitiesTests
             var dic = DictionaryUtility.ToDictionary(obj);
 
             // assert
-            Assert.Equal(dic.Count, 2);
-            Assert.Equal(dic["TestInt"], "5");
-            Assert.Equal(dic["TestString"], "test");
+            Assert.Equal(2, dic.Count);
+            Assert.Equal("5", dic["TestInt"]);
+            Assert.Equal("test", dic["TestString"]);
         }
     }
 

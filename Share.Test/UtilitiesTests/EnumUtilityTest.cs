@@ -54,7 +54,7 @@ namespace Share.Test.UtilitiesTests
             // arrange / act / assert
             ArgumentException ex = Assert.Throws<ArgumentException>(() =>
                 EnumUtility.ConvertToEnum<String>("Bla"));
-            Assert.Equal(ex.Message, "T must be an enumerated type.");
+            Assert.Equal("T must be an enumerated type.", ex.Message);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace Share.Test.UtilitiesTests
             // arrange / act / assert
             ArgumentException ex = Assert.Throws<ArgumentException>(() =>
                 EnumUtility.ConvertToEnum<String>(new List<string> { "Bla" }));
-            Assert.Equal(ex.Message, "T must be an enumerated type.");
+            Assert.Equal("T must be an enumerated type.", ex.Message);
         }
 
         [Fact]
@@ -76,7 +76,7 @@ namespace Share.Test.UtilitiesTests
             var enumValue = EnumUtility.ConvertToEnum<EnumTest1>(enumList);
 
             // assert
-            Assert.Equal(0, enumValue.Count);
+            Assert.Empty(enumValue);
         }
 
         [Fact]
@@ -126,7 +126,7 @@ namespace Share.Test.UtilitiesTests
             // arrange / act / assert
             ArgumentException ex = Assert.Throws<ArgumentException>(() =>
                 EnumUtility.GetEnumFromDescription<String>("Bla"));
-            Assert.Equal(ex.Message, "T must be an enumerated type.");
+            Assert.Equal("T must be an enumerated type.", ex.Message);
         }
 
         [Fact]
@@ -161,7 +161,7 @@ namespace Share.Test.UtilitiesTests
             // arrange / act / assert
             KeyNotFoundException ex = Assert.Throws<KeyNotFoundException>(() =>
                 EnumUtility.GetEnumFromDescription<EnumTest1>("Bla", false));
-            Assert.Equal(ex.Message, "Bla not found in EnumTest1");
+            Assert.Equal("Bla not found in EnumTest1", ex.Message);
         }
 
         [Fact]
@@ -170,7 +170,7 @@ namespace Share.Test.UtilitiesTests
             // arrange / act / assert
             ArgumentException ex = Assert.Throws<ArgumentException>(() =>
                 EnumUtility.IsValidToParse<String>("Bla"));
-            Assert.Equal(ex.Message, "T must be an enumerated type.");
+            Assert.Equal("T must be an enumerated type.", ex.Message);
         }
 
         [Fact]
@@ -235,7 +235,7 @@ namespace Share.Test.UtilitiesTests
             var descriptions = EnumUtility.GetDescriptionsFromEnums<EnumTest1>(enumList);
 
             // assert
-            Assert.Equal(1, descriptions.Count);
+            Assert.Single(descriptions);
             Assert.Equal("test 1", descriptions[0]);
         }
 

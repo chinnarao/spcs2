@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Migrations.AdMigrations
 {
     [DbContext(typeof(AdDbContext))]
-    [Migration("20181130051410_Initial")]
+    [Migration("20181130195910_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,9 +176,9 @@ namespace Migrations.AdMigrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
-                    b.Property<short>("UserPhoneCountryCode");
+                    b.Property<short?>("UserPhoneCountryCode");
 
-                    b.Property<long>("UserPhoneNumber");
+                    b.Property<long?>("UserPhoneNumber");
 
                     b.Property<string>("UserSocialAvatarUrl")
                         .HasMaxLength(5000)

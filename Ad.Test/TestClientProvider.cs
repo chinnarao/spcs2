@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Net.Http;
 
@@ -8,26 +7,25 @@ using System.Net.Http;
 //https://www.meziantou.net/2017/08/21/testing-an-asp-net-core-application-using-testserver
 namespace Ad.Test
 {
-    public class TestClientProvider : IDisposable
+    public class TestServerFixture : IDisposable
     {
-        private TestServer _server;
-        public HttpClient HttpClient { get; private set; }
+        private readonly TestServer _testServer;
+        public HttpClient Client { get; }
 
-        public TestClientProvider()
+        public TestServerFixture()
         {
-            var webHostBuilder = new WebHostBuilder()
-                    .ConfigureAppConfiguration(
-                        (builderContext, config) => { config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);}
-                    )
-                    .UseStartup<Ad.Startup>();
+            var builder = new WebHostBuilder()
+            .UseEnvironment("Development")
+            .UseStartup<Startup>();
 
-            _server = new TestServer(webHostBuilder);
-            HttpClient = _server.CreateClient();
+            _testServer = new TestServer(builder);
+            Client = _testServer.CreateClient();
         }
 
         public void Dispose()
         {
-            HttpClient.Dispose();
+            Client.Dispose();
+            _testServer.Dispose();
         }
     }
 }

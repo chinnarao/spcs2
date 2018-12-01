@@ -43,10 +43,7 @@ namespace Ad.Util
             string htmlFileName = _configuration["AdHtmlTemplateFileNameWithExt"];
             string GoogleStorageFileExtType = Path.GetExtension(htmlFileName);
 
-            int inMemoryCachyExpireDays;
-            if (int.TryParse(_configuration["InMemoryCacheDays"], out inMemoryCachyExpireDays))
-                fileModel.CacheExpiryDateTimeForHtmlTemplate = DateTime.UtcNow.AddDays(Convert.ToDouble(inMemoryCachyExpireDays));
-
+            fileModel.CacheExpiryDateTimeForHtmlTemplate = Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]);
             fileModel.HtmlFileTemplateFullPathWithExt = Path.Combine(Directory.GetCurrentDirectory(), htmlFileName);
             fileModel.GoogleStorageBucketName = googleStorageBucketName;
             fileModel.CACHE_KEY = Constants.AD_HTML_FILE_TEMPLATE;

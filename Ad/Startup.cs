@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using DbContexts.Ad;
 using Services.Ad;
-using Services;
 using Repository;
 using FluentValidation.AspNetCore;
 using FluentValidation;
@@ -15,7 +14,8 @@ using Share.Models.Ad.Dtos;
 using AspNetCore.Firebase.Authentication.Extensions;
 using Services.Commmon;
 using Services.Google;
-using Services.AutoMapper;
+using Share.AutoMapper;
+using Services.Common;
 //using Validation;
 //using Share.Validators;
 //https://github.com/dotnet-architecture/eShopOnWeb
@@ -45,6 +45,7 @@ namespace Ad
 
             services.AddScoped<IAdService, AdService>();
             services.AddScoped<IFileRead, FileRead>();
+            //services.AddScoped<IJsonDataService, JsonDataService>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
             services.AddScoped<IRepository<Share.Models.Ad.Entities.Ad, AdDbContext>, Repository<Share.Models.Ad.Entities.Ad, AdDbContext>>();

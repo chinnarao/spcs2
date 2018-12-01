@@ -1,0 +1,16 @@
+single line : https://lingojam.com/TexttoOneLine
+online sort for comma items : https://www.online-utility.org/text/sort.jsp
+json data sorting : https://jsoneditoronline.org/
+json filter some columns:  https://jsoneditoronline.org/
+*** csv to json option, this is solved my problem, given csv: http://www.convertcsv.com/csv-to-json.htm
+csv to json: https://shancarter.github.io/mr-data-converter/
+string int array sorting with comma: http://sortmylist.com/   https://www.miniwebtool.com/sort-numbers/
+
+
+
+
+step 1: INTERNATIONAL CALLING CODES DATA:  http://www.cs.columbia.edu/~zwb/my/cntryno.htm
+step 2: copy paste in csv.
+step 3:  http://www.convertcsv.com/csv-to-json.htm
+
+

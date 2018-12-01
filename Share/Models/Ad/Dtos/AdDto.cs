@@ -1,6 +1,4 @@
-﻿using GeoAPI.Geometries;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 
 namespace Share.Models.Ad.Dtos
 {
@@ -14,7 +12,7 @@ namespace Share.Models.Ad.Dtos
 
         public string UserIdOrEmail { get; set; }
         public string UserPhoneNumber { get; set; }         //https://www.nationsonline.org/oneworld/international-calling-codes.htm
-        public Int16 UserPhoneCountryCode { get; set; }   //https://www.searchyellowdirectory.com/reverse-phone/
+        public string UserPhoneCountryCode { get; set; }   //https://www.searchyellowdirectory.com/reverse-phone/
         public string UserSocialAvatarUrl { get; set; }
         public string UserSocialProviderName { get; set; } //ex: facebook, twitter
 
