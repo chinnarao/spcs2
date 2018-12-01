@@ -28,24 +28,21 @@ namespace Services.Commmon
             return result;
         }
 
-        public string ReadJsonFile(string fileNameWithExtension)
+        public string ReadJsonFile(string path)
         {
-            if (string.IsNullOrWhiteSpace(fileNameWithExtension))
-                throw new Exception(nameof(fileNameWithExtension));
+            if (string.IsNullOrWhiteSpace(path))
+                throw new Exception(nameof(path));
 
-            string json = _cacheService.Get<string>(fileNameWithExtension);
+            string json = _cacheService.Get<string>(path);
             if (string.IsNullOrWhiteSpace(json))
             {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Json", "data", fileNameWithExtension);
-
-                if (!File.Exists(filePath))
-                    throw new Exception(nameof(filePath));
-
-                json = File.ReadAllText(filePath);
+                path = Utility.HappyPath(path);
+                if (!File.Exists(path))
+                    throw new Exception(nameof(path));
+                json = File.ReadAllText(path);
                 if (string.IsNullOrWhiteSpace(json))
                     throw new Exception(nameof(json));
-
-                json = _cacheService.GetOrAdd<string>(fileNameWithExtension, () => json, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
+                json = _cacheService.GetOrAdd<string>(path, () => json, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
                 if (string.IsNullOrEmpty(json)) throw new Exception(nameof(json));
             }
 

@@ -47,6 +47,30 @@ namespace Services.Test
             Action act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
+            list = jsonService.GetCategoryOptionsBy();
+            act = () => list.Count.Should().BeGreaterThan(0);
+            act.Should().NotThrow();
+
+            list = jsonService.GetCategoryOptionsBy();
+            act = () => list.Count.Should().BeGreaterThan(0);
+            act.Should().NotThrow();
+
+            list = jsonService.GetCategoryOptionsBy();
+            act = () => list.Count.Should().BeGreaterThan(0);
+            act.Should().NotThrow();
+
+            list = jsonService.GetConditionOptionsBy();
+            act = () => list.Count.Should().BeGreaterThan(0);
+            act.Should().NotThrow();
+
+            list = jsonService.GetMileOptionsBy();
+            act = () => list.Count.Should().BeGreaterThan(0);
+            act.Should().NotThrow();
+
+            list = jsonService.GetSortOptionsBy();
+            act = () => list.Count.Should().BeGreaterThan(0);
+            act.Should().NotThrow();
+
             list = jsonService.GetConditionOptionsBy();
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();

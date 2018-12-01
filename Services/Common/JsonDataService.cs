@@ -27,7 +27,7 @@ namespace Services.Common
             List<country> countries = _cacheService.Get<List<country>>(nameof(GetCountries));
             if (countries == null || countries.Count == 0)
             {
-                string json = _fileReadService.ReadJsonFile(_configuration["JsonFileNameWithExtForCountry"]);
+                string json = _fileReadService.ReadJsonFile(_configuration["FolderPathForCountryJson"]);
                 json_country jsonCountry = JsonConvert.DeserializeObject<json_country>(json);
                 jsonCountry = _cacheService.GetOrAdd<json_country>(nameof(GetCountries), () => jsonCountry, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
                 if (jsonCountry == null || jsonCountry.country.Count == 0)
@@ -62,7 +62,7 @@ namespace Services.Common
             List<KeyValueDescription> options = _cacheService.Get<List<KeyValueDescription>>(CACHEKEY);
             if (options == null || options.Count == 0)
             {
-                string json = _fileReadService.ReadJsonFile(_configuration["JsonFileNameWithExtForLookUp"]);
+                string json = _fileReadService.ReadJsonFile(_configuration["FolderPathForCountryJson"]);
                 JObject jObject = JObject.Parse(json);
                 options = JsonConvert.DeserializeObject<List<KeyValueDescription>>(jObject.SelectToken(JSON_PROPERTY_NAME).ToString());
                 if (options == null)

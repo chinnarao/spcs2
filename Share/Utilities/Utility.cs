@@ -165,9 +165,11 @@ namespace Share.Utilities
                 throw new Exception(nameof(CacheExpireDays));
         }
 
-        public static string GetAssemblyPath()
+        public static string HappyPath(string happyPath)
         {
-            return Directory.GetCurrentDirectory() + " [] " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            if (happyPath.Contains(','))
+                happyPath = string.Join<string>(Path.DirectorySeparatorChar, happyPath.Split(',', StringSplitOptions.RemoveEmptyEntries));
+            return Path.Combine(Directory.GetCurrentDirectory(), happyPath);
         }
     }
 }
