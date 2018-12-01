@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Share.Utilities;
 
@@ -21,9 +20,7 @@ namespace Services.Commmon
         {
             var template = Scriban.Template.Parse(content);
             if (template.HasErrors)
-            {
                 throw new Exception(string.Join<Scriban.Parsing.LogMessage>(',', template.Messages.ToArray()));
-            }
             string result = template.Render(anonymousDataObject);
             return result;
         }
@@ -32,7 +29,6 @@ namespace Services.Commmon
         {
             if (string.IsNullOrWhiteSpace(path))
                 throw new Exception(nameof(path));
-
             string json = _cacheService.Get<string>(path);
             if (string.IsNullOrWhiteSpace(json))
             {
@@ -45,7 +41,6 @@ namespace Services.Commmon
                 json = _cacheService.GetOrAdd<string>(path, () => json, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
                 if (string.IsNullOrEmpty(json)) throw new Exception(nameof(json));
             }
-
             return json;
         }
     }

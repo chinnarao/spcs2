@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Json\KeyValueDescription.cs" />
+    <None Include="Models\Common\KeyValueDescription.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,10 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Json\data\lookup.json">
+    <None Update="Json\lookup.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Json\data\country.json">
+    <None Update="Json\country.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

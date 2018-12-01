@@ -1,4 +1,4 @@
-namespace Share.Models.Json
+namespace Share.Models.Common
 {
     public class KeyValueDescription
     {

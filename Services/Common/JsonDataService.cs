@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Services.Commmon;
-using Share.Models.Json;
+using Share.Models.Common;
 using Microsoft.Extensions.Configuration;
 using Share.Utilities;
 using Newtonsoft.Json;
@@ -22,61 +22,72 @@ namespace Services.Common
             _cacheService = cacheService;
         }
 
-        public List<country> GetCountries()
+        public List<Country> GetCountries()
         {
-            List<country> countries = _cacheService.Get<List<country>>(nameof(GetCountries));
-            if (countries == null || countries.Count == 0)
+            List<Country> countries = _cacheService.Get<List<Country>>(nameof(GetCountries));
+            if (countries == null)
             {
                 string json = _fileReadService.ReadJsonFile(_configuration["FolderPathForCountryJson"]);
-                json_country jsonCountry = JsonConvert.DeserializeObject<json_country>(json);
-                jsonCountry = _cacheService.GetOrAdd<json_country>(nameof(GetCountries), () => jsonCountry, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
-                if (jsonCountry == null || jsonCountry.country.Count == 0)
-                    throw new Exception(nameof(jsonCountry.country));
-                countries = jsonCountry.country;
+                Countries jsonCountry = JsonConvert.DeserializeObject<Countries>(json);
+                jsonCountry = _cacheService.GetOrAdd<Countries>(nameof(GetCountries), () => jsonCountry, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
+                if (jsonCountry == null)
+                    throw new Exception(nameof(jsonCountry.Country));
+                countries = jsonCountry.Country;
             }
             return countries;
         }
 
         public List<KeyValueDescription> GetCategoryOptionsBy()
         {
-            return GetLookUpBy(nameof(GetCategoryOptionsBy), "categoryOptionsBy");
+            LookUp lookUp = GetLookUpBy();
+            return lookUp.CategoryOptionsBy;
         }
 
         public List<KeyValueDescription> GetConditionOptionsBy()
         {
-            return GetLookUpBy(nameof(GetConditionOptionsBy), "conditionOptionsBy");
+            LookUp lookUp = GetLookUpBy();
+            return lookUp.ConditionOptionsBy;
         }
 
         public List<KeyValueDescription> GetMileOptionsBy()
         {
-            return GetLookUpBy(nameof(GetMileOptionsBy), "mileOptionsBy");
+            LookUp lookUp = GetLookUpBy();
+            return lookUp.MileOptionsBy;
         }
 
         public List<KeyValueDescription> GetSortOptionsBy()
         {
-            return GetLookUpBy(nameof(GetSortOptionsBy), "sortOptionsBy");
+            LookUp lookUp = GetLookUpBy();
+            return lookUp.SortOptionsBy;
         }
 
-        private List<KeyValueDescription> GetLookUpBy(string CACHEKEY, string JSON_PROPERTY_NAME)
+        private LookUp GetLookUpBy()
         {
-            List<KeyValueDescription> options = _cacheService.Get<List<KeyValueDescription>>(CACHEKEY);
-            if (options == null || options.Count == 0)
+            LookUp lookUp = _cacheService.Get<LookUp>(nameof(GetLookUpBy));
+            if (lookUp == null)
             {
-                string json = _fileReadService.ReadJsonFile(_configuration["FolderPathForCountryJson"]);
-                JObject jObject = JObject.Parse(json);
-                options = JsonConvert.DeserializeObject<List<KeyValueDescription>>(jObject.SelectToken(JSON_PROPERTY_NAME).ToString());
-                if (options == null)
-                    throw new Exception(nameof(options));
-                options = _cacheService.GetOrAdd<List<KeyValueDescription>>(CACHEKEY, () => options, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
-                if (options == null || options.Count == 0)
-                    throw new Exception(nameof(options));
+                string json = _fileReadService.ReadJsonFile(_configuration["FolderPathForLookUpJson"]);
+                lookUp = JsonConvert.DeserializeObject<LookUp>(json);
+                IsValidLookUp(lookUp);
+                lookUp = _cacheService.GetOrAdd<LookUp>(nameof(GetLookUpBy), () => lookUp, Utility.GetCacheExpireDateTime(_configuration["CacheExpireDays"]));
+                IsValidLookUp(lookUp);
             }
-            return options;
+            return lookUp;
+        }
+
+        private void IsValidLookUp(LookUp lookUp)
+        {
+            if (lookUp == null ||
+                    lookUp.CategoryOptionsBy == null || lookUp.CategoryOptionsBy.Count == 0 ||
+                    lookUp.ConditionOptionsBy == null || lookUp.ConditionOptionsBy.Count == 0 ||
+                    lookUp.MileOptionsBy == null || lookUp.MileOptionsBy.Count == 0 ||
+                lookUp.SortOptionsBy == null || lookUp.SortOptionsBy.Count == 0)
+                throw new Exception(nameof(LookUp));
         }
     }
     public interface IJsonDataService
     {
-        List<country> GetCountries();
+        List<Country> GetCountries();
         List<KeyValueDescription> GetCategoryOptionsBy();
         List<KeyValueDescription> GetConditionOptionsBy();
         List<KeyValueDescription> GetMileOptionsBy();
