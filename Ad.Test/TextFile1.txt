@@ -5,3 +5,6 @@ https://weblog.west-wind.com/posts/2018/Feb/18/Accessing-Configuration-in-NET-Co
 http://anthonygiretti.com/tag/integration-tests/
 
 https://fullstackmark.com/post/20/painless-integration-testing-with-aspnet-core-web-api
+
+//https://www.youtube.com/watch?v=p5l7x_pFjmI
+//https://www.meziantou.net/2017/08/21/testing-an-asp-net-core-application-using-testserver
