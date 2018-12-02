@@ -14,6 +14,7 @@ using Services.Commmon;
 using Services.Google;
 using Share.Utilities;
 using Microsoft.Extensions.Configuration;
+using Services.Common;
 
 namespace Services.Ad
 {
@@ -26,10 +27,11 @@ namespace Services.Ad
         private readonly ICacheService _cacheService;
         private readonly IGoogleStorage _googleStorage;
         private readonly IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> _adRepository;
+        private readonly IJsonDataService _jsonDataService;
 
         public AdService(ILogger<AdService> logger, IMapper mapper, ICacheService cacheService, IFileRead fileReadService, IGoogleStorage googleStorage, 
             IRepository<Share.Models.Ad.Entities.Ad, AdDbContext> adRepository,
-            IConfiguration configuration)
+            IConfiguration configuration, IJsonDataService jsonDataService)
         {
             _configuration = configuration;
             _logger = logger;
@@ -38,6 +40,7 @@ namespace Services.Ad
             _cacheService = cacheService;
             _googleStorage = googleStorage;
             _adRepository = adRepository;
+            _jsonDataService = jsonDataService;
         }
 
         #region CreateAd

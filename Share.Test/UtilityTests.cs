@@ -6,6 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Xunit;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Share.Test
 {
@@ -41,6 +42,22 @@ namespace Share.Test
 
             Assert.True(set.Count >= 0);
             
+        }
+
+        [Fact]
+        public void createDynamicJObjectTest()
+        {
+            JEnumerable<JObject> list = new JEnumerable<JObject>();
+            dynamic product = new JObject();
+            product.ProductName = "Elbow Grease";
+            product.Enabled = true;
+            product.Price = 4.90m;
+            product.StockCount = 9000;
+            product.StockValue = 44100;
+            product.Tags = new JArray("Real", "OnSale");
+            
+
+            string a = product.ToString();
         }
     }
 }

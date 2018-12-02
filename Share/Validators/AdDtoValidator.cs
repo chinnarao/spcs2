@@ -1,10 +1,7 @@
 ﻿using FluentValidation;
 using Share.Models.Ad.Dtos;
 using System;
-using System.Linq;
-using Share.Enums;
 using System.Text.RegularExpressions;
-using FluentValidation.Results;
 
 namespace Share.Validators
 {
@@ -15,24 +12,25 @@ namespace Share.Validators
             RuleFor(x => x.AdId).MaximumLength(19);
             RuleFor(x => x.AdTitle).NotEmpty().Length(2, 500);
             RuleFor(x => x.AdContent).NotEmpty().MaximumLength(8000);
-            RuleFor(x => x.AdCategoryId).Must(IsValidCategory);
+            RuleFor(x => x.AdCategoryId);
             RuleFor(x => x.AdDisplayDays).NotNull().GreaterThan<AdDto, Byte>(Byte.MinValue).LessThan<AdDto, Byte>(Byte.MaxValue);
 
             RuleFor(x => x.UserIdOrEmail).NotEmpty().MaximumLength(50);
+            RuleFor(x => x.UserPhoneCountryCode).Must(IsValidCallingCode);
             //http://marcin-chwedczuk.github.io/fluent-validation-and-complex-dependencies-between-properties
-            RuleFor(x => x).Custom((dto, context) => {
-                if (string.IsNullOrEmpty(dto?.UserPhoneCountryCode))
-                    return;
-                int phoneNumber;
-                bool ret = int.TryParse(dto.UserPhoneCountryCode, out phoneNumber);
-                if (!ret)
-                    return;
-                bool isValid = Utilities.Utility.IsValidCountryCallingCode(phoneNumber);
-                if (isValid)
-                    return;
-                if (!isValid)
-                    context.AddFailure(new ValidationFailure($"UserPhoneCountryCode", $"Phone Country Code is not a valid: ['{dto.UserPhoneCountryCode}']"));
-            });
+            //RuleFor(x => x).Custom((dto, context) => {
+            //    if (string.IsNullOrEmpty(dto?.UserPhoneCountryCode))
+            //        return;
+            //    int phoneNumber;
+            //    bool ret = int.TryParse(dto.UserPhoneCountryCode, out phoneNumber);
+            //    if (!ret)
+            //        return;
+            //    bool isValid = Utilities.Utility.IsValidCountryCallingCode(phoneNumber);
+            //    if (isValid)
+            //        return;
+            //    if (!isValid)
+            //        context.AddFailure(new ValidationFailure($"UserPhoneCountryCode", $"Phone Country Code is not a valid: ['{dto.UserPhoneCountryCode}']"));
+            //});
             RuleFor(x => x.UserSocialAvatarUrl).MaximumLength(5000).Must(IsValidURL);
             RuleFor(x => x.UserSocialProviderName).MaximumLength(12);
 
@@ -64,13 +62,6 @@ namespace Share.Validators
             RuleFor(x => x.Tag10).MaximumLength(20);
         }
 
-        private bool IsValidCategory(byte categoryId)
-        {
-            byte max = Enum.GetValues(typeof(CategoryOptionsBy)).Cast<byte>().Max<byte>();
-            byte min = Enum.GetValues(typeof(CategoryOptionsBy)).Cast<byte>().Min<byte>();
-            return categoryId >= min && categoryId <= max;
-        }
-
         //http://urlregex.com/
         private bool IsValidURL(string URL)
         {
@@ -86,6 +77,16 @@ namespace Share.Validators
             if (String.IsNullOrWhiteSpace(phone))
                 return true;
             return phone.Length == 10;
+        }
+
+        private bool IsValidCallingCode(string code)
+        {
+            if (String.IsNullOrWhiteSpace(code))
+                return true;
+            short s;
+            if (short.TryParse(code, out s))
+                return s > 0 && s <= 995;
+            return false;
         }
 
         //-180.0 to 180.0.

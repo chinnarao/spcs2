@@ -5,7 +5,7 @@ using Share.Models.Common;
 using Microsoft.Extensions.Configuration;
 using Share.Utilities;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace Services.Common
 {
@@ -37,31 +37,7 @@ namespace Services.Common
             return countries;
         }
 
-        public List<KeyValueDescription> GetCategoryOptionsBy()
-        {
-            LookUp lookUp = GetLookUpBy();
-            return lookUp.CategoryOptionsBy;
-        }
-
-        public List<KeyValueDescription> GetConditionOptionsBy()
-        {
-            LookUp lookUp = GetLookUpBy();
-            return lookUp.ConditionOptionsBy;
-        }
-
-        public List<KeyValueDescription> GetMileOptionsBy()
-        {
-            LookUp lookUp = GetLookUpBy();
-            return lookUp.MileOptionsBy;
-        }
-
-        public List<KeyValueDescription> GetSortOptionsBy()
-        {
-            LookUp lookUp = GetLookUpBy();
-            return lookUp.SortOptionsBy;
-        }
-
-        private LookUp GetLookUpBy()
+        public LookUp GetLookUpBy()
         {
             LookUp lookUp = _cacheService.Get<LookUp>(nameof(GetLookUpBy));
             if (lookUp == null)
@@ -82,15 +58,35 @@ namespace Services.Common
                     lookUp.ConditionOptionsBy == null || lookUp.ConditionOptionsBy.Count == 0 ||
                     lookUp.MileOptionsBy == null || lookUp.MileOptionsBy.Count == 0 ||
                 lookUp.SortOptionsBy == null || lookUp.SortOptionsBy.Count == 0)
-                throw new Exception(nameof(LookUp));
+            throw new Exception(nameof(LookUp));
         }
+
+        public List<KeyValueDescription> GetCategoryOptionsBy() => GetLookUpBy().CategoryOptionsBy;
+        public List<KeyValueDescription> GetConditionOptionsBy() => GetLookUpBy().ConditionOptionsBy;
+        public List<KeyValueDescription> GetMileOptionsBy() => GetLookUpBy().MileOptionsBy;
+        public List<KeyValueDescription> GetSortOptionsBy() => GetLookUpBy().SortOptionsBy;
+        public bool IsValidCategory(int categoryId) => GetCategoryOptionsBy().Any(c => c.Key == categoryId);
+        public bool IsValidCondition(int conditionId) => GetConditionOptionsBy().Any(c => c.Key == conditionId);
+        public bool IsValidMileOption(int mileOptionId) => GetMileOptionsBy().Any(c => c.Key == mileOptionId);
+        public bool IsValidSortOption(int sortOptionId) => GetSortOptionsBy().Any(c => c.Key == sortOptionId);
+        public bool IsValidCallingCode(int callingCode) => GetCountries().Any(c => c.CountryCallingCode == callingCode);
+        public bool IsValidCountryCode(string countryCode) => GetCountries().Any(c => c.CountryCode == countryCode);
+        public bool IsValidCurrencyCode(string currencyCode) => GetCountries().Any(c => c.CurrencyCode == currencyCode);
     }
     public interface IJsonDataService
     {
+        LookUp GetLookUpBy();
         List<Country> GetCountries();
         List<KeyValueDescription> GetCategoryOptionsBy();
         List<KeyValueDescription> GetConditionOptionsBy();
         List<KeyValueDescription> GetMileOptionsBy();
         List<KeyValueDescription> GetSortOptionsBy();
+        bool IsValidCategory(int categoryId);
+        bool IsValidCondition(int conditionId);
+        bool IsValidMileOption(int mileOptionId);
+        bool IsValidSortOption(int sortOptionId);
+        bool IsValidCallingCode(int callingCode);
+        bool IsValidCountryCode(string countryCode);
+        bool IsValidCurrencyCode(string currencyCode);
     }
 }

@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using Ad.Util;
 using Microsoft.AspNetCore.Authorization;
+using Services.Common;
 
 namespace Ad.Controllers
 {
@@ -21,12 +22,14 @@ namespace Ad.Controllers
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
         private readonly IAdService _adService;
+        private readonly IJsonDataService _jsonDataService;
 
-        public AdController(IConfiguration configuration, ILogger<AdController> logger, IAdService adService)
+        public AdController(IConfiguration configuration, ILogger<AdController> logger, IAdService adService, IJsonDataService jsonDataService)
         {
             _configuration = configuration;
             _logger = logger;
             _adService = adService;
+            _jsonDataService = jsonDataService;
         }
 
         [HttpPost]
@@ -35,6 +38,10 @@ namespace Ad.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Errors());
             model.Defaults(_configuration);
+            if (_jsonDataService.IsValidCategory(model.AdCategoryId))
+                return BadRequest(nameof(model.AdCategoryId));
+            if (_jsonDataService.IsValidCallingCode(int.Parse(model.UserPhoneCountryCode)))
+                return BadRequest(nameof(model.UserPhoneCountryCode));
             model.GoogleStorageAdFileDto = new GoogleStorageAdFileDto();
             model.GoogleStorageAdFileDto.Values(_configuration, model.AttachedAssetsInCloudStorageId.Value);
             AdDto dto = _adService.CreateAd(model);
@@ -46,6 +53,11 @@ namespace Ad.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.Errors());
+
+            KeyValuePair<bool, string> kvp = options.IsValidSearchInputs(_jsonDataService);
+            if (kvp.Key)
+                return BadRequest( "In valid inputs: " + kvp.Value);
+
             var anonymous = _adService.SearchAds(options);
             return Ok(anonymous);
         }

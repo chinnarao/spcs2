@@ -9,14 +9,12 @@ namespace Share.Validators
     {
         public AdSearchDtoValidator()
         {
-            RuleFor(x => x.ConditionName).NotEmpty().MaximumLength(10);
-            RuleFor(x => x.sortOptionsBy).NotEmpty().MaximumLength(15);
-            RuleFor(x => x.MileOptionsBy).NotEmpty().MaximumLength(11);
-            RuleFor(x => x.CategoryName).NotEmpty().MaximumLength(40);
             RuleFor(x => x.CountryCode).MaximumLength(2);
-            RuleFor(x => x.CityName).MaximumLength(100);
+            RuleFor(x => x.CityName).MaximumLength(60);
             RuleFor(x => x.ZipCode).MaximumLength(16);
             RuleFor(x => x.CurrencyCode).MaximumLength(3);
+            RuleFor(x => x.MinPrice).GreaterThanOrEqualTo(0).LessThanOrEqualTo( x => x.MaxPrice);
+            RuleFor(x => x.MaxPrice).GreaterThanOrEqualTo(0).GreaterThanOrEqualTo(x => x.MinPrice);
         }
     }
 }

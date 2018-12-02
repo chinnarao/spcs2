@@ -5,6 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Json\codes1.json" />
+    <None Remove="Json\codes2.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Json\codes2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Json\codes1.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Models\Common\KeyValueDescription.cs" />
   </ItemGroup>
 

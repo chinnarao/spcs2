@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using LinqKitt;
-using Share.Models.Ad.Entities;
 
 namespace Share.Models.Ad.Dtos
 {
@@ -11,82 +10,60 @@ namespace Share.Models.Ad.Dtos
     {
         public string SearchText { get; set; }
 
-        public string ConditionName { get; set; }  // map to enum "old or new"
-        public string sortOptionsBy { get; set; } // map to enum 
-        public string MileOptionsBy { get; set; } // map to enum 
-        public string CategoryName { get; set; } // map to enum 
+        public byte ConditionId { get; set; }
+        public byte SortOptionsId { get; set; } // pending work
+        public byte MileOptionsId { get; set; } // pending work
+        public byte CategoryId { get; set; }
+        public string CountryCode { get; set; }
+        public string CurrencyCode { get; set; }
+        public string CityName { get; set; }
+        public string ZipCode { get; set; }
+        public double MinPrice { get; set; }
+        public double MaxPrice { get; set; }
+        public string MapAddress { get; set; }  // pending work
+        public string MapLongitude { get; set; } // pending work
+        public string MapLattitude { get; set; } // pending work
+
+        public bool IsValidCategoryId { get; set; }
+        public bool IsValidConditionId { get; set; }
+        public bool IsValidMileOptionsId { get; set; }
+        public bool IsValidSortOptionsId { get; set; }
+        public bool IsValidCountryCode { get; set; }
+        public bool IsValidCurrencyCode { get; set; }
+        public bool IsValidMinPrice { get; set; }
+        public bool IsValidMaxPrice { get; set; }
+        public bool IsValidCityName { get; set; }
+        public bool IsValidZipCode { get; set; }
+        public bool IsValidSearchText { get; set; }
 
         public int PageNumber { get; set; }
         public int DefaultPageSize { get; set; } = 10;//how many records should display in the screen
         public int SearchResultCount { get; private set; }
 
-        public string CountryCode { get; set; }  // ex: IN, US
-        public string CityName { get; set; }
-        public string ZipCode { get; set; }
-
-        public string MapAddress { get; set; }
-        public string MapLongitude { get; set; }
-        public string MapLattitude { get; set; }
-
-        public double MinPrice { get; set; }
-        public double MaxPrice { get; set; }
-        public string CurrencyCode { get; set; }  // ex: USD , INR, AUD
-
         public string StateWithComma { get; set; }
 
         public Expression<Func<Models.Ad.Entities.Ad, bool>> CreatePredicate()
         {
-            //int categoryId = (byte)Enum.Parse(typeof(CategoryOptionsBy), CategoryName, true);
-            //int conditionId = (byte)Enum.Parse(typeof(ConditionOptionsBy), ConditionName, true);
-            // string categoryName = Enum.GetName(typeof(CategoryOptionsBy), categoryId);
-
             var predicate = PredicateBuilder.True<Models.Ad.Entities.Ad>();
 
-            //if (!string.IsNullOrEmpty(CategoryName))
-            //{
-            //    predicate = predicate.And(exp => exp.AdCategoryId == categoryId);
-            //}
-
-            //if (!string.IsNullOrEmpty(ConditionName))
-            //{
-            //    predicate = predicate.And(exp => exp.ItemConditionId == conditionId);
-            //}
-
-            if (!string.IsNullOrEmpty(CountryCode))
-            {
+            if (IsValidCategoryId)
+                predicate = predicate.And(exp => exp.AdCategoryId == CategoryId);
+            if (IsValidConditionId)
+                predicate = predicate.And(exp => exp.ItemConditionId == ConditionId);
+            if (IsValidCountryCode)
                 predicate = predicate.And(exp => exp.AddressCountryCode == CountryCode);
-            }
-
-            if (!string.IsNullOrEmpty(CityName))
-            {
-                predicate = predicate.And(exp => exp.AddressCity.ToLower() == CityName.Trim().ToLower());
-            }
-
-            if (!string.IsNullOrEmpty(ZipCode))
-            {
-                predicate = predicate.And(exp => exp.AddressZipCode.ToLower() == ZipCode.Trim().ToLower());
-            }
-
-            if (MinPrice > 0.0)
-            {
+            if (IsValidCurrencyCode)
+                predicate = predicate.And(exp => exp.ItemCurrencyCode == CurrencyCode);
+            if (IsValidCityName)
+                predicate = predicate.And(exp => exp.AddressCity.ToLower() == CityName);
+            if (IsValidZipCode)
+                predicate = predicate.And(exp => exp.AddressZipCode.ToLower() == ZipCode);
+            if (IsValidMinPrice)
                 predicate = predicate.And(exp => exp.ItemCost >= MinPrice);
-            }
-
-            if (MaxPrice > 0.0)
-            {
+            if (IsValidMaxPrice)
                 predicate = predicate.And(exp => exp.ItemCost <= MaxPrice);
-            }
-
-            if (!string.IsNullOrEmpty(CurrencyCode) && CurrencyCode.Length == 3)
-            {
-                predicate = predicate.And(exp => exp.ItemCurrencyCode.ToLower() == CurrencyCode.Trim().ToLower());
-            }
-
-            if (!string.IsNullOrEmpty(SearchText))
-            {
-
-                predicate = predicate.And(exp => exp.AdContent.ToLower() == CurrencyCode.Trim().ToLower());
-            }
+            if (IsValidSearchText)
+                predicate = predicate.And(exp => exp.AdContent.ToLower() == SearchText);
 
             //SortOptionsBy sort = (SortOptionsBy)Enum.Parse(typeof(SortOptionsBy), sortOptionsBy, true);
             //switch (sort)
