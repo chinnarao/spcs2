@@ -88,32 +88,48 @@ namespace Share.Utilities
         }
 
         //https://www.latlong.net/convert-address-to-lat-long.html
-        public static IPoint CreatePoint(double longitude, double lattitude)
+        //public static IPoint CreatePoint(double longitude, double lattitude)
+        //{
+        //    //var r = new NetTopologySuite.IO.WKTReader { DefaultSRID = 4326, HandleOrdinates = GeoAPI.Geometries.Ordinates.XY };
+
+        //    //Location = LocationManager.GeometryFactory.CreatePoint(new Coordinate(rnd.NextDouble() * 90.0, rnd.NextDouble() * 90.0))
+        //    //https://github.com/cryptograch/backend/blob/c9f2666d909f577d9d98d41133b7ab08f1cab6b2/Taxi/Helpers/Location.cs
+        //    //Longitude and Latitude [https://docs.microsoft.com/en-us/ef/core/modeling/spatial]
+        //    //Coordinates in NTS are in terms of X and Y values. To represent longitude and latitude, use X for longitude and Y for latitude.Note that this is backwards from the latitude, longitude format in which you typically see these values.
+        //    // glendale ca, Latitude and longitude coordinates are: 34.142509, -118.255074.
+        //    //if (longitude == 0)
+        //    //    longitude = -118.255074;
+        //    //if (lattitude == 0)
+        //    //    lattitude = 34.142509;
+        //    // verify later : very imp: https://github.com/Hinaar/KutyApp/blob/4564904bbb4397d66a7375461eb4df337aa8bc58/KutyApp.Services.Environment.Bll/Mapping/KutyAppServiceProfile.cs
+        //    return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longitude, lattitude));
+        //}
+
+        //public static IPoint CreatePoint(string longitude, string latitude)
+        //{
+        //    double longi;
+        //    if (!double.TryParse(longitude, out longi))
+        //        longi = 1.0;
+        //    double lati;
+        //    if (!double.TryParse(longitude, out lati))
+        //        lati = 1.0;
+        //    return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longi, lati));
+        //}
+
+        public static IPoint CreatePointOrDefault(string longitude, string latitude)
         {
-            //var r = new NetTopologySuite.IO.WKTReader { DefaultSRID = 4326, HandleOrdinates = GeoAPI.Geometries.Ordinates.XY };
-
-            //Location = LocationManager.GeometryFactory.CreatePoint(new Coordinate(rnd.NextDouble() * 90.0, rnd.NextDouble() * 90.0))
-            //https://github.com/cryptograch/backend/blob/c9f2666d909f577d9d98d41133b7ab08f1cab6b2/Taxi/Helpers/Location.cs
-            //Longitude and Latitude [https://docs.microsoft.com/en-us/ef/core/modeling/spatial]
-            //Coordinates in NTS are in terms of X and Y values. To represent longitude and latitude, use X for longitude and Y for latitude.Note that this is backwards from the latitude, longitude format in which you typically see these values.
-            // glendale ca, Latitude and longitude coordinates are: 34.142509, -118.255074.
-            //if (longitude == 0)
-            //    longitude = -118.255074;
-            //if (lattitude == 0)
-            //    lattitude = 34.142509;
-            // verify later : very imp: https://github.com/Hinaar/KutyApp/blob/4564904bbb4397d66a7375461eb4df337aa8bc58/KutyApp.Services.Environment.Bll/Mapping/KutyAppServiceProfile.cs
-            return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longitude, lattitude));
+            Coordinate c = new Coordinate(1.0, 1.0);
+            double longi; double lati;
+            if (!string.IsNullOrWhiteSpace(longitude) && !string.IsNullOrWhiteSpace(latitude) && double.TryParse(longitude, out longi) && double.TryParse(longitude, out lati))
+                c = new Coordinate(longi, lati);
+            return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(c);
         }
-
         public static IPoint CreatePoint(string longitude, string latitude)
         {
-            double longi;
-            if (!double.TryParse(longitude, out longi))
-                longi = 1.0;
-            double lati;
-            if (!double.TryParse(longitude, out lati))
-                lati = 1.0;
-            return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longi, lati));
+            double longi; double lati;
+            if (double.TryParse(longitude, out longi) && double.TryParse(longitude, out lati))
+                return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longi, lati));
+            throw new Exception(nameof(CreatePoint));
         }
 
         public static bool IsValidCountryCallingCode(int callingCode)
@@ -170,6 +186,38 @@ namespace Share.Utilities
             if (happyPath.Contains(','))
                 happyPath = string.Join<string>(Path.DirectorySeparatorChar, happyPath.Split(',', StringSplitOptions.RemoveEmptyEntries));
             return Path.Combine(Directory.GetCurrentDirectory(), happyPath);
+        }
+
+        //-180.0 to 180.0.
+        public static bool IsValidLongitude(string longitude)
+        {
+            if (string.IsNullOrWhiteSpace(longitude))
+                return true;
+            double l;
+            if (double.TryParse(longitude, out l))
+            {
+                if (l < -180 || l > 180)
+                    return false;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        //-90.0 to 90.0.
+        public static bool IsValidLatitude(string latitude)
+        {
+            if (string.IsNullOrWhiteSpace(latitude))
+                return true;
+            double l;
+            if (double.TryParse(latitude, out l))
+            {
+                if (l < -90 || l > 90)
+                    return false;
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

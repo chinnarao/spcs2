@@ -1,5 +1,6 @@
 ﻿best one: https://www.sqlshack.com/hands-full-text-search-sql-server/
 https://docs.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-index-transact-sql?view=sql-server-2017
+your have implement : http://www.pa-roy.com/raw-sql-query-efcore/
 =================================================================================================================
 http://www.codenutz.com/tsql-scripting-a-full-text-catalog-index/
 https://azure.microsoft.com/en-us/blog/full-text-search-is-now-available-for-preview-in-azure-sql-database/

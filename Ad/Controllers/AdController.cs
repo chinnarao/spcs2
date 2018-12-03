@@ -22,14 +22,16 @@ namespace Ad.Controllers
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
         private readonly IAdService _adService;
+        private readonly IAdSearchService _adSearchService;
         private readonly IJsonDataService _jsonDataService;
 
-        public AdController(IConfiguration configuration, ILogger<AdController> logger, IAdService adService, IJsonDataService jsonDataService)
+        public AdController(IConfiguration configuration, ILogger<AdController> logger, IAdService adService, IAdSearchService adSearchService, IJsonDataService jsonDataService)
         {
             _configuration = configuration;
             _logger = logger;
             _adService = adService;
             _jsonDataService = jsonDataService;
+            _adSearchService = adSearchService;
         }
 
         [HttpPost]
@@ -58,7 +60,7 @@ namespace Ad.Controllers
             if (kvp.Key)
                 return BadRequest( "In valid inputs: " + kvp.Value);
 
-            var anonymous = _adService.SearchAds(options);
+            var anonymous = _adSearchService.SearchAds(options);
             return Ok(anonymous);
         }
 

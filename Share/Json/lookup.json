@@ -35,22 +35,22 @@
   ],
   "mileOptionsBy": [
     {
-      "key": 1,
+      "key": 10,
       "value": "Below10Miles",
       "description": "0 < 10 Miles"
     },
     {
-      "key": 2,
+      "key": 20,
       "value": "Below20Miles",
       "description": "0 < 20 Miles"
     },
     {
-      "key": 3,
+      "key": 50,
       "value": "Below50Miles",
       "description": "0 < 50 Miles"
     },
     {
-      "key": 4,
+      "key": 255,
       "value": "Maximum",
       "description": "Maximum"
     }
@@ -63,8 +63,8 @@
     },
     {
       "key": 2,
-      "value": "Closest",
-      "description": "Closest"
+      "value": "ClosestFirst",
+      "description": "Closest or nearest First"
     },
     {
       "key": 3,

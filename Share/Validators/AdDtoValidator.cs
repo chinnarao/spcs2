@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Share.Models.Ad.Dtos;
+using Share.Utilities;
 using System;
 using System.Text.RegularExpressions;
 
@@ -42,8 +43,8 @@ namespace Share.Validators
             RuleFor(x => x.AddressZipCode).MaximumLength(16);
             RuleFor(x => x.AddressCountryCode).MaximumLength(2);
             RuleFor(x => x.AddressCountryName).MaximumLength(75);
-            RuleFor(x => x.AddressLatitude).Must(IsValidLatitude);
-            RuleFor(x => x.AddressLongitude).Must(IsValidLongitude);
+            RuleFor(x => x.AddressLatitude).Must(Utility.IsValidLatitude);
+            RuleFor(x => x.AddressLongitude).Must(Utility.IsValidLongitude);
 
             RuleFor(x => x.ItemCost).GreaterThanOrEqualTo(0);
             RuleFor(x => x.ItemCurrencyCode).MaximumLength(3);
@@ -89,36 +90,36 @@ namespace Share.Validators
             return false;
         }
 
-        //-180.0 to 180.0.
-        private bool IsValidLongitude(string longitude)
-        {
-            if (String.IsNullOrWhiteSpace(longitude))
-                return true;
-            double l;
-            if (double.TryParse(longitude, out l))
-            {
-                if (l < -180 || l > 180)
-                    return false;
-                return true;
-            }
-            else
-                return false;
-        }
+        ////-180.0 to 180.0.
+        //private bool IsValidLongitude(string longitude)
+        //{
+        //    if (string.IsNullOrWhiteSpace(longitude))
+        //        return true;
+        //    double l;
+        //    if (double.TryParse(longitude, out l))
+        //    {
+        //        if (l < -180 || l > 180)
+        //            return false;
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
 
-        //-90.0 to 90.0.
-        private bool IsValidLatitude(string latitude)
-        {
-            if (String.IsNullOrWhiteSpace(latitude))
-                return true;
-            double l;
-            if (double.TryParse(latitude, out l))
-            {
-                if (l < -90 || l > 90)
-                    return false;
-                return true;
-            }
-            else
-                return false;
-        }
+        ////-90.0 to 90.0.
+        //private bool IsValidLatitude(string latitude)
+        //{
+        //    if (string.IsNullOrWhiteSpace(latitude))
+        //        return true;
+        //    double l;
+        //    if (double.TryParse(latitude, out l))
+        //    {
+        //        if (l < -90 || l > 90)
+        //            return false;
+        //        return true;
+        //    }
+        //    else
+        //        return false;
+        //}
     }
 }

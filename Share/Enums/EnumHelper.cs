@@ -18,6 +18,10 @@ namespace Share.Enums
                 : enumName.ToString();
         }
 
+        //int categoryId = (byte)Enum.Parse(typeof(CategoryOptionsBy), CategoryName, true);
+        //SortOptionsBy sort = (SortOptionsBy)Enum.Parse(typeof(SortOptionsBy), sortOptionsBy, true);
+
+
         //// TODO : Move it to Web Helpers 
         //public static List<SelectListItem> EnumToList(Type enumType, string selectedItem, bool defaultSelectItem = false)
         //{

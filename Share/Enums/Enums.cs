@@ -33,21 +33,21 @@
     //    New = 2,
     //}
 
-    //public enum SortOptionsBy : byte
-    //{
-    //    NewestFirst = 1,
-    //    Closest = 2,
-    //    PriceLowToHigh = 3,
-    //    PriceHighToLow = 4
-    //}
+    public enum SortOptionsBy : byte
+    {
+        NewestFirst = 1,
+        ClosestFirst = 2,
+        PriceLowToHigh = 3,
+        PriceHighToLow = 4
+    }
 
-    //public enum MileOptionsBy : byte
-    //{
-    //    Below10Miles = 1,
-    //    Below20Miles = 2,
-    //    Below50Miles = 3,
-    //    Maximum = 4,
-    //}
+    public enum MileOptionsBy : byte
+    {
+        Below10Miles = 10,
+        Below20Miles = 20,
+        Below50Miles = 50,
+        Maximum = 255,
+    }
 
     //public enum CategoryOptionsBy : byte
     //{

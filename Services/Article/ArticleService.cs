@@ -92,6 +92,7 @@ namespace Services.Article
         }
         #endregion
 
+        //https://github.com/daniyalf/CampusTalk/blob/e90fd6286635fef440a244593b87e28cfef2a93f/CampusChat/Controllers/PostsController.cs
         public dynamic SearchArticles(ArticleSortFilterPageOptions options)
         {
             var articleDtos = _articleRepository.Entities.Where( w => w.IsPublished && w.IsActive).AsNoTracking()

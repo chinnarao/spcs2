@@ -15,6 +15,7 @@ using Services.Google;
 using Share.Utilities;
 using Microsoft.Extensions.Configuration;
 using Services.Common;
+using Share.Enums;
 
 namespace Services.Ad
 {
@@ -60,7 +61,7 @@ namespace Services.Ad
             ad.UserPhoneCountryCode = Utility.GetShortNumberFromString(dto.UserPhoneCountryCode);
             ad.AddressLocation = Utility.CreatePoint(dto.AddressLongitude, dto.AddressLatitude);
             RepositoryResult result = _adRepository.Create(ad);
-            if (!result.Succeeded) throw new Exception(string.Join(",", result.Errors));
+            if (!result.Succeeded) throw new Exception(string.Join(Path.PathSeparator, result.Errors));
             return ad;
         }
         private void UploadObjectInGoogleStorage(GoogleStorageAdFileDto model)
@@ -92,29 +93,6 @@ namespace Services.Ad
         }
 
         #endregion
-
-        public dynamic SearchAds(AdSearchDto options)
-        {
-            var adDtos = _adRepository.Entities.Where(w => w.IsPublished && w.IsActivated).AsNoTracking()
-                            .Select(s => new AdDto()
-                            {
-                                AdId = s.AdId.ToString(),
-                                AdTitle = s.AdTitle,
-                                UpdatedDateTimeString = s.UpdatedDateTime.TimeAgo(),
-                                UserIdOrEmail = s.UserIdOrEmail,
-                            })
-                            .OrderByDescending(a => a.CreatedDateTime)
-                            .OrderByDescending(a => a.UpdatedDateTime)
-                            .Take(options.DefaultPageSize).ToList();
-            //options.SetupRestOfDto(adDtos.Count);
-            
-
-
-            var aa = _adRepository.Entities.Where(w => EF.Functions.FreeText(w.AdContent, "sffsfs")).ToList();
-
-            //var aa1 = _adRepository.Entities.Where(w => SqlServerDbFunctionsExtensions.FreeText(w.AdContent, "sffsfs").ToList();
-            return new { records = adDtos, options = options };
-        }
 
         public AdDto GetAdDetail(long adId)
         {
@@ -154,7 +132,6 @@ namespace Services.Ad
     public interface IAdService
     {
         AdDto CreateAd(AdDto adDto);
-        dynamic SearchAds(AdSearchDto options);
         AdDto GetAdDetail(long adId);
         AdDto UpdateAd(AdDto adDto);
         HashSet<string> GetAllUniqueTags();

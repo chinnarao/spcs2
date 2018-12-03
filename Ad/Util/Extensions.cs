@@ -8,6 +8,8 @@ using System.Linq;
 using Share.Constants;
 using Share.Utilities;
 using Services.Common;
+using Share.Models.Common;
+using Share.Enums;
 
 namespace Ad.Util
 {
@@ -55,33 +57,29 @@ namespace Ad.Util
         public static KeyValuePair<bool,string> IsValidSearchInputs(this AdSearchDto options, IJsonDataService _jsonDataService)
         {
             List<string> errors = new List<string>();
+
             if (_jsonDataService.IsValidCategory(options.CategoryId))
-                options.IsValidCategoryId = true;
+                options.IsValidCategory = true;
             else
                 errors.Add(nameof(options.CategoryId));
+
             if (_jsonDataService.IsValidCondition(options.ConditionId))
-                options.IsValidConditionId = true;
+                options.IsValidCondition = true;
             else
                 errors.Add(nameof(options.ConditionId));
-            if (_jsonDataService.IsValidMileOption(options.MileOptionsId))
-                options.IsValidMileOptionsId = true;
-            else
-                errors.Add(nameof(options.MileOptionsId));
-            if (_jsonDataService.IsValidSortOption(options.SortOptionsId))
-                options.IsValidSortOptionsId = true;
-            else
-                errors.Add(nameof(options.SortOptionsId));
+            
             if (_jsonDataService.IsValidCountryCode(options.CountryCode))
             {
-                options.CountryCode = options.CountryCode.Trim();
                 options.IsValidCountryCode = true;
+                options.CountryCode = options.CountryCode.Trim();
             }
             else
                 errors.Add(nameof(options.CountryCode));
+
             if (_jsonDataService.IsValidCountryCode(options.CurrencyCode))
             {
-                options.CurrencyCode = options.CurrencyCode.Trim();
                 options.IsValidCurrencyCode = true;
+                options.CurrencyCode = options.CurrencyCode.Trim();
             }
             else
                 errors.Add(nameof(options.CurrencyCode));
@@ -91,22 +89,58 @@ namespace Ad.Util
                 options.SearchText = options.SearchText.Trim().ToLower();
                 options.IsValidSearchText = true;
             }
+
             if (!string.IsNullOrEmpty(options.CityName))
             {
-                options.CityName = options.CityName.Trim().ToLower();
                 options.IsValidCityName = true;
+                options.CityName = options.CityName.Trim().ToLower();
             }
+
             if (!string.IsNullOrEmpty(options.ZipCode))
             {
-                options.ZipCode = options.ZipCode.Trim().ToLower();
                 options.IsValidZipCode = true;
+                options.ZipCode = options.ZipCode.Trim().ToLower();
             }
+
             if (options.MinPrice > 0.0)
                 options.IsValidMinPrice = true;
             if (options.MaxPrice > 0.0)
                 options.IsValidMaxPrice = true;
             if (options.MinPrice > options.MaxPrice)
                 options.IsValidMinPrice = options.IsValidMaxPrice = false;
+
+            KeyValueDescription mileOption = _jsonDataService.GetMileOptionById(options.SortOptionsId);
+            if (mileOption != null)
+            {
+                options.IsValidMileOption = true;
+                if (byte.MaxValue == options.MileOptionsId)
+                    options.Miles = double.MaxValue;
+                else
+                    options.Miles = options.MileOptionsId;
+            }
+            else
+                errors.Add(nameof(options.MileOptionsId));
+
+            KeyValueDescription sortOption = _jsonDataService.GetSortOptionById(options.SortOptionsId);
+            if (sortOption != null)
+            {
+                options.IsValidSortOption = true;
+            }
+            else
+            {
+                options.IsValidSortOption = true;
+                errors.Add(nameof(options.SortOptionsId));
+            }
+
+            if (!string.IsNullOrWhiteSpace(options.MapLattitude) 
+                && !string.IsNullOrWhiteSpace(options.MapLongitude)
+                && Utility.IsValidLatitude(options.MapLattitude) 
+                && Utility.IsValidLongitude(options.MapLongitude))
+            {
+                options.IsValidLocation = true;
+                options.MapLocation = Utility.CreatePoint(longitude: options.MapLongitude, latitude: options.MapLattitude);
+            }
+            
             return new KeyValuePair<bool, string>(errors.Count > 0, string.Join(Path.PathSeparator, errors));
         }
     }
