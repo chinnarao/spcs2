@@ -35,8 +35,8 @@
 
     public enum SortOptionsBy : byte
     {
-        NewestFirst = 1,
-        ClosestFirst = 2,
+        ClosestFirst = 1,
+        NewestFirst = 2,
         PriceLowToHigh = 3,
         PriceHighToLow = 4
     }

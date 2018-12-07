@@ -38,4 +38,12 @@ SELECT ISJSON(@json1) -- 1
      , ISJSON(@json4) -- 0
      , ISJSON(@json5) – NULL
 ==================================================================================================================
+
+
+Sql queries: [style 103 = dd/MM/yyyy ]
+select date  from tbemp  order by convert(datetime, date, 103) ASC
+select      [date]  from        tbemp  order by    cast([date] as datetime) asc
+SELECT datefield FROM myTable ORDER BY CONVERT(DATE, datefield) ASC
+==================================================================================================================
+
  

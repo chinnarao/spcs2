@@ -47,23 +47,23 @@ namespace Services.Test
             IFileRead read = new FileRead(_configuration, cacheService);
 
             IJsonDataService jsonService = new JsonDataService(_configuration, cacheService, read);
-            var list = jsonService.GetCategoryOptionsBy();
+            var list = jsonService.GetCategories();
             Action act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
-            list = jsonService.GetCategoryOptionsBy();
+            list = jsonService.GetCategories();
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
-            list = jsonService.GetCategoryOptionsBy();
+            list = jsonService.GetCategories();
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
-            list = jsonService.GetCategoryOptionsBy();
+            list = jsonService.GetCategories();
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
-            list = jsonService.GetConditionOptionsBy();
+            list = jsonService.GetConditions();
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
@@ -75,7 +75,7 @@ namespace Services.Test
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 
-            list = jsonService.GetConditionOptionsBy();
+            list = jsonService.GetConditions();
             act = () => list.Count.Should().BeGreaterThan(0);
             act.Should().NotThrow();
 

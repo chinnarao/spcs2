@@ -61,43 +61,50 @@ namespace Services.Common
             throw new Exception(nameof(LookUp));
         }
 
-        public List<KeyValueDescription> GetCategoryOptionsBy() => GetLookUpBy().CategoryOptionsBy;
-        public List<KeyValueDescription> GetConditionOptionsBy() => GetLookUpBy().ConditionOptionsBy;
-        public bool IsValidCategory(int categoryId) => GetCategoryOptionsBy().Any(c => c.Key == categoryId);
-        public bool IsValidCondition(int conditionId) => GetConditionOptionsBy().Any(c => c.Key == conditionId);
+        public List<KeyValueDescription> GetCategories() => GetLookUpBy().CategoryOptionsBy;
+        public bool IsValidCategory(int categoryId) => GetCategories().Any(c => c.Key == categoryId);
+        public KeyValueDescription GetCategoryOrDefault(byte cId) => this.GetCategories().FirstOrDefault(o => o.Key == cId) ?? this.GetCategories().First();
+
+        public List<KeyValueDescription> GetConditions() => GetLookUpBy().ConditionOptionsBy;
+        public bool IsValidCondition(int conditionId) => GetConditions().Any(c => c.Key == conditionId);
+        public KeyValueDescription GetConditionOrDefault(byte cId) => this.GetConditions().FirstOrDefault(o => o.Key == cId) ?? this.GetConditions().First();
+
         public bool IsValidCallingCode(int callingCode) => GetCountries().Any(c => c.CountryCallingCode == callingCode);
         public bool IsValidCountryCode(string countryCode) => GetCountries().Any(c => c.CountryCode == countryCode);
         public bool IsValidCurrencyCode(string currencyCode) => GetCountries().Any(c => c.CurrencyCode == currencyCode);
 
         public List<KeyValueDescription> GetMileOptionsBy() => GetLookUpBy().MileOptionsBy;
-        public List<KeyValueDescription> GetSortOptionsBy() => GetLookUpBy().SortOptionsBy;
         public bool IsValidMileOption(int mileOptionId) => GetMileOptionsBy().Any(c => c.Key == mileOptionId);
         public KeyValueDescription GetMileOptionById(int mileOptionId) => GetMileOptionsBy().FirstOrDefault(c => c.Key == mileOptionId);
-        public KeyValueDescription GetSortOptionById(int sortOptionId) => GetSortOptionsBy().FirstOrDefault(c => c.Key == sortOptionId);
+
+        public List<KeyValueDescription> GetSortOptionsBy() => GetLookUpBy().SortOptionsBy;
         public bool IsValidSortOption(int sortOptionId) => GetSortOptionsBy().Any(c => c.Key == sortOptionId);
-        public KeyValueDescription GetMinMileOption() => GetMileOptionsBy().OrderBy(m => m.Key).First();
-        public byte GetMaxMileOptionById() => GetMileOptionsBy().Max(c => c.Key);
-        public KeyValueDescription GetMinSortOption() => GetSortOptionsBy().OrderBy(m => m.Key).First();
+        public KeyValueDescription GetSortOptionByIdOrDefault(byte sortOptionId) => this.GetSortOptionsBy().FirstOrDefault(o => o.Key == sortOptionId) ?? this.GetSortOptionsBy().First();
     }
+
     public interface IJsonDataService
     {
         LookUp GetLookUpBy();
         List<Country> GetCountries();
-        List<KeyValueDescription> GetCategoryOptionsBy();
-        List<KeyValueDescription> GetConditionOptionsBy();
-        List<KeyValueDescription> GetMileOptionsBy();
-        List<KeyValueDescription> GetSortOptionsBy();
+
+        List<KeyValueDescription> GetCategories();
         bool IsValidCategory(int categoryId);
+        KeyValueDescription GetCategoryOrDefault(byte cId);
+
+        List<KeyValueDescription> GetConditions();
+        KeyValueDescription GetConditionOrDefault(byte conditionId);
         bool IsValidCondition(int conditionId);
-        bool IsValidMileOption(int mileOptionId);
-        bool IsValidSortOption(int sortOptionId);
+
         bool IsValidCallingCode(int callingCode);
         bool IsValidCountryCode(string countryCode);
         bool IsValidCurrencyCode(string currencyCode);
-        KeyValueDescription GetSortOptionById(int sortOptionId);
+
+        List<KeyValueDescription> GetMileOptionsBy();
+        bool IsValidMileOption(int mileOptionId);
         KeyValueDescription GetMileOptionById(int mileOptionId);
-        KeyValueDescription GetMinMileOption();
-        KeyValueDescription GetMinSortOption();
-        byte GetMaxMileOptionById();
+
+        List<KeyValueDescription> GetSortOptionsBy();
+        bool IsValidSortOption(int sortOptionId);
+        KeyValueDescription GetSortOptionByIdOrDefault(byte sortOptionId);
     }
 }

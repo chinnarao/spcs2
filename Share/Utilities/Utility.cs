@@ -129,7 +129,7 @@ namespace Share.Utilities
             double longi; double lati;
             if (double.TryParse(longitude, out longi) && double.TryParse(longitude, out lati))
                 return NtsGeometryServices.Instance.CreateGeometryFactory(4326).CreatePoint(new Coordinate(longi, lati));
-            throw new Exception(nameof(CreatePoint));
+            return null;
         }
 
         public static bool IsValidCountryCallingCode(int callingCode)
@@ -181,11 +181,15 @@ namespace Share.Utilities
                 throw new Exception(nameof(CacheExpireDays));
         }
 
+
+        //var path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+        //var path = Path.GetDirectoryName(new Uri(System.Reflection.Assembly.GetExecutingAssembly().Location).LocalPath);
+        // success in test proj and failed in web proj, Ad: Directory.GetCurrentDirectory()
         public static string HappyPath(string happyPath)
         {
             if (happyPath.Contains(','))
                 happyPath = string.Join<string>(Path.DirectorySeparatorChar, happyPath.Split(',', StringSplitOptions.RemoveEmptyEntries));
-            return Path.Combine(Directory.GetCurrentDirectory(), happyPath);
+            return Path.Combine(Path.GetDirectoryName(new Uri(System.Reflection.Assembly.GetExecutingAssembly().Location).LocalPath), happyPath);
         }
 
         //-180.0 to 180.0.
@@ -218,6 +222,13 @@ namespace Share.Utilities
             }
             else
                 return false;
+        }
+
+        public static double ConvertToDoubleFromString(string value)
+        {
+            double d = 0;
+            double.TryParse(value, out d);
+            return d;
         }
     }
 }

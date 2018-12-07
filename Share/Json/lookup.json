@@ -1,6 +1,11 @@
 {
   "categoryOptionsBy": [
     {
+      "key": 0,
+      "value": "All",
+      "description": "All"
+    },
+    {
       "key": 1,
       "value": "Automobile",
       "description": "Automobiles"
@@ -58,13 +63,13 @@
   "sortOptionsBy": [
     {
       "key": 1,
-      "value": "NewestFirst",
-      "description": "Newest First"
+      "value": "ClosestFirst",
+      "description": "Closest or nearest First"
     },
     {
       "key": 2,
-      "value": "ClosestFirst",
-      "description": "Closest or nearest First"
+      "value": "NewestFirst",
+      "description": "Newest First"
     },
     {
       "key": 3,

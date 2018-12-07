@@ -27,7 +27,7 @@ namespace Share.Models.Ad.Entities
         public string AddressCountryName { get; set; }    
         public double AddressLatitude { get; set; }
         public double AddressLongitude { get; set; }
-        public IPoint AddressLocation { get; set; }
+        public IGeometry AddressLocation { get; set; }
 
         public double ItemCost { get; set; }   //enter with currency code ex: dollar or rupees   // *****
         public string ItemCurrencyCode { get; set; }  // https://www.countries-ofthe-world.com/world-currencies.html

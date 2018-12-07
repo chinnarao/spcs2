@@ -39,13 +39,15 @@ namespace Ad
         {
             services.AddCors();
             //services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), a => a.UseNetTopologySuite()).EnableSensitiveDataLogging());
+            //services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), a => a.UseNetTopologySuite()).EnableSensitiveDataLogging());
+            services.AddDbContext<AdDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), a => a.UseNetTopologySuite()));
 
             services.AddSingleton(new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AdAutoMapperProfile()); }).CreateMapper());
 
             services.AddScoped<IAdService, AdService>();
             services.AddScoped<IFileRead, FileRead>();
-            //services.AddScoped<IJsonDataService, JsonDataService>();
+            services.AddScoped<IJsonDataService, JsonDataService>();
+            services.AddScoped<IAdSearchService, AdSearchService>();
             services.AddScoped<IGoogleStorage, GoogleStorage>();
             services.AddScoped<ICacheService, LockedFactoryCacheService>();
             services.AddScoped<IRepository<Share.Models.Ad.Entities.Ad, AdDbContext>, Repository<Share.Models.Ad.Entities.Ad, AdDbContext>>();
@@ -89,7 +91,6 @@ namespace Ad
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.RoutePrefix = string.Empty;
             });

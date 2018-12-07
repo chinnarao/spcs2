@@ -10,6 +10,7 @@ using Share.Utilities;
 using Services.Common;
 using Share.Models.Common;
 using Share.Enums;
+using GeoAPI.Geometries;
 
 namespace Ad.Util
 {
@@ -58,36 +59,28 @@ namespace Ad.Util
         {
             List<string> errors = new List<string>();
 
-            if (_jsonDataService.IsValidCategory(options.CategoryId))
-                options.IsValidCategory = true;
-            else
-                errors.Add(nameof(options.CategoryId));
+            if (!string.IsNullOrEmpty(options.SearchText))
+            {
+                options.IsValidSearchText = true;
+                options.SearchText = options.SearchText.Trim().ToLower();
+            }
 
-            if (_jsonDataService.IsValidCondition(options.ConditionId))
-                options.IsValidCondition = true;
-            else
-                errors.Add(nameof(options.ConditionId));
-            
+            options.IsValidCategory = true;
+            options.ConditionId = _jsonDataService.GetCategoryOrDefault(options.CategoryId).Key;
+
+            options.IsValidCondition = true;
+            options.ConditionId = _jsonDataService.GetConditionOrDefault(options.ConditionId).Key;
+
             if (_jsonDataService.IsValidCountryCode(options.CountryCode))
             {
                 options.IsValidCountryCode = true;
-                options.CountryCode = options.CountryCode.Trim();
+                options.CountryCode = options.CountryCode.Trim().ToUpper();
             }
-            else
-                errors.Add(nameof(options.CountryCode));
 
-            if (_jsonDataService.IsValidCountryCode(options.CurrencyCode))
+            if (_jsonDataService.IsValidCurrencyCode(options.CurrencyCode))
             {
                 options.IsValidCurrencyCode = true;
-                options.CurrencyCode = options.CurrencyCode.Trim();
-            }
-            else
-                errors.Add(nameof(options.CurrencyCode));
-
-            if (!string.IsNullOrEmpty(options.SearchText))
-            {
-                options.SearchText = options.SearchText.Trim().ToLower();
-                options.IsValidSearchText = true;
+                options.CurrencyCode = options.CurrencyCode.Trim().ToUpper();
             }
 
             if (!string.IsNullOrEmpty(options.CityName))
@@ -102,45 +95,52 @@ namespace Ad.Util
                 options.ZipCode = options.ZipCode.Trim().ToLower();
             }
 
-            if (options.MinPrice > 0.0)
-                options.IsValidMinPrice = true;
-            if (options.MaxPrice > 0.0)
-                options.IsValidMaxPrice = true;
-            if (options.MinPrice > options.MaxPrice)
-                options.IsValidMinPrice = options.IsValidMaxPrice = false;
+            if (!string.IsNullOrWhiteSpace(options.MinPrice) && !string.IsNullOrWhiteSpace(options.MaxPrice))
+            {
+                options.ItemCostMin = Utility.ConvertToDoubleFromString(options.MinPrice);
+                options.ItemCostMax = Utility.ConvertToDoubleFromString(options.MaxPrice);
+                if (options.ItemCostMin >= 0 && options.ItemCostMax >= 0 && options.ItemCostMin <= options.ItemCostMax)
+                    options.IsValidPrice = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(options.MinPrice) && string.IsNullOrWhiteSpace(options.MaxPrice))
+            {
+                options.ItemCostMin = Utility.ConvertToDoubleFromString(options.MinPrice);
+                if (options.ItemCostMin > 0)
+                    options.IsValidMinPrice = true;
+            }
+            else if (string.IsNullOrWhiteSpace(options.MinPrice) && !string.IsNullOrWhiteSpace(options.MaxPrice))
+            {
+                options.ItemCostMax = Utility.ConvertToDoubleFromString(options.MaxPrice);
+                if (options.ItemCostMax > 0)
+                    options.IsValidMaxPrice = true;
+            }
 
-            KeyValueDescription mileOption = _jsonDataService.GetMileOptionById(options.SortOptionsId);
+            KeyValueDescription mileOption = _jsonDataService.GetMileOptionById(options.MileOptionsId);
             if (mileOption != null)
             {
                 options.IsValidMileOption = true;
-                if (byte.MaxValue == options.MileOptionsId)
+                if (options.MileOptionsId == byte.MaxValue)
                     options.Miles = double.MaxValue;
                 else
                     options.Miles = options.MileOptionsId;
             }
-            else
-                errors.Add(nameof(options.MileOptionsId));
 
-            KeyValueDescription sortOption = _jsonDataService.GetSortOptionById(options.SortOptionsId);
-            if (sortOption != null)
-            {
-                options.IsValidSortOption = true;
-            }
-            else
-            {
-                options.IsValidSortOption = true;
-                errors.Add(nameof(options.SortOptionsId));
-            }
+            options.IsValidSortOption = true;
+            options.SortOptionsId = _jsonDataService.GetSortOptionByIdOrDefault(options.SortOptionsId).Key;
 
-            if (!string.IsNullOrWhiteSpace(options.MapLattitude) 
+            if (!string.IsNullOrWhiteSpace(options.MapLattitude)
                 && !string.IsNullOrWhiteSpace(options.MapLongitude)
-                && Utility.IsValidLatitude(options.MapLattitude) 
+                && Utility.IsValidLatitude(options.MapLattitude)
                 && Utility.IsValidLongitude(options.MapLongitude))
             {
-                options.IsValidLocation = true;
-                options.MapLocation = Utility.CreatePoint(longitude: options.MapLongitude, latitude: options.MapLattitude);
+                IPoint point = Utility.CreatePoint(longitude: options.MapLongitude, latitude: options.MapLattitude);
+                if (point != null)
+                {
+                    options.IsValidLocation = true;
+                    options.MapLocation = point;
+                }
             }
-            
+
             return new KeyValuePair<bool, string>(errors.Count > 0, string.Join(Path.PathSeparator, errors));
         }
     }
